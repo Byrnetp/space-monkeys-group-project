@@ -16,11 +16,11 @@ Michael Becker (csdse100, mibe4187@colorado.edu),
 
 Travis Byrne (Byrnetp, travis.byrne@colorado.edu), 
 
-Cyro Freire De Lima (GitHub_username, cyfr7595@colorado.edu), 
+Cyro Freire De Lima (CyroEstevao, cyfr7595@colorado.edu), 
 
 David Hughes (dahu3614, dahu3614@colorado.edu), 
 
-Dylan Kayyem, (GitHub_username, dyga6971@colorado.edu)
+Dylan Kayyem, (dylankayyem, dyga6971@colorado.edu)
 
 ### Day/Time/TimeZone for the scheduled team weekly meeting (30 minutes via Zoom): 
 Thursdays, 7:30 PM MST
