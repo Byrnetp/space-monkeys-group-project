@@ -25,6 +25,47 @@
 •	Blood Request from Another Hosptial Checkout
 
 ### Data 
-Blood Bank Service
 
-### User Stories 
+• Blood Bank Service
+
+### User Stories
+
+•
+
+
+
+---
+## Project Guidelines
+
+### Three Key Features:
+
+Recommended to have at least __three key features__ for our main project proposal.
+
+1. (...Insert a description of feature 1 here...)
+
+2. (...Insert a description of feature 2 here...)
+
+3. (...Insert a description of feature 3 here...)
+
+
+### "Nice-to-have" Features: 
+
+These features are not vital or necessary, and should only be implemented if primary key features are working. 
+
+1. Ecommerce Feature - Adding ecommerce functionality that could utilize an already created key feature or simply be an addition of its own. 
+
+	- For example, it could be for a non-patient users. An admin (non-patient) user could be a hospital or any accredited medical group looking for available blood for specific patients/types. 
+
+2. Blood Inventory Levels - Data visualization of data; up to date, real time, estimates of blood inventories in the nearby area compared to the greater state/country/nation/etc. 
+
+	- Private vs public access may be an issue depending on insurance coverage, etc. 
+
+3. Blood Details - Could be added to the above feature if it's a basic interface... 
+
+	- Or another example of a feature could be an interactive/animated feature where a user could learn more about the types of blood while waiting for their blood.
+
+4. Blood Details - Another type of feature is to incorporates "...the query to return compatible blood, a history of the donor’s success rate with receiving compatible blood, and access to reported complications (as well as the ability to report an issue with the blood from that donor)"...  and if severe enough, the feature could then contact your health care provider. 
+
+5. Blood Request from Another Hospital Checkout 
+
+
