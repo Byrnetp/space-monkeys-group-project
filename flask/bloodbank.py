@@ -16,15 +16,20 @@ prefix.use_PrefixMiddleware(app)
 def homepage():
     return render_template('homepage.html')
 
+# Home page (alternate)
+@app.route('/home')
+def home():
+    return render_template('homepage.html')
+
 # Donation page
 @app.route('/donation')
 def donation():
-    return "Here is where you enter a donation"
+    return render_template('donation.html')
 
 # Transfusion page
 @app.route('/transfusion')
 def transfusion():
-    return "Here is where you enter a transfusion"
+    return render_template('transfusion.html')
 
 
 ###############################################################################
