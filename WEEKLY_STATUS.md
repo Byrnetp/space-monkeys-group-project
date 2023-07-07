@@ -121,13 +121,13 @@ Weekly Standup (~5 minutes total for all team members) Each team member must pro
 2. Watching course videos
 
 #### End-of-Sprint Demonstration (~10 minutes)
-<u>Progress on the project from the previous week:<u>
+<u>Progress on the project from the previous week:</u>
 
 •	Work completed tonight will be updated in markdown file and pushed to Git
 
 •	User stories, come up with your own before next week
 
-<u>What we have achieved for the sprint:<u>
+<u>What we have achieved for the sprint:</u>
 
 We finalized the initial application architecture, finalized the initial database architecture, decided who would be using the application, agreed on assumptions:
 
@@ -150,6 +150,8 @@ We finalized the initial application architecture, finalized the initial databas
 6. Home button on every subsequent page
 
 7. Each transaction is one unit
+
+8. Assume multiple donations are different transactions and have doctor's approval
 
 
 **Proposed Application Architecture**
@@ -178,7 +180,7 @@ Welcome Interface with About page (Who is eligible to donate blood?, etc.)
 
     • View reports for specific hospital and blood type
 
-
+    
 **Proposed Database Architecture**
 
 <u>Blood Banks and Hospitals Table</u>
@@ -219,6 +221,7 @@ Welcome Interface with About page (Who is eligible to donate blood?, etc.)
     - Transfusion
     - Transport
     - Date
+    - Time
     - Donor ID
     - Patient ID
     - Medical Professional
@@ -250,3 +253,84 @@ How can the team improve:
 Attendees: Michael Becker, Travis Byrne, Cyro Freire de Lima, David Hughes, Dylan Kayyem
 
 Scrum Master: Michael Becker
+
+#### Weekly Info
+Weekly Standup (~5 minutes total for all team members) Each team member must provide the following:
+
+•	What did you do last week?
+
+1. Created Weekly Status markdown and pushed
+
+2. Initial Application Architecture
+
+3. Usage Assumptions for the Application
+
+4. Proposed User Stories
+
+5. Initial Database Architecture
+
+6. Page Template
+
+•	What are you doing this week?
+
+1. Submit Milestone 3
+
+2. Scrum master for the week will submit the milestone
+
+3. Dylan is scrum master for next week
+
+•	Are any obstacles stopping you?
+
+1. Nothing really other than learning things in the class as we progress 
+
+2. Very proactive right now, will look to keep momentum going
+
+#### End-of-Sprint Demonstration (~10 minutes)
+<u>Progress on the project from the previous week:</u>
+
+•	Focusing on user establishing stories, added to assumptions, column to database table. 
+
+<u>What we have achieved for the sprint:</u>
+
+We finalized the User Stories we will be using for constructing the application:
+
+**User Stories**
+
+1. Administrator logging a blood donation
+
+2. Administrator logging a blood transfusion
+
+3. Administrator requesting blood transfer
+
+4. Administrator wants to view blood in all hospitals using visualization
+
+5. Administrator wants to look at their own hospital's inventory
+
+6. Administrator wants to see complications
+
+7. Administrator wants to document complication
+
+8. Administrator wants to know why this application was developed and what it does
+
+**To attempt/complete for next week**
+
+1. About page (Cyro)
+
+2. Branch for each story, do not merge until the end (everyone)
+
+3. Start to buildup database (Mike)
+
+#### Sprint Retrospective (~5 minutes)
+What went well:
+
+•	Looks like we are well ahead of pace right now
+
+•	Good discussions
+
+What didn't work:
+
+•	All was good this week
+
+How can the team improve:
+    
+•	Keep working as a team
