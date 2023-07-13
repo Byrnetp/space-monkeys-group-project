@@ -31,6 +31,10 @@ def donation():
 def transfusion():
     return render_template('transfusion.html')
 
+# Detailed inventory page
+@app.route('/detail')
+def detail():
+    return render_template('detail.html')
 
 ###############################################################################
 
