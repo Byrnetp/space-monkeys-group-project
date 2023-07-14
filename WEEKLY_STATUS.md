@@ -156,29 +156,29 @@ We finalized the initial application architecture, finalized the initial databas
 
 **Proposed Application Architecture**
 
-Welcome Interface with About page (Who is eligible to donate blood?, etc.)
+Welcome Interface with About page (Who is eligible to donate blood?, etc.) - Dylan
 
 1. Hospital Blood Transactions
 
-    • Blood donation
+    • Blood donation - David
 
-    • Transfusion (need to make sure blood is in bank)
+    • Transfusion (need to make sure blood is in bank) - David
 
-    • Sending blood from one hospital to another (checkout)
+    • Sending blood from one hospital to another (checkout) - Mike
 
 2. Find available blood
 
-    • Show all hospitals in one visual
+    • Show all hospitals in one visual - Dylan
 
-    • More detailed view of specific hospitals inventory with search/list
+    • More detailed view of specific hospitals inventory with search/list - Travis
 
         - Go to send to blood to another hospital page(button at bottom of page)
         
 3. Complications
 
-    • Report
+    • Report 
 
-    • View reports for specific hospital and blood type
+    • View reports for specific hospital and blood type - Cyro
 
     
 **Proposed Database Architecture**
@@ -334,3 +334,67 @@ What didn't work:
 How can the team improve:
     
 •	Keep working as a team
+
+
+
+### Meeting 4: 7/13/2023
+
+Attendees: Michael Becker, Travis Byrne, Cyro Freire de Lima, David Hughes, Dylan Kayyem
+
+Scrum Master: Dylan Kayyem
+
+### Weekly Updates:
+
+- Updated templates for user stories
+- Added user stories to Trello
+- Templates for donation and transfusion input
+- Create database design / collect data
+
+#### End-of-Sprint Demonstration (~10 minutes)
+
+- Went over Mike's database example
+- Labeled primary key's for each table
+-    yellow - primary key
+-    green - foreign key
+
+**To attempt/complete for next week**
+  
+Welcome Interface with About page (Who is eligible to donate blood?, etc.) - Dylan
+
+1. Hospital Blood Transactions
+
+    • Blood donation - David
+
+    • Transfusion (need to make sure blood is in bank) - David
+
+    • Sending blood from one hospital to another (checkout) - Mike
+
+2. Find available blood
+
+    • Show all hospitals in one visual - Dylan
+
+    • More detailed view of specific hospitals inventory with search/list - Travis
+
+        - Go to send to blood to another hospital page(button at bottom of page)
+        
+3. Complications
+
+    • Report - Cyro
+
+    • View reports for specific hospital and blood type - Cyro
+
+- Add guidelines for pages/features
+- Add mockup to image folder
+  
+#### Sprint Retrospective (~5 minutes)
+
+**What went well?**
+- Action planned to win
+
+**What didn’t work?**
+- Had a great week of collaboration 
+
+**How can the team improve?**
+- Keep it up monkeys!
+
+
