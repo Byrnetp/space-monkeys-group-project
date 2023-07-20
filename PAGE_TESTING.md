@@ -29,7 +29,6 @@ List of Tests for Verifying the Rendering of the Page:
 
 ## About Page
 
-<<<<<<< HEAD
 Page Description: 
 - This page will welcome the user and thank them for being apart of this blood bank. Provide information on who is eligible to donate blood, provide facts and information. 
 
@@ -46,10 +45,7 @@ List of Tests for Verifying the Rendering of the Page:
 - Verify that links to homepage are rendered successfully.
 - Verify that the text on about page is rendered.
 
-## Blood Donation Page
-=======
 ## Blood Donation Entry Page
->>>>>>> DRH_Webpage_Design
 
 #### Page Mockup:
 
