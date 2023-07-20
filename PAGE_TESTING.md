@@ -4,6 +4,10 @@
 
 ## Homepage
 
+<figure width=100%>
+  <IMG SRC="webpage_mockups/Homepage.png" WIDTH=80% ALIGN="CENTER">
+</figure>
+
 Page Description: 
 - This page will welcome the user and thank them for being apart of this blood bank. Provide information on who is eligible to donate blood, provide facts and information. 
 
@@ -28,6 +32,10 @@ List of Tests for Verifying the Rendering of the Page:
 - Verify that the menu is rendered.
 
 ## About Page
+
+<figure width=100%>
+  <IMG SRC="webpage_mockups/About\ Page.png" WIDTH=80% ALIGN="CENTER">
+</figure>
 
 Page Description: 
 - This page will welcome the user and thank them for being apart of this blood bank. Provide information on who is eligible to donate blood, provide facts and information. 
@@ -145,6 +153,10 @@ List of Tests for Verifying the Rendering of the Page:
 ## Blood Transfer Page
 
 ## Blood Levels and Visualization Page
+
+<figure width=100%>
+  <IMG SRC="webpage_mockups/Blood\ Levels\ \&\ Visualization\ Page.png.PNG" WIDTH=80% ALIGN="CENTER">
+</figure>
 
 Page Description: 
 - This page will display all hospitals blood data in one visual.
