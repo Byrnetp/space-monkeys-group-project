@@ -4,7 +4,46 @@
 
 ## Homepage
 
+Page Description: 
+- This page will welcome the user and thank them for being apart of this blood bank. Provide information on who is eligible to donate blood, provide facts and information. 
+
+Parameters Needed: 
+- None required.
+
+Data Needed: 
+- None required.
+
+Link Destinations: 
+- About Page
+- blood donation page
+- blood transfusion page
+- blood transfer page
+- blood levels and visualization page
+- blood details page
+- report complication page
+- view complication page
+
+List of Tests for Verifying the Rendering of the Page: 
+- Verify that links from the homepage are rendered successfully.
+- Verify that the menu is rendered.
+
 ## About Page
+
+Page Description: 
+- This page will welcome the user and thank them for being apart of this blood bank. Provide information on who is eligible to donate blood, provide facts and information. 
+
+Parameters Needed: 
+- None required.
+
+Data Needed: 
+- None required.
+
+Link Destinations: 
+- Homepage
+ 
+List of Tests for Verifying the Rendering of the Page: 
+- Verify that links to homepage are rendered successfully.
+- Verify that the text on about page is rendered.
 
 ## Blood Donation Page
 
@@ -13,6 +52,24 @@
 ## Blood Transfer Page
 
 ## Blood Levels and Visualization Page
+
+Page Description: 
+- This page will display all hospitals blood data in one visual.
+
+Parameters Needed: 
+- None required, optional parameters for choice sending blood?
+
+Data Needed: 
+- Bloodbanks_and_Hospitals, Donation, Transfusion, and Transfer tables from our database
+
+Link Destinations: 
+- Homepage
+- Blood Transfer Page
+- Blood Details Page
+ 
+List of Tests for Verifying the Rendering of the Page: 
+- Verify that more than one hospitals blood is accesible.
+- Verify that the data for the default and all other hospitals are displayed correctly.
 
 ## Blood Details Page
 
