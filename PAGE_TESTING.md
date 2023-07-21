@@ -227,5 +227,40 @@ List of tests for verifying the rendering of the page:
 
 ## Report Complications Page
 
+<figure width=100%>
+  <IMG SRC="webpage_mockups/HospitalReport.png" WIDTH=80% ALIGN="CENTER">
+</figure> 
+
+Page Description: Report page allows user to report a complication.
+
+Parameters needed: Transfusion ID, Patient ID, Hospital ID, Blood Type, Donor ID, Unit of Blood
+
+Data needed: Transfusion ID, Patient ID, Hospital ID, Complication ID
+
+Link destinations: Homepage, View Complication Page
+
+List of tests for verifying the rendering of the page:
+- Test that parameters exist, and verify donor id with patient id.
+- Check complication ID with donor/Patient ID
+- Check to see if created report is retrievable and accurate
+
 ## View Complication Reports Page
+
+<figure width=100%>
+  <IMG SRC="webpage_mockups/ComplicationReport.png" WIDTH=80% ALIGN="CENTER">
+</figure> 
+
+Page Description: View complication report allows the user to access the complication reports that were created in the past. The user can search by specific paramaters.
+
+Parameters needed: Transfusion ID, Patient ID, Hospital ID
+
+Data needed: Transfusion ID, Patient ID, Hospital ID, Blood Type, Donor ID, Unit of Blood
+
+Link destinations: Homepage, Report Complication Page
+
+List of tests for verifying the rendering of the page:
+- Test that parameters exist, and verify donor id with patient id.
+- Check complication ID with donor/Patient ID
+- 
+
 
