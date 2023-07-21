@@ -38,7 +38,8 @@ def create(db_filename):
                 Hospital_ID INT, 
                 Amount INT,
                 PRIMARY KEY(Donation_ID),
-                FOREIGN KEY(Donor_ID) REFERENCES Donor(Donor_ID));''')
+                FOREIGN KEY(Donor_ID) REFERENCES Donor(Donor_ID),
+                FOREIGN KEY(Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));''')
     c.execute('''CREATE TABLE Transfusion
                 (Transfusion_ID INT, 
                 Date_Time DATETIME, 
@@ -49,7 +50,8 @@ def create(db_filename):
                 Amount INT,
                 PRIMARY KEY(Transfusion_ID),
                 FOREIGN KEY(Donation_ID) REFERENCES Donation(Donation_ID),
-                FOREIGN KEY(Patient_ID) REFERENCES Patient(Patient_ID));''')
+                FOREIGN KEY(Patient_ID) REFERENCES Patient(Patient_ID),
+                FOREIGN KEY(Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));''')
     c.execute('''CREATE TABLE Transfer
                 (Transfer_ID INT, 
                 Date_Time DATETIME,
