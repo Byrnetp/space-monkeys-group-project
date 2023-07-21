@@ -34,7 +34,7 @@ List of Tests for Verifying the Rendering of the Page:
 ## About Page
 
 <figure width=100%>
-  <IMG SRC="webpage_mockups/About\ Page.png" WIDTH=80% ALIGN="CENTER">
+  <IMG SRC="webpage_mockups/About.png" WIDTH=80% ALIGN="CENTER">
 </figure>
 
 Page Description: 
@@ -155,7 +155,7 @@ List of Tests for Verifying the Rendering of the Page:
 ## Blood Levels and Visualization Page
 
 <figure width=100%>
-  <IMG SRC="webpage_mockups/Blood\ Levels\ \&\ Visualization\ Page.png.PNG" WIDTH=80% ALIGN="CENTER">
+  <IMG SRC="webpage_mockups/Visualization.PNG" WIDTH=80% ALIGN="CENTER">
 </figure>
 
 Page Description: 
