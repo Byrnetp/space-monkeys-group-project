@@ -261,6 +261,3 @@ Link destinations: Homepage, Report Complication Page
 List of tests for verifying the rendering of the page:
 - Test that parameters exist, and verify donor id with patient id.
 - Check complication ID with donor/Patient ID
-- 
-
-
