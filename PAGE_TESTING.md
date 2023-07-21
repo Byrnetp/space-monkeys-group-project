@@ -151,6 +151,33 @@ List of Tests for Verifying the Rendering of the Page:
 4. Verify that the correct confirmation message is displayed when the user enters a valid transfusion.
 
 ## Blood Transfer Page
+    
+#### Page Mockup:
+
+<figure width=100%>
+  <IMG SRC="webpage_mockups/Transfer_Slide.png" WIDTH=80% ALIGN="CENTER">
+</figure> 
+
+#### Page Description:
+    
+- Allows user to see how much of a blood type there is in each hospital
+    
+#### Parameters needed for the page:
+    
+- Blood Type, Donation ID, Receiving Hospital ID, Sending Hospital ID
+    
+#### Data needed to render the page:
+    
+- Institution_ID, Type, Name, City, State, Available Units for Specific Blood Type
+    
+#### Link destinations for the page:
+    
+- Can get to the page via the main page -> donation, transfusion,  transfer blood page -> transfer blood link.
+    
+#### List of tests for verifying the rendering of the page:
+    
+1. Enter button/link correctly retrieves Banks and Hospitals Table for blood type specified
+2. Request button/link correctly puts in transfer data
 
 ## Blood Levels and Visualization Page
 
