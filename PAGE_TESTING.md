@@ -182,7 +182,7 @@ List of Tests for Verifying the Rendering of the Page:
 ## Blood Levels and Visualization Page
 
 <figure width=100%>
-  <IMG SRC="webpage_mockups/Visualization.PNG" WIDTH=80% ALIGN="CENTER">
+  <IMG SRC="webpage_mockups/Visualization.png" WIDTH=80% ALIGN="CENTER">
 </figure>
 
 Page Description: 
