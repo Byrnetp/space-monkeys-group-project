@@ -254,113 +254,198 @@ Post-conditions (what must be true about the system when the test has completed 
 ### <u>Blood Details Page</u>
 #### Donor Table Display
 Use case name: 
-    Verify Donor Table is able to be displayed on the details page
+
+Test the Donor Table
+
 Description:
-    Test the Donor Table
+
+Verify Donor Table is able to be correctly displayed on the details page 
+
 Pre-conditions (what needs to be true about the system before the test can be applied):
-    A valid hospital with Donor data must be selected on the page, Display: Donors checkbox must be checked
+
+A valid hospital with Donor data must be selected on the page, Display: Donors checkbox must be checked
+
 Test steps:
-    1. Navigate to details page
-    2. Choose a hospital
-    3. Ensure that the Donors checkbox is displayed
+
+1. Navigate to details page
+2. Choose a hospital
+3. Ensure that the Donors checkbox is displayed
+
 Expected result:
-    User should be able to view Donors of the selected hospital
+
+User should be able to view Donors of the selected hospital
+
 Actual result (when you are testing this, how can you tell it worked):
-    User should see Donor data displayed when a hospital is chosen and the Display: Donors checkbox is active
-Status (Pass/Fail, when this test was performed)
-    N/A
+
+User should see Donor data displayed when a hospital is chosen and the Display: Donors checkbox is active
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
 Notes:
-    N/A
+
+N/A
+
 Post-conditions (what must be true about the system when the test has completed successfully):
-    All data for Donors that exists in the Donor table in the database must be visible for the selected hospital
+
+All data for Donors that exist in the Donor table in the database must be visible for the selected hospital
     
 #### Patient Table Display
 Use case name: 
-    Verify Patient Table is able to be displayed on the details page
+
+Test the Patient Table
+
 Description:
-    Test the Patient Table
+
+Verify Patient Table is able to be correctly displayed on the details page 
+
 Pre-conditions (what needs to be true about the system before the test can be applied):
-    A valid hospital with Patient data must be selected on the page, Display: Patients checkbox must be checked
+
+A valid hospital with Patient data must be selected on the page, Display: Patients checkbox must be checked
+
 Test steps:
-    1. Navigate to details page
-    2. Choose a hospital
-    3. Ensure that the Patients checkbox is displayed
+
+1. Navigate to details page
+2. Choose a hospital
+3. Ensure that the Patients checkbox is displayed
+
 Expected result:
-    User should be able to view Patients of the selected hospital
+
+User should be able to view Patients of the selected hospital
+
 Actual result (when you are testing this, how can you tell it worked):
-    User should see Patient data displayed when a hospital is chosen and the Display: Patients checkbox is active
-Status (Pass/Fail, when this test was performed)
-    N/A
+
+User should see Patient data displayed when a hospital is chosen and the Display: Patients checkbox is active
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
 Notes:
-    N/A
+
+N/A
+
 Post-conditions (what must be true about the system when the test has completed successfully):
-    All data for Patients that exists in the Patient table in the database must be visible for the selected hospital
+
+All data for Patients that exist in the Patient table in the database must be visible for the selected hospital
 
 #### Donation Table Display
 Use case name: 
-    Verify Donation Table is able to be displayed on the details page
+
+Test the Donation Table
+
 Description:
-    Test the Donation Table
+
+Verify Donation Table is able to be correctly displayed on the details page
+
 Pre-conditions (what needs to be true about the system before the test can be applied):
-    A valid hospital with Donation data must be selected on the page, Display: Donations checkbox must be checked
+
+A valid hospital with Donation data must be selected on the page, Display: Donations checkbox must be checked
+
 Test steps:
-    1. Navigate to details page
-    2. Choose a hospital
-    3. Ensure that the Donations checkbox is displayed
+
+1. Navigate to details page
+2. Choose a hospital
+3. Ensure that the Donations checkbox is displayed
+
 Expected result:
-    User should be able to view Donations of the selected hospital
+
+User should be able to view Donations of the selected hospital
+
 Actual result (when you are testing this, how can you tell it worked):
-    User should see Donation data displayed when a hospital is chosen and the Display: Donations checkbox is active
-Status (Pass/Fail, when this test was performed)
-    N/A
+
+User should see Donation data displayed when a hospital is chosen and the Display: Donations checkbox is active
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
 Notes:
-    N/A
+
+N/A
+
 Post-conditions (what must be true about the system when the test has completed successfully):
-    All data for Donations that exists in the Donation table in the database must be visible for the selected hospital
+
+All data for Donations that exist in the Donation table in the database must be visible for the selected hospital
 
 #### Transfusion Table Display
 Use case name: 
-    Verify Transfusion Table is able to be displayed on the details page
+
+Test the Transfusion Table
+
 Description:
-    Test the Transfusion Table
+
+Verify Transfusion Table is able to be correctly displayed on the details page
+
 Pre-conditions (what needs to be true about the system before the test can be applied):
-    A valid hospital with Transfusion data must be selected on the page, Display: Transfusions checkbox must be checked
+
+A valid hospital with Transfusion data must be selected on the page, Display: Transfusions checkbox must be checked
+
 Test steps:
-    1. Navigate to details page
-    2. Choose a hospital
-    3. Ensure that the Transfusions checkbox is displayed
+
+1. Navigate to details page
+2. Choose a hospital
+3. Ensure that the Transfusions checkbox is displayed
+
 Expected result:
-    User should be able to view Transfusions of the selected hospital
+
+User should be able to view Transfusions of the selected hospital
+
 Actual result (when you are testing this, how can you tell it worked):
-    User should see Transfusion data displayed when a hospital is chosen and the Display: Transfusions checkbox is active
-Status (Pass/Fail, when this test was performed)
-    N/A
+
+User should see Transfusion data displayed when a hospital is chosen and the Display: Transfusions checkbox is active
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
 Notes:
-    N/A
+
+N/A
+
 Post-conditions (what must be true about the system when the test has completed successfully):
-    All data for Transfusions that exists in the Transfusion table in the database must be visible for the selected hospital
+
+All data for Transfusions that exist in the Transfusion table in the database must be visible for the selected hospital
 
 #### Transfer Table Display
 Use case name: 
-    Verify Transfer Table is able to be displayed on the details page
+
+Test the Transfer Table
+
 Description:
-    Test the Transfer Table
+
+Verify Transfer Table is able to be correctly displayed on the details page
+
 Pre-conditions (what needs to be true about the system before the test can be applied):
-    A valid hospital with Transfer data must be selected on the page, Display: Transfers checkbox must be checked
+
+A valid hospital with Transfer data must be selected on the page, Display: Transfers checkbox must be checked
+
 Test steps:
-    1. Navigate to details page
-    2. Choose a hospital
-    3. Ensure that the Transfers checkbox is displayed
+
+1. Navigate to details page
+2. Choose a hospital
+3. Ensure that the Transfers checkbox is displayed
+
 Expected result:
-    User should be able to view Transfers of the selected hospital
+
+User should be able to view Transfers of the selected hospital
+
 Actual result (when you are testing this, how can you tell it worked):
-    User should see Transfer data displayed when a hospital is chosen and the Display: Transfers checkbox is active
-Status (Pass/Fail, when this test was performed)
-    N/A
+
+User should see Transfer data displayed when a hospital is chosen and the Display: Transfers checkbox is active
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
 Notes:
-    N/A
+
+N/A
+
 Post-conditions (what must be true about the system when the test has completed successfully):
-    All data for Transfers that exists in the Transfer table in the database must be visible for the selected hospital
+
+All data for Transfers that exist in the Transfer table in the database must be visible for the selected hospital
 
 ### <u>Report Complications Page</u>
 
