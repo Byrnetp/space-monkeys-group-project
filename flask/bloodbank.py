@@ -1,6 +1,7 @@
 import prefix
 from flask import Flask, url_for, request, render_template
 from markupsafe import escape
+import sm_dbAPI
 
 # Create app to use in this Flask application
 app = Flask(__name__)
@@ -8,6 +9,9 @@ app = Flask(__name__)
 # Insert the wrapper for handling PROXY when using csel.io virtual machine
 # Calling this routine will have no effect if running on local machine
 prefix.use_PrefixMiddleware(app)
+
+# Define database name
+space_monkeys_db = 'space_monkeys_db'
 
 ###############################################################################
 
@@ -24,7 +28,38 @@ def home():
 # Donation page
 @app.route('/donation')
 def donation():
-    return render_template('donation.html')
+
+    # Get input parameters
+    donorName = request.args.get('donorName', None)
+    donorBloodType = request.args.get('donorBloodType', None)
+    bloodBankName = request.args.get('bloodBankName', None)
+    medicalProfessional = request.args.get('medicalProfessional', None)
+    quantity = request.args.get('quantity', None)
+    date = request.args.get('date', None)
+
+    # Query database to get Donor ID
+    donorID = sm_dbAPI.getDonorID(space_monkeys_db, donorName)
+
+    # Query database to get Blood Bank ID
+    bloodBankID = sm_dbAPI.getBloodBankID(space_monkeys_db, bloodBankName)
+
+    # Insert data if all entries are populated
+    if (space_monkeys_db and donorID and bloodBankID and medicalProfessional and quantity and date):
+
+        # Insert donation record in database
+        sm_dbAPI.enterDonation(space_monkeys_db, donorID, bloodBankID, medicalProfessional, quantity, date)
+    
+    else:
+
+        sm_dbAPI.getDonation(space_monkeys_db, "Jerry")
+    
+    # Query database to get list of donors
+    donorsList = sm_dbAPI.getDonorsList(space_monkeys_db)
+
+    # Query database to get list of blood banks
+    bloodBanksList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
+
+    return render_template('donation.html', numDonors = len(donorsList), donorsList = donorsList, numBloodBanks = len(bloodBanksList), bloodBanksList = bloodBanksList)
 
 # Transfusion page
 @app.route('/transfusion')

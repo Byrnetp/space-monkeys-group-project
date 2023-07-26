@@ -309,7 +309,134 @@ def test_tables(db_filename):
     conn.commit()
     conn.close()
 
-space_monkeys_db = 'space_monkeys_db'
-create(space_monkeys_db)
-fill(space_monkeys_db)
-test_tables(space_monkeys_db)
+# Function to get Donor ID given Donor Name
+def getDonorID(db_filename, donorName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute('''SELECT Donor_ID FROM Donor WHERE Name = ?;''', (donorName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None
+
+# Function to get Blood Bank ID given Blood Bank Name
+def getBloodBankID(db_filename, bloodBankName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute('''SELECT Institution_ID FROM Bloodbanks_and_Hospitals WHERE Name = ?;''', (bloodBankName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None
+        
+# Function to verify donation entry
+def getDonation(db_filename, medicalProfessional):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute('''SELECT * FROM Donation WHERE Medical_Professional = ?;''', (medicalProfessional,))
+    result = c.fetchall()
+
+    for line in result:
+        print(line)
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+        
+# Function to enter donation in Donations table
+def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quantity, date):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next donation ID
+    c.execute('''SELECT MAX(Donation_ID) FROM Donation;''')
+    result = c.fetchone()
+    donationID = result[0] + 1
+
+    # Insert donation
+    c.execute('''INSERT INTO Donation (Donation_ID, Donor_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?);''', (donationID, donorID, bloodBankID, medicalProfessional, quantity, date))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to get list of Donors
+def getDonorsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute('''SELECT Name FROM Donor;''')
+    result = c.fetchall()
+
+    # Build donor list
+    donorsList = []
+    for donor in result:
+        donorsList.append(donor[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return donorsList
+
+# Function to get list of Blood Banks
+def getBloodBanksList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute('''SELECT Name FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+
+    # Build donor list
+    bloodBanksList = []
+    for bloodBank in result:
+        bloodBanksList.append(bloodBank[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return bloodBanksList
+
+# Code to run to set up database
+if __name__ == "__main__":
+    space_monkeys_db = 'space_monkeys_db'
+    create(space_monkeys_db)
+    fill(space_monkeys_db)
+    test_tables(space_monkeys_db)

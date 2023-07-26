@@ -1,0 +1,31 @@
+<!-- CS 3308 Group Project -->
+<!-- Team 2: Space Monkeys -->
+<!-- Main Layout template for Blood Bank website -->
+
+<!doctype html>
+<html>
+  <head>
+    {% block head %}
+    <link rel="stylesheet" href="static/css/style.css">
+    <title>{% block title %}{% endblock %} - Space Monkeys Blood Bank </title>
+    {% endblock %}
+  </head>
+
+  <body>
+    <div id="sidebar">
+        <p> <b> Navigation </b></p>
+        <ul>
+            <li> <a href="home">Home</a> </li>
+            <li> <a href="donation">Enter Donation</a> </li>
+            <li> <a href="transfusion">Enter Transfusion</a> </li>
+        </ul>
+    </div>
+    <div id="content">{% block content %}{% endblock %}</div>
+    <div id="footer">
+      <p>
+        CS 3308 Summer 2023 <br>
+        Team 2: Space Monkeys
+      </p>
+    </div>
+  </body>
+</html>

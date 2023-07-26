@@ -1,15 +1,15 @@
-<!doctype html>
-<title>Space Monkeys Blood Bank App</title>
+<!-- CS 3308 Group Project -->
+<!-- Team 2: Space Monkeys -->
+<!-- Template for Blood Bank website homepage -->
 
-<h1>Hello from the Space Monkeys</h1>
-
-<div>
-    <ul>
-        <li> <a href="donation">Enter a Blood Donation</a> </li>
-        <li> <a href="transfusion">Enter a Blood Transfusion</a> </li>
-    </ul>
-</div>
-
-<div>
-    <IMG SRC="https://i1.sndcdn.com/avatars-1udLVJeIMPPuwYyI-Fkx7zg-t500x500.jpg">
-</div>
+{% extends "main_layout.html" %}
+{% block title %}Homepage{% endblock %}
+{% block head %}
+  {{ super() }}
+{% endblock %}
+{% block content %}
+  <h1>Space Monkeys Blood Bank - Homepage</h1>
+  <p>
+    Welcome to our awesome homepage.
+  </p>
+{% endblock %}

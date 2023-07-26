@@ -1,13 +1,13 @@
 # CSPB 3308
 # Group 2 - Space Monkeys
-# Project Deliverable 4 - Web Pages Design
+# Project Deliverable 5 - SQL Design
 
 ## <b>Database Architecture</b>
 
 ### <u>Table: Bloodbanks_and_Hospitals</u>
 
 #### Table Description
-- This page houses all of the information for each institution whether it is a blood bank, a hospital, or another health care institution in the space monkeys network. The PRIMARY KEY is the Institution_ID which is unique for each institution.
+- This page houses all of the information for each institution whether it is a blood bank, a hospital, or another health care institution in the Space Monkeys network. The PRIMARY KEY is the Institution_ID which is unique for each institution.
 
 #### Field names and short description
 Institution_ID 
@@ -50,13 +50,13 @@ O_Negative_Units
 - This field is of INT type.  It specifies the units of O- blood type at the institution.
 
 #### Test to verify each table
-- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_mokeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Bloodbanks_and_Hospitals table is if ('''SELECT * FROM Bloodbanks_and_Hospitals WHERE Institution_ID = 64;''') == (64, 'Hospital', 'Yuma County', 'Wray', 'CO', 76650, 13526, 2500, 441, 7300, 1000, 11000, 1941) which resulted in "First Test Passed!?" when the "sm_dbAPI.py" file executed.
+- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
+- The test for the Bloodbanks_and_Hospitals table is if ('''SELECT * FROM Bloodbanks_and_Hospitals WHERE Institution_ID = 64;''') == (64, 'Hospital', 'Yuma County', 'Wray', 'CO', 76650, 13526, 2500, 441, 7300, 1000, 11000, 1941) which resulted in "First Test Passed!" when the "sm_dbAPI.py" file executed.
 
 ### <u>Table: Donor</u>
 
 #### Table Description
-- This page houses all of the information for each blood donor in the space monkeys network. The PRIMARY KEY is the Donor_ID which is unique for each blood donor.
+- This page houses all of the information for each blood donor in the Space Monkeys network. The PRIMARY KEY is the Donor_ID which is unique for each blood donor.
 
 #### Field names and short description
 Donor_ID 
@@ -69,13 +69,13 @@ Blood_Type
 - This field is of VARCHAR(2) type.  It specifies the blood type of the blood donor.
 
 #### Test to verify each table
-- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_mokeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Donor table is if ('''SELECT * FROM Donor WHERE Donor_ID = 22;''') == (22, 'Steve Rogers', 'B-') which resulted in "Second Test Passed!?" when the "sm_dbAPI.py" file executed.
+- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
+- The test for the Donor table is if ('''SELECT * FROM Donor WHERE Donor_ID = 22;''') == (22, 'Steve Rogers', 'B-') which resulted in "Second Test Passed!" when the "sm_dbAPI.py" file executed.
 
 ### <u>Table: Patient</u>
 
 #### Table Description
-- This page houses all of the information for each patient in the network who will/has received a blood transfusion at an institution in the space monkeys network. The PRIMARY KEY is the Patient_ID which is unique for each patient.
+- This page houses all of the information for each patient in the network who will/has received a blood transfusion at an institution in the Space Monkeys network. The PRIMARY KEY is the Patient_ID which is unique for each patient.
 
 #### Field names and short description
 Patient_ID 
@@ -88,13 +88,13 @@ Blood_Type
 - This field is of VARCHAR(2) type.  It specifies the blood type of the patient receiving blood.
 
 #### Test to verify each table
-- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_mokeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Patient table is if ('''SELECT * FROM Patient WHERE Patient_ID = 26;''') == (26, 'Zena Zootopia', 'O+') which resulted in "Third Test Passed!?" when the "sm_dbAPI.py" file executed.
+- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
+- The test for the Patient table is if ('''SELECT * FROM Patient WHERE Patient_ID = 26;''') == (26, 'Zena Zootopia', 'O+') which resulted in "Third Test Passed!" when the "sm_dbAPI.py" file executed.
 
 ### <u>Table: Donation</u>
 
 #### Table Description
-- This page houses all of the information for each donation that takes place at an institution in the space monkeys network. The PRIMARY KEY is the Donation_ID which is unique for each blood donation.  The field Donor_ID is a FOREIGN KEY with the Donor_ID field from the Donor Table.  The field Hospital_ID is a FOREIGN KEY with the Institution_ID field from the Bloodbanks_and_Hospitals Table.
+- This page houses all of the information for each donation that takes place at an institution in the Space Monkeys network. The PRIMARY KEY is the Donation_ID which is unique for each blood donation.  The field Donor_ID is a FOREIGN KEY with the Donor_ID field from the Donor Table.  The field Hospital_ID is a FOREIGN KEY with the Institution_ID field from the Bloodbanks_and_Hospitals Table.
 
 #### Field names and short description
 Donation_ID 
@@ -116,13 +116,13 @@ Amount
 - This field is of INT type.  It specifies the units of blood donated.  Each donation will be 1 unit.
 
 #### Test to verify each table
-- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_mokeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Donation table is if ('''SELECT * FROM Donation WHERE Donation_ID = 42;''') == (42, '20230711 9:00:00', 22, 'Dr. Stephan Strange', 23, 1) which resulted in "Fourth Test Passed!?" when the "sm_dbAPI.py" file executed.
+- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
+- The test for the Donation table is if ('''SELECT * FROM Donation WHERE Donation_ID = 42;''') == (42, '20230711 9:00:00', 22, 'Dr. Stephan Strange', 23, 1) which resulted in "Fourth Test Passed!" when the "sm_dbAPI.py" file executed.
 
 ### <u>Table: Transfusion</u>
 
 #### Table Description
-- This page houses all of the information for each blood transfusion that occurs at an institution in the space monkeys network. The PRIMARY KEY is the Transfusion_ID which is unique for each blood transfusion. The field Donation_ID is a FOREIGN KEY with the Donation_ID field from the Donation Table.  The field Patient_ID is a FOREIGN KEY with the Patient_ID field from the Patient Table.  The field Hospital_ID is a FOREIGN KEY with the Institution_ID field from the Bloodbanks_and_Hospitals Table.
+- This page houses all of the information for each blood transfusion that occurs at an institution in the Space Monkeys network. The PRIMARY KEY is the Transfusion_ID which is unique for each blood transfusion. The field Donation_ID is a FOREIGN KEY with the Donation_ID field from the Donation Table.  The field Patient_ID is a FOREIGN KEY with the Patient_ID field from the Patient Table.  The field Hospital_ID is a FOREIGN KEY with the Institution_ID field from the Bloodbanks_and_Hospitals Table.
 
 #### Field names and short description
 Transfusion_ID 
@@ -147,13 +147,13 @@ Amount
 - This field is of INT type.  It specifies the units of blood in the transfusion.  Each transfusion will be 1 unit.
 
 #### Test to verify each table
-- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_mokeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Transfusion table is if ('''SELECT * FROM Transfusion WHERE Transfusion_ID = 4;''') == (4, '20230723 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1) which resulted in "Fifth Test Passed!?" when the "sm_dbAPI.py" file executed.
+- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
+- The test for the Transfusion table is if ('''SELECT * FROM Transfusion WHERE Transfusion_ID = 4;''') == (4, '20230723 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1) which resulted in "Fifth Test Passed!" when the "sm_dbAPI.py" file executed.
 
 ### <u>Table: Transfer</u>
 
 #### Table Description
-- This page houses all of the information for each blood transfer that occurs between two institutions in the space monkeys network. The PRIMARY KEY is the Transfer_ID which is unique for each blood transfer.  The field Donation_ID is a FOREIGN KEY with the Donation_ID field from the Donation Table.  The field Sending_Hospital_ID is a FOREIGN KEY with the Institution_ID field from the Bloodbanks_and_Hospitals Table.  The field Receiving_Hospital_ID is a FOREIGN KEY with the Institution_ID field from the Bloodbanks_and_Hospitals Table.
+- This page houses all of the information for each blood transfer that occurs between two institutions in the Space Monkeys network. The PRIMARY KEY is the Transfer_ID which is unique for each blood transfer.  The field Donation_ID is a FOREIGN KEY with the Donation_ID field from the Donation Table.  The field Sending_Hospital_ID is a FOREIGN KEY with the Institution_ID field from the Bloodbanks_and_Hospitals Table.  The field Receiving_Hospital_ID is a FOREIGN KEY with the Institution_ID field from the Bloodbanks_and_Hospitals Table.
 
 #### Field names and short description
 Transfer_ID 
@@ -172,8 +172,8 @@ Sending_Hospital_ID
 - This field is of INT type.  It specifies the institution which will send the blood from the blood transfer.  It is a FOREIGN KEY.
 
 #### Test to verify each table
-- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_mokeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Transfer table is if ('''SELECT * FROM Transfer WHERE Transfer_ID = 4;''') == (4, '20230704 11:00:00', 28, 37, 17) which resulted in "Sixth Test Passed!?" when the "sm_dbAPI.py" file executed.
+- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
+- The test for the Transfer table is if ('''SELECT * FROM Transfer WHERE Transfer_ID = 4;''') == (4, '20230704 11:00:00', 28, 37, 17) which resulted in "Sixth Test Passed!" when the "sm_dbAPI.py" file executed.
 
 ### <u>Table: Complication</u>
 
@@ -191,8 +191,8 @@ Comments
 - This field is of VARCHAR(180) type.  It specifies the complications that the patient is having from the blood transfusion.
 
 #### Test to verify each table
-- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_mokeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Complication table is if ('''SELECT * FROM Complication WHERE Complication_ID = 1;''') == (1, 4, 'Throwing up multiple times a day') which resulted in "Seventh Test Passed!?" and "All Tests Passed!!!" when the "sm_dbAPI.py" file executed.
+- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
+- The test for the Complication table is if ('''SELECT * FROM Complication WHERE Complication_ID = 1;''') == (1, 4, 'Throwing up multiple times a day') which resulted in "Seventh Test Passed!" and "All Tests Passed!!!" when the "sm_dbAPI.py" file executed.
 
 ## <b>Data Access Methods and How Exactly Each of the Pages Behaves with these Methods</b>
 
@@ -216,7 +216,7 @@ Test steps:
     3. Enter blood type
     4. Click enter button
 Expected result:
-    User should see amount of units available for specified blood type at each instituion in space monkeys network.
+    User should see amount of units available for specified blood type at each instituion in Space Monkeys network.
 Actual result (when you are testing this, how can you tell it worked):
     User sees table view
 Status (Pass/Fail, when this test was performed)
