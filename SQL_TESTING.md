@@ -291,6 +291,167 @@ Notes:
 Post-conditions (what must be true about the system when the test has completed successfully):
     Bloodbanks_and_Hospitals should be updated
 
+### <u>Donor Page</u>
+
+#### Donor Table Display
+Use case name: 
+
+Test the Donor Table
+
+Description:
+
+Verify Donor Table is able to be correctly displayed on the donor page 
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+Donor data must be entered into the database.
+
+Test steps:
+
+1. Navigate to the donor page
+2. Ensure that the Donors data is displayed
+
+Expected result:
+
+User should be able to view Donor data
+
+Actual result (when you are testing this, how can you tell it worked):
+
+User should see Donor data displayed in a table 
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
+Notes:
+
+N/A
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+All data for Donors that exist in the Donor table in the database must be visible
+
+
+#### Add a donor to the database
+Use case name:
+
+Verify donor table update in the database
+
+Description:
+
+Test if the add donor button correctly updates the donor table in the database
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+Donor_ID, Name, and Blood_Type needs to be entered into the form on the donor page
+
+Test steps:
+
+1. Navigate to donor page
+2. Enter Donor_ID, Name, and Blood_Type into the form elements
+3. Click add donor button
+
+Expected result:
+
+Donor table should update with the data entered into the form
+
+Actual result (when you are testing this, how can you tell it worked):
+
+Check the database to ensure that the donor data was entered
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
+Notes:
+
+N/A
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+Donor table should be updated
+
+
+### <u>Patient Page</u>
+
+#### Patient Table Display
+Use case name: 
+
+Test the Patient Table
+
+Description:
+
+Verify Patient Table is able to be correctly displayed on the patient page 
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+The patient table in the database must contain patient data for at least one patient
+
+Test steps:
+
+1. Navigate to patient page
+2. Ensure that patient data is displayed correctly
+
+Expected result:
+
+User should be able to view patient data
+
+Actual result (when you are testing this, how can you tell it worked):
+
+User should see patient data displayed in a table 
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
+Notes:
+
+N/A
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+All data for patients that exist in the Patient table in the database must be visible
+
+#### Add a patient to the database
+Use case name:
+
+Verify patient table update in the database
+
+Description:
+
+Test if the add patient button correctly updates the patient table in the database
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+Patient_ID, Name, and Blood_Type needs to be entered into the form on the patient page
+
+Test steps:
+
+1. Navigate to patient page
+2. Enter Patient_ID, Name, and Blood_Type into the form elements
+3. Click add patient button
+
+Expected result:
+
+Patient table should update with the data entered into the form
+
+Actual result (when you are testing this, how can you tell it worked):
+
+Check the database to ensure that the patient data was entered
+
+Status (Pass/Fail, when this test was performed):
+
+N/A
+
+Notes:
+
+N/A
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+Patient table should be updated
+
+
 ### <u>Blood Levels and Visualization Page</u>
 
 #### Table Display
@@ -373,83 +534,6 @@ Post-conditions (what must be true about the system when the test has completed 
 
 
 ### <u>Blood Details Page</u>
-#### Donor Table Display
-Use case name: 
-
-Test the Donor Table
-
-Description:
-
-Verify Donor Table is able to be correctly displayed on the details page 
-
-Pre-conditions (what needs to be true about the system before the test can be applied):
-
-A valid hospital with Donor data must be selected on the page, Display: Donors checkbox must be checked
-
-Test steps:
-
-1. Navigate to details page
-2. Choose a hospital
-3. Ensure that the Donors checkbox is displayed
-
-Expected result:
-
-User should be able to view Donors of the selected hospital
-
-Actual result (when you are testing this, how can you tell it worked):
-
-User should see Donor data displayed when a hospital is chosen and the Display: Donors checkbox is active
-
-Status (Pass/Fail, when this test was performed):
-
-N/A
-
-Notes:
-
-N/A
-
-Post-conditions (what must be true about the system when the test has completed successfully):
-
-All data for Donors that exist in the Donor table in the database must be visible for the selected hospital
-    
-#### Patient Table Display
-Use case name: 
-
-Test the Patient Table
-
-Description:
-
-Verify Patient Table is able to be correctly displayed on the details page 
-
-Pre-conditions (what needs to be true about the system before the test can be applied):
-
-A valid hospital with Patient data must be selected on the page, Display: Patients checkbox must be checked
-
-Test steps:
-
-1. Navigate to details page
-2. Choose a hospital
-3. Ensure that the Patients checkbox is displayed
-
-Expected result:
-
-User should be able to view Patients of the selected hospital
-
-Actual result (when you are testing this, how can you tell it worked):
-
-User should see Patient data displayed when a hospital is chosen and the Display: Patients checkbox is active
-
-Status (Pass/Fail, when this test was performed):
-
-N/A
-
-Notes:
-
-N/A
-
-Post-conditions (what must be true about the system when the test has completed successfully):
-
-All data for Patients that exist in the Patient table in the database must be visible for the selected hospital
 
 #### Donation Table Display
 Use case name: 
@@ -490,6 +574,7 @@ Post-conditions (what must be true about the system when the test has completed 
 
 All data for Donations that exist in the Donation table in the database must be visible for the selected hospital
 
+
 #### Transfusion Table Display
 Use case name: 
 
@@ -528,6 +613,7 @@ N/A
 Post-conditions (what must be true about the system when the test has completed successfully):
 
 All data for Transfusions that exist in the Transfusion table in the database must be visible for the selected hospital
+
 
 #### Transfer Table Display
 Use case name: 
