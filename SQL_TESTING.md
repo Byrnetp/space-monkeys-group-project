@@ -198,6 +198,48 @@ Comments
 
 ### <u>About Page</u>
 
+#### Eligibility Checks
+
+Use case name:
+
+    Verify page links you to information about blood donation eligibility.
+
+Description:
+
+    Test the About page.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    User has a valid username and password, and has auto-sign on. 
+
+Test steps:
+
+    1. Navigate to about page.
+
+    2. Scroll through bullet points.
+
+    3. Click on drop down menus.
+
+Expected result:
+
+    User should see more information about blood donations and other resources. 
+
+Actual result:
+
+    User is navigated to About page with information concerning donors eligibility.
+
+Status (Pass/Fail, when this test was performed)
+
+    N/A
+
+Notes:
+
+    N/A
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    N/A
+
 ### <u>Blood Donation Entry Page</u>
 
 ### <u>Blood Transfusion Entry Page</u>
@@ -250,6 +292,85 @@ Post-conditions (what must be true about the system when the test has completed 
     Bloodbanks_and_Hospitals should be updated
 
 ### <u>Blood Levels and Visualization Page</u>
+
+#### Table Display
+
+Use case name:
+
+    Verify correct data from table is displayed on Blood Levels Page.
+
+Description:
+
+    Test the Bloodbank and Hospitals table.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Valid bloodbanks and hospitals table must be retrievable from the database.
+
+Test steps:
+
+    1. Navigate to Blood Levels & Visualization page.
+
+Expected result:
+
+    User should be able to see all blood levels
+
+Actual result:
+
+    User should see table of each hospital/bloodbanks current levels of blood.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    N/A
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    All data for hospitals and bloodbanks must be valid and have a value for each blood type.
+
+#### Visual Display
+
+Use case name:
+
+    Verify the data from table is displayed appropriately on the pie graph.
+
+Description:
+
+    Test the Bloodbank and Hospitals pie graph.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Valid bloodbanks and hospitals table must be retrievable from the database.
+
+Test steps:
+
+    1. Navigate to Blood Levels & Visualization page.
+    2. Verify data is appropriately displayed in both table and graph.
+
+Expected result:
+
+    User should be able to see two models that represent all blood levels.
+
+
+Actual result:
+
+    User is navigated to a visualization of all blood data in the space monkey's bloodbank.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    N/A
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    All data for hospitals and bloodbanks must be valid and have a value for each blood type, represented in the table and pie graph.
+
 
 ### <u>Blood Details Page</u>
 #### Donor Table Display
