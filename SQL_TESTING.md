@@ -331,6 +331,7 @@ Post-conditions (what must be true about the system when the test has completed 
 
 All data for Donors that exist in the Donor table in the database must be visible
 
+<hr>
 
 #### Add a donor to the database
 Use case name:
@@ -411,6 +412,8 @@ N/A
 Post-conditions (what must be true about the system when the test has completed successfully):
 
 All data for patients that exist in the Patient table in the database must be visible
+
+<hr>
 
 #### Add a patient to the database
 Use case name:
@@ -574,6 +577,7 @@ Post-conditions (what must be true about the system when the test has completed 
 
 All data for Donations that exist in the Donation table in the database must be visible for the selected hospital
 
+<hr>
 
 #### Transfusion Table Display
 Use case name: 
@@ -614,6 +618,7 @@ Post-conditions (what must be true about the system when the test has completed 
 
 All data for Transfusions that exist in the Transfusion table in the database must be visible for the selected hospital
 
+<hr>
 
 #### Transfer Table Display
 Use case name: 
