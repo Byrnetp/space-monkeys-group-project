@@ -1,41 +1,72 @@
 <!doctype html>
 <html>
-    <head>
-        <title>Inventory Details</title>
-    </head>
-    <body>
-        <a href="home">Home</a>
+  <head>
+    <title>Inventory Details</title>
+    <link rel="stylesheet" href="static/css/detail.css">
+    <script src="static/javascript/detail.js"></script>
+  </head>
+  <body>
 
-        <div id="inventory-menu">
-            <label for="hospital">Choose a hospital:</label>
-            <select id="hospital">
-                <option value="hospital1">Hospital 1</option>
-                <option value="hospital2">Hospital 2</option>
-                <option value="hospital3">Hospital 3</option>
-                <option value="hospital4">Hospital 4</option>
-            </select>
-        </div>
-        <main>
-            <table>
-                <tr>
-                    <th>Transaction ID</th>
-                    <th>Donation</th>
-                    <th>Transfusion</th>
-                    <th>Transport</th> 
-                    <th>Date</th>
-                    <th>Time</th>
-                    <th>Donor ID</th>
-                    <th>Patient ID</th>
-                    <th>Medical Professional</th>
-                </tr>
-            </table>
-        </main>
-
-        <br>
-        <br>
-
-        <div>
-            <img src="https://i1.sndcdn.com/avatars-1udLVJeIMPPuwYyI-Fkx7zg-t500x500.jpg">
-        </div>
-    </body>
+    <!-- The menu for the page -->
+  <div id="menu">
+    <h3>Menu</h3>
+    <label for="hospital">Choose a hospital:</label>
+    <select id="hospital">
+      <option value="hospital1">Hospital 1</option>
+      <option value="hospital2">Hospital 2</option>
+      <option value="hospital3">Hospital 3</option>
+      <option value="hospital4">Hospital 4</option>
+    </select>
+    <p>Display: </p>
+    <input type="checkbox" id="donations" name="donationsDisplay" value="true">
+    <label for="donations">Donations</label>
+    <input type="checkbox" id="transfusions" name="transfusionsDisplay" value="true">
+    <label for="transfusions">Transfusions</label>
+    <input type="checkbox" id="transfers" name="transfersDisplay" value="true">
+    <label for="transfers">Transfers</label>
+    
+  </div>
+  <!--Main part of the page with data tables-->
+  <main>
+    <h1>Details</h1>
+    <hr>
+    <div id="donationTable">
+      <h2>Donations</h2>
+      <table>
+        <tr>
+          <th>Donation ID</th>
+          <th>Date & Time</th>
+          <th>Donor ID</th>
+          <th>Medical Professional</th>
+          <th>Amount</th>
+        </tr>
+      </table>
+    </div>
+    <div id="transfusionTable">
+      <h2>Transfusions</h2>
+      <table>
+        <tr>
+          <th>Transfusion ID</th>
+          <th>Date & Time</th>
+          <th>Donation ID</th>
+          <th>Patient ID</th> 
+          <th>Medical Professional</th>
+          <th>Amount</th>
+        </tr>
+      </table>
+    </div>
+    <div id="transferTable">
+      <h2>Transfers</h2>
+      <table>
+        <tr>
+          <th>Transfer ID</th>
+          <th>Date & Time</th>
+          <th>Donation ID</th>
+          <th>Recieving Hospital</th> 
+          <th>Sending Hospital</th>
+        </tr>
+      </table>
+    </div>
+    </main>
+  </body>
 </html>
