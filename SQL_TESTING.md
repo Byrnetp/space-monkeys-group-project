@@ -1269,15 +1269,14 @@ All data for Transfers that exist in the Transfer table in the database must be 
 ### <u>Report Complications Page</u>
 #### Table Description
 Use case name:
-    Test Complication Table
+- Test Complication Table
 
 Description:
-    The complication table stores the Transfusion_ID, Complication_ID and Comments about a transfusion. A person can search 
-the data about a certain transfusion and add a complication report (Comments) about that patient or problems related to the transfusion and its attributes (blood type, amount, patient, etc). 
+- The complication table stores the Transfusion_ID, Complication_ID and Comments about a transfusion. A person can search the data about a certain transfusion and add a complication report (Comments) about that patient or problems related to the transfusion and its attributes (blood type, amount, patient, etc). 
 
 Pre-Conditions:
-    Ensure that the function to add the Comment values to the table. 
-    Ensure the attributes and values of the table exist.
+- Ensure that the function to add the Comment values to the table. 
+- Ensure the attributes and values of the table exist.
     
 #### Field names and short description
 
@@ -1292,12 +1291,14 @@ Comments:
 
 #### Test to verify each table
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db". This "test_tables" function tests each database table to make sure the data was filled in correctly. Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
+
 - This is the parameters to fill the table where there is parameters that checks and raise error if values are different: 
-   complication_insert = [(1, 4, 'Throwing up multiple times a day')]
-    for (idStore, transfusionid, comp) in complication_insert:
+        complication_insert = [(1, 4, 'Throwing up multiple times a day')]
+        for (idStore, transfusionid, comp) in complication_insert:
         c.execute('''INSERT INTO Complication VALUES (?,?,?);''', (idStore, transfusionid, comp))
+        
 - Here is the check:
-    c.execute('''SELECT * FROM Transfusion WHERE transfusion_ID = 1;''')==((1, 4, 'Throwing up multiple times a day'))
+        c.execute('''SELECT * FROM Transfusion WHERE transfusion_ID = 1;''')==((1, 4, 'Throwing up multiple times a day'))
     
 
 #### Test steps
@@ -1310,37 +1311,38 @@ Comments:
 
 Expected result:
 
-Transfusion id: 1
-Hospital : 4
-Comment: Throwing up multiple times a day
+- Transfusion id: 1
+- Hospital : 4
+- Comment: Throwing up multiple times a day
 
 Actual result:
-Transfusion id: 1
-Hospital : 4
-Comment: Throwing up multiple times a day
+- Transfusion id: 1
+- Hospital : 4
+- Comment: Throwing up multiple times a day
 
 Status (Pass/Fail, when this test was performed):
-Pass
+- Pass
 
 Notes:
-Uses ComplicationReport.html, ComplicationReport.html, ComplicationReport.js and sm_dbAPI.py.
+- Uses ComplicationReport.html, ComplicationReport.html, ComplicationReport.js and sm_dbAPI.py.
 
 Post-conditions (what must be true about the system when the test has completed successfully):
-The new data (Comments) should be able to be viewed in the 'Report Complications Page'.
+- The new data (Comments) should be able to be viewed in the 'Report Complications Page'.
 
 
 ### <u>View Complication Reports Page</u>
 
 #### Table Description
 Use case name:
-    Test Complication Table
-    Test Transfusion Table
+- Test Complication Table
+- Test Transfusion Table
     
 Description:
--The View Complication Reports Page uses 2 functions (getTransfusion(), getComplication())to fetch data from the 'Transfusion Table' where a user can search a complication report using the 'Transfusion_ID' key to access the 'Comments'. Other informations would be displayed (Hospital_ID, Amount, Patient_ID, etc) fetching the data from Transfusion Table using the 'Transfusion_ID'.
+- The View Complication Reports Page uses 2 functions (getTransfusion(), getComplication())to fetch data from the 'Transfusion Table' where a user can search a complication report using the 'Transfusion_ID' key to access the 'Comments'. Other informations would be displayed (Hospital_ID, Amount, Patient_ID, etc) fetching the data from Transfusion Table using the 'Transfusion_ID'.
 
 Pre-Conditions:
-    Ensure that the data from the tables exist.
+- Ensure that the data from the tables exist.
+
 #### Test to verify each table
  1. Navigate to View Complication Report page
  2. Search for the transfusion_ID
@@ -1385,18 +1387,18 @@ Expected result:
    Date_TIME: 20230711 9:00:00
 
 Actual result:
-   Patient_ID: 2
-   Donor_ID: 1
-   Institution_ID: 1
-   Transfusion_ID: 3
-   Comments: Throwing up multiple times a day
-   Date_TIME: 20230711 9:00:00
+- Patient_ID: 2
+- Donor_ID: 1
+- Institution_ID: 1
+- Transfusion_ID: 3
+- Comments: Throwing up multiple times a day
+- Date_TIME: 20230711 9:00:00
 
 Status (Pass/Fail, when this test was performed):
-Pass
+- Pass
 
 Notes:
-The page uses ViewReport.html, ViewReport.css, ViewReport.js, and sm_dbAPI.py.
+- The page uses ViewReport.html, ViewReport.css, ViewReport.js, and sm_dbAPI.py.
 
 Post-conditions (what must be true about the system when the test has completed successfully):
-The data from the database tables should be able to be viewed in the 'View Complication Reports Page'.
+- The data from the database tables should be able to be viewed in the 'View Complication Reports Page'.
