@@ -395,7 +395,7 @@ def getDonation(db_filename, medicalProfessional):
     conn.close()
     return
         
-# Function to verify transfusion entry
+# Function to verify transfusion entryDono
 def getTransfusion(db_filename, medicalProfessional):
 
     # Initialize connection
