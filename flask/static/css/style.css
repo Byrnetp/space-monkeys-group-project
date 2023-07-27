@@ -1,6 +1,7 @@
 /* CS 3308 Group Project */
 /* Team 2: Space Monkeys */
 /* CSS rules for Blood Bank website */
+/* Last Update: David Hughes, 26 July 2023 */
 
 #sidebar {
     width: 15vw;             /* 15% of page width */
@@ -30,4 +31,10 @@
     border-style: solid;
     border-width: thin;
     text-align: center;
+}
+
+#warning {
+    font-weight: bold;
+    font-style: italic;
+    color: red;
 }

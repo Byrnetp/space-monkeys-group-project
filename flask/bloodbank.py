@@ -1,3 +1,8 @@
+## CS 3308 Group Project
+## Team 2: Space Monkeys
+## Main Flask driver code
+## Last Update: David Hughes, 26 July 2023
+
 import prefix
 from flask import Flask, url_for, request, render_template
 from markupsafe import escape
@@ -59,7 +64,13 @@ def donation():
     # Query database to get list of blood banks
     bloodBanksList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
 
-    return render_template('donation.html', numDonors = len(donorsList), donorsList = donorsList, numBloodBanks = len(bloodBanksList), bloodBanksList = bloodBanksList)
+    return render_template(
+        'donation.html', 
+        numDonors = len(donorsList), 
+        donorsList = donorsList, 
+        numBloodBanks = len(bloodBanksList), 
+        bloodBanksList = bloodBanksList,
+        )
 
 # Transfusion page
 @app.route('/transfusion')
