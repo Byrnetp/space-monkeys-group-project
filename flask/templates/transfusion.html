@@ -3,29 +3,78 @@
 <!-- Template for Blood Bank website Transfusion page -->
 <!-- Last Update: David Hughes, 26 July 2023 -->
 
-<!doctype html>
-<title>Transfusion Entry</title>
-
-<a href="home">Home</a>
-
-<h1>Transfusion Entry</h1>
-
-<form>
-    <label for="patientID">Patient ID:</label>
-    <input type="text" id="patientID" name="patientID">
+{% extends "main_layout.html" %}
+{% block title %}Transfusion Entry Page{% endblock %}
+{% block head %}
+  {{ super() }}
+  <script src="static/javascript/transfusion.js"></script>
+  {% endblock %}
+{% block content %}
+  <h1>Transfusion Entry Page</h1>
+  <form id="transfusionEntryForm" name="transfusionEntryForm">
+    <label id="patientNameLabel" for="patientName">Patient Name:</label>
     <br>
-    <label for="patientName">Patient Name:</label>
-    <input type="text" id="patientName" name="patientName">
+    <input list="patientNameChoices" id="patientName" name="patientName">
+    <datalist id="patientNameChoices" name="patientNameChoices">
+      {%for i in range(0, numPatients)%}
+        <option value="{{patientsList[i]}}">
+      {%endfor%}
+    </datalist>
     <br>
-    <label for="patientBloodType">Patient Blood Type:</label>
-    <input type="text" id="patientBloodType" name="patientBloodType">
+    <br>
+    <label id="bloodTypeLabel" for="patientBloodType">Patient Blood Type:</label>
+    <br>
+    <select id="patientBloodType" name="patientBloodType">
+        <option value="">Enter Blood Type</option>
+        <option value="A+">A+</option>
+        <option value="A-">A-</option>
+        <option value="B+">B+</option>
+        <option value="B-">B-</option>
+        <option value="AB+">AB+</option>
+        <option value="AB-">AB-</option>
+        <option value="O+">O+</option>
+        <option value="O-">O-</option>
+      </select>
+    <br>
+    <br>
+    <label id="donationIDLabel" for="donationID">Donation ID:</label>
+    <br>
+    <input list="donationIDChoices" id="donationID" name="donationID">
+    <datalist id="donationIDChoices" name="donationIDChoices">
+      {%for i in range(0, numDonations)%}
+        <option value="{{donationsList[i]}}">
+      {%endfor%}
+    </datalist>
+    <br>
+    <br>
+    <label id="bloodBankNameLabel" for="bloodBankName">Blood Bank Name:</label>
+    <br>
+    <input list="bloodBankNameChoices" id="bloodBankName" name="bloodBankName">
+    <datalist id="bloodBankNameChoices" name="bloodBankNameChoices">
+      {%for i in range(0, numBloodBanks)%}
+        <option value="{{bloodBanksList[i]}}">
+      {%endfor%}
+    </datalist>
+    <br>
+    <br>
+    <label id="medicalProfessionalLabel" for="medicalProfessional">Medical Professional:</label>
+    <br>
+    <input type="text" id="medicalProfessional" name="medicalProfessional">
+    <br>
+    <br>
+    <label id="quantityLabel" for="quantity">Quantity (Units):</label>
+    <br>
+    <select id="quantity" name="quantity">
+        <option value="">Enter Quantity</option>
+        <option value="1">1</option>
+    </select>
+    <br>
+    <br>
+    <label id="dateLabel" for="date">Date of Transfusion:</label>
+    <br>
+    <input type="date" id="date" name="date">
+    <br>
     <br>
     <input type="submit" value="Submit">
-</form>
-
-<br>
-<br>
-
-<div>
-    <IMG SRC="https://i1.sndcdn.com/avatars-1udLVJeIMPPuwYyI-Fkx7zg-t500x500.jpg">
-</div>
+  </form>
+{% endblock %}

@@ -334,6 +334,27 @@ def getDonorID(db_filename, donorName):
     else:
         return None
 
+# Function to get Patient ID given Patient Name
+def getPatientID(db_filename, patientName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute('''SELECT Patient_ID FROM Patient WHERE Name = ?;''', (patientName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None
+
 # Function to get Blood Bank ID given Blood Bank Name
 def getBloodBankID(db_filename, bloodBankName):
 
@@ -374,6 +395,25 @@ def getDonation(db_filename, medicalProfessional):
     conn.close()
     return
         
+# Function to verify transfusion entry
+def getTransfusion(db_filename, medicalProfessional):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute('''SELECT * FROM Transfusion WHERE Medical_Professional = ?;''', (medicalProfessional,))
+    result = c.fetchall()
+
+    for line in result:
+        print(line)
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+        
 # Function to enter donation in Donations table
 def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quantity, date):
 
@@ -388,6 +428,26 @@ def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quanti
 
     # Insert donation
     c.execute('''INSERT INTO Donation (Donation_ID, Donor_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?);''', (donationID, donorID, bloodBankID, medicalProfessional, quantity, date))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to enter transfusion in Transfusions table
+def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalProfessional, quantity, date):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next donation ID
+    c.execute('''SELECT MAX(Transfusion_ID) FROM Transfusion;''')
+    result = c.fetchone()
+    transfusionID = result[0] + 1
+
+    # Insert donation
+    c.execute('''INSERT INTO Transfusion (Transfusion_ID, Patient_ID, Donation_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?,?);''', (transfusionID, patientID, donationID, bloodBankID, medicalProfessional, quantity, date))
     
     # Commit and close connection
     conn.commit()
@@ -415,6 +475,50 @@ def getDonorsList(db_filename):
     conn.close()
 
     return donorsList
+
+# Function to get list of Patients
+def getPatientsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute('''SELECT Name FROM Patient;''')
+    result = c.fetchall()
+
+    # Build donor list
+    patientsList = []
+    for patient in result:
+        patientsList.append(patient[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return patientsList
+
+# Function to get list of Donation IDs
+def getDonationIDsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute('''SELECT Donation_ID FROM Donation;''')
+    result = c.fetchall()
+
+    # Build donor list
+    donationIDsList = []
+    for donationID in result:
+        donationIDsList.append(donationID[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return donationIDsList
 
 # Function to get list of Blood Banks
 def getBloodBanksList(db_filename):

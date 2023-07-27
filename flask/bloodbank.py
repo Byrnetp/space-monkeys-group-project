@@ -34,7 +34,7 @@ def home():
 @app.route('/donation')
 def donation():
 
-    # Get input parameters
+    # Get input parameters from URL
     donorName = request.args.get('donorName', None)
     donorBloodType = request.args.get('donorBloodType', None)
     bloodBankName = request.args.get('bloodBankName', None)
@@ -50,20 +50,15 @@ def donation():
 
     # Insert data if all entries are populated
     if (space_monkeys_db and donorID and bloodBankID and medicalProfessional and quantity and date):
-
-        # Insert donation record in database
         sm_dbAPI.enterDonation(space_monkeys_db, donorID, bloodBankID, medicalProfessional, quantity, date)
-    
-    else:
-
-        sm_dbAPI.getDonation(space_monkeys_db, "Jerry")
-    
+        
     # Query database to get list of donors
     donorsList = sm_dbAPI.getDonorsList(space_monkeys_db)
 
     # Query database to get list of blood banks
     bloodBanksList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
 
+    # Render page
     return render_template(
         'donation.html', 
         numDonors = len(donorsList), 
@@ -75,7 +70,45 @@ def donation():
 # Transfusion page
 @app.route('/transfusion')
 def transfusion():
-    return render_template('transfusion.html')
+
+    # Get input parameters from URL
+    patientName = request.args.get('patientName', None)
+    patientBloodType = request.args.get('patientBloodType', None)
+    donationID = request.args.get('donationID', None)
+    bloodBankName = request.args.get('bloodBankName', None)
+    medicalProfessional = request.args.get('medicalProfessional', None)
+    quantity = request.args.get('quantity', None)
+    date = request.args.get('date', None)
+
+    # Query database to get Patient ID
+    patientID = sm_dbAPI.getPatientID(space_monkeys_db, patientName)
+
+    # Query database to get Blood Bank ID
+    bloodBankID = sm_dbAPI.getBloodBankID(space_monkeys_db, bloodBankName)
+
+    # Insert data if all entries are populated
+    if (space_monkeys_db and patientID and bloodBankID and donationID and medicalProfessional and quantity and date):
+        sm_dbAPI.enterTransfusion(space_monkeys_db, patientID, bloodBankID, donationID, medicalProfessional, quantity, date)
+        
+    # Query database to get list of patients
+    patientsList = sm_dbAPI.getPatientsList(space_monkeys_db)
+
+    # Query database to get list of donation IDs
+    donationsList = sm_dbAPI.getDonationIDsList(space_monkeys_db)
+
+    # Query database to get list of blood banks
+    bloodBanksList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
+
+    # Render page
+    return render_template(
+        'transfusion.html', 
+        numPatients = len(patientsList), 
+        patientsList = patientsList, 
+        numDonations = len(donationsList),
+        donationsList = donationsList,
+        numBloodBanks = len(bloodBanksList), 
+        bloodBanksList = bloodBanksList,
+        )
 
 
 ###############################################################################
