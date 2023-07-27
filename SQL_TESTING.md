@@ -51,7 +51,7 @@ O_Negative_Units
 
 #### Test to verify each table
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Bloodbanks_and_Hospitals table is if ('''SELECT * FROM Bloodbanks_and_Hospitals WHERE Institution_ID = 64;''') == (64, 'Hospital', 'Yuma County', 'Wray', 'CO', 76650, 13526, 2500, 441, 7300, 1000, 11000, 1941) which resulted in "First Test Passed!" when the "sm_dbAPI.py" file executed.
+- The test for the Bloodbanks_and_Hospitals table is if ('''SELECT * FROM Bloodbanks_and_Hospitals WHERE Institution_ID = 64;''') == (64, 'Hospital', 'Yuma County', 'Wray', 'CO', 76650, 13526, 2500, 441, 7300, 1000, 11000, 1941) which resulted in "First Test Passed!" when the "sm_dbAPI.py" file is executed. This verifies that the table was successfully created and data was successfully inserted into the table.
 
 ### <u>Table: Donor</u>
 
@@ -70,7 +70,7 @@ Blood_Type
 
 #### Test to verify each table
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Donor table is if ('''SELECT * FROM Donor WHERE Donor_ID = 22;''') == (22, 'Steve Rogers', 'B-') which resulted in "Second Test Passed!" when the "sm_dbAPI.py" file executed.
+- The test for the Donor table is if ('''SELECT * FROM Donor WHERE Donor_ID = 22;''') == (22, 'Steve Rogers', 'B-') which resulted in "Second Test Passed!" when the "sm_dbAPI.py" file is executed. This verifies that the table was successfully created and data was successfully inserted into the table.
 
 ### <u>Table: Patient</u>
 
@@ -89,7 +89,7 @@ Blood_Type
 
 #### Test to verify each table
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Patient table is if ('''SELECT * FROM Patient WHERE Patient_ID = 26;''') == (26, 'Zena Zootopia', 'O+') which resulted in "Third Test Passed!" when the "sm_dbAPI.py" file executed.
+- The test for the Patient table is if ('''SELECT * FROM Patient WHERE Patient_ID = 26;''') == (26, 'Zena Zootopia', 'O+') which resulted in "Third Test Passed!" when the "sm_dbAPI.py" file is executed. This verifies that the table was successfully created and data was successfully inserted into the table.
 
 ### <u>Table: Donation</u>
 
@@ -117,7 +117,7 @@ Amount
 
 #### Test to verify each table
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Donation table is if ('''SELECT * FROM Donation WHERE Donation_ID = 42;''') == (42, '20230711 9:00:00', 22, 'Dr. Stephan Strange', 23, 1) which resulted in "Fourth Test Passed!" when the "sm_dbAPI.py" file executed.
+- The test for the Donation table is if ('''SELECT * FROM Donation WHERE Donation_ID = 42;''') == (42, '20230711 9:00:00', 22, 'Dr. Stephan Strange', 23, 1) which resulted in "Fourth Test Passed!" when the "sm_dbAPI.py" file is executed. This verifies that the table was successfully created and data was successfully inserted into the table.
 
 ### <u>Table: Transfusion</u>
 
@@ -148,7 +148,7 @@ Amount
 
 #### Test to verify each table
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Transfusion table is if ('''SELECT * FROM Transfusion WHERE Transfusion_ID = 4;''') == (4, '20230723 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1) which resulted in "Fifth Test Passed!" when the "sm_dbAPI.py" file executed.
+- The test for the Transfusion table is if ('''SELECT * FROM Transfusion WHERE Transfusion_ID = 4;''') == (4, '20230723 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1) which resulted in "Fifth Test Passed!" when the "sm_dbAPI.py" file is executed. This verifies that the table was successfully created and data was successfully inserted into the table.
 
 ### <u>Table: Transfer</u>
 
@@ -173,7 +173,7 @@ Sending_Hospital_ID
 
 #### Test to verify each table
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Transfer table is if ('''SELECT * FROM Transfer WHERE Transfer_ID = 4;''') == (4, '20230704 11:00:00', 28, 37, 17) which resulted in "Sixth Test Passed!" when the "sm_dbAPI.py" file executed.
+- The test for the Transfer table is if ('''SELECT * FROM Transfer WHERE Transfer_ID = 4;''') == (4, '20230704 11:00:00', 28, 37, 17) which resulted in "Sixth Test Passed!" when the "sm_dbAPI.py" file is executed. This verifies that the table was successfully created and data was successfully inserted into the table.
 
 ### <u>Table: Complication</u>
 
@@ -192,7 +192,7 @@ Comments
 
 #### Test to verify each table
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-- The test for the Complication table is if ('''SELECT * FROM Complication WHERE Complication_ID = 1;''') == (1, 4, 'Throwing up multiple times a day') which resulted in "Seventh Test Passed!" and "All Tests Passed!!!" when the "sm_dbAPI.py" file executed.
+- The test for the Complication table is if ('''SELECT * FROM Complication WHERE Complication_ID = 1;''') == (1, 4, 'Throwing up multiple times a day') which resulted in "Seventh Test Passed!" and "All Tests Passed!!!" when the "sm_dbAPI.py" file is executed. This verifies that the table was successfully created and data was successfully inserted into the table.
 
 ## <b>Data Access Methods and How Exactly Each of the Pages Behaves with these Methods</b>
 
@@ -240,9 +240,502 @@ Post-conditions (what must be true about the system when the test has completed 
 
     N/A
 
+### <u>Blood Bank Entry Page</u>
+
+#### Blood Bank Entry - Valid Case
+
+Use case name:
+
+    Blood Bank Entry - Valid Case.
+
+Description:
+
+    When all form entries are valid, verify that the user can enter a Blood Bank into the Blood Banks table using the Blood Bank Entry form on the website.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Blood Banks table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Blood Bank Entry page.
+    2. Enter valid input for each field in the page (enter data in text boxes / make selections from dropdown menus)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that submission was successful
+    5. Verify that data from form is successfully entered into Blood Bank table
+    6. Verify that form data is cleared to prepare for next submission
+
+Expected result:
+
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Blood Bank table
+    3. Form data was cleared to prepare for next submission
+
+Actual result:
+
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Blood Bank table
+    3. Form data was cleared to prepare for next submission
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses bloodbank.html and bloodbank.js to render page, as well as enterBloodBank() function in sm_dbAPI.py.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    Data from form was successfully entered into Blood Bank table.
+
+#### Blood Bank Entry - Invalid Case
+
+Use case name:
+
+    Blood Bank Entry - Invalid Case.
+
+Description:
+
+    When one or more form entries are invalid, verify that the user CANNOT enter a Blood Bank into the Blood Banks table using the Blood Bank Entry form on the website.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Blood Banks table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Blood Bank Entry page.
+    2. Enter invalid input for at least one field in the page (at least one blank text box / unselected dropdown menu)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that user should check all form entries and resubmit
+    5. Verify that data from form is NOT entered into Blood Bank table
+    6. Verify that form data is NOT cleared
+    7. Verify that invalid form entries are marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Expected result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Blood Bank table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Actual result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Blood Bank table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses bloodbank.html and bloodbank.js to render page and do data validation.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    Data from form was NOT entered into Blood Bank table.
+
 ### <u>Blood Donation Entry Page</u>
 
+#### Donation Entry - Valid Case
+
+Use case name:
+
+    Donation Entry - Valid Case.
+
+Description:
+
+    When all form entries are valid, verify that the user can enter a Donation into the Donations table using the Donation Entry form on the website.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Donations table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Donation Entry page.
+    2. Enter valid input for each field in the page (enter data in text boxes / make selections from dropdown menus)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that submission was successful
+    5. Verify that data from form is successfully entered into Donation table
+    6. Verify that form data is cleared to prepare for next submission
+
+Expected result:
+
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Donation table
+    3. Form data was cleared to prepare for next submission
+
+Actual result:
+
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Donation table
+    3. Form data was cleared to prepare for next submission
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses donation.html and donation.js to render page, as well as enterDonation() function in sm_dbAPI.py.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    Data from form was successfully entered into Donation table.
+
+#### Donation Entry - Invalid Case
+
+Use case name:
+
+    Donation Entry - Invalid Case.
+
+Description:
+
+    When one or more form entries are invalid, verify that the user CANNOT enter a Donation into the Donations table using the Donation Entry form on the website.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Donations table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Donation Entry page.
+    2. Enter invalid input for at least one field in the page (at least one blank text box / unselected dropdown menu)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that user should check all form entries and resubmit
+    5. Verify that data from form is NOT entered into Donation table
+    6. Verify that form data is NOT cleared
+    7. Verify that invalid form entries are marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Expected result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Donation table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Actual result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Donation table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses donation.html and donation.js to render page and do data validation.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    Data from form was NOT entered into Donation table.
+
+#### Donation Entry - Donor Name List Generation
+
+Use case name:
+
+    Donation Entry - Donor Name List Generation.
+
+Description:
+
+    The Donation Entry page should populate the dropdown menu with the list of Donors in the database, so the user can select a valid entry.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Donors table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Donation Entry page.
+    2. Click into the Donor Name input box
+    3. Verify that the dropdown populates with a list of Donor Names.
+
+Expected result:
+
+    The dropdown populates with a list of Donor Names.
+
+Actual result:
+
+    The dropdown populated with a list of Donor Names.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses getDonorsList() function in sm_dbAPI.py.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    N/A.
+
+#### Donation Entry - Blood Bank Name List Generation
+
+Use case name:
+
+    Donation Entry - Blood Bank Name List Generation.
+
+Description:
+
+    The Donation Entry page should populate the dropdown menu with the list of Blood Banks in the database, so the user can select a valid entry.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Blood Banks table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Donation Entry page.
+    2. Click into the Blood Bank Name input box
+    3. Verify that the dropdown populates with a list of Blood Bank Names.
+
+Expected result:
+
+    The dropdown populates with a list of Blood Bank Names.
+
+Actual result:
+
+    The dropdown populated with a list of Blood Bank Names.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses getBloodBanksList() function in sm_dbAPI.py.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    N/A.
+
 ### <u>Blood Transfusion Entry Page</u>
+
+#### Transfusion Entry - Valid Case
+
+Use case name:
+
+    Transfusion Entry - Valid Case.
+
+Description:
+
+    When all form entries are valid, verify that the user can enter a Transfusion into the Transfusions table using the Transfusion Entry form on the website.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Transfusions table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Transfusion Entry page.
+    2. Enter valid input for each field in the page (enter data in text boxes / make selections from dropdown menus)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that submission was successful
+    5. Verify that data from form is successfully entered into Transfusion table
+    6. Verify that form data is cleared to prepare for next submission
+
+Expected result:
+
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Transfusion table
+    3. Form data was cleared to prepare for next submission
+
+Actual result:
+
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Transfusion table
+    3. Form data was cleared to prepare for next submission
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses transfusion.html and transfusion.js to render page, as well as enterTransfusion() function in sm_dbAPI.py.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    Data from form was successfully entered into Transfusion table.
+
+#### Transfusion Entry - Invalid Case
+
+Use case name:
+
+    Transfusion Entry - Invalid Case.
+
+Description:
+
+    When one or more form entries are invalid, verify that the user CANNOT enter a Transfusion into the Transfusions table using the Transfusion Entry form on the website.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Transfusions table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Transfusion Entry page.
+    2. Enter invalid input for at least one field in the page (at least one blank text box / unselected dropdown menu)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that user should check all form entries and resubmit
+    5. Verify that data from form is NOT entered into Transfusion table
+    6. Verify that form data is NOT cleared
+    7. Verify that invalid form entries are marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Expected result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Transfusion table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Actual result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Transfusion table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses transfusion.html and transfusion.js to render page and do data validation.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    Data from form was NOT entered into Transfusion table.
+
+#### Transfusion Entry - Patient Name List Generation
+
+Use case name:
+
+    Transfusion Entry - Patient Name List Generation.
+
+Description:
+
+    The Transfusion Entry page should populate the dropdown menu with the list of Patients in the database, so the user can select a valid entry.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Patients table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Transfusion Entry page.
+    2. Click into the Patient Name input box
+    3. Verify that the dropdown populates with a list of Patient Names.
+
+Expected result:
+
+    The dropdown populates with a list of Patient Names.
+
+Actual result:
+
+    The dropdown populated with a list of Patient Names.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses getPatientsList() function in sm_dbAPI.py.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    N/A.
+
+#### Transfusion Entry - Donation ID List Generation
+
+Use case name:
+
+    Transfusion Entry - Donation ID List Generation.
+
+Description:
+
+    The Transfusion Entry page should populate the dropdown menu with the list of Donation IDs in the database, so the user can select a valid entry.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Donations table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Transfusion Entry page.
+    2. Click into the Donation ID input box
+    3. Verify that the dropdown populates with a list of Donation IDs.
+
+Expected result:
+
+    The dropdown populates with a list of Donation IDs.
+
+Actual result:
+
+    The dropdown populated with a list of Donation IDs.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses getDonationIDsList() function in sm_dbAPI.py.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    N/A.
+
+#### Transfusion Entry - Blood Bank Name List Generation
+
+Use case name:
+
+    Transfusion Entry - Blood Bank Name List Generation.
+
+Description:
+
+    The Transfusion Entry page should populate the dropdown menu with the list of Blood Banks in the database, so the user can select a valid entry.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Blood Banks table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Transfusion Entry page.
+    2. Click into the Blood Bank Name input box
+    3. Verify that the dropdown populates with a list of Blood Bank Names.
+
+Expected result:
+
+    The dropdown populates with a list of Blood Bank Names.
+
+Actual result:
+
+    The dropdown populated with a list of Blood Bank Names.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses getBloodBanksList() function in sm_dbAPI.py.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    N/A.
 
 ### <u>Blood Transfer Page</u>
 #### Blood unit viewing by clicking button
@@ -333,45 +826,102 @@ All data for Donors that exist in the Donor table in the database must be visibl
 
 <hr>
 
-#### Add a donor to the database
+#### Donor Entry - Valid Case
+
 Use case name:
 
-Verify donor table update in the database
+    Donor Entry - Valid Case.
 
 Description:
 
-Test if the add donor button correctly updates the donor table in the database
+    When all form entries are valid, verify that the user can enter a Donor into the Donors table using the Donor Entry form on the website.
 
 Pre-conditions (what needs to be true about the system before the test can be applied):
 
-Donor_ID, Name, and Blood_Type needs to be entered into the form on the donor page
+    Donors table must be created in the database.
 
 Test steps:
 
-1. Navigate to donor page
-2. Enter Donor_ID, Name, and Blood_Type into the form elements
-3. Click add donor button
+    1. Navigate to Donor Entry page.
+    2. Enter valid input for each field in the page (enter data in text boxes / make selections from dropdown menus)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that submission was successful
+    5. Verify that data from form is successfully entered into Donor table
+    6. Verify that form data is cleared to prepare for next submission
 
 Expected result:
 
-Donor table should update with the data entered into the form
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Donor table
+    3. Form data was cleared to prepare for next submission
 
-Actual result (when you are testing this, how can you tell it worked):
+Actual result:
 
-Check the database to ensure that the donor data was entered
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Donor table
+    3. Form data was cleared to prepare for next submission
 
-Status (Pass/Fail, when this test was performed):
+Status (Pass/Fail, when this test was performed)
 
-N/A
+    Pass
 
 Notes:
 
-N/A
+    Uses donor.html and donor.js to render page, as well as enterDonor() function in sm_dbAPI.py.
 
 Post-conditions (what must be true about the system when the test has completed successfully):
 
-Donor table should be updated
+    Data from form was successfully entered into Donor table.
 
+#### Donor Entry - Invalid Case
+
+Use case name:
+
+    Donor Entry - Invalid Case.
+
+Description:
+
+    When one or more form entries are invalid, verify that the user CANNOT enter a Donor into the Donors table using the Donor Entry form on the website.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Donors table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Donor Entry page.
+    2. Enter invalid input for at least one field in the page (at least one blank text box / unselected dropdown menu)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that user should check all form entries and resubmit
+    5. Verify that data from form is NOT entered into Donor table
+    6. Verify that form data is NOT cleared
+    7. Verify that invalid form entries are marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Expected result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Donor table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Actual result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Donor table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses donor.html and donor.js to render page and validate data.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    Data from form was NOT entered into Donor table.
 
 ### <u>Patient Page</u>
 
@@ -415,45 +965,102 @@ All data for patients that exist in the Patient table in the database must be vi
 
 <hr>
 
-#### Add a patient to the database
+#### Patient Entry - Valid Case
+
 Use case name:
 
-Verify patient table update in the database
+    Patient Entry - Valid Case.
 
 Description:
 
-Test if the add patient button correctly updates the patient table in the database
+    When all form entries are valid, verify that the user can enter a Patient into the Patients table using the Patient Entry form on the website.
 
 Pre-conditions (what needs to be true about the system before the test can be applied):
 
-Patient_ID, Name, and Blood_Type needs to be entered into the form on the patient page
+    Patients table must be created in the database.
 
 Test steps:
 
-1. Navigate to patient page
-2. Enter Patient_ID, Name, and Blood_Type into the form elements
-3. Click add patient button
+    1. Navigate to Patient Entry page.
+    2. Enter valid input for each field in the page (enter data in text boxes / make selections from dropdown menus)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that submission was successful
+    5. Verify that data from form is successfully entered into Patient table
+    6. Verify that form data is cleared to prepare for next submission
 
 Expected result:
 
-Patient table should update with the data entered into the form
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Patient table
+    3. Form data was cleared to prepare for next submission
 
-Actual result (when you are testing this, how can you tell it worked):
+Actual result:
 
-Check the database to ensure that the patient data was entered
+    1. Alert was generated which states that submission was successful
+    2. Data from form was successfully entered into Patient table
+    3. Form data was cleared to prepare for next submission
 
-Status (Pass/Fail, when this test was performed):
+Status (Pass/Fail, when this test was performed)
 
-N/A
+    Pass
 
 Notes:
 
-N/A
+    Uses patient.html and patient.js to render page, as well as enterPatient() function in sm_dbAPI.py.
 
 Post-conditions (what must be true about the system when the test has completed successfully):
 
-Patient table should be updated
+    Data from form was successfully entered into Patient table.
 
+#### Patient Entry - Invalid Case
+
+Use case name:
+
+    Patient Entry - Invalid Case.
+
+Description:
+
+    When one or more form entries are invalid, verify that the user CANNOT enter a Patient into the Patients table using the Patient Entry form on the website.
+
+Pre-conditions (what needs to be true about the system before the test can be applied):
+
+    Patients table must be created in the database.
+
+Test steps:
+
+    1. Navigate to Patient Entry page.
+    2. Enter invalid input for at least one field in the page (at least one blank text box / unselected dropdown menu)
+    3. Click "Submit" button
+    4. Verify that alert is generated which states that user should check all form entries and resubmit
+    5. Verify that data from form is NOT entered into Patient table
+    6. Verify that form data is NOT cleared
+    7. Verify that invalid form entries are marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Expected result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Patient table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Actual result:
+
+    1. Alert was generated which states that user should check all form entries and resubmit
+    2. Data from form was NOT entered into Patient table
+    3. Form data was NOT cleared
+    4. Invalid form entries were marked to the user by displaying a warning icon, changing font weight / color, and a message to the user on hover over the form title.
+
+Status (Pass/Fail, when this test was performed)
+
+    Pass
+
+Notes:
+
+    Uses patient.html and patient.js to render page and validate data.
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+
+    Data from form was NOT entered into Patient table.
 
 ### <u>Blood Levels and Visualization Page</u>
 
