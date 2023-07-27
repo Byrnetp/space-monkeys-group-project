@@ -1,0 +1,37 @@
+<!-- CS 3308 Group Project -->
+<!-- Team 2: Space Monkeys -->
+<!-- Template for Blood Bank website Blood Bank Entry page -->
+<!-- Last Update: David Hughes, 26 July 2023 -->
+
+{% extends "main_layout.html" %}
+{% block title %}Blood Bank Entry Page{% endblock %}
+{% block head %}
+  {{ super() }}
+  <script src="static/javascript/bloodbank.js"></script>
+  {% endblock %}
+{% block content %}
+  <h1>Blood Bank Entry Page</h1>
+  <form id="bloodbankEntryForm" name="bloodbankEntryForm">
+    <label id="bloodbankNameLabel" for="bloodbankName">Blood Bank Name:</label>
+    <br>
+    <input type="text" id="bloodbankName" name="bloodbankName">
+    <br>
+    <br>
+    <label id="bloodbankTypeLabel" for="bloodbankType">Blood Bank Type:</label>
+    <br>
+    <input type="text" id="bloodbankType" name="bloodbankType">
+    <br>
+    <br>
+    <label id="bloodbankCityLabel" for="bloodbankCity">Blood Bank City:</label>
+    <br>
+    <input type="text" id="bloodbankCity" name="bloodbankCity">
+    <br>
+    <br>
+    <label id="bloodbankStateLabel" for="bloodbankState">Blood Bank State:</label>
+    <br>
+    <input type="text" id="bloodbankState" name="bloodbankState">
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

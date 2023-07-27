@@ -395,7 +395,7 @@ def getDonation(db_filename, medicalProfessional):
     conn.close()
     return
         
-# Function to verify transfusion entry
+# Function to verify transfusion entryDono
 def getTransfusion(db_filename, medicalProfessional):
 
     # Initialize connection
@@ -414,6 +414,66 @@ def getTransfusion(db_filename, medicalProfessional):
     conn.close()
     return
         
+# Function to enter blood bank in Blood Banks table
+def enterBloodBank(db_filename, bloodBankName, bloodBankType, bloodBankCity, bloodBankState):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next blood bank ID
+    c.execute('''SELECT MAX(Institution_ID) FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchone()
+    bloodBankID = result[0] + 1
+
+    # Insert blood bank
+    c.execute('''INSERT INTO Bloodbanks_and_Hospitals (Institution_ID, Name, Type, City, State, A_Positive_Units, A_Negative_Units, B_Positive_Units, B_Negative_Units, AB_Positive_Units, AB_Negative_Units, O_Positive_Units, O_Negative_Units) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);''', (bloodBankID, bloodBankName, bloodBankType, bloodBankCity, bloodBankState, 0, 0, 0, 0, 0, 0, 0, 0))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to enter donor in Donor table
+def enterDonor(db_filename, donorName, donorBloodType):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next donor ID
+    c.execute('''SELECT MAX(Donor_ID) FROM Donor;''')
+    result = c.fetchone()
+    donorID = result[0] + 1
+
+    # Insert donor
+    c.execute('''INSERT INTO Donor (Donor_ID, Name, Blood_Type) VALUES (?,?,?);''', (donorID, donorName, donorBloodType))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to enter patient in Patient table
+def enterPatient(db_filename, patientName, patientBloodType):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next patient ID
+    c.execute('''SELECT MAX(Patient_ID) FROM Patient;''')
+    result = c.fetchone()
+    patientID = result[0] + 1
+
+    # Insert patient
+    c.execute('''INSERT INTO Patient (Patient_ID, Name, Blood_Type) VALUES (?,?,?);''', (patientID, patientName, patientBloodType))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
 # Function to enter donation in Donations table
 def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quantity, date):
 

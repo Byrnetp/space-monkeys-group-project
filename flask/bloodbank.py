@@ -30,7 +30,54 @@ def homepage():
 def home():
     return render_template('homepage.html')
 
-# Donation page
+# Blood bank entry page
+@app.route('/bloodbank')
+def bloodbank():
+
+    # Get input parameters from URL
+    bloodBankName = request.args.get('bloodBankName', None)
+    bloodBankType = request.args.get('bloodBankType', None)
+    bloodBankCity = request.args.get('bloodBankCity', None)
+    bloodBankState = request.args.get('bloodBankState', None)
+
+    # Insert data if all entries are populated
+    if (space_monkeys_db and bloodBankName and bloodBankType and bloodBankCity and bloodBankState):
+        sm_dbAPI.enterBloodBank(space_monkeys_db, bloodBankName, bloodBankType, bloodBankCity, bloodBankState)
+        
+    # Render page
+    return render_template('bloodbank.html')
+
+# Donor entry page
+@app.route('/donor')
+def donor():
+
+    # Get input parameters from URL
+    donorName = request.args.get('donorName', None)
+    donorBloodType = request.args.get('donorBloodType', None)
+
+    # Insert data if all entries are populated
+    if (space_monkeys_db and donorName and donorBloodType):
+        sm_dbAPI.enterDonor(space_monkeys_db, donorName, donorBloodType)
+        
+    # Render page
+    return render_template('donor.html')
+
+# Patient entry page
+@app.route('/patient')
+def patient():
+
+    # Get input parameters from URL
+    patientName = request.args.get('patientName', None)
+    patientBloodType = request.args.get('patientBloodType', None)
+
+    # Insert data if all entries are populated
+    if (space_monkeys_db and patientName and patientBloodType):
+        sm_dbAPI.enterPatient(space_monkeys_db, patientName, patientBloodType)
+        
+    # Render page
+    return render_template('patient.html')
+
+# Donation entry page
 @app.route('/donation')
 def donation():
 
@@ -67,7 +114,7 @@ def donation():
         bloodBanksList = bloodBanksList,
         )
 
-# Transfusion page
+# Transfusion entry page
 @app.route('/transfusion')
 def transfusion():
 

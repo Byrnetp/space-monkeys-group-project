@@ -1,6 +1,6 @@
 /* CS 3308 Group Project */
 /* Team 2: Space Monkeys */
-/* Javascript for Blood Bank donation page */
+/* Javascript for Blood Bank Donation Entry page */
 /* Last Update: David Hughes, 26 July 2023 */
 
 // Wait until document is loaded before doing anything
