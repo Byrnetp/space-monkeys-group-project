@@ -1267,5 +1267,102 @@ Post-conditions (what must be true about the system when the test has completed 
 All data for Transfers that exist in the Transfer table in the database must be visible for the selected hospital
 
 ### <u>Report Complications Page</u>
+#### Table Description
+Use case name:
+    Complication Table
+
+Description:
+    The complication table stores the Transfusion_ID, Complication_ID and Comments about a transfusion. A person can search 
+the data about a certain transfusion and add a complication report (Comments) about that patient or problems related to the transfusion and its attributes (blood type, amount, patient, etc). 
+
+#### Field names and short description
+
+Complication_ID:
+- This is of INT type ,ad it is the primary key for this table. It specifies the unique number assigned to each complication report.
+
+Transfusion_ID:
+- This field is of INT type.  It specifies the unique number assigned to each blood transfusion. It is the FOREIGN KEY.
+
+Comments:
+- This field is of VARCHAR(180) type.  It specifies the possible complications that the patient is having from the blood transfusion.
+
+
+#### Test to verify each table
+ 1. Navigate to Complication Report page
+ 2. Search for the transfusion_ID
+ 3. Make sure the checkbox is displayed
+ 4. Check if transfusion_ID input exist
+ 5. Check if submitting 'Comment' works and display a message ("New Comment added!")
+ 6. Check if the table has the new data
+
+Expected result:
+
+User should be able to find the transfusion
+User should be able to see a confirmation message about the new data added
+
+Status (Pass/Fail, when this test was performed):
+N/A
+
+Notes:
+N/A
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+The new data (Comments) should be able to be viewed in the 'Report Complications Page'.
+
 
 ### <u>View Complication Reports Page</u>
+
+#### Table Description
+Use case name:
+    Complication Table
+    Transfusion Table
+    
+
+Description:
+    The View Complication Reports Page uses 2 functions to fetch data from the 'Transfusion Table' where a user can search a complication report using the 'Transfusion_ID' key to access the 'Comments'. Other informations would be displayed (Hospital_ID, Amount, Patient_ID, etc) fetching the data from Transfusion Table using the 'Transfusion_ID'.
+    
+#### Test to verify each table
+ 1. Navigate to View Complication Report page
+ 2. Search for the transfusion_ID
+ 3. Make sure the checkbox is displayed
+ 4. Check if transfusion_ID input exist in the Complication Table
+ 5. Check if transfusion_ID input exist in the Transfusion Table
+ 5. Check if the output boxes are displaying the correct values
+
+Patient_ID:
+- This field is of INT type.  It specifies the individual receiving the blood for the transfusion.  It is a FOREIGN KEY.
+
+Amount:
+- This field is of INT type.  It specifies the units of blood in the transfusion.  Each transfusion will be 1 unit.
+
+Blood type:
+- This field is of VARCHAR(2) type.  It specifies the blood type of the patient receiving blood. A_Positive_Units INT, A_Negative_Units INT, B_Positive_Units INT, B_Negative_Units INT, AB_Positive_Units INT, AB_Negative_Units INT, O_Positive_Units INT, O_Negative_Units INT.
+
+Blood Bank ID:
+- Institution_ID INT. It is a FOREIGN KEY. It specifies the institution which the blood donation takes place.  
+
+Date_TIME:
+- Date_Time DATETIME
+
+Comments:
+- This field is of VARCHAR(180) type.  It specifies the possible complications that the patient is having from the blood transfusion.
+
+Donor_ID:
+- This field is of INT type.  It specifies the blood donor of the donation. It is a FOREIGN KEY.
+
+Transfusion_ID:
+- This field is of INT type.  It specifies the unique number assigned to each blood transfusion. It is the FOREIGN KEY.
+
+Expected result:
+
+User should be able to check the report using the transfusion id. 
+User should be able to see all the attributes displayed on the page. 
+
+Status (Pass/Fail, when this test was performed):
+N/A
+
+Notes:
+The function are already implemented and working as expected. 
+
+Post-conditions (what must be true about the system when the test has completed successfully):
+The data from the database tables should be able to be viewed in the 'View Complication Reports Page'.
