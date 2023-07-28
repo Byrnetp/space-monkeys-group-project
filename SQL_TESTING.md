@@ -194,7 +194,342 @@ Comments
 - There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db".  This "test_tables" function tests each database table to make sure the data was filled in correctly.  Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
 - The test for the Complication table is if ('''SELECT * FROM Complication WHERE Complication_ID = 1;''') == (1, 4, 'Throwing up multiple times a day') which resulted in "Seventh Test Passed!" and "All Tests Passed!!!" when the "sm_dbAPI.py" file is executed. This verifies that the table was successfully created and data was successfully inserted into the table.
 
-## <b>Data Access Methods and How Exactly Each of the Pages Behaves with these Methods</b>
+## <b>Data Access Methods</b>
+
+### sm_dbAPI.create()
+
+Name:
+
+    create()
+
+Description:
+
+    Creates Bloodbanks_and_Hospitals, Donor, Patient, Donation, Transfusion, Transfer, and Complication tables.
+
+Parameters:
+
+    db_filename
+
+Return Values:
+
+    None (creates tables in sqlite3 database)
+
+Tests:
+
+    See above for tests to verify table creation and data insertion.
+
+### sm_dbAPI.fill()
+
+Name:
+
+    fill()
+
+Description:
+
+    Fills Bloodbanks_and_Hospitals, Donor, Patient, Donation, Transfusion, Transfer, and Complication tables with sample data.
+
+Parameters:
+
+    db_filename
+
+Return Values:
+
+    None (populates tables in sqlite3 database)
+
+Tests:
+
+    See above for tests to verify table creation and data insertion.
+
+### sm_dbAPI.test_tables()
+
+Name:
+
+    test_tables()
+
+Description:
+
+    Tests Bloodbanks_and_Hospitals, Donor, Patient, Donation, Transfusion, Transfer, and Complication tables to verify that they are created and populated with data.
+
+Parameters:
+
+    db_filename
+
+Return Values:
+
+    Prints out test pass / fail results.
+
+Tests:
+
+    This is the function to test database table creation / population with data.
+
+### sm_dbAPI.getDonorID()
+
+Name:
+
+    getDonorID()
+
+Description:
+
+    Returns Donor ID for a given Donor Name
+
+Parameters:
+
+    db_filename, donorName
+
+Return Values:
+
+    Donor ID (if valid donor name), None if invalid donor name
+
+Tests:
+
+    1. Given a valid donor name, verify that correct donor ID is returned.
+    2. Given an invalid donor name, verify that None is returned.
+
+### sm_dbAPI.getPatientID()
+
+Name:
+
+    getPatientID()
+
+Description:
+
+    Returns Patient ID for a given Patient Name
+
+Parameters:
+
+    db_filename, patientName
+
+Return Values:
+
+    Patient ID (if valid patient name), None if invalid patient name
+
+Tests:
+
+    1. Given a valid patient name, verify that correct patient ID is returned.
+    2. Given an invalid patient name, verify that None is returned.
+
+### sm_dbAPI.getBloodBankID()
+
+Name:
+
+    getBloodBankID()
+
+Description:
+
+    Returns Blood Bank ID for a given Blood Bank Name
+
+Parameters:
+
+    db_filename, bloodBankName
+
+Return Values:
+
+    Blood Bank ID (if valid blood bank name), None if invalid blood bank name
+
+Tests:
+
+    1. Given a valid blood bank name, verify that correct blood bank ID is returned.
+    2. Given an invalid blood bank name, verify that None is returned.
+
+### sm_dbAPI.enterBloodBank()
+
+Name:
+
+    enterBloodBank()
+
+Description:
+
+    Enters a Blood Bank in Blood Banks table
+
+Parameters:
+
+    db_filename, bloodBankName, bloodBankType, bloodBankCity, bloodBankState
+
+Return Values:
+
+    Enters Blood Bank in Blood Banks table
+
+Tests:
+
+    Verify that when this function is called, data is successfully inserted in table
+
+### sm_dbAPI.enterDonor()
+
+Name:
+
+    enterDonor()
+
+Description:
+
+    Enters a Donor in Donors table
+
+Parameters:
+
+    db_filename, donorName, donorBloodType
+
+Return Values:
+
+    Enters Donor in Donors table
+
+Tests:
+
+    Verify that when this function is called, data is successfully inserted in table
+
+### sm_dbAPI.enterPatient()
+
+Name:
+
+    enterPatient()
+
+Description:
+
+    Enters a Patient in Patients table
+
+Parameters:
+
+    db_filename, patientName, patientBloodType
+
+Return Values:
+
+    Enters Patient in Patients table
+
+Tests:
+
+    Verify that when this function is called, data is successfully inserted in table
+
+### sm_dbAPI.enterDonation()
+
+Name:
+
+    enterDonation()
+
+Description:
+
+    Enters a Donation in Donations table
+
+Parameters:
+
+    db_filename, donorID, bloodBankID, medicalProfessional, quantity, date
+
+Return Values:
+
+    Enters Donation in Donations table
+
+Tests:
+
+    Verify that when this function is called, data is successfully inserted in table
+
+### sm_dbAPI.enterTransfusion()
+
+Name:
+
+    enterTransfusion()
+
+Description:
+
+    Enters a Transfusion in Transfusions table
+
+Parameters:
+
+    db_filename, patientID, bloodBankID, donationID, medicalProfessional, quantity, date
+
+Return Values:
+
+    Enters Transfusion in Transfusions table
+
+Tests:
+
+    Verify that when this function is called, data is successfully inserted in table
+
+### sm_dbAPI.getDonorsList()
+
+Name:
+
+    getDonorsList()
+
+Description:
+
+    Gets a list of donor names from Donors table
+
+Parameters:
+
+    db_filename
+
+Return Values:
+
+    List of Donor names
+
+Tests:
+
+    Verify that when this function is called, a list of Donor names is returned based on entries in Donors table
+
+### sm_dbAPI.getPatientsList()
+
+Name:
+
+    getPatientsList()
+
+Description:
+
+    Gets a list of patient names from Patients table
+
+Parameters:
+
+    db_filename
+
+Return Values:
+
+    List of Patient names
+
+Tests:
+
+    Verify that when this function is called, a list of Patient names is returned based on entries in Patients table
+
+### sm_dbAPI.getDonationIDsList()
+
+Name:
+
+    getDonationIDsList()
+
+Description:
+
+    Gets a list of Donation IDs from Donations table
+
+Parameters:
+
+    db_filename
+
+Return Values:
+
+    List of Donation IDs
+
+Tests:
+
+    Verify that when this function is called, a list of Donation IDs is returned based on entries in Donations table
+
+### sm_dbAPI.getBloodBanksList()
+
+Name:
+
+    getBloodBanksList()
+
+Description:
+
+    Gets a list of Blood Bank names from Blood Banks table
+
+Parameters:
+
+    db_filename
+
+Return Values:
+
+    List of Blood Bank names
+
+Tests:
+
+    Verify that when this function is called, a list of Blood Bank names is returned based on entries in Blood Banks table
+
+## <b>How Exactly Each of the Pages Behaves with these Methods</b>
 
 ### <u>About Page</u>
 
