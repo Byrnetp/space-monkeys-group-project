@@ -12,10 +12,9 @@
     <h3>Menu</h3>
     <label for="hospital">Choose a hospital:</label>
     <select id="hospital">
-      <option value="hospital1">Hospital 1</option>
-      <option value="hospital2">Hospital 2</option>
-      <option value="hospital3">Hospital 3</option>
-      <option value="hospital4">Hospital 4</option>
+      {% for hospital in hospitals %}
+        <option value="{{ hospital }}">{{ hospital }}</option>
+      {% endfor %}
     </select>
     <p>Display: </p>
     <input type="checkbox" id="donations" name="donationsDisplay" value="true">
@@ -40,6 +39,15 @@
           <th>Medical Professional</th>
           <th>Amount</th>
         </tr>
+        {% for donation in donations %}
+          <tr>
+            <td>{{ donation.donationID }}</td>
+            <td>{{ donation.dateTime }}</td>
+            <td>{{ donation.donorID }}</td>
+            <td>{{ donation.medProf }}</td>
+            <td>{{ donation.amount }}</td>
+          </tr>
+        {% endfor %}
       </table>
     </div>
     <div id="transfusionTable">
@@ -53,6 +61,16 @@
           <th>Medical Professional</th>
           <th>Amount</th>
         </tr>
+        {% for transfusion in transfusions %}
+        <tr>
+          <td>{{ transfusion.transfusionID }}</td>
+          <td>{{ transfusion.dateTime }}</td>
+          <td>{{ transfusion.donationID }}</td>
+          <td>{{ transfusion.patientID }}</td>
+          <td>{{ transfusion.medProf }}</td>
+          <td>{{ transfusion.amount }}</td>
+        </tr>
+      {% endfor %}
       </table>
     </div>
     <div id="transferTable">
@@ -65,6 +83,15 @@
           <th>Recieving Hospital</th> 
           <th>Sending Hospital</th>
         </tr>
+        {% for transfer in transfers %}
+          <tr>
+            <td>{{ transfer.transferID }}</td>
+            <td>{{ transfer.dateTime }}</td>
+            <td>{{ transfer.donationID }}</td>
+            <td>{{ transfer.reciever }}</td>
+            <td>{{ transfer.sender }}</td>
+          </tr>
+        {% endfor %}
       </table>
     </div>
     </main>
