@@ -420,3 +420,31 @@ Scrum Master: Dylan Kayyem
 **What didn’t work?**
 
 **How can the team improve?**
+
+
+
+### Meeting 6: 7/27/2023
+
+Attendees: Michael Becker, Travis Byrne, Cyro Freire de Lima, David Hughes, Dylan Kayyem
+
+Scrum Master: Cyro Freire de Lima
+
+
+### Weekly Updates:
+
+### Sprint Retrospective:
+
+**What went well?**
+- The tasks and stories assigned for this week and extra stories were developed by the group.
+
+**What didn’t work?**
+- Everything worked well. 
+
+**How can the team improve?**
+- Just keep working. 
+
+#### End-of-Sprint Demonstration (~10 minutes)
+
+**To attempt/complete for next week**
+- Complete all the mockup pages
+- Complete the html, js, css files for the mockup pages. 

@@ -1616,7 +1616,7 @@ Pre-Conditions:
 #### Field names and short description
 
 Complication_ID:
-- This is of INT type ,ad it is the primary key for this table. It specifies the unique number assigned to each complication report.
+- This is of INT type ,adds it is the primary key for this table. It specifies the unique number assigned to each complication report.
 
 Transfusion_ID:
 - This field is of INT type.  It specifies the unique number assigned to each blood transfusion. It is the FOREIGN KEY.
@@ -1625,16 +1625,7 @@ Comments:
 - This field is of VARCHAR(180) type.  It specifies the possible complications that the patient is having from the blood transfusion.
 
 #### Test to verify each table
-- There is a function in the "sm_dbAPI.py" file called "test_tables(db_filename)". Its only parameter is "db_filename" which is the database name, for our project the "db_filename = space_monkeys_db". This "test_tables" function tests each database table to make sure the data was filled in correctly. Each table is tested with a query of the database and the known output. It lets the developer know if all of the tests passed by prints "Tests Passed" messages when running the "sm_dbAPI.py" file to set-up the database.
-
-- This is the parameters to fill the table where there is parameters that checks and raise error if values are different: 
-        complication_insert = [(1, 4, 'Throwing up multiple times a day')]
-        for (idStore, transfusionid, comp) in complication_insert:
-        c.execute('''INSERT INTO Complication VALUES (?,?,?);''', (idStore, transfusionid, comp))
-        
-- Here is the check:
-        c.execute('''SELECT * FROM Transfusion WHERE transfusion_ID = 1;''')==((1, 4, 'Throwing up multiple times a day'))
-    
+- There is a function getTransfusion(), that gets the values Complication_ID and Transfusion_ID from the database. After the data is found another function addComplication() adds a comment into the Complication Table. 
 
 #### Test steps
  1. Navigate to Complication Report page
@@ -1662,7 +1653,7 @@ Notes:
 - Uses ComplicationReport.html, ComplicationReport.html, ComplicationReport.js and sm_dbAPI.py.
 
 Post-conditions (what must be true about the system when the test has completed successfully):
-- The new data (Comments) should be able to be viewed in the 'Report Complications Page'.
+- The new data (Comments) should be able to be viewed in the 'View Complication Reports Page'.
 
 
 ### <u>View Complication Reports Page</u>
