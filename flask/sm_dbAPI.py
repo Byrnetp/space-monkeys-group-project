@@ -27,12 +27,12 @@ def create(db_filename):
     c.execute('''CREATE TABLE Donor
                 (Donor_ID INT, 
                 Name VARCHAR(90), 
-                Blood_Type VARCHAR(2), 
+                Blood_Type VARCHAR(3), 
                 PRIMARY KEY(Donor_ID));''')
     c.execute('''CREATE TABLE Patient
                 (Patient_ID INT, 
                 Name VARCHAR(90), 
-                Blood_Type VARCHAR(2), 
+                Blood_Type VARCHAR(3), 
                 PRIMARY KEY(Patient_ID));''')
     c.execute('''CREATE TABLE Donation
                 (Donation_ID INT, 
