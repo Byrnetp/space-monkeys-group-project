@@ -1,0 +1,82 @@
+/* CS 3308 Group Project */
+/* Team: Space Monkeys */
+/* CSS rules for Blood Bank website */
+/* Last Update: Cyro, 28 July 2023 */
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 50px 50px 0 220px; /* padding: top left bottom right / left and top are for the nav bar*/
+}
+
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 15px;
+}
+
+h3 {
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+/* Add margin for all pages */
+main {
+  margin: 20px;
+}
+
+/* Add background color for all pages */
+body {
+  background-color: #f8f8f8;
+}
+
+/* Navigation Bar Styles */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%; /* Set the height of the nav bar to 100% */
+  width: 200px; /* Set the width of the nav bar */
+  background-color: #63c3bb;
+  color: #fff;
+  padding: 30px 0;
+  font-size: 17px;
+
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column; /* Set the flex direction to vertical */
+  align-items: center; /* Center the nav items horizontally */
+  height: 100%; /* Set the height of the ul to 100% */
+}
+
+nav ul li {
+  margin-bottom: 20px; /* Add margin to separate the nav items vertically */
+}
+
+nav ul li:last-child {
+  margin-bottom: 0;
+}
+
+nav ul li a {
+  color: #fff;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+nav ul li a:hover {
+  background-color: #358c82;
+}
+
+
