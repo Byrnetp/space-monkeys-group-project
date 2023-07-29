@@ -4,6 +4,7 @@
 ## Last Update: David Hughes, 26 July 2023
 
 import sqlite3
+import datetime
 
 # Creates a database with the filename given. Create the required tables and fields.
 def create(db_filename):
@@ -601,6 +602,82 @@ def getBloodBanksList(db_filename):
     conn.close()
 
     return bloodBanksList
+
+# Function to update Bloodbanks_and_Hospitals Table for a Blood Transfer
+def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sendinghospitalID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    
+    # Get next transfer ID
+    c.execute('''SELECT Donor_ID FROM Donation WHERE Donation_ID = ?;''', (donationid))
+    dresult = c.fetchone()
+    donorID = dresult[0]
+    c.execute('''SELECT Blood_Type FROM Donor WHERE Donor_ID = ?;''', (donorID))
+    result = c.fetchone()
+    bloodtype = result[0] + 1
+
+    if bloodtype == "A+":
+        bt_column = "A_Positive_Units"
+    elif bloodtype == "A-":
+        bt_column = "A_Negative_Units"
+    elif bloodtype == "B+":
+        bt_column = "B_Positive_Units"
+    elif bloodtype == "B-":
+        bt_column = "B_Negative_Units"
+    elif bloodtype == "AB+":
+        bt_column = "AB_Positive_Units"
+    elif bloodtype == "AB-":
+        bt_column = "AB_Negative_Units"
+    elif bloodtype == "O+":
+        bt_column = "O_Positive_Units"
+    elif bloodtype == "O-":
+        bt_column = "O_Negative_Units"
+
+    # Calculate the new quantity for Receiving Hospital
+    c.execute('''SELECT ? FROM Bloodbanks_and_Hospitals WHERE Institution_ID = ?;''', (bt_column, receivinghospitalID))
+    result = c.fetchone()
+    newamount_r = result[0] + 1
+    
+    # Calculate the new quantity for Sending Hospital
+    c.execute('''SELECT ? FROM Bloodbanks_and_Hospitals WHERE Institution_ID = ?;''', (bt_column, sendinghospitalID))
+    result = c.fetchone()
+    newamount_s = result[0] - 1
+
+    # Update Receiving Hospital
+    c.execute('''UPDATE Bloodbanks_and_Hospitals SET ? = ? WHERE Institution_ID = ?;''', (bt_column, newamount_r, receivinghospitalID))
+    
+    # Update Sending Hospital
+    c.execute('''UPDATE Bloodbanks_and_Hospitals SET ? = ? WHERE Institution_ID = ?;''', (bt_column, newamount_s, sendinghospitalID))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to enter blood transfer in Transfer table
+def enterTransfer(db_filename, donationID, receivinghospitalID, sendinghospitalID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next transfer ID
+    c.execute('''SELECT MAX(Transfer_ID) FROM Transfer;''')
+    result = c.fetchone()
+    transferID = result[0] + 1
+    
+    # Get current datetime
+    dt_now = datetime.datetime.now()
+
+    # Insert transfer
+    c.execute('''INSERT INTO Transfer (Transfer_ID, Date_Time, Donation_ID, Receiving_Hospital_ID, Sending_Hospital_ID) VALUES (?,?,?,?,?);''', (transferID, dt_now, donationID, receivinghospitalID, sendinghospitalID))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
 
 # Code to run to set up database
 if __name__ == "__main__":

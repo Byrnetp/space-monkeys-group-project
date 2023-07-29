@@ -1,0 +1,48 @@
+<!-- CS 3308 Group Project -->
+<!-- Team 2: Space Monkeys -->
+<!-- Template for Blood Bank website Blood Transfer Entry page -->
+<!-- Last Update: Michael Becker, 29 July 2023 -->
+
+{% extends "main_layout.html" %}
+{% block title %}Blood Bank Entry Page{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="static/css/style.css">
+  <script src="static/javascript/transfer.js"></script>
+  {% endblock %}
+{% block content %}
+  <h1>Blood Transfer Entry Page</h1>
+  <form id="TransferEntryForm" name="TransferEntryForm">
+    <label id="DonationIDLabel" for="DonationID">Donation ID:</label>
+    <br>
+    <input list="donationIDChoices" id="DonationID" name="DonationID">
+    <datalist id="donationIDChoices" name="donationIDChoices">
+      {%for i in range(0, numDonations)%}
+        <option value="{{donationsList[i]}}">
+      {%endfor%}
+    </datalist>
+    <br>
+    <br>
+    <label id="ReceivingHospitalIDLabel" for="ReceivingHospitalID">Receiving Hospital ID:</label>
+    <br>
+    <input list="ReceivingHospitalIDChoices" id="ReceivingHospitalID" name="ReceivingHospitalID">
+    <datalist id="ReceivingHospitalIDChoices" name="ReceivingHospitalIDChoices">
+      {%for i in range(0, numHospitals)%}
+        <option value="{{hospitalsList[i]}}">
+      {%endfor%}
+    </datalist>
+    <br>
+    <br>
+    <label id="SendingHospitalIDLabel" for="SendingHospitalID">Sending Hospital ID:</label>
+    <br>
+    <input list="SendingHospitalIDChoices" id="SendingHospitalID" name="SendingHospitalID">
+    <datalist id="SendingHospitalIDChoices" name="SendingHospitalIDChoices">
+      {%for i in range(0, numHospitals)%}
+        <option value="{{hospitalsList[i]}}">
+      {%endfor%}
+    </datalist>
+    <br>
+    <br>
+    <input type="submit" value="Submit">
+  </form>
+{% endblock %}

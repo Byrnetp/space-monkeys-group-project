@@ -157,6 +157,37 @@ def transfusion():
         bloodBanksList = bloodBanksList,
         )
 
+# Blood bank entry page
+@app.route('/transfer')
+def transfer():
+
+    # Get input parameters from URL
+    DonationID = request.args.get('DonationID', None)
+    ReceivingHospitalID = request.args.get('ReceivingHospitalID', None)
+    SendingHospitalID = request.args.get('SendingHospitalID', None)
+
+    # Insert data if all entries are populated
+    if (space_monkeys_db and DonationID and ReceivingHospitalID and SendingHospitalID):
+        sm_dbAPI.enterTransfer(space_monkeys_db, DonationID, ReceivingHospitalID, SendingHospitalID)
+        
+    # Update table
+    if (space_monkeys_db and DonationID and ReceivingHospitalID and SendingHospitalID):
+        sm_dbAPI.UpdateInstitutionInventory(space_monkeys_db, DonationID, ReceivingHospitalID, SendingHospitalID)
+        
+    # Query database to get list of donation IDs
+    donationsList = sm_dbAPI.getDonationIDsList(space_monkeys_db)
+    
+    # Query database to get list of Hospital IDs
+    hospitalsList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
+        
+    # Render page
+    return render_template(
+        'transfer.html',
+        numDonations = len(donationsList),
+        donationsList = donationsList,
+        numHospitals = len(hospitalsList),
+        hospitalsList = hospitalsList
+        )
 
 ###############################################################################
 
