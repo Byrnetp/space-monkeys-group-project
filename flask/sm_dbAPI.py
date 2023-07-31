@@ -679,6 +679,155 @@ def enterTransfer(db_filename, donationID, receivinghospitalID, sendinghospitalI
     conn.close()
     return
 
+# Function to get A postive units
+def getBloodAList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all A positive units
+    c.execute('''SELECT A_POSITIVE_Units FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get B positive units
+def getBloodBList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all B positive units
+    c.execute('''SELECT B_Positive_Units FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get AB positive units
+def getBloodABList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all AB psoitive units
+    c.execute('''SELECT AB_Positive_Units FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get O positive units
+def getBloodOList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all O positive units
+    c.execute('''SELECT O_Positive_Units FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get A negative units
+def getBloodANList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all A negative units
+    c.execute('''SELECT A_Negative_Units FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get B negative units
+def getBloodBNList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all donor names
+    c.execute('''SELECT B_Negative_Units FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get AB negative units
+def getBloodABNList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute('''SELECT AB_Negative_Units FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get O negative units
+def getBloodONList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute('''SELECT O_Negative_Units FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get all bank ids
+def getBloodID(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute('''SELECT Institution_ID FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get city and state 
+def getAddress(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute('''SELECT City, State FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to return blood bank types
+def getBankType(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute('''SELECT Type FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
 # Code to run to set up database
 if __name__ == "__main__":
     space_monkeys_db = 'space_monkeys_db'
