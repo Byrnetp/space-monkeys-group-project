@@ -198,30 +198,68 @@ def visualization():
     # Query database to get Blood Bank ID
     getBloodID = sm_dbAPI.getBloodID(space_monkeys_db)
 
-    # Query database to get list of blood banks
+    # Query database to get list of blood banks names
     bloodBanksList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
 
     # Query database to get list of A positive units
     blood_A_positive = sm_dbAPI.getBloodAList(space_monkeys_db)
 
-    # Query database to get list of A positive units
+    # Query database to get list of B positive units
     blood_B_positive = sm_dbAPI.getBloodBList(space_monkeys_db)
-    
+
+   #  query db to get list of AB positive units
     blood_AB_positive = sm_dbAPI.getBloodABList(space_monkeys_db)
 
+    #  query db to get list of O positive units
     blood_O_positive = sm_dbAPI.getBloodOList(space_monkeys_db)
 
+    #  query db to get list of A negative units
     blood_A_negative = sm_dbAPI.getBloodANList(space_monkeys_db)
 
+    # query db to get list of B negative units
     blood_B_negative = sm_dbAPI.getBloodBNList(space_monkeys_db)
 
+    # query db to get list of AB negative units
     blood_AB_negative = sm_dbAPI.getBloodABNList(space_monkeys_db)
 
+    # query db to get list of B negative units
     blood_O_negative = sm_dbAPI.getBloodONList(space_monkeys_db)
 
+    # query db to get address
     bloodBankAddress = sm_dbAPI.getAddress(space_monkeys_db)
 
+    # query db to get bank types
     bloodBankType = sm_dbAPI.getBankType(space_monkeys_db)
+
+    # total A positive
+    totalAPositiveUnits = sm_dbAPI.getTotalAPositiveUnits(space_monkeys_db)
+
+    # total B positive
+    totalBPositiveUnits = sm_dbAPI.getTotalBPositiveUnits(space_monkeys_db)
+
+    # total AB positive
+    totalABPositiveUnits = sm_dbAPI.getTotalABPositiveUnits(space_monkeys_db)
+
+    # total O positive
+    totalOPositiveUnits = sm_dbAPI.getTotalOPositiveUnits(space_monkeys_db)
+
+    # total A negative
+    totalANegativeUnits = sm_dbAPI.getTotalANegativeUnits(space_monkeys_db)
+
+    # total B negative
+    totalBNegativeUnits = sm_dbAPI.getTotalBNegativeUnits(space_monkeys_db)
+
+    # total AB negative
+    totalABNegativeUnits = sm_dbAPI.getTotalABNegativeUnits(space_monkeys_db)
+
+    # total O negative
+    totalONegativeUnits = sm_dbAPI.getTotalONegativeUnits(space_monkeys_db)
+
+    # define labels for the pie chart
+    pie_chart_labels=['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-']
+    
+    # define the data for the pie chart
+    pie_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits];  
 
     # Render page
     return render_template(
@@ -239,9 +277,18 @@ def visualization():
         blood_B_negative = blood_B_negative,
         blood_AB_negative = blood_AB_negative,
         blood_O_negative = blood_O_negative,
+        pie_chart_labels=pie_chart_labels,  # Pass the labels to the template
+        pie_chart_data=pie_chart_data,      # Pass the data to the template
+        totalAPositiveUnits=totalAPositiveUnits,
+        totalBPositiveUnits=totalBPositiveUnits,
+        totalABPositiveUnits=totalABPositiveUnits,
+        totalOPositiveUnits=totalOPositiveUnits,
+        totalANegativeUnits=totalANegativeUnits,
+        totalBNegativeUnits=totalBNegativeUnits,
+        totalABNegativeUnits=totalABNegativeUnits,
+        totalONegativeUnits=totalONegativeUnits,
     )
     
-
 ###############################################################################
 
 # Main driver function

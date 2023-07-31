@@ -693,6 +693,12 @@ def getBloodAList(db_filename):
     conn.close()
     return bloodList
 
+# function to get total A positive units:
+def getTotalAPositiveUnits(db_filename):
+    a_positive_units = getBloodAList(db_filename)
+    total_a_positive_units = sum(a_positive_units)
+    return total_a_positive_units
+
 # Function to get B positive units
 def getBloodBList(db_filename):
     conn = sqlite3.connect(db_filename)
@@ -706,6 +712,12 @@ def getBloodBList(db_filename):
     conn.commit()
     conn.close()
     return bloodList
+
+# function to get total b positive units:
+def getTotalBPositiveUnits(db_filename):
+    b_positive_units = getBloodBList(db_filename)
+    total_b_positive_units = sum(b_positive_units)
+    return total_b_positive_units
 
 # Function to get AB positive units
 def getBloodABList(db_filename):
@@ -721,6 +733,12 @@ def getBloodABList(db_filename):
     conn.close()
     return bloodList
 
+# function to get total AB positive units:
+def getTotalABPositiveUnits(db_filename):
+    ab_positive_units = getBloodABList(db_filename)
+    total_ab_positive_units = sum(ab_positive_units)
+    return total_ab_positive_units
+
 # Function to get O positive units
 def getBloodOList(db_filename):
     conn = sqlite3.connect(db_filename)
@@ -734,6 +752,12 @@ def getBloodOList(db_filename):
     conn.commit()
     conn.close()
     return bloodList
+
+# function to get total O positive units:
+def getTotalOPositiveUnits(db_filename):
+    o_positive_units = getBloodOList(db_filename)
+    total_o_positive_units = sum(o_positive_units)
+    return total_o_positive_units
 
 # Function to get A negative units
 def getBloodANList(db_filename):
@@ -749,6 +773,12 @@ def getBloodANList(db_filename):
     conn.close()
     return bloodList
 
+# function to get total A Negative units:
+def getTotalANegativeUnits(db_filename):
+    a_negative_units = getBloodANList(db_filename)
+    total_a_negative_units = sum(a_negative_units)
+    return total_a_negative_units
+
 # Function to get B negative units
 def getBloodBNList(db_filename):
     conn = sqlite3.connect(db_filename)
@@ -763,6 +793,12 @@ def getBloodBNList(db_filename):
     conn.close()
     return bloodList
 
+# function to get total B Negative units:
+def getTotalBNegativeUnits(db_filename):
+    b_negative_units = getBloodBNList(db_filename)
+    total_b_negative_units = sum(b_negative_units)
+    return total_b_negative_units
+
 # Function to get AB negative units
 def getBloodABNList(db_filename):
     conn = sqlite3.connect(db_filename)
@@ -776,6 +812,12 @@ def getBloodABNList(db_filename):
     conn.close()
     return bloodList
 
+# function to get total A Negative units:
+def getTotalABNegativeUnits(db_filename):
+    ab_negative_units = getBloodANList(db_filename)
+    total_ab_negative_units = sum(ab_negative_units)
+    return total_ab_negative_units
+
 # Function to get O negative units
 def getBloodONList(db_filename):
     conn = sqlite3.connect(db_filename)
@@ -788,6 +830,12 @@ def getBloodONList(db_filename):
     conn.commit()
     conn.close()
     return bloodList
+
+# function to get total A Negative units:
+def getTotalONegativeUnits(db_filename):
+    o_negative_units = getBloodONList(db_filename)
+    total_o_negative_units = sum(o_negative_units)
+    return total_o_negative_units
 
 # Function to get all bank ids
 def getBloodID(db_filename):
