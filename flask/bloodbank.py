@@ -189,6 +189,59 @@ def transfer():
         hospitalsList = hospitalsList
         )
 
+# Blood Visualization Page
+@app.route('/visualization')
+def visualization():
+    # Get input parameters from URL
+    bloodBankName = request.args.get('bloodBankName', None)
+
+    # Query database to get Blood Bank ID
+    getBloodID = sm_dbAPI.getBloodID(space_monkeys_db)
+
+    # Query database to get list of blood banks
+    bloodBanksList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
+
+    # Query database to get list of A positive units
+    blood_A_positive = sm_dbAPI.getBloodAList(space_monkeys_db)
+
+    # Query database to get list of A positive units
+    blood_B_positive = sm_dbAPI.getBloodBList(space_monkeys_db)
+    
+    blood_AB_positive = sm_dbAPI.getBloodABList(space_monkeys_db)
+
+    blood_O_positive = sm_dbAPI.getBloodOList(space_monkeys_db)
+
+    blood_A_negative = sm_dbAPI.getBloodANList(space_monkeys_db)
+
+    blood_B_negative = sm_dbAPI.getBloodBNList(space_monkeys_db)
+
+    blood_AB_negative = sm_dbAPI.getBloodABNList(space_monkeys_db)
+
+    blood_O_negative = sm_dbAPI.getBloodONList(space_monkeys_db)
+
+    bloodBankAddress = sm_dbAPI.getAddress(space_monkeys_db)
+
+    bloodBankType = sm_dbAPI.getBankType(space_monkeys_db)
+
+    # Render page
+    return render_template(
+        'visualization.html', 
+        getBloodID = getBloodID,
+        numBloodBanks = len(bloodBanksList), 
+        bloodBanksList = bloodBanksList,
+        bloodBankAddress = bloodBankAddress,
+        bloodBankType = bloodBankType,
+        blood_A_positive = blood_A_positive,
+        blood_B_positive= blood_B_positive, 
+        blood_AB_positive = blood_AB_positive,
+        blood_O_positive = blood_O_positive,
+        blood_A_negative = blood_A_negative,
+        blood_B_negative = blood_B_negative,
+        blood_AB_negative = blood_AB_negative,
+        blood_O_negative = blood_O_negative,
+    )
+    
+
 ###############################################################################
 
 # Main driver function
