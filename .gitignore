@@ -1,1 +1,3 @@
 .ipynb_checkpoints
+flask/__pycache__
+flask/setup.cmds
