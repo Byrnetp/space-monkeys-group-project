@@ -288,6 +288,13 @@ def visualization():
         totalABNegativeUnits=totalABNegativeUnits,
         totalONegativeUnits=totalONegativeUnits,
     )
+
+# Detailed inventory page
+@app.route('/detail')
+def detail():
+    hospitals = ["Hospital 1", "Hospital 2", "Hospital 3", "Hospital 4"]
+    donations = [{'donationID': '1234', 'dateTime': 'May 3 2023', 'donorID': '5234', 'medProf': 'Dr. Trujillo', 'amount': '1'}]
+    return render_template('detail.html', hospitals=hospitals, donations=donations)
     
 ###############################################################################
 

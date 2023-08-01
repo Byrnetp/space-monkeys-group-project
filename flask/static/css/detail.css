@@ -1,0 +1,17 @@
+#menu {
+    float: left;
+    width: 20%;
+}
+
+main {
+    float: right;
+    width: 75%;
+}
+
+th {
+    border: 1px solid black;
+}
+
+tr {
+    border: 1px solid black;
+}

@@ -1,0 +1,100 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Inventory Details</title>
+    <link rel="stylesheet" href="static/css/detail.css">
+  </head>
+  <body>
+
+    <!-- The menu for the page -->
+  <div id="menu">
+    <h3>Menu</h3>
+    <label for="hospital">Choose a hospital:</label>
+    <select id="hospital">
+      {% for hospital in hospitals %}
+        <option value="{{ hospital }}">{{ hospital }}</option>
+      {% endfor %}
+    </select>
+    <p>Display: </p>
+    <input type="checkbox" id="donations" checked>
+    <label for="donations">Donations</label>
+    <input type="checkbox" id="transfusions" checked>
+    <label for="transfusions">Transfusions</label>
+    <input type="checkbox" id="transfers" checked>
+    <label for="transfers">Transfers</label>
+    
+  </div>
+  <!--Main part of the page with data tables-->
+  <main>
+    <h1>Details</h1>
+    <hr>
+    <div id="donationTable">
+      <h2>Donations</h2>
+      <table>
+        <tr>
+          <th>Donation ID</th>
+          <th>Date & Time</th>
+          <th>Donor ID</th>
+          <th>Medical Professional</th>
+          <th>Amount</th>
+        </tr>
+        {% for donation in donations %}
+          <tr>
+            <td>{{ donation.donationID }}</td>
+            <td>{{ donation.dateTime }}</td>
+            <td>{{ donation.donorID }}</td>
+            <td>{{ donation.medProf }}</td>
+            <td>{{ donation.amount }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    <div id="transfusionTable">
+      <h2>Transfusions</h2>
+      <table>
+        <tr>
+          <th>Transfusion ID</th>
+          <th>Date & Time</th>
+          <th>Donation ID</th>
+          <th>Patient ID</th> 
+          <th>Medical Professional</th>
+          <th>Amount</th>
+        </tr>
+        {% for transfusion in transfusions %}
+        <tr>
+          <td>{{ transfusion.transfusionID }}</td>
+          <td>{{ transfusion.dateTime }}</td>
+          <td>{{ transfusion.donationID }}</td>
+          <td>{{ transfusion.patientID }}</td>
+          <td>{{ transfusion.medProf }}</td>
+          <td>{{ transfusion.amount }}</td>
+        </tr>
+      {% endfor %}
+      </table>
+    </div>
+    <div id="transferTable">
+      <h2>Transfers</h2>
+      <table>
+        <tr>
+          <th>Transfer ID</th>
+          <th>Date & Time</th>
+          <th>Donation ID</th>
+          <th>Recieving Hospital</th> 
+          <th>Sending Hospital</th>
+        </tr>
+        {% for transfer in transfers %}
+          <tr>
+            <td>{{ transfer.transferID }}</td>
+            <td>{{ transfer.dateTime }}</td>
+            <td>{{ transfer.donationID }}</td>
+            <td>{{ transfer.reciever }}</td>
+            <td>{{ transfer.sender }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+    </main>
+  </body>
+  <!--script for the page-->
+  <script src="static/javascript/detail.js"></script>
+</html>
