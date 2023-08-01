@@ -3,7 +3,6 @@
   <head>
     <title>Inventory Details</title>
     <link rel="stylesheet" href="static/css/detail.css">
-    <script src="static/javascript/detail.js"></script>
   </head>
   <body>
 
@@ -17,11 +16,11 @@
       {% endfor %}
     </select>
     <p>Display: </p>
-    <input type="checkbox" id="donations" name="donationsDisplay" value="true">
+    <input type="checkbox" id="donations" checked>
     <label for="donations">Donations</label>
-    <input type="checkbox" id="transfusions" name="transfusionsDisplay" value="true">
+    <input type="checkbox" id="transfusions" checked>
     <label for="transfusions">Transfusions</label>
-    <input type="checkbox" id="transfers" name="transfersDisplay" value="true">
+    <input type="checkbox" id="transfers" checked>
     <label for="transfers">Transfers</label>
     
   </div>
@@ -96,4 +95,6 @@
     </div>
     </main>
   </body>
+  <!--script for the page-->
+  <script src="static/javascript/detail.js"></script>
 </html>
