@@ -1,7 +1,7 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## Main Flask driver code
-## Last Update: David Hughes, 26 July 2023
+## Last Update: Travis Byrne, 1 August 2023
 
 import prefix
 from flask import Flask, url_for, request, render_template
@@ -292,9 +292,82 @@ def visualization():
 # Detailed inventory page
 @app.route('/detail')
 def detail():
-    hospitals = ["Hospital 1", "Hospital 2", "Hospital 3", "Hospital 4"]
-    donations = [{'donationID': '1234', 'dateTime': 'May 3 2023', 'donorID': '5234', 'medProf': 'Dr. Trujillo', 'amount': '1'}]
-    return render_template('detail.html', hospitals=hospitals, donations=donations)
+
+    # Get the blood banks list
+    hospitals = sm_dbAPI.getBloodBanksIDsList(space_monkeys_db)
+
+    # Get donation, transfusion, and transfer tables for the default bank
+    donations = sm_dbAPI.getDonationTable(space_monkeys_db, hospitals[0][1])
+    transfusions = sm_dbAPI.getTransfusionTable(space_monkeys_db, hospitals[0][1])
+    outgoingTransfers = sm_dbAPI.getOutgoingTransferTable(space_monkeys_db, hospitals[0][1])
+    incomingTransfers = sm_dbAPI.getIncomingTransferTable(space_monkeys_db, hospitals[0][1])
+
+    # Adding dashes to make the dates easier to read
+    for donation in donations:
+        date = str(donation[1])
+        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+        donation[1] = date
+
+    for transfusion in transfusions:
+        date = str(transfusion[1])
+        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+        transfusion[1] = date
+    
+    for i_transfer in incomingTransfers:
+        date = str(i_transfer[1])
+        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+        i_transfer[1] = date
+    
+    for o_transfer in outgoingTransfers:
+        date = str(o_transfer[1])
+        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+        o_transfer[1] = date
+
+    return render_template('detail.html', hospitals=hospitals, donations=donations, transfusions=transfusions, outgoingTransfers=outgoingTransfers, incomingTransfers=incomingTransfers)
+
+@app.route('/detail/<hospital_ID>')
+def get_tables(hospital_ID):
+
+    # Get donation, transfusion, and transfer data for the given hospital
+    donations = sm_dbAPI.getDonationTable(space_monkeys_db, hospital_ID)
+    transfusions = sm_dbAPI.getTransfusionTable(space_monkeys_db, hospital_ID)
+    outgoingTransfers = sm_dbAPI.getOutgoingTransferTable(space_monkeys_db, hospital_ID)
+    incomingTransfers = sm_dbAPI.getIncomingTransferTable(space_monkeys_db, hospital_ID)
+
+    # Build the html to send 
+    tables = '<div id="donationTable"><h2>Donations</h2><table><tr><th>Donation ID</th><th>Date & Time</th><th>Donor ID</th><th>Medical Professional</th><th>Amount</th></tr>'
+
+    for donation in donations:
+        # Adding dashes to make the dates easier to read
+        date = str(donation[1])
+        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+        tables += '<tr><td>' + str(donation[0]) + '</td><td>' + date + '</td><td>' + str(donation[2]) + '</td><td>' + str(donation[3]) + '</td><td>' + str(donation[5]) + '</td></tr>'
+
+    tables += '</table></div><div id="transfusionTable"><h2>Transfusions</h2><table><tr><th>Transfusion ID</th><th>Date & Time</th><th>Donation ID</th><th>Patient ID</th> <th>Medical Professional</th><th>Amount</th></tr>'
+
+    for transfusion in transfusions:
+        date = str(transfusion[1])
+        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+        tables += '<tr><td>' + str(transfusion[0]) + '</td><td>' + date + '</td><td>' + str(transfusion[2]) + '</td><td>' + str(transfusion[3]) + '</td><td>' + str(transfusion[4]) + '</td><td>' + str(transfusion[6]) + '</td></tr>'
+
+    tables += '</table></div><div id="incomingTransferTable"><h2>Incoming Transfers</h2><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Sending Hospital ID</th></tr>'
+
+    for i_transfer in incomingTransfers:
+        date = str(i_transfer[1])
+        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+        tables += '<tr><td>' + str(i_transfer[0]) + '</td><td>' + date + '</td><td>' + str(i_transfer[2]) + '</td><td>' + str(i_transfer[4]) + '</td></tr>'
+
+    tables += '</table></div><div id="outgoingTransferTable"><h2>Outgoing Transfers</h2><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Recieving Hospital ID</th></tr>'
+
+    for o_transfer in outgoingTransfers:
+        date = str(o_transfer[1])
+        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+        tables += '<tr><td>' + str(o_transfer[0]) + '</td><td>' + date + '</td><td>' + str(o_transfer[2]) + '</td><td>' + str(o_transfer[3]) + '</td></tr>'
+
+    tables += '</table></div>'
+
+    return tables
+
     
 ###############################################################################
 

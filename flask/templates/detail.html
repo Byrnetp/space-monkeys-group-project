@@ -1,18 +1,26 @@
-<!doctype html>
-<html>
-  <head>
-    <title>Inventory Details</title>
-    <link rel="stylesheet" href="static/css/detail.css">
-  </head>
-  <body>
+<!-- CS 3308 Group Project -->
+<!-- Team 2: Space Monkeys -->
+<!-- Template for inventory details page -->
+<!-- Last Update: Travis Byrne, 1 August 2023 -->
 
-    <!-- The menu for the page -->
+{% extends "main_layout.html" %}
+{% block title %}Inventory Details{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="static/css/detail.css">
+{% endblock %}
+{% block content %}
+  <h1>Inventory Details</h1>
+
+  <hr>
+
+  <!-- The menu for the page -->
   <div id="menu">
     <h3>Menu</h3>
-    <label for="hospital">Choose a hospital:</label>
+    <label for="hospital">Choose a blood bank or hospital:</label>
     <select id="hospital">
       {% for hospital in hospitals %}
-        <option value="{{ hospital }}">{{ hospital }}</option>
+        <option value="{{ hospital[1] }}">{{ hospital[0] }}</option>
       {% endfor %}
     </select>
     <p>Display: </p>
@@ -20,14 +28,17 @@
     <label for="donations">Donations</label>
     <input type="checkbox" id="transfusions" checked>
     <label for="transfusions">Transfusions</label>
-    <input type="checkbox" id="transfers" checked>
-    <label for="transfers">Transfers</label>
-    
+    <input type="checkbox" id="incomingTransfers" checked>
+    <label for="incomingTransfers">Incoming Transfers</label>
+    <input type="checkbox" id="outgoingTransfers" checked>
+    <label for="outgoingTransfers">Outgoing Transfers</label>
   </div>
+
+  <hr>
+
   <!--Main part of the page with data tables-->
-  <main>
-    <h1>Details</h1>
-    <hr>
+  <div id="tablesContainer">
+
     <div id="donationTable">
       <h2>Donations</h2>
       <table>
@@ -40,15 +51,16 @@
         </tr>
         {% for donation in donations %}
           <tr>
-            <td>{{ donation.donationID }}</td>
-            <td>{{ donation.dateTime }}</td>
-            <td>{{ donation.donorID }}</td>
-            <td>{{ donation.medProf }}</td>
-            <td>{{ donation.amount }}</td>
+            <td>{{ donation[0] }}</td>
+            <td>{{ donation[1] }}</td>
+            <td>{{ donation[2] }}</td>
+            <td>{{ donation[3] }}</td>
+            <td>{{ donation[5] }}</td>
           </tr>
         {% endfor %}
       </table>
     </div>
+
     <div id="transfusionTable">
       <h2>Transfusions</h2>
       <table>
@@ -62,39 +74,60 @@
         </tr>
         {% for transfusion in transfusions %}
         <tr>
-          <td>{{ transfusion.transfusionID }}</td>
-          <td>{{ transfusion.dateTime }}</td>
-          <td>{{ transfusion.donationID }}</td>
-          <td>{{ transfusion.patientID }}</td>
-          <td>{{ transfusion.medProf }}</td>
-          <td>{{ transfusion.amount }}</td>
+          <td>{{ transfusion[0] }}</td>
+          <td>{{ transfusion[1] }}</td>
+          <td>{{ transfusion[2] }}</td>
+          <td>{{ transfusion[3] }}</td>
+          <td>{{ transfusion[4] }}</td>
+          <td>{{ transfusion[6] }}</td>
         </tr>
       {% endfor %}
       </table>
     </div>
-    <div id="transferTable">
-      <h2>Transfers</h2>
+
+    <div id="incomingTransferTable">
+      <h2>Incoming Transfers</h2>
       <table>
         <tr>
           <th>Transfer ID</th>
           <th>Date & Time</th>
           <th>Donation ID</th>
-          <th>Recieving Hospital</th> 
-          <th>Sending Hospital</th>
+          <th>Sending Hospital ID</th>
         </tr>
-        {% for transfer in transfers %}
+        {% for transfer in incomingTransfers %}
           <tr>
-            <td>{{ transfer.transferID }}</td>
-            <td>{{ transfer.dateTime }}</td>
-            <td>{{ transfer.donationID }}</td>
-            <td>{{ transfer.reciever }}</td>
-            <td>{{ transfer.sender }}</td>
+            <td>{{ transfer[0] }}</td>
+            <td>{{ transfer[1] }}</td>
+            <td>{{ transfer[2] }}</td>
+            <td>{{ transfer[4] }}</td>
           </tr>
         {% endfor %}
       </table>
     </div>
-    </main>
-  </body>
+
+    <div id="outgoingTransferTable">
+      <h2>Outgoing Transfers</h2>
+      <table>
+        <tr>
+          <th>Transfer ID</th>
+          <th>Date & Time</th>
+          <th>Donation ID</th>
+          <th>Recieving Hospital ID</th> 
+        </tr>
+        {% for transfer in outgoingTransfers %}
+          <tr>
+            <td>{{ transfer[0] }}</td>
+            <td>{{ transfer[1] }}</td>
+            <td>{{ transfer[2] }}</td>
+            <td>{{ transfer[3] }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+  </div>
+
   <!--script for the page-->
   <script src="static/javascript/detail.js"></script>
-</html>
+
+{% endblock %}

@@ -1,17 +1,30 @@
-#menu {
-    float: left;
-    width: 20%;
+/* CS 3308 Group Project
+ * Team 2: Space Monkeys
+ * Main Flask driver code
+ * Last Update: Travis Byrne, 1 August 2023 */
+h1 {
+    text-align: center;
 }
 
-main {
-    float: right;
-    width: 75%;
+h2 {
+    text-align: center;
 }
+
+ table {
+    border: 1px solid black;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+ }
 
 th {
     border: 1px solid black;
 }
 
 tr {
+    border: 1px solid black;
+}
+
+td {
     border: 1px solid black;
 }
