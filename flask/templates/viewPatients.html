@@ -1,0 +1,31 @@
+<!-- CS 3308 Group Project -->
+<!-- Team 2: Space Monkeys -->
+<!-- Template for view patients page -->
+<!-- Last Update: Travis Byrne, 2 August 2023 -->
+
+{% extends "main_layout.html" %}
+{% block title %}View Patients{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="static/css/viewDonorsPatients.css">
+  {% endblock %}
+{% block content %}
+  <h1>Patients</h1>
+  <hr>
+  <div id="tablesContainer">
+    <table>
+      <tr>
+        <th>Patient ID</th>
+        <th>Name</th>
+        <th>Blood Type</th>
+      </tr>
+      {% for patient in patients %}
+        <tr>
+          <td>{{ patient[0] }}</td>
+          <td>{{ patient[1] }}</td>
+          <td>{{ patient[2] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}

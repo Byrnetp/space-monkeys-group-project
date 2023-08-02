@@ -1,7 +1,7 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## Main database driver code
-## Last Update: Travis Byrne, 1 August 2023
+## Last Update: Travis Byrne, 2 August 2023
 
 import sqlite3
 import datetime
@@ -921,6 +921,27 @@ def getBloodBanksIDsList(db_filename):
     conn = sqlite3.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT Name, Institution_ID FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+# Function to get all donor data
+def getDonors(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute('''SELECT * FROM Donor;''')
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+
+# Function to get all patient data
+def getPatients(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute('''SELECT * FROM Patient;''')
     result = c.fetchall()
     conn.commit()
     conn.close()

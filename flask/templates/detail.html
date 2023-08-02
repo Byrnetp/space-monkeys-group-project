@@ -1,7 +1,7 @@
 <!-- CS 3308 Group Project -->
 <!-- Team 2: Space Monkeys -->
 <!-- Template for inventory details page -->
-<!-- Last Update: Travis Byrne, 1 August 2023 -->
+<!-- Last Update: Travis Byrne, 2 August 2023 -->
 
 {% extends "main_layout.html" %}
 {% block title %}Inventory Details{% endblock %}
@@ -23,15 +23,17 @@
         <option value="{{ hospital[1] }}">{{ hospital[0] }}</option>
       {% endfor %}
     </select>
-    <p>Display: </p>
-    <input type="checkbox" id="donations" checked>
-    <label for="donations">Donations</label>
-    <input type="checkbox" id="transfusions" checked>
-    <label for="transfusions">Transfusions</label>
-    <input type="checkbox" id="incomingTransfers" checked>
-    <label for="incomingTransfers">Incoming Transfers</label>
-    <input type="checkbox" id="outgoingTransfers" checked>
-    <label for="outgoingTransfers">Outgoing Transfers</label>
+    <div id="checkbox-container">
+      <label>Display: </label>
+      <input type="checkbox" id="donations" checked>
+      <label for="donations">Donations</label>
+      <input type="checkbox" id="transfusions" checked>
+      <label for="transfusions">Transfusions</label>
+      <input type="checkbox" id="incomingTransfers" checked>
+      <label for="incomingTransfers">Incoming Transfers</label>
+      <input type="checkbox" id="outgoingTransfers" checked>
+      <label for="outgoingTransfers">Outgoing Transfers</label>
+    </div>
   </div>
 
   <hr>

@@ -1,7 +1,7 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## Main Flask driver code
-## Last Update: Travis Byrne, 1 August 2023
+## Last Update: Travis Byrne, 2 August 2023
 
 import prefix
 from flask import Flask, url_for, request, render_template
@@ -350,6 +350,21 @@ def get_tables(hospital_ID):
 
     return tables
 
+@app.route('/view-donors')
+def view_donors():
+
+    # Get donor data
+    donors = sm_dbAPI.getDonors(space_monkeys_db)
+
+    return render_template('viewDonors.html', donors=donors)
+
+@app.route('/view-patients')
+def view_patients():
+
+    # Get donor data
+    patients = sm_dbAPI.getPatients(space_monkeys_db)
+
+    return render_template('viewPatients.html', patients=patients)
     
 ###############################################################################
 

@@ -1,0 +1,31 @@
+<!-- CS 3308 Group Project -->
+<!-- Team 2: Space Monkeys -->
+<!-- Template for view donors page -->
+<!-- Last Update: Travis Byrne, 2 August 2023 -->
+
+{% extends "main_layout.html" %}
+{% block title %}View Donors{% endblock %}
+{% block head %}
+  {{ super() }}
+  <link rel="stylesheet" href="static/css/viewDonorsPatients.css">
+  {% endblock %}
+{% block content %}
+  <h1>Donors</h1>
+  <hr>
+  <div id="tablesContainer">
+    <table>
+      <tr>
+        <th>Donor ID</th>
+        <th>Name</th>
+        <th>Blood Type</th>
+      </tr>
+      {% for donor in donors %}
+        <tr>
+          <td>{{ donor[0] }}</td>
+          <td>{{ donor[1] }}</td>
+          <td>{{ donor[2] }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+{% endblock %}
