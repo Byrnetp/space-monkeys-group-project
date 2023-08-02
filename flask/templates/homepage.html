@@ -1,16 +1,142 @@
 <!-- CS 3308 Group Project -->
 <!-- Team 2: Space Monkeys -->
 <!-- Template for Blood Bank website homepage -->
-<!-- Last Update: David Hughes, 26 July 2023 -->
+<!-- Last Update: Dylan Kayyem, 8/1/2023 -->
 
 {% extends "main_layout.html" %}
-{% block title %}Homepage{% endblock %}
+{% block title %} Homepage {% endblock %}
 {% block head %}
   {{ super() }}
+  <title>Blood Bank Homepage</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #00c0b0;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    #banner {
+      max-width: 100%;
+      height: 200px;
+      border: 1px solid #ccc;
+      overflow: hidden; /* This will hide any content that overflows the container */
+      position: relative; /* Required for absolute positioning within the container */
+    }
+    .image-container {
+      position: absolute;
+      top: -90px;
+    }
+    .image-container img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+    }
+    .container {
+      max-width: 100%;
+      margin: 0 auto;
+    }
+    .fact-container {
+      background-color: #f5f5f5;
+      padding: 20px;
+      margin: 20px;
+    }
+    .info-container {
+      background-color: #f5f5f5;
+      padding: 20px;
+      margin: 20px;
+    }
+    .common-container {
+      display: flex;
+      max-width: 100%;
+      margin-left: 20px;
+    }
+    .reasons-container {
+      flex: 1;
+      background-color: #f5f5f5;
+      padding: 20px;
+      margin: 0px 20px 0px 0px;
+    }
+    .list-container {
+      margin-bottom: 20px;
+    }
+    /* Style the title */
+    h1 {
+      font-size: 36px;
+    }
+    /* Style the facts and information */
+    h2 {
+      font-size: 24px;
+    }
+    a, li, p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
 {% endblock %}
 {% block content %}
-  <h1>Space Monkeys Blood Bank - Homepage</h1>
-  <p>
-    Welcome to our awesome homepage.
-  </p>
+<body>
+
+  <header>
+    <h1> Space Monkey's Blood Bank </h1>
+  </header>
+
+  <div id="banner">
+    <div class="image-container">
+      <img src="https://r4.wallpaperflare.com/wallpaper/805/417/201/animals-astronaut-fantasy-glasses-wallpaper-001e13213d7117de2e085fde03178813.jpg" alt="Blood Bank Image">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="fact-container">
+      <div class="list-container">
+        <h2> Who is eligible to donate whole blood? </h2>
+        <li> Donation frequency: Every 56 days, up to 6 times a year* </li>
+        <li> Must be at least 16 years old </li>
+        <li> You must be in good health and feeling well** </li>
+        <li> You must weigh at least 110 lbs </li>
+        <!-- Add more facts here -->
+      </div>
+      <a href="https://www.redcrossblood.org/faq.html#eligibility" class="custom-link">See additional requirements for students</a>
+    </div>
+
+    <div class="info-container">
+      <h2> Common Reasons People Can’t Donate </h2>
+      <p> Even if you were deferred in the past, you may be eligible to donate now. </p>
+      <!-- Add more information here -->
+    </div>
+
+    <div class="common-container">
+      <div class = "reasons-container">
+        <b> Cold, Flu and Other Types of Illness </b>
+        <p> If you don’t feel well on the day of your donation, please call to cancel. We’ll be happy to see you 24 hours after your symptoms pass. </p>
+        <a href="https://www.redcrossblood.org/faq.html#eligibility-health" class="custom-link">Illness Deferrals</a>
+      </div>
+
+      <div class = "reasons-container">
+        <b> Information About Medications </b>
+        <p> Most medications will not disqualify you from being able to donate blood, but may require a waiting period after your final dose. </p>
+        <a href="https://www.redcrossblood.org/faq.html#eligibility-medications" class="custom-link">Medication Deferrals</a>
+      </div>
+
+      <div class = "reasons-container">
+        <b> Travel Outside of the United States </b>
+        <p> If you were unable to donate due to low iron, you may still be able to donate in the future. The Red Cross recommends taking steps to help increase your iron level. </p>
+        <a href="https://www.redcrossblood.org/faq.html#eligibility-travel" class="custom-link">Travel Deferrals</a>
+      </div>
+
+      <div class = "reasons-container">
+        <b> Low Iron </b>
+        <p> You may be deferred from donating blood or platelets if you have lived in or traveled to a malaria-risk country in the past three years. </p>
+        <a href="https://www.redcrossblood.org/donate-blood/blood-donation-process/before-during-after/iron-blood-donation.html" class="custom-link">Learn more</a>
+      </div>
+
+    </div>
+  </div>
+</body>
 {% endblock %}
