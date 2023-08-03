@@ -28,46 +28,19 @@
       
   <h2>ENTER INFO:</h2>
       
-  <form id="complicationReportForm" name="complicationReportForm" method="POST">
+  <form id="complicationReportForm" name="complicationReportForm">
         <div class="input-group">
             <label for="transfusionID" id="transfusionIDLabel" >Transfusion ID:</label>
-            <input type="text" id="transfusionID" name="transfusionID" placeholder="Enter Transfusion ID">
-        </div>
-      
-
-<!--         <div class="input-group">
-          <label for="patientID">Patient ID:</label>
-          <input type="text" id="patientID" placeholder="Enter Patient ID">
-        </div>
-
-        <div class="input-group">
-          <label for="receivedUnits">Received:</label>
-          <input type="text" id="receivedUnits" placeholder="Enter number of units of blood">
-        </div> -->
-
-<!--         <div class="input-group">
-          <label for="bloodType">Blood type:</label>
-          <input type="text" id="bloodType" placeholder="Enter Blood type">
-        </div> -->
-<!-- 
-        <div class="input-group">
-          <label for="bloodBankID">Blood Bank ID:</label>
-          <input type="text" id="bloodBankID" placeholder="Enter Blood Bank ID">
-        </div> -->
-
-<!--         <div class="input-group">
-          <label for="date">Date:</label>
-          <input type="text" id="date" placeholder="Enter Date (e.g., 06/13/2021)">
-        </div> -->
-
-<!--         <div class="input-group">
-          <label for="donorID">Donor's ID:</label>
-          <input type="text" id="donorID" placeholder="Enter Donor's ID">
-        </div> -->
-
+            <input list="transfusionIDChoices" id="transfusionID" name="transfusionID" placeholder="Enter Transfusion ID">
+            <datalist id="transfusionIDChoices" name="transfusionIDChoices">
+              {%for i in range(0, numTransfusionIDs)%}
+                <option value="{{transfusionIDList[i]}}">
+              {%endfor%}
+            </datalist>
+            </div>
         <div class="comment-section">
           <label for="comment" id="commentLabel">Comment:</label>
-          <textarea id="comment" rows="4" placeholder="Enter your comment here"></textarea>
+          <textarea id="comment" name="comment" rows="4" placeholder="Enter your comment here"></textarea>
         </div>
         <div id="formContainer">
           <button id="submitReportButton">Submit Report</button>

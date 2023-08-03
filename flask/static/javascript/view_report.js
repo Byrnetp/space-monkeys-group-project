@@ -7,44 +7,23 @@ document.addEventListener('DOMContentLoaded', function () {
   // Function to execute on form submission
   var complicationReportForm = document.getElementById("complicationReportForm");
   complicationReportForm.addEventListener("submit", async (event) => {
+
+    console.log("Submitting....")
+
+    // Don't reload page on form submission
     event.preventDefault();
 
     // Check Transfusion ID for valid input
     var transfusionIDInput = document.getElementById("transfusionID");
-    var transfusionIDValid = !isEntryEmpty(transfusionIDInput.value);
+    var transfusionIDValid = isDatalistEntryValid("transfusionIDChoices", transfusionIDInput.value);
 
     setFormStyle(transfusionIDValid, "transfusionID", "Transfusion ID:", "Please enter a valid Transfusion ID");
 
     // Check if form entry is valid
     if (transfusionIDValid) {
-      // Get the Complication ID from the form input
-      var complicationID = parseInt(transfusionIDInput.value);
 
-      // Make an API call to get comments and Complication ID for the given Complication ID
-      try {
-        var response = await fetch(`/view_complication?transfusionID=${complicationID}`);
-        if (response.ok) {
-          var data = await response.text(); // Assuming you're rendering the template directly
-
-          var complicationIDDisplay = document.getElementById("transfusionIDData");
-          var commentsDisplay = document.getElementById("commentsDisplay");
-
-          if (data) {
-            // Assuming the fetched data is directly rendered within the HTML
-            complicationIDDisplay.innerHTML = data;
-            commentsDisplay.innerHTML = data;
-          } else {
-            complicationIDDisplay.textContent = "Complication ID not found for transfusion " + complicationID;
-            commentsDisplay.textContent = "No comments available";
-          }
-        } else {
-          console.error("Error fetching comments:", response.statusText);
-          alert("Error fetching comments. Please try again later.");
-        }
-      } catch (error) {
-        console.error("Error fetching comments:", error);
-        alert("Error fetching comments. Please try again later.");
-      }
+      // Submit form
+        document.complicationReportForm.submit();
     }
 
     // If form data is invalid
@@ -54,12 +33,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
   });
 });
-// Function to check if entry is empty
-function isEntryEmpty(choice) {
-  if (choice == "") {
-    return true;
+
+// Function to check if the datalist entry is valid
+function isDatalistEntryValid(datalistName, choice) {
+
+  // Get datalist
+  var datalist = document.getElementById(datalistName);
+
+  // Initialize flag variable
+  var optionFound = false;
+
+  // Determine whether an option exists with the current value of the input.
+  for (var j = 0; j < datalist.options.length; j++) {
+      if (choice == datalist.options[j].value) {
+          optionFound = true;
+          break;
+      }
   }
-  return false;
+
+  return optionFound;
 }
 
 // Function to set style of form input based on whether choice is valid or invalid

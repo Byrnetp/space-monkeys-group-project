@@ -396,7 +396,7 @@ def getDonation(db_filename, medicalProfessional):
     conn.close()
     return
         
-# Function to verify transfusion entryDono
+# Function to verify transfusion entry
 def getTransfusion(db_filename, medicalProfessional):
 
     # Initialize connection
@@ -536,6 +536,28 @@ def getDonorsList(db_filename):
     conn.close()
 
     return donorsList
+
+# Function to get list of Transfusion IDs
+def getTransfusionIDList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute('''SELECT Transfusion_ID FROM Transfusion;''')
+    result = c.fetchall()
+
+    # Build transfusion ID list
+    transfusionIDList = []
+    for transfusion in result:
+        transfusionIDList.append(transfusion[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return transfusionIDList
 
 # Function to get list of Patients
 def getPatientsList(db_filename):
@@ -964,8 +986,14 @@ def enterComments(db_filename, transfusion_id, comments):
             return False
         else:
             # If the Transfusion_ID exists, insert the data into the Complication table
-            c.execute("INSERT INTO Complication (Transfusion_ID, Comments) VALUES (?, ?)",
-                      (transfusion_id, comments))
+            
+            # Get next complication ID
+            c.execute('''SELECT MAX(Complication_ID) FROM Complication;''')
+            result = c.fetchone()
+            complicationID = result[0] + 1
+
+            c.execute("INSERT INTO Complication (Complication_ID, Transfusion_ID, Comments) VALUES (?, ?, ?)",
+                      (complicationID, transfusion_id, comments))
             conn.commit()
             print("Comments added successfully.")
             return True
@@ -977,14 +1005,15 @@ def enterComments(db_filename, transfusion_id, comments):
         print("Error:", e)
         return False
 
-#Function to get Comments for view_report.html
-def getComments(db_filename, transfusion_id):
+# Function to get Comments for view_report.html
+def getComplication(db_filename, transfusion_id):
     conn = sqlite3.connect(db_filename)
     c = conn.cursor()
     
     # Retrieve the Complication_ID and Comments for the given transfusion_id from the Complication table
     c.execute('''SELECT Complication_ID, Comments FROM Complication WHERE Transfusion_ID = ?;''', (transfusion_id,))
     result = c.fetchone()
+    print(result)
     
     conn.close()
     

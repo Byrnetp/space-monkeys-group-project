@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Check Transfusion ID for valid input
     var transfusionIDInput = document.getElementById("transfusionID");
-    var transfusionIDValid = !isEntryEmpty(transfusionIDInput.value);
+    var transfusionIDValid = isDatalistEntryValid("transfusionIDChoices", transfusionIDInput.value);
 
     setFormStyle(transfusionIDValid, "transfusionIDLabel", "Transfusion ID:", "Please enter a valid Transfusion ID");
 
@@ -43,6 +43,26 @@ document.addEventListener('DOMContentLoaded', function () {
 
   });
 });
+
+// Function to check if the datalist entry is valid
+function isDatalistEntryValid(datalistName, choice) {
+
+  // Get datalist
+  var datalist = document.getElementById(datalistName);
+
+  // Initialize flag variable
+  var optionFound = false;
+
+  // Determine whether an option exists with the current value of the input.
+  for (var j = 0; j < datalist.options.length; j++) {
+      if (choice == datalist.options[j].value) {
+          optionFound = true;
+          break;
+      }
+  }
+
+  return optionFound;
+}
 
 // Function to check if entry is empty
 function isEntryEmpty(choice) {

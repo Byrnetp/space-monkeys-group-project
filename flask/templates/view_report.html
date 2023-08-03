@@ -15,19 +15,36 @@
   </div>
 
   <div class="search-boxes">
-    <form id="complicationReportForm">
+    <form id="complicationReportForm" name="complicationReportForm">
       <div class="search-report">
         <label for="reportSearch">Search Report:</label>
-        <input type="text" id="transfusionID" placeholder="Enter Transfusion ID">
+        <input list="transfusionIDChoices" id="transfusionID" name="transfusionID" placeholder="Enter Transfusion ID">
+        <datalist id="transfusionIDChoices" name="transfusionIDChoices">
+          {%for i in range(0, numTransfusionIDs)%}
+            <option value="{{transfusionIDList[i]}}">
+          {%endfor%}
+        </datalist>
         <button type="submit">Search</button>
       </div>
     </form>
   </div>
 
   <div class="hospital-info">
-      <h3 class="report_h3">Transfusion number : <span id="transfusionIDData"></span></h3>
-      <p>Complication ID: <span id="complicationIDDisplay"></span></p>
-      <p>Comments: <span id="commentsDisplay"></span></p>
+      <h3 class="report_h3">Transfusion number : <span id="transfusionIDData">
+        {% if transfusionID %}
+        <p class="transfusionID">{{ transfusionID }}</p>
+        {% endif %}  
+      </span></h3>
+      <p>Complication ID: <span id="complicationIDDisplay">
+        {% if complicationID %}
+        <p class="complicationID">{{ complicationID }}</p>
+        {% endif %}  
+      </span></p>
+      <p>Comments: <span id="commentsDisplay">
+        {% if complicationComment %}
+        <p class="complicationID">{{ complicationComment }}</p>
+        {% endif %}  
+      </span></p>
       {% if error_message %}
       <p class="error-message">{{ error_message }}</p>
       {% endif %}

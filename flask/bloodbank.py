@@ -7,7 +7,6 @@ import prefix
 from flask import Flask, url_for, request, render_template, request, jsonify
 from markupsafe import escape
 import sm_dbAPI
-from sm_dbAPI import getComments
 
 # Create app to use in this Flask application
 app = Flask(__name__)
@@ -243,7 +242,7 @@ def visualization():
     # define labels for the pie chart
     pie_chart_labels=['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-']
     # define the data for the pie chart
-    pie_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits];  
+    pie_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits]
     # Render page
     return render_template(
         'visualization.html', 
@@ -368,51 +367,51 @@ def view_patients():
     return render_template('viewPatients.html', patients=patients)
     
 # Complication Report
-@app.route('/complication', methods=['GET', 'POST'])
+@app.route('/complication')
 def complication():
 
-    if request.method == 'POST':
-        # Get input parameters from the form submission
-        transfusion_id = request.form.get('transfusionID')
-        comments = request.form.get('comment')
+    # Get input parameters from URL
+    transfusionID = request.args.get('transfusionID', None)
+    comment = request.args.get('comment', None)
 
-        # Validate that the required data is present
-        if transfusion_id and comments:
-            # Replace 'your_database_filename.db' with the actual name of your SQLite database file
-            enterComments(space_monkeys_db, transfusion_id, comments)
-            # You can add success message handling if desired, e.g., return render_template('complication_report.html', success=True)
+    # Validate that the required data is present
+    if transfusionID and comment:
+        sm_dbAPI.enterComments(space_monkeys_db, transfusionID, comment)
+
+    # Query database to get list of transfusion IDs
+    transfusionIDList = sm_dbAPI.getTransfusionIDList(space_monkeys_db)
 
     # Render the complication report form (including the success message if applicable)
-    return render_template('complication_report.html')
+    return render_template(
+        'complication_report.html',
+        numTransfusionIDs = len(transfusionIDList), 
+        transfusionIDList = transfusionIDList,
+    )
 
 #view complication
-@app.route('/view_complication', methods=['GET', 'POST'])
+@app.route('/view_complication')
 def view_complication():
-    if request.method == 'POST':
-        # Get input parameters from the form submission
-        transfusion_id = request.form.get('transfusionID')
-        comments = request.form.get('comments')
 
-        # Validate that the required data is present
-        if transfusion_id and comments:
-            # Call function to enter comments into the database
-            # Replace 'your_database_filename.db' with the actual name of your SQLite database file
-            enterComments(space_monkeys_db, transfusion_id, comments)
-            # You can add success message handling if desired, e.g., return render_template('complication_report.html', success=True)
+    # Get input parameters from URL
+    transfusionID = request.args.get('transfusionID', None)
 
-    elif request.method == 'GET':
-        # Get the Transfusion ID from the query parameters (URL)
-        # transfusion_id = request.args.get('transfusionID')
-        transfusion_id= 1
-        if transfusion_id:
-            # Call the getComments function to fetch the Complication ID and Comments
-            # complication_id, comments = getComments(space_monkeys_db, transfusion_id)
-            complication_id=12345
-            comments="Dummy comment 1"
-            # Render the view_report.html template with the fetched data
-            return render_template('view_report.html', transfusionID=transfusion_id, complicationID=complication_id, comments=comments)
+    # If there is a transfusion ID, query database for data associated with it
+    complicationID = None
+    complicationComment = None
+    if transfusionID:
+        (complicationID, complicationComment) = sm_dbAPI.getComplication(space_monkeys_db, transfusionID)
 
-    return render_template('view_report.html')
+    # Query database to get list of transfusion IDs
+    transfusionIDList = sm_dbAPI.getTransfusionIDList(space_monkeys_db)
+
+    return render_template(
+        'view_report.html',
+        numTransfusionIDs = len(transfusionIDList), 
+        transfusionIDList = transfusionIDList, 
+        transfusionID = transfusionID,
+        complicationID = complicationID,
+        complicationComment = complicationComment,
+    )
 
 
 # About
