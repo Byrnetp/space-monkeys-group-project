@@ -2,7 +2,7 @@
 ## Team 2: Space Monkeys
 ## Flask test code
 ## Last Update: David Hughes, 3 August 2023
-## USAGE: python3 test_bloodbank.py
+## USAGE: python3 -m pytest
 
 import os
 import pytest
