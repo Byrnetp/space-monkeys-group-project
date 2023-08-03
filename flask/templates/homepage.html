@@ -8,6 +8,7 @@
 {% block title %} Homepage {% endblock %}
 {% block head %}
   {{ super() }}
+
   <title>Blood Bank Homepage</title>
   <style>
     body {
@@ -82,6 +83,8 @@
 {% endblock %}
 {% block content %}
 <body>
+  {% include 'navbar.html' %}
+
 
   <header>
     <h1> Space Monkey's Blood Bank </h1>

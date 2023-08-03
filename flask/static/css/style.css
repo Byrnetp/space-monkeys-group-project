@@ -17,7 +17,8 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: #f8f8f8;
   margin: 0;
-  padding: 50px 50px 0 220px; /* padding: top left bottom right / left and top are for the nav bar*/
+  padding: 50px 50px 0 220px !important; /* padding: top left bottom right / left and top are for the nav bar*/
+ 
 }
 
 h1 {
@@ -40,10 +41,7 @@ main {
   margin: 20px;
 }
 
-/* Add background color for all pages */
-body {
-  background-color: #f8f8f8;
-}
+
 
 /* Navigation Bar Styles */
 nav {
@@ -90,14 +88,14 @@ nav ul li a:hover {
 }
 
 
-
-
 #content {
     width: 80vw;             /* 80% of width of page */
-    float: right;            /* Align on right side of page */
+/*     float: right;            /* Align on right side of page */ */
+    border: 1px solid black;
     border-style: solid;
     border-width: thin;
     padding: 10px;           /* 10px padding between border and content */
+    margin-bottom: 100px !important;
 }
 
 #footer {

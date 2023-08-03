@@ -100,12 +100,16 @@ input[type="submit"] {
 }
 
 #footer {
+    background-color: #000000;
+    color: #FFFFFF;
     height: 10vh;            /* 15% of page height */
     position: fixed;         /* Pin so it is always displayed while user scrolls */
     left: 0;                 /* Align to left of page */
     bottom: 0;               /* Align to bottom of page */
     width: 100%;             /* Full page width */
-    border-style: solid;
-    border-width: thin;
+    height: 70px;
+    border: none;
+/*     border-style: solid;
+    border-width: thin; */
     text-align: center;
 }

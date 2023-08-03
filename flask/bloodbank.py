@@ -31,10 +31,10 @@ def homepage():
 def home():
     return render_template('homepage.html')
 
-# Home page (alternate)
-@app.route('/about')
-def about():
-    return render_template('about.html')
+# # Home page (alternate)
+# @app.route('/about')
+# def about():
+#     return render_template('about.html')
 
 # Blood bank entry page
 @app.route('/bloodbank')
@@ -167,7 +167,6 @@ def transfusion():
 @app.route('/transfer')
 def transfer():
 
-<<<<<<< HEAD
     # Get input parameters from URL
     DonationID = request.args.get('DonationID', None)
     ReceivingHospitalID = request.args.get('ReceivingHospitalID', None)
@@ -368,7 +367,6 @@ def view_patients():
 
     return render_template('viewPatients.html', patients=patients)
     
-=======
 # Complication Report
 @app.route('/complication', methods=['GET', 'POST'])
 def complication():
@@ -422,7 +420,6 @@ def view_complication():
 def about():
    
     return render_template('about.html')
->>>>>>> about
 ###############################################################################
 
 # Main driver function
