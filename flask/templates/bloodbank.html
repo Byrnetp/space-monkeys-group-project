@@ -8,9 +8,15 @@
 {% block head %}
   {{ super() }}
   <script src="static/javascript/bloodbank.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/bloodbank.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
   {% endblock %}
 {% block content %}
-  <h1>Blood Bank Entry Page</h1>
+  {% include 'navbar.html' %}
+
+  <div class="header">
+      <h1>Blood Bank Entry Page</h1>
+  </div>
   <form id="bloodbankEntryForm" name="bloodbankEntryForm">
     <label id="bloodbankNameLabel" for="bloodbankName">Blood Bank Name:</label>
     <br>

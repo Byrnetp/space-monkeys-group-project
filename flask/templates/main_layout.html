@@ -1,18 +1,24 @@
 <!-- CS 3308 Group Project -->
 <!-- Team 2: Space Monkeys -->
 <!-- Main Layout template for Blood Bank website -->
+<<<<<<< HEAD
 <!-- Last Update: Travis Byrne, 2 August 2023 -->
+=======
+<!-- Last Update: Cyro, 27 July 2023 -->
+>>>>>>> about
 
 <!doctype html>
 <html>
   <head>
     {% block head %}
     <link rel="stylesheet" href="static/css/style.css">
+
     <title>{% block title %}{% endblock %} - Space Monkeys Blood Bank </title>
     {% endblock %}
   </head>
 
   <body>
+<<<<<<< HEAD
     <div id="sidebar">
         <p> <b> Navigation </b></p>
         <ul>
@@ -29,6 +35,10 @@
             <li> <a href="view-patients">View Patients</a> </li>
         </ul>
     </div>
+=======
+    {% include 'navbar.html' %}
+
+>>>>>>> about
     <div id="content">{% block content %}{% endblock %}</div>
     <div id="footer">
       <p>

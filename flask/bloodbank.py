@@ -4,9 +4,10 @@
 ## Last Update: Travis Byrne, 2 August 2023
 
 import prefix
-from flask import Flask, url_for, request, render_template
+from flask import Flask, url_for, request, render_template, request, jsonify
 from markupsafe import escape
 import sm_dbAPI
+from sm_dbAPI import getComments
 
 # Create app to use in this Flask application
 app = Flask(__name__)
@@ -166,6 +167,7 @@ def transfusion():
 @app.route('/transfer')
 def transfer():
 
+<<<<<<< HEAD
     # Get input parameters from URL
     DonationID = request.args.get('DonationID', None)
     ReceivingHospitalID = request.args.get('ReceivingHospitalID', None)
@@ -366,6 +368,61 @@ def view_patients():
 
     return render_template('viewPatients.html', patients=patients)
     
+=======
+# Complication Report
+@app.route('/complication', methods=['GET', 'POST'])
+def complication():
+
+    if request.method == 'POST':
+        # Get input parameters from the form submission
+        transfusion_id = request.form.get('transfusionID')
+        comments = request.form.get('comment')
+
+        # Validate that the required data is present
+        if transfusion_id and comments:
+            # Replace 'your_database_filename.db' with the actual name of your SQLite database file
+            enterComments(space_monkeys_db, transfusion_id, comments)
+            # You can add success message handling if desired, e.g., return render_template('complication_report.html', success=True)
+
+    # Render the complication report form (including the success message if applicable)
+    return render_template('complication_report.html')
+
+#view complication
+@app.route('/view_complication', methods=['GET', 'POST'])
+def view_complication():
+    if request.method == 'POST':
+        # Get input parameters from the form submission
+        transfusion_id = request.form.get('transfusionID')
+        comments = request.form.get('comments')
+
+        # Validate that the required data is present
+        if transfusion_id and comments:
+            # Call function to enter comments into the database
+            # Replace 'your_database_filename.db' with the actual name of your SQLite database file
+            enterComments(space_monkeys_db, transfusion_id, comments)
+            # You can add success message handling if desired, e.g., return render_template('complication_report.html', success=True)
+
+    elif request.method == 'GET':
+        # Get the Transfusion ID from the query parameters (URL)
+        # transfusion_id = request.args.get('transfusionID')
+        transfusion_id= 1
+        if transfusion_id:
+            # Call the getComments function to fetch the Complication ID and Comments
+            # complication_id, comments = getComments(space_monkeys_db, transfusion_id)
+            complication_id=12345
+            comments="Dummy comment 1"
+            # Render the view_report.html template with the fetched data
+            return render_template('view_report.html', transfusionID=transfusion_id, complicationID=complication_id, comments=comments)
+
+    return render_template('view_report.html')
+
+
+# About
+@app.route('/about')
+def about():
+   
+    return render_template('about.html')
+>>>>>>> about
 ###############################################################################
 
 # Main driver function

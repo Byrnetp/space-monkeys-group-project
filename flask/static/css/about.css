@@ -1,5 +1,5 @@
 body {
-  background-color: #222;
+  background-color: #222 !important;
   color: #fff;
   display: flex;
   flex-direction: column;
@@ -92,4 +92,7 @@ img {
 }
 .img-background {
   background-color: #ccc; 
+}
+#footer{
+    display: none !important;
 }

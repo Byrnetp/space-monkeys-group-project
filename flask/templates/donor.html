@@ -8,9 +8,16 @@
 {% block head %}
   {{ super() }}
   <script src="static/javascript/donor.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/donor.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
   {% endblock %}
 {% block content %}
-  <h1>Donor Entry Page</h1>
+
+  {% include 'navbar.html' %}
+
+  <div class="header">
+    <h1>Donor Entry Page</h1>
+  </div>
   <form id="donorEntryForm" name="donorEntryForm">
     <label id="donorNameLabel" for="donorName">Donor Name:</label>
     <br>

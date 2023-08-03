@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Hospital Complication Report</title>
+  <link rel="stylesheet" type="text/css" href="static/css/view_report.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
+  <script src="static/javascript/view_report.js"></script>
+  {% include 'navbar.html' %}
+</head>
+
+<body>
+  <div class="header">
+    <h2>VIEW COMPLICATION REPORT</h2>
+  </div>
+
+  <div class="search-boxes">
+    <form id="complicationReportForm">
+      <div class="search-report">
+        <label for="reportSearch">Search Report:</label>
+        <input type="text" id="transfusionID" placeholder="Enter Transfusion ID">
+        <button type="submit">Search</button>
+      </div>
+    </form>
+  </div>
+
+  <div class="hospital-info">
+      <h3 class="report_h3">Transfusion number : <span id="transfusionIDData"></span></h3>
+      <p>Complication ID: <span id="complicationIDDisplay"></span></p>
+      <p>Comments: <span id="commentsDisplay"></span></p>
+      {% if error_message %}
+      <p class="error-message">{{ error_message }}</p>
+      {% endif %}
+  </div>
+</body>
+
+</html>

@@ -8,9 +8,16 @@
 {% block head %}
   {{ super() }}
   <script src="static/javascript/patient.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/patient.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
   {% endblock %}
 {% block content %}
-  <h1>Patient Entry Page</h1>
+
+  {% include 'navbar.html' %}
+
+  <div class="header">
+    <h1>Patient Entry Page</h1>
+  </div>
   <form id="patientEntryForm" name="patientEntryForm">
     <label id="patientNameLabel" for="patientName">Patient Name:</label>
     <br>

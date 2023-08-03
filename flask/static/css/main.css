@@ -26,13 +26,17 @@ h3 {
 }
 
 /* Add margin for all pages */
-main {
+/* main {
   margin: 20px;
-}
+} */
 
-/* Add background color for all pages */
-body {
-  background-color: #f8f8f8;
+/* header label, the title is <h2>*/
+.header {
+  background-color: #63c3bb;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /* Navigation Bar Styles */
@@ -80,3 +84,28 @@ nav ul li a:hover {
 }
 
 
+/* submit button green */
+input[type="submit"] {
+  background-color: #4CAF50; /* Use the green color for the submit button specific to the Patient Entry Page */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#footer {
+    height: 10vh;            /* 15% of page height */
+    position: fixed;         /* Pin so it is always displayed while user scrolls */
+    left: 0;                 /* Align to left of page */
+    bottom: 0;               /* Align to bottom of page */
+    width: 100%;             /* Full page width */
+    border-style: solid;
+    border-width: thin;
+    text-align: center;
+}
