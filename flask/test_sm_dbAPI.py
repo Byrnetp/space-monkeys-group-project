@@ -2,7 +2,7 @@
 ## Team 2: Space Monkeys
 ## sm_dbAPI test code
 ## Last Update: David Hughes, 3 August 2023
-## USAGE: python3 test_sm_dbAPI.py
+## USAGE: python3 -m pytest
 
 # Import support routines from sm_dbAPI.py
 import sm_dbAPI
