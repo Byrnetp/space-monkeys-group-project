@@ -1,0 +1,86 @@
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 50px 50px 0 220px; /* Add padding to the top and sides to create space for the nav bar */
+}
+
+p{
+    font-size:18px !important;
+}
+
+
+
+.search-boxes {
+  display: flex;
+  justify-content: space-around;
+  padding: 20px;
+  margin-top: 30px;
+
+}
+
+.search-boxes label {
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 30px;
+}
+
+#hospitalSearch,
+#reportSearch {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-bottom: 30px;
+
+}
+
+.hospital-info {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.comment-section {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.extra-info {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.extra-info p {
+  margin: 5px 0;
+}
+
+.report_h3 {
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.report_h3:hover::after {
+/*   content: "Complication Report and Hospital Report"; */
+  background-color: #333;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  top: 40px;
+  left: 20px;
+  font-size: 14px;
+}

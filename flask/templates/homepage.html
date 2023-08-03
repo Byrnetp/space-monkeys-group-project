@@ -3,14 +3,40 @@
 <!-- Template for Blood Bank website homepage -->
 <!-- Last Update: David Hughes, 26 July 2023 -->
 
-{% extends "main_layout.html" %}
-{% block title %}Homepage{% endblock %}
-{% block head %}
-  {{ super() }}
-{% endblock %}
-{% block content %}
-  <h1>Space Monkeys Blood Bank - Homepage</h1>
-  <p>
-    Welcome to our awesome homepage.
-  </p>
-{% endblock %}
+<!DOCTYPE html>
+<html>
+    <head>
+      <link rel="stylesheet" href="static/css/main.css">
+      <title>Homepage</title>
+    </head>
+    <body>
+        <nav>
+          <ul>
+              <li><a href="{{ url_for('home') }}">Home</a></li>
+              <li><a href="{{ url_for('donor') }}">Enter Donor</a></li>
+              <li><a href="{{ url_for('patient') }}">Enter Patient </a></li>
+              <li><a href="{{ url_for('donation') }}">Enter Donation</a></li>
+              <li><a href="{{ url_for('transfusion') }}">Enter Transfusion</a> </li>
+              <li><a href="{{ url_for('bloodbank') }}">Enter Blood Bank</a></li>
+              <li><a href="{{ url_for('complication') }}">Complication Report</a></li>
+              <li><a href="{{ url_for('view_complication') }}">View Complication</a></li>
+              <li><a href="{{ url_for('about') }}">About</a></li>
+          </ul>
+      </nav>
+
+      <div>
+          <div class="header">
+              <h1>Space Monkeys Blood Bank - Homepage</h1>
+          </div>
+          <p>
+            Welcome to our awesome homepage.
+          </p>
+      </div>
+      <div id="footer">
+        <p>
+            CS 3308 Summer 2023 <br>
+            Team 2: Space Monkeys
+        </p>
+      </div>
+    </body>
+</html>

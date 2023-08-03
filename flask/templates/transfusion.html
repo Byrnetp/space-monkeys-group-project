@@ -8,9 +8,15 @@
 {% block head %}
   {{ super() }}
   <script src="static/javascript/transfusion.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/transfusion.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
   {% endblock %}
 {% block content %}
-  <h1>Transfusion Entry Page</h1>
+  {% include 'navbar.html' %}
+
+  <div class="header">
+      <h1>Transfusion Entry Page</h1>
+  </div>
   <form id="transfusionEntryForm" name="transfusionEntryForm">
     <label id="patientNameLabel" for="patientName">Patient Name:</label>
     <br>

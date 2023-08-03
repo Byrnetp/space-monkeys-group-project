@@ -1,0 +1,103 @@
+/* Add some basic styling to the form */
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Center the content horizontally */
+  align-items: center; /* Center the content vertically */
+}
+.header {
+  background-color: #63c3bb;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  width: 100% !important;
+}
+#addReportButton {
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#addReportButton:hover {
+  background-color: #45a049;
+}
+.report-form {
+  max-width: 400px;
+  margin: 20px auto;
+  padding: 80px;
+  border: 1px solid #ccc;
+  background:white;
+  border-radius: 10px;
+}
+
+.input-group {
+  margin-bottom: 15px;
+}
+
+.input-group label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.input-group input,
+.input-group textarea {
+  width: 100%;
+  padding: 5px;
+}
+
+.comment-section {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-section label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.comment-section textarea {
+    
+  width: 100%;
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  margin-bottom: 5px;
+}
+
+#submitReportButton{
+  background-color: #4CAF50; /* Use the green color for the submit button specific to the Patient Entry Page */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+#footer {
+    height: 10vh;            /* 15% of page height */
+    position: fixed;         /* Pin so it is always displayed while user scrolls */
+    left: 0;                 /* Align to left of page */
+    bottom: 0;               /* Align to bottom of page */
+    width: 100%;             /* Full page width */
+    border-style: solid;
+    border-width: thin;
+    text-align: center;
+}

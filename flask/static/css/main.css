@@ -1,18 +1,8 @@
 /* CS 3308 Group Project */
-/* Team 2: Space Monkeys */
+/* Team: Space Monkeys */
 /* CSS rules for Blood Bank website */
-/* Last Update: David Hughes, 26 July 2023 */
+/* Last Update: Cyro, 28 July 2023 */
 
-#sidebar {
-    width: 15vw;             /* 15% of page width */
-    height: 85vh;            /* 85% of page height */
-    border-style: solid;
-    border-width: thin;
-    float: left;             /* Align on left of page */
-    position: fixed;         /* Pin so it is always displayed while user scrolls */
-    padding: 10px;           /* 10px padding between border and content */
-    background-color: aqua;
-} 
 body {
   font-family: "Montserrat", sans-serif;
   background-color: #f8f8f8;
@@ -34,15 +24,13 @@ h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
-
-/* Add margin for all pages */
-main {
-  margin: 20px;
-}
-
-/* Add background color for all pages */
-body {
-  background-color: #f8f8f8;
+/* header label, the title is <h2>*/
+.header {
+  background-color: #63c3bb;
+  color: #fff;
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
 }
 
 /* Navigation Bar Styles */
@@ -89,15 +77,19 @@ nav ul li a:hover {
   background-color: #358c82;
 }
 
-
-
-
-#content {
-    width: 80vw;             /* 80% of width of page */
-    float: right;            /* Align on right side of page */
-    border-style: solid;
-    border-width: thin;
-    padding: 10px;           /* 10px padding between border and content */
+/* submit button green */
+input[type="submit"] {
+  background-color: #4CAF50; /* Use the green color for the submit button specific to the Patient Entry Page */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 10px 0;
+  cursor: pointer;
+  border-radius: 5px;
 }
 
 #footer {
@@ -109,15 +101,4 @@ nav ul li a:hover {
     border-style: solid;
     border-width: thin;
     text-align: center;
-}
-
-#warning {
-    font-weight: bold;
-    font-style: italic;
-    color: red;
-}
-
-p{
-    font-size:18px;
-    padding-left: 50px;
 }

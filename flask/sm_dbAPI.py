@@ -602,9 +602,56 @@ def getBloodBanksList(db_filename):
 
     return bloodBanksList
 
+#Function to enter Comments on complication_report.html
+def enterComments(db_filename, transfusion_id, comments):
+    try:
+        # Connect to the database
+        conn = sqlite3.connect(db_filename)
+        c = conn.cursor()
+
+        # Check if the Transfusion_ID exists in the Transfusion table
+        c.execute("SELECT * FROM Transfusion WHERE Transfusion_ID=?", (transfusion_id,))
+        result = c.fetchone()
+
+        if result is None:
+            print(f"Transfusion with ID {transfusion_id} not found.")
+            return False
+        else:
+            # If the Transfusion_ID exists, insert the data into the Complication table
+            c.execute("INSERT INTO Complication (Transfusion_ID, Comments) VALUES (?, ?)",
+                      (transfusion_id, comments))
+            conn.commit()
+            print("Comments added successfully.")
+            return True
+
+        # Close the database connection
+        conn.close()
+
+    except sqlite3.Error as e:
+        print("Error:", e)
+        return False
+
+#Function to get Comments for view_report.html
+def getComments(db_filename, transfusion_id):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    
+    # Retrieve the Complication_ID and Comments for the given transfusion_id from the Complication table
+    c.execute('''SELECT Complication_ID, Comments FROM Complication WHERE Transfusion_ID = ?;''', (transfusion_id,))
+    result = c.fetchone()
+    
+    conn.close()
+    
+    if result:
+        complication_id, comments = result
+        return complication_id, comments
+    else:
+        return None, None
+    
 # Code to run to set up database
 if __name__ == "__main__":
     space_monkeys_db = 'space_monkeys_db'
     create(space_monkeys_db)
     fill(space_monkeys_db)
     test_tables(space_monkeys_db)
+    
