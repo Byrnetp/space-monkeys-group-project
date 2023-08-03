@@ -603,7 +603,6 @@ def getBloodBanksList(db_filename):
 
     return bloodBanksList
 
-<<<<<<< HEAD
 # Function to update Bloodbanks_and_Hospitals Table for a Blood Transfer
 def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sendinghospitalID):
 
@@ -948,7 +947,7 @@ def getPatients(db_filename):
     conn.close()
     return result
 
-=======
+
 #Function to enter Comments on complication_report.html
 def enterComments(db_filename, transfusion_id, comments):
     try:
@@ -995,7 +994,6 @@ def getComments(db_filename, transfusion_id):
     else:
         return None, None
     
->>>>>>> about
 # Code to run to set up database
 if __name__ == "__main__":
     space_monkeys_db = 'space_monkeys_db'
