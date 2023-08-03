@@ -1,7 +1,7 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## sm_dbAPI test code
-## Last Update: David Hughes, 3 August 2023
+## Last Update: Travis Byrne, 3 August 2023
 ## USAGE: python3 -m pytest
 
 # Import support routines from sm_dbAPI.py
@@ -360,6 +360,195 @@ class Test_sm_dbAPI(unittest.TestCase):
         # Test data is correct
         for name in res:
             self.assertIn(name, test_parameters)
+
+    # Test getDonationTable function in dbAPI
+    def test_getDonationTable(self):
+
+        # List of expected data
+        test_parameters = [(1, '20230701 8:00:00', 1, 'Dr. Bruce Banner', 64, 1),
+                            (2, '20230702 9:00:00', 2, 'Dr. Stephan Strange', 63, 1),
+                            (3, '20230703 10:00:00', 3, 'Dr. Diana Prince', 62, 1),
+                            (4, '20230704 11:00:00', 4, 'Dr. Harleen Quinzel', 61, 1),
+                            (5, '20230705 12:00:00', 5, 'Dr. Bruce Banner', 60, 1),
+                            (6, '20230706 13:00:00', 6, 'Dr. Stephan Strange', 59, 1),
+                            (7, '20230707 14:00:00', 7, 'Dr. Diana Prince', 58, 1),
+                            (8, '20230708 15:00:00', 8, 'Dr. Harleen Quinzel', 57, 1),
+                            (9, '20230709 16:00:00', 9, 'Dr. Bruce Banner', 56, 1),
+                            (10, '20230710 17:00:00', 10, 'Dr. Stephan Strange', 55, 1),
+                            (11, '20230711 8:00:00', 11, 'Dr. Diana Prince', 54, 1),
+                            (12, '20230712 9:00:00', 12, 'Dr. Harleen Quinzel', 53, 1),
+                            (13, '20230713 10:00:00', 13, 'Dr. Bruce Banner', 52, 1),
+                            (14, '20230714 11:00:00', 14, 'Dr. Stephan Strange', 51, 1),
+                            (15, '20230715 12:00:00', 15, 'Dr. Diana Prince', 50, 1),
+                            (16, '20230716 13:00:00', 16, 'Dr. Harleen Quinzel', 49, 1),
+                            (17, '20230717 14:00:00', 17, 'Dr. Bruce Banner', 48, 1),
+                            (18, '20230718 15:00:00', 18, 'Dr. Stephan Strange', 47, 1),
+                            (19, '20230719 16:00:00', 19, 'Dr. Diana Prince', 46, 1),
+                            (20, '20230720 17:00:00', 20, 'Dr. Harleen Quinzel', 45, 1),
+                            (21, '20230721 8:00:00', 21, 'Dr. Bruce Banner', 44, 1),
+                            (22, '20230722 9:00:00', 22, 'Dr. Stephan Strange', 43, 1),
+                            (23, '20230723 10:00:00', 8, 'Dr. Diana Prince', 42, 1),
+                            (24, '20230724 11:00:00', 9, 'Dr. Harleen Quinzel', 41, 1),
+                            (25, '20230725 12:00:00', 10, 'Dr. Bruce Banner', 40, 1),
+                            (26, '20230726 13:00:00', 11, 'Dr. Stephan Strange', 39, 1),
+                            (27, '20230727 14:00:00', 12, 'Dr. Diana Prince', 38, 1),
+                            (28, '20230728 15:00:00', 13, 'Dr. Harleen Quinzel', 37, 1),
+                            (29, '20230729 16:00:00', 14, 'Dr. Bruce Banner', 36, 1),
+                            (30, '20230730 17:00:00', 8, 'Dr. Stephan Strange', 35, 1),
+                            (31, '20230731 8:00:00', 9, 'Dr. Diana Prince', 34, 1),
+                            (32, '20230701 9:00:00', 10, 'Dr. Harleen Quinzel', 33, 1),
+                            (33, '20230702 10:00:00', 1, 'Dr. Bruce Banner', 32, 1),
+                            (34, '20230703 11:00:00', 2, 'Dr. Stephan Strange', 31, 1),
+                            (35, '20230704 12:00:00', 3, 'Dr. Diana Prince', 30, 1),
+                            (36, '20230705 13:00:00', 1, 'Dr. Harleen Quinzel', 29, 1),
+                            (37, '20230706 14:00:00', 2, 'Dr. Bruce Banner', 28, 1),
+                            (38, '20230707 15:00:00', 3, 'Dr. Stephan Strange', 27, 1),
+                            (39, '20230708 16:00:00', 18, 'Dr. Diana Prince', 26, 1),
+                            (40, '20230709 17:00:00', 19, 'Dr. Harleen Quinzel', 25, 1),
+                            (41, '20230710 8:00:00', 21, 'Dr. Bruce Banner', 24, 1),
+                            (42, '20230711 9:00:00', 22, 'Dr. Stephan Strange', 23, 1)]
+
+        # Test data is correct
+        for i in range(1, len(test_parameters)):
+
+            # Get data for entry i in test_parameters
+            data = sm_dbAPI.getDonationTable("sm_test.db", test_parameters[i][4])
+
+            self.assertIn(test_parameters[i], data)
+    
+    # Test getTransfusionTable function in dbAPI
+    def test_getTransfusionTable(self):
+
+        # List of expected data
+        test_parameters = [(1, '20230720 8:00:00', 1, 26, 'Dr. Bruce Banner', 64, 1),
+                            (2, '20230721 9:00:00', 2, 25, 'Dr. Stephan Strange', 63, 1),
+                            (3, '20230722 10:00:00', 3, 24, 'Dr. Diana Prince', 62, 1),
+                            (4, '20230723 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1)]
+
+        # Test data is correct
+        for i in range(1, len(test_parameters)):
+
+            # Get data for entry i in test_parameters
+            data = sm_dbAPI.getTransfusionTable("sm_test.db", test_parameters[i][5])
+
+            self.assertIn(test_parameters[i], data)
+    
+    # Test getIncomingTransferTable function in dbAPI
+    def test_getIncomingTransferTable(self):
+
+        # List of expected data
+        test_parameters = [(1, '20230701 8:00:00', 25, 40, 14),
+                        (2, '20230702 9:00:00', 26, 39, 15),
+                        (3, '20230703 10:00:00', 27, 38, 16),
+                        (4, '20230704 11:00:00', 28, 37, 17)]
+
+        # Test data is correct
+        for i in range(1, len(test_parameters)):
+
+            # Get data for entry i in test_parameters
+            data = sm_dbAPI.getIncomingTransferTable("sm_test.db", test_parameters[i][3])
+
+            self.assertIn(test_parameters[i], data)
+    
+    # Test getOutgoingTransferTable function in dbAPI
+    def test_getOutgoingTransferTable(self):
+
+        # List of expected data
+        test_parameters = [(1, '20230701 8:00:00', 25, 40, 14),
+                        (2, '20230702 9:00:00', 26, 39, 15),
+                        (3, '20230703 10:00:00', 27, 38, 16),
+                        (4, '20230704 11:00:00', 28, 37, 17)]
+
+        # Test data is correct
+        for i in range(1, len(test_parameters)):
+
+            # Get data for entry i in test_parameters
+            data = sm_dbAPI.getOutgoingTransferTable("sm_test.db", test_parameters[i][4])
+
+            self.assertIn(test_parameters[i], data)
+    
+    # Test getBloodBanksIDsList function in dbAPI
+    def test_getBloodBanksIDsList(self):
+
+        # List of expected data
+        test_parameters = [('Adams County', 1), ('Alamosa County', 2), ('Arapahoe County', 3), ('Archuleta County', 4), ('Baca County', 5), ('Bent County', 6), ('Boulder County', 7), ('Broomfield County', 8), ('Chaffee County', 9), ('Cheyenne County', 10), ('Clear Creek County', 11), ('Conejos County', 12), ('Costilla County', 13), ('Crowley County', 14), ('Custer County', 15), ('Delta County', 16), ('Denver County', 17), ('Dolores County', 18), ('Douglas County', 19), ('Eagle County', 20), ('El Paso County', 21), ('Elbert County', 22), ('Fremont County', 23), ('Garfield County', 24), ('Gilpin County', 25), ('Grand County', 26), ('Gunnison County', 27), ('Hinsdale County', 28), ('Huerfano County', 29), ('Jackson County', 30), ('Jefferson County', 31), ('Kiowa County', 32), ('Kit Carson County', 33), ('La Plata County', 34), ('Lake County', 35), ('Larimer County', 36), ('Las Animas County', 37), ('Lincoln County', 38), ('Logan County', 39), ('Mesa County', 40), ('Mineral County', 41), ('Moffat County', 42), ('Montezuma County', 43), ('Montrose County', 44), ('Morgan County', 45), ('Otero County', 46), ('Ouray County', 47), ('Park County', 48), ('Phillips County', 49), ('Pitkin County', 50), ('Prowers County', 51), ('Pueblo County', 52), ('Rio Blanco County', 53), ('Rio Grande County', 54), ('Routt County', 55), ('Saguache County', 56), ('San Juan County', 57), ('San Miguel County', 58), ('Sedgwick County', 59), ('Summit County', 60), ('Teller County', 61), ('Washington County', 62), ('Weld County', 63), ('Yuma County', 64)]
+
+        # Get data
+        res = sm_dbAPI.getBloodBanksIDsList("sm_test.db")
+
+        # Test data is correct
+        for name in res:
+            self.assertIn(name, test_parameters)
+    
+    # Test getDonors function in dbAPI
+    def test_getDonors(self):
+
+        # List of expected data
+        test_parameters = [(1, 'Bugs Bunny', 'A+'),
+                    (2, 'Daffy Duck', 'A+'),
+                    (3, 'Porky Pig', 'A+'),
+                    (4, 'Elmer Fudd', 'A+'),
+                    (5, 'Tweety Bird', 'A+'),
+                    (6, 'Yosemite Sam', 'O+'),
+                    (7, 'Lola Bunny', 'O+'),
+                    (8, 'Snow White', 'O+'),
+                    (9, 'Tinker Bell', 'O+'),
+                    (10, 'Cinderlla Castle', 'O+'),
+                    (11, 'Ariel Mermaid', 'A-'),
+                    (12, 'Jasmine Magic', 'A-'),
+                    (13, 'Mulan Wall', 'O-'),
+                    (14, 'Belle Book', 'O-'),
+                    (15, 'Raya Dragon', 'AB+'),
+                    (16, 'Peter Pan', 'AB-'),
+                    (17, 'Merida Greene', 'B+'),
+                    (18, 'Bruce Wayne', 'B+'),
+                    (19, 'Clark Kent', 'B+'),
+                    (20, 'Barry Allen', 'B-'),
+                    (21, 'Tony Stark', 'B-'),
+                    (22, 'Steve Rogers', 'B-')]
+
+        # Get data
+        data = sm_dbAPI.getDonors("sm_test.db")
+
+        # Test that the data is correct
+        self.assertEqual(data, test_parameters)
+    
+    # Test getDonors function in dbAPI
+    def test_getPatients(self):
+
+        # List of expected data
+        test_parameters = [(1, 'Arnold Artwood', 'A+'),
+                        (2, 'Beatrice Berry', 'B+'),
+                        (3, 'Clarence Coldwater', 'AB+'),
+                        (4, 'Drake Duckle', 'O+'),
+                        (5, 'Elen Eagleton', 'A-'),
+                        (6, 'Frank French', 'B-'),
+                        (7, 'Gretchen Gamey', 'AB-'),
+                        (8, 'Harold Horton', 'O-'),
+                        (9, 'Irene Ibola', 'A+'),
+                        (10, 'John Jamison', 'B+'),
+                        (11, 'Katrina Kelly', 'AB+'),
+                        (12, 'Lawrence Lavender', 'O+'),
+                        (13, 'Matthew McConaughey', 'A-'),
+                        (14, 'Natelie Nevers', 'B-'),
+                        (15, 'Orrvile Oggelthorpe', 'AB-'),
+                        (16, 'Pamela Parkinson', 'O-'),
+                        (17, 'Quinton Quizine', 'A+'),
+                        (18, 'Raegan Rizzola', 'B+'),
+                        (19, 'Samuel Sanderson', 'AB+'),
+                        (20, 'Trinity Thompson', 'O+'),
+                        (21, 'Usef Unisone', 'A-'),
+                        (22, 'Virginia Vain', 'B-'),
+                        (23, 'Wayne Wellington', 'AB-'),
+                        (24, 'Xelia Xlan', 'O-'),
+                        (25, 'Yale Young', 'A+'),
+                        (26, 'Zena Zootopia', 'O+')]
+
+        # Get data
+        data = sm_dbAPI.getPatients("sm_test.db")
+
+        # Test that the data is correct
+        self.assertEqual(data, test_parameters)
 
 # Main: Run Test Cases
 if __name__ == '__main__':
