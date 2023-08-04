@@ -30,11 +30,6 @@ def homepage():
 def home():
     return render_template('homepage.html')
 
-# # Home page (alternate)
-# @app.route('/about')
-# def about():
-#     return render_template('about.html')
-
 # Blood bank entry page
 @app.route('/bloodbank')
 def bloodbank():
@@ -243,6 +238,12 @@ def visualization():
     pie_chart_labels=['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-']
     # define the data for the pie chart
     pie_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits]
+    # define labels for the bar chart
+    bar_chart_labels = ['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-']
+    # # define labels for the bar data
+    bar_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits]
+    # blood info
+    getBloodInfo = sm_dbAPI.getBloodInfo(space_monkeys_db)
     # Render page
     return render_template(
         'visualization.html', 
@@ -261,6 +262,8 @@ def visualization():
         blood_O_negative = blood_O_negative,
         pie_chart_labels=pie_chart_labels,  # Pass the labels to the template
         pie_chart_data=pie_chart_data,      # Pass the data to the template
+        bar_chart_labels=bar_chart_labels,
+        bar_chart_data=bar_chart_data,
         totalAPositiveUnits=totalAPositiveUnits,
         totalBPositiveUnits=totalBPositiveUnits,
         totalABPositiveUnits=totalABPositiveUnits,
@@ -269,6 +272,7 @@ def visualization():
         totalBNegativeUnits=totalBNegativeUnits,
         totalABNegativeUnits=totalABNegativeUnits,
         totalONegativeUnits=totalONegativeUnits,
+        getBloodInfo = getBloodInfo,
     )
 
 # Detailed inventory page

@@ -1,0 +1,87 @@
+/* CS 3308 Group Project */
+/* Team: Space Monkeys */
+/* CSS rules for Visualization Page */
+/* Last Update: Dylan Kayyem, 8/3/2023 */
+header {
+    background-color: #63c3bb;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 0px 0px;
+}
+#banner {
+    max-width: 100%;
+    height: 200px;
+    overflow: hidden; /* This will hide any content that overflows the container */
+    position: relative; /* Required for absolute positioning within the container */
+}
+
+
+th {
+    border: 3px solid #fff;
+}
+td {
+    border:1px solid #fff;
+}
+.container {
+    /* display: flex; */
+    /*height: 70vh;   Set the desired height */
+    overflow: hidden;
+}
+/* Hide scrollbar for webkit-based browsers (Chrome, Safari, Edge) */
+.container::-webkit-scrollbar {
+    width: 0.5em;
+}
+.container::-webkit-scrollbar-thumb {
+    background-color: #888;
+    border-radius: 0.25em;
+}
+#a_positive:hover, #a_negative:hover, #b_positive:hover, #b_negative:hover, #ab_positive:hover, #ab_negative:hover, #o_positive:hover, #o_negative:hover{
+    background-color: #358c82;
+    cursor: pointer; /* Add cursor hover effect */
+    font-style:italic;
+}
+th:hover {
+    background-color: #63c3bb93;
+}
+td:hover {
+    background-color: #63c3bb93;
+}
+.barChart {
+    max-width:100%;
+    height: 40vh;
+    margin: 0 auto;
+}
+.tableDiv, #bloodTable {
+    padding: 20px;
+    margin: 0 auto;
+}
+#bloodTable {
+    background-color: #63c3bb;
+    border-radius: 10px 10px 10px 10px;
+}
+
+h2 {
+    text-align: center;
+}
+#barDetails table {
+    width: 100%;
+    border-collapse: collapse;
+}
+#barDetails th, #barDetails td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+#barDetails th {
+    background-color: #f2f2f2;
+}
+#headerDiv {
+    background-color: #63c3bb;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px 10px 10px 10px;
+}

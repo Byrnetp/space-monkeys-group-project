@@ -1,90 +1,20 @@
 <!-- CS 3308 Group Project -->
 <!-- Team 2: Space Monkeys -->
 <!-- Template for Blood Bank website homepage -->
-<!-- Last Update: Dylan Kayyem, 8/1/2023 -->
-
+<!-- Last Update: Dylan Kayyem, 8/3/2023 -->
 <head>
 {% extends "main_layout.html" %}
 {% block title %} Homepage {% endblock %}
 {% block head %}
   {{ super() }}
-
+  <link rel="stylesheet" href="static/css/homepage.css">
   <title>Blood Bank Homepage</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-    header {
-      background-color: #00c0b0;
-      color: #fff;
-      padding: 20px;
-      text-align: center;
-    }
-    #banner {
-      max-width: 100%;
-      height: 200px;
-      border: 1px solid #ccc;
-      overflow: hidden; /* This will hide any content that overflows the container */
-      position: relative; /* Required for absolute positioning within the container */
-    }
-    .image-container {
-      position: absolute;
-      top: -90px;
-    }
-    .image-container img {
-      max-width: 100%;
-      max-height: 100%;
-      object-fit: cover;
-    }
-    .container {
-      max-width: 100%;
-      margin: 0 auto;
-    }
-    .fact-container {
-      background-color: #f5f5f5;
-      padding: 20px;
-      margin: 20px;
-    }
-    .info-container {
-      background-color: #f5f5f5;
-      padding: 20px;
-      margin: 20px;
-    }
-    .common-container {
-      display: flex;
-      max-width: 100%;
-      margin-left: 20px;
-    }
-    .reasons-container {
-      flex: 1;
-      background-color: #f5f5f5;
-      padding: 20px;
-      margin: 0px 20px 0px 0px;
-    }
-    .list-container {
-      margin-bottom: 20px;
-    }
-    /* Style the title */
-    h1 {
-      font-size: 36px;
-    }
-    /* Style the facts and information */
-    h2 {
-      font-size: 24px;
-    }
-    a, li, p {
-      font-size: 16px;
-      line-height: 1.6;
-    }
-  </style>
+  <style></style>
 </head>
 {% endblock %}
 {% block content %}
 <body>
   {% include 'navbar.html' %}
-
 
   <header>
     <h1> Space Monkey's Blood Bank </h1>
@@ -144,6 +74,7 @@
   </div>
 </body>
 {% endblock %}
+
 <!-- <!DOCTYPE html>
 <html>
     <head>
