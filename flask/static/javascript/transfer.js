@@ -20,21 +20,19 @@ document.addEventListener('DOMContentLoaded', function () {
 
       // Check Receiving Hospital ID for valid input
       var ReceivingHospitalIDInput = document.getElementById("ReceivingHospitalID");
-      //var ReceivingHospitalIDValid = !isEntryEmpty(ReceivingHospitalIDInput.value);
-      var ReceivingHospitalIDValid = isDatalistEntryValid("ReceivingHospitalIDChoices", ReceivingHospitalID.value);
+      var ReceivingHospitalIDValid = isDatalistEntryValid("ReceivingHospitalIDChoices", ReceivingHospitalIDInput.value);
       setFormStyle(ReceivingHospitalIDValid, "ReceivingHospitalIDLabel", "Receiving Hospital ID:", "Please enter a valid Receiving Hospital ID");
 
       // Check Sending Hospital ID for valid input
       var SendingHospitalIDInput = document.getElementById("SendingHospitalID");
-      //var SendingHospitalIDValid = !isEntryEmpty(SendingHospitalIDInput.value);
-      var SendingHospitalIDValid = isDatalistEntryValid("SendingHospitalIDChoices", SendingHospitalID.value);
+      var SendingHospitalIDValid = isDatalistEntryValid("SendingHospitalIDChoices", SendingHospitalIDInput.value);
       setFormStyle(SendingHospitalIDValid, "SendingHospitalIDLabel", "Sending Hospital ID:", "Please enter a valid Sending Hospital ID");
 
       // Check if all form entries are valid
       if (DonationIDValid && ReceivingHospitalIDValid && SendingHospitalIDValid) {
         
         // Submit form
-        document.bloodbankEntryForm.submit();
+        document.TransferEntryForm.submit();
         alert("This form has been successfully submitted!");
         
         // Reset form values
@@ -50,6 +48,26 @@ document.addEventListener('DOMContentLoaded', function () {
       
     });  
   });
+
+// Function to check if the datalist entry is valid
+function isDatalistEntryValid(datalistName, choice) {
+
+    // Get datalist
+    var datalist = document.getElementById(datalistName);
+
+    // Initialize flag variable
+    var optionFound = false;
+
+    // Determine whether an option exists with the current value of the input.
+    for (var j = 0; j < datalist.options.length; j++) {
+        if (choice == datalist.options[j].value) {
+            optionFound = true;
+            break;
+        }
+    }
+
+    return optionFound;
+}
 
 // Function to check if entry is empty
 function isEntryEmpty(choice) {

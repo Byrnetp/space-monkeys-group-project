@@ -625,6 +625,28 @@ def getBloodBanksList(db_filename):
 
     return bloodBanksList
 
+# Function to get list of Blood Banks by Number
+def getBloodBanksListNUM(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute('''SELECT Institution_ID FROM Bloodbanks_and_Hospitals;''')
+    result = c.fetchall()
+
+    # Build donor list
+    bloodBanksList = []
+    for bloodBank in result:
+        bloodBanksList.append(bloodBank[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return bloodBanksList
+
 # Function to update Bloodbanks_and_Hospitals Table for a Blood Transfer
 def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sendinghospitalID):
 
@@ -633,45 +655,49 @@ def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sen
     c = conn.cursor()
     
     # Get next transfer ID
-    c.execute('''SELECT Donor_ID FROM Donation WHERE Donation_ID = ?;''', (donationid))
+    c.execute('''SELECT Donor_ID FROM Donation WHERE Donation_ID = (?);''', (donationid,))
     dresult = c.fetchone()
     donorID = dresult[0]
-    c.execute('''SELECT Blood_Type FROM Donor WHERE Donor_ID = ?;''', (donorID))
+    c.execute('''SELECT Blood_Type FROM Donor WHERE Donor_ID = (?);''', (donorID,))
     result = c.fetchone()
-    bloodtype = result[0] + 1
+    bloodtype = result[0]
 
-    if bloodtype == "A+":
-        bt_column = "A_Positive_Units"
-    elif bloodtype == "A-":
-        bt_column = "A_Negative_Units"
-    elif bloodtype == "B+":
-        bt_column = "B_Positive_Units"
-    elif bloodtype == "B-":
-        bt_column = "B_Negative_Units"
-    elif bloodtype == "AB+":
-        bt_column = "AB_Positive_Units"
-    elif bloodtype == "AB-":
-        bt_column = "AB_Negative_Units"
-    elif bloodtype == "O+":
-        bt_column = "O_Positive_Units"
-    elif bloodtype == "O-":
-        bt_column = "O_Negative_Units"
+    if bloodtype == 'A+':
+        bt_column = 'A_Positive_Units'
+    elif bloodtype == 'A-':
+        bt_column = 'A_Negative_Units'
+    elif bloodtype == 'B+':
+        bt_column = 'B_Positive_Units'
+    elif bloodtype == 'B-':
+        bt_column = 'B_Negative_Units'
+    elif bloodtype == 'AB+':
+        bt_column = 'AB_Positive_Units'
+    elif bloodtype == 'AB-':
+        bt_column = 'AB_Negative_Units'
+    elif bloodtype == 'O+':
+        bt_column = 'O_Positive_Units'
+    elif bloodtype == 'O-':
+        bt_column = 'O_Negative_Units'
 
     # Calculate the new quantity for Receiving Hospital
-    c.execute('''SELECT ? FROM Bloodbanks_and_Hospitals WHERE Institution_ID = ?;''', (bt_column, receivinghospitalID))
+    sql = 'SELECT '+bt_column+' FROM Bloodbanks_and_Hospitals WHERE Institution_ID = '+str(receivinghospitalID)+';'''
+    c.execute(sql)
     result = c.fetchone()
     newamount_r = result[0] + 1
     
     # Calculate the new quantity for Sending Hospital
-    c.execute('''SELECT ? FROM Bloodbanks_and_Hospitals WHERE Institution_ID = ?;''', (bt_column, sendinghospitalID))
+    sql = 'SELECT '+bt_column+' FROM Bloodbanks_and_Hospitals WHERE Institution_ID = '+str(sendinghospitalID)+';'''
+    c.execute(sql)
     result = c.fetchone()
     newamount_s = result[0] - 1
 
     # Update Receiving Hospital
-    c.execute('''UPDATE Bloodbanks_and_Hospitals SET ? = ? WHERE Institution_ID = ?;''', (bt_column, newamount_r, receivinghospitalID))
+    sql = 'UPDATE Bloodbanks_and_Hospitals SET '+bt_column+' = '+str(newamount_r)+' WHERE Institution_ID = '+str(receivinghospitalID)+';'''
+    c.execute(sql)
     
     # Update Sending Hospital
-    c.execute('''UPDATE Bloodbanks_and_Hospitals SET ? = ? WHERE Institution_ID = ?;''', (bt_column, newamount_s, sendinghospitalID))
+    sql = 'UPDATE Bloodbanks_and_Hospitals SET '+bt_column+' = '+str(newamount_s)+' WHERE Institution_ID = '+str(sendinghospitalID)+';'''
+    c.execute(sql)
     
     # Commit and close connection
     conn.commit()
@@ -694,7 +720,7 @@ def enterTransfer(db_filename, donationID, receivinghospitalID, sendinghospitalI
     dt_now = datetime.datetime.now()
 
     # Insert transfer
-    c.execute('''INSERT INTO Transfer (Transfer_ID, Date_Time, Donation_ID, Receiving_Hospital_ID, Sending_Hospital_ID) VALUES (?,?,?,?,?);''', (transferID, dt_now, donationID, receivinghospitalID, sendinghospitalID))
+    c.execute('''INSERT INTO Transfer (Transfer_ID, Date_Time, Donation_ID, Receiving_Hospital_ID, Sending_Hospital_ID) VALUES (?,?,?,?,?);''', (transferID, dt_now, donationID, receivinghospitalID, sendinghospitalID,))
     
     # Commit and close connection
     conn.commit()

@@ -178,7 +178,7 @@ def transfer():
     donationsList = sm_dbAPI.getDonationIDsList(space_monkeys_db)
     
     # Query database to get list of Hospital IDs
-    hospitalsList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
+    hospitalsList = sm_dbAPI.getBloodBanksListNUM(space_monkeys_db)
         
     # Render page
     return render_template(

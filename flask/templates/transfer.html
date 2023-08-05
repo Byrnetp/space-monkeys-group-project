@@ -4,14 +4,19 @@
 <!-- Last Update: Michael Becker, 29 July 2023 -->
 
 {% extends "main_layout.html" %}
-{% block title %}Blood Bank Entry Page{% endblock %}
+{% block title %}Transfer Entry Page{% endblock %}
 {% block head %}
   {{ super() }}
-  <link rel="stylesheet" href="static/css/style.css">
   <script src="static/javascript/transfer.js"></script>
+  <link rel="stylesheet" type="text/css" href="static/css/transfer.css">
+  <link rel="stylesheet" type="text/css" href="static/css/main.css">
   {% endblock %}
 {% block content %}
-  <h1>Blood Transfer Entry Page</h1>
+    {% include 'navbar.html' %}
+
+  <div class="header">
+      <h1>Transfer Entry Page</h1>
+  </div>
   <form id="TransferEntryForm" name="TransferEntryForm">
     <label id="DonationIDLabel" for="DonationID">Donation ID:</label>
     <br>
