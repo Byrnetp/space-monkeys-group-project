@@ -1,7 +1,7 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## sm_dbAPI test code
-## Last Update: Travis Byrne, 3 August 2023
+## Last Update: Travis Byrne, 5 August 2023
 ## USAGE: python3 -m pytest
 
 # Import support routines from sm_dbAPI.py
@@ -339,7 +339,7 @@ class Test_sm_dbAPI(unittest.TestCase):
     def test_getDonationIDsList(self):
 
         # List of expected data
-        test_parameters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42]
+        test_parameters = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45]
 
         # Get data
         res = sm_dbAPI.getDonationIDsList("sm_test.db")

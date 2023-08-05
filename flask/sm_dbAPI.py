@@ -1,7 +1,7 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## Main database driver code
-## Last Update: David Hughes, 5 August 2023
+## Last Update: Travis Byrne, 5 August 2023
 
 import sqlite3
 import datetime
