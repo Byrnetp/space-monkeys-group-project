@@ -1,10 +1,11 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## Main database driver code
-## Last Update: Travis Byrne, 2 August 2023
+## Last Update: David Hughes, 5 August 2023
 
 import sqlite3
 import datetime
+import pandas as pd
 
 # Creates a database with the filename given. Create the required tables and fields.
 def create(db_filename):
@@ -148,61 +149,20 @@ def fill(db_filename):
     for (idhosp, banktype, name, city, state, ap, an, bp, bn, abp, abn, op, on) in Bloodbank_and_Hospital_insert:
         c.execute('''INSERT INTO Bloodbanks_and_Hospitals VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);''', (idhosp, banktype, name, city, state, ap, an, bp, bn, abp, abn, op, on))
         
-    # Fill in the Donor table
-    donor_insert = [(1, 'Bugs Bunny', 'A+'),
-                    (2, 'Daffy Duck', 'A+'),
-                    (3, 'Porky Pig', 'A+'),
-                    (4, 'Elmer Fudd', 'A+'),
-                    (5, 'Tweety Bird', 'A+'),
-                    (6, 'Yosemite Sam', 'O+'),
-                    (7, 'Lola Bunny', 'O+'),
-                    (8, 'Snow White', 'O+'),
-                    (9, 'Tinker Bell', 'O+'),
-                    (10, 'Cinderlla Castle', 'O+'),
-                    (11, 'Ariel Mermaid', 'A-'),
-                    (12, 'Jasmine Magic', 'A-'),
-                    (13, 'Mulan Wall', 'O-'),
-                    (14, 'Belle Book', 'O-'),
-                    (15, 'Raya Dragon', 'AB+'),
-                    (16, 'Peter Pan', 'AB-'),
-                    (17, 'Merida Greene', 'B+'),
-                    (18, 'Bruce Wayne', 'B+'),
-                    (19, 'Clark Kent', 'B+'),
-                    (20, 'Barry Allen', 'B-'),
-                    (21, 'Tony Stark', 'B-'),
-                    (22, 'Steve Rogers', 'B-')]
-    for (idStore, character, bloodtype) in donor_insert:
-        c.execute('''INSERT INTO Donor VALUES (?,?,?);''', (idStore, character, bloodtype))
+    # Fill Donors table
+    donors = pd.read_csv("sample_data/donors.csv")
+    donors_dict = donors.to_dict('records')
+    c.executemany('''
+        INSERT INTO Donor VALUES (:Donor_ID, :Name, :Blood_Type);    
+    ''', donors_dict)
         
     # Fill in the Patient table
-    patient_insert = [(1, 'Arnold Artwood', 'A+'),
-                        (2, 'Beatrice Berry', 'B+'),
-                        (3, 'Clarence Coldwater', 'AB+'),
-                        (4, 'Drake Duckle', 'O+'),
-                        (5, 'Elen Eagleton', 'A-'),
-                        (6, 'Frank French', 'B-'),
-                        (7, 'Gretchen Gamey', 'AB-'),
-                        (8, 'Harold Horton', 'O-'),
-                        (9, 'Irene Ibola', 'A+'),
-                        (10, 'John Jamison', 'B+'),
-                        (11, 'Katrina Kelly', 'AB+'),
-                        (12, 'Lawrence Lavender', 'O+'),
-                        (13, 'Matthew McConaughey', 'A-'),
-                        (14, 'Natelie Nevers', 'B-'),
-                        (15, 'Orrvile Oggelthorpe', 'AB-'),
-                        (16, 'Pamela Parkinson', 'O-'),
-                        (17, 'Quinton Quizine', 'A+'),
-                        (18, 'Raegan Rizzola', 'B+'),
-                        (19, 'Samuel Sanderson', 'AB+'),
-                        (20, 'Trinity Thompson', 'O+'),
-                        (21, 'Usef Unisone', 'A-'),
-                        (22, 'Virginia Vain', 'B-'),
-                        (23, 'Wayne Wellington', 'AB-'),
-                        (24, 'Xelia Xlan', 'O-'),
-                        (25, 'Yale Young', 'A+'),
-                        (26, 'Zena Zootopia', 'O+')]
-    for (idStore, character, bloodtype) in patient_insert:
-        c.execute('''INSERT INTO Patient VALUES (?,?,?);''', (idStore, character, bloodtype))
+    patients = pd.read_csv("sample_data/patients.csv")
+    patients_dict = patients.to_dict('records')
+    c.executemany('''
+        INSERT INTO Patient VALUES (:Patient_ID, :Name, :Blood_Type);    
+    ''', patients_dict)
+
         
     # Fill in the Donation table
     donation_insert = [(1, '2023-07-01 8:00:00', 1, 'Dr. Bruce Banner', 64, 1),
