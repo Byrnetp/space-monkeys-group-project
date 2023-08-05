@@ -83,7 +83,6 @@ def donation():
 
     # Get input parameters from URL
     donorName = request.args.get('donorName', None)
-    donorBloodType = request.args.get('donorBloodType', None)
     bloodBankName = request.args.get('bloodBankName', None)
     medicalProfessional = request.args.get('medicalProfessional', None)
     quantity = request.args.get('quantity', None)
@@ -120,7 +119,6 @@ def transfusion():
 
     # Get input parameters from URL
     patientName = request.args.get('patientName', None)
-    patientBloodType = request.args.get('patientBloodType', None)
     donationID = request.args.get('donationID', None)
     bloodBankName = request.args.get('bloodBankName', None)
     medicalProfessional = request.args.get('medicalProfessional', None)

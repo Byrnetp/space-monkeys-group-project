@@ -1,7 +1,7 @@
 /* CS 3308 Group Project */
 /* Team 2: Space Monkeys */
 /* Javascript for Blood Bank Transfusion Entry page */
-/* Last Update: David Hughes, 26 July 2023 */
+/* Last Update: David Hughes, 5 August 2023 */
 
 // Wait until document is loaded before doing anything
 document.addEventListener('DOMContentLoaded', function () {
@@ -17,11 +17,6 @@ document.addEventListener('DOMContentLoaded', function () {
       var patientNameInput = document.getElementById("patientName");
       var patientNameValid = isDatalistEntryValid("patientNameChoices", patientNameInput.value);
       setFormStyle(patientNameValid, "patientNameLabel", "Patient Name:", "Please enter a valid patient name");
-
-      // Check blood type for valid input
-      var patientBloodTypeInput = document.getElementById("patientBloodType");
-      var bloodTypeValid = !isEntryEmpty(patientBloodTypeInput.value);
-      setFormStyle(bloodTypeValid, "bloodTypeLabel", "Patient Blood Type:", "Please choose a blood type");
 
       // Check donation ID for valid input
       var donationIDInput = document.getElementById("donationID");
@@ -49,7 +44,7 @@ document.addEventListener('DOMContentLoaded', function () {
       setFormStyle(dateValid, "dateLabel", "Date of Transfusion:", "Please choose a valid date");
     
       // Check if all form entries are valid
-      if (patientNameValid && bloodTypeValid && bloodBankNameValid && medicalProfessionalValid && quantityValid && dateValid) {
+      if (patientNameValid && bloodBankNameValid && medicalProfessionalValid && quantityValid && dateValid) {
         
         // Submit form
         document.transfusionEntryForm.submit();
@@ -57,7 +52,6 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Reset form values
         patientNameInput.value = "";
-        patientBloodTypeInput.value = "";
         donationIDInput.value = "";
         bloodBankNameInput.value = "";
         medicalProfessionalInput.value = "";

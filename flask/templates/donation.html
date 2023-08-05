@@ -1,7 +1,7 @@
 <!-- CS 3308 Group Project -->
 <!-- Team 2: Space Monkeys -->
 <!-- Template for Blood Bank website Donation Entry page -->
-<!-- Last Update: David Hughes, 26 July 2023 -->
+<!-- Last Update: David Hughes, 5 August 2023 -->
 
 {% extends "main_layout.html" %}
 {% block title %}Donation Entry Page{% endblock %}
@@ -10,8 +10,6 @@
   <script src="static/javascript/donation.js"></script>
   <link rel="stylesheet" type="text/css" href="static/css/main.css">
   <link rel="stylesheet" type="text/css" href="static/css/donation.css">
-
-
   {% endblock %}
 {% block content %}
   {% include 'navbar.html' %}
@@ -27,21 +25,6 @@
         <option value="{{donorsList[i]}}">
       {%endfor%}
     </datalist>
-    <br>
-    <br>
-    <label id="bloodTypeLabel" for="donorBloodType">Donor Blood Type:</label>
-    <br>
-    <select id="donorBloodType" name="donorBloodType">
-        <option value="">Enter Blood Type</option>
-        <option value="A+">A+</option>
-        <option value="A-">A-</option>
-        <option value="B+">B+</option>
-        <option value="B-">B-</option>
-        <option value="AB+">AB+</option>
-        <option value="AB-">AB-</option>
-        <option value="O+">O+</option>
-        <option value="O-">O-</option>
-      </select>
     <br>
     <br>
     <label id="bloodBankNameLabel" for="bloodBankName">Blood Bank Name:</label>
