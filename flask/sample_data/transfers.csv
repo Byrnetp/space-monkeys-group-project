@@ -1,0 +1,5 @@
+Transfer_ID,Date_Time,Donation_ID,Receiving_Hospital_ID,Sending_Hospital_ID
+1,2023-07-01 8:00:00,25,40,14
+2,2023-07-02 9:00:00,26,39,15
+3,2023-07-03 10:00:00,27,38,16
+4,2023-07-04 11:00:00,28,37,17
