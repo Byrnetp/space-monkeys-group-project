@@ -18,11 +18,6 @@ document.addEventListener('DOMContentLoaded', function () {
       var patientNameValid = isDatalistEntryValid("patientNameChoices", patientNameInput.value);
       setFormStyle(patientNameValid, "patientNameLabel", "Patient Name:", "Please enter a valid patient name");
 
-      // Check donation ID for valid input
-      var donationIDInput = document.getElementById("donationID");
-      var donationIDValid = isDatalistEntryValid("donationIDChoices", donationIDInput.value);
-      setFormStyle(donationIDValid, "donationIDLabel", "Donation ID:", "Please choose a donation ID");
-
       // Check blood bank name for valid input
       var bloodBankNameInput = document.getElementById("bloodBankName");
       var bloodBankNameValid = isDatalistEntryValid("bloodBankNameChoices", bloodBankNameInput.value);
@@ -52,7 +47,6 @@ document.addEventListener('DOMContentLoaded', function () {
         
         // Reset form values
         patientNameInput.value = "";
-        donationIDInput.value = "";
         bloodBankNameInput.value = "";
         medicalProfessionalInput.value = "";
         quantityInput.value = "";

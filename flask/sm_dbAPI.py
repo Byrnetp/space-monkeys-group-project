@@ -205,64 +205,64 @@ def fill(db_filename):
         c.execute('''INSERT INTO Patient VALUES (?,?,?);''', (idStore, character, bloodtype))
         
     # Fill in the Donation table
-    donation_insert = [(1, '20230701 8:00:00', 1, 'Dr. Bruce Banner', 64, 1),
-                            (2, '20230702 9:00:00', 2, 'Dr. Stephan Strange', 63, 1),
-                            (3, '20230703 10:00:00', 3, 'Dr. Diana Prince', 62, 1),
-                            (4, '20230704 11:00:00', 4, 'Dr. Harleen Quinzel', 61, 1),
-                            (5, '20230705 12:00:00', 5, 'Dr. Bruce Banner', 60, 1),
-                            (6, '20230706 13:00:00', 6, 'Dr. Stephan Strange', 59, 1),
-                            (7, '20230707 14:00:00', 7, 'Dr. Diana Prince', 58, 1),
-                            (8, '20230708 15:00:00', 8, 'Dr. Harleen Quinzel', 57, 1),
-                            (9, '20230709 16:00:00', 9, 'Dr. Bruce Banner', 56, 1),
-                            (10, '20230710 17:00:00', 10, 'Dr. Stephan Strange', 55, 1),
-                            (11, '20230711 8:00:00', 11, 'Dr. Diana Prince', 54, 1),
-                            (12, '20230712 9:00:00', 12, 'Dr. Harleen Quinzel', 53, 1),
-                            (13, '20230713 10:00:00', 13, 'Dr. Bruce Banner', 52, 1),
-                            (14, '20230714 11:00:00', 14, 'Dr. Stephan Strange', 51, 1),
-                            (15, '20230715 12:00:00', 15, 'Dr. Diana Prince', 50, 1),
-                            (16, '20230716 13:00:00', 16, 'Dr. Harleen Quinzel', 49, 1),
-                            (17, '20230717 14:00:00', 17, 'Dr. Bruce Banner', 48, 1),
-                            (18, '20230718 15:00:00', 18, 'Dr. Stephan Strange', 47, 1),
-                            (19, '20230719 16:00:00', 19, 'Dr. Diana Prince', 46, 1),
-                            (20, '20230720 17:00:00', 20, 'Dr. Harleen Quinzel', 45, 1),
-                            (21, '20230721 8:00:00', 21, 'Dr. Bruce Banner', 44, 1),
-                            (22, '20230722 9:00:00', 22, 'Dr. Stephan Strange', 43, 1),
-                            (23, '20230723 10:00:00', 8, 'Dr. Diana Prince', 42, 1),
-                            (24, '20230724 11:00:00', 9, 'Dr. Harleen Quinzel', 41, 1),
-                            (25, '20230725 12:00:00', 10, 'Dr. Bruce Banner', 40, 1),
-                            (26, '20230726 13:00:00', 11, 'Dr. Stephan Strange', 39, 1),
-                            (27, '20230727 14:00:00', 12, 'Dr. Diana Prince', 38, 1),
-                            (28, '20230728 15:00:00', 13, 'Dr. Harleen Quinzel', 37, 1),
-                            (29, '20230729 16:00:00', 14, 'Dr. Bruce Banner', 36, 1),
-                            (30, '20230730 17:00:00', 8, 'Dr. Stephan Strange', 35, 1),
-                            (31, '20230731 8:00:00', 9, 'Dr. Diana Prince', 34, 1),
-                            (32, '20230701 9:00:00', 10, 'Dr. Harleen Quinzel', 33, 1),
-                            (33, '20230702 10:00:00', 1, 'Dr. Bruce Banner', 32, 1),
-                            (34, '20230703 11:00:00', 2, 'Dr. Stephan Strange', 31, 1),
-                            (35, '20230704 12:00:00', 3, 'Dr. Diana Prince', 30, 1),
-                            (36, '20230705 13:00:00', 1, 'Dr. Harleen Quinzel', 29, 1),
-                            (37, '20230706 14:00:00', 2, 'Dr. Bruce Banner', 28, 1),
-                            (38, '20230707 15:00:00', 3, 'Dr. Stephan Strange', 27, 1),
-                            (39, '20230708 16:00:00', 18, 'Dr. Diana Prince', 26, 1),
-                            (40, '20230709 17:00:00', 19, 'Dr. Harleen Quinzel', 25, 1),
-                            (41, '20230710 8:00:00', 21, 'Dr. Bruce Banner', 24, 1),
-                            (42, '20230711 9:00:00', 22, 'Dr. Stephan Strange', 23, 1)]
+    donation_insert = [(1, '2023-07-01 8:00:00', 1, 'Dr. Bruce Banner', 64, 1),
+                            (2, '2023-07-02 9:00:00', 2, 'Dr. Stephan Strange', 63, 1),
+                            (3, '2023-07-03 10:00:00', 3, 'Dr. Diana Prince', 62, 1),
+                            (4, '2023-07-04 11:00:00', 4, 'Dr. Harleen Quinzel', 61, 1),
+                            (5, '2023-07-05 12:00:00', 5, 'Dr. Bruce Banner', 60, 1),
+                            (6, '2023-07-06 13:00:00', 6, 'Dr. Stephan Strange', 59, 1),
+                            (7, '2023-07-07 14:00:00', 7, 'Dr. Diana Prince', 58, 1),
+                            (8, '2023-07-08 15:00:00', 8, 'Dr. Harleen Quinzel', 57, 1),
+                            (9, '2023-07-09 16:00:00', 9, 'Dr. Bruce Banner', 56, 1),
+                            (10, '2023-07-10 17:00:00', 10, 'Dr. Stephan Strange', 55, 1),
+                            (11, '2023-07-11 8:00:00', 11, 'Dr. Diana Prince', 54, 1),
+                            (12, '2023-07-12 9:00:00', 12, 'Dr. Harleen Quinzel', 53, 1),
+                            (13, '2023-07-13 10:00:00', 13, 'Dr. Bruce Banner', 52, 1),
+                            (14, '2023-07-14 11:00:00', 14, 'Dr. Stephan Strange', 51, 1),
+                            (15, '2023-07-15 12:00:00', 15, 'Dr. Diana Prince', 50, 1),
+                            (16, '2023-07-16 13:00:00', 16, 'Dr. Harleen Quinzel', 49, 1),
+                            (17, '2023-07-17 14:00:00', 17, 'Dr. Bruce Banner', 48, 1),
+                            (18, '2023-07-18 15:00:00', 18, 'Dr. Stephan Strange', 47, 1),
+                            (19, '2023-07-19 16:00:00', 19, 'Dr. Diana Prince', 46, 1),
+                            (20, '2023-07-20 17:00:00', 20, 'Dr. Harleen Quinzel', 45, 1),
+                            (21, '2023-07-21 8:00:00', 21, 'Dr. Bruce Banner', 44, 1),
+                            (22, '2023-07-22 9:00:00', 22, 'Dr. Stephan Strange', 43, 1),
+                            (23, '2023-07-23 10:00:00', 8, 'Dr. Diana Prince', 42, 1),
+                            (24, '2023-07-24 11:00:00', 9, 'Dr. Harleen Quinzel', 41, 1),
+                            (25, '2023-07-25 12:00:00', 10, 'Dr. Bruce Banner', 40, 1),
+                            (26, '2023-07-26 13:00:00', 11, 'Dr. Stephan Strange', 39, 1),
+                            (27, '2023-07-27 14:00:00', 12, 'Dr. Diana Prince', 38, 1),
+                            (28, '2023-07-28 15:00:00', 13, 'Dr. Harleen Quinzel', 37, 1),
+                            (29, '2023-07-29 16:00:00', 14, 'Dr. Bruce Banner', 36, 1),
+                            (30, '2023-07-30 17:00:00', 8, 'Dr. Stephan Strange', 35, 1),
+                            (31, '2023-07-31 8:00:00', 9, 'Dr. Diana Prince', 34, 1),
+                            (32, '2023-07-01 9:00:00', 10, 'Dr. Harleen Quinzel', 33, 1),
+                            (33, '2023-07-02 10:00:00', 1, 'Dr. Bruce Banner', 32, 1),
+                            (34, '2023-07-03 11:00:00', 2, 'Dr. Stephan Strange', 31, 1),
+                            (35, '2023-07-04 12:00:00', 3, 'Dr. Diana Prince', 30, 1),
+                            (36, '2023-07-05 13:00:00', 1, 'Dr. Harleen Quinzel', 29, 1),
+                            (37, '2023-07-06 14:00:00', 2, 'Dr. Bruce Banner', 28, 1),
+                            (38, '2023-07-07 15:00:00', 3, 'Dr. Stephan Strange', 27, 1),
+                            (39, '2023-07-08 16:00:00', 18, 'Dr. Diana Prince', 26, 1),
+                            (40, '2023-07-09 17:00:00', 19, 'Dr. Harleen Quinzel', 25, 1),
+                            (41, '2023-07-10 8:00:00', 21, 'Dr. Bruce Banner', 24, 1),
+                            (42, '2023-07-11 9:00:00', 22, 'Dr. Stephan Strange', 23, 1)]
     for (idt, tdate, did, character, hid, a) in donation_insert:
         c.execute('''INSERT INTO Donation VALUES (?,?,?,?,?,?);''', (idt, tdate, did, character, hid, a))
         
     # Fill in the Transfusion table
-    transfusion_insert = [(1, '20230720 8:00:00', 1, 26, 'Dr. Bruce Banner', 64, 1),
-                            (2, '20230721 9:00:00', 2, 25, 'Dr. Stephan Strange', 63, 1),
-                            (3, '20230722 10:00:00', 3, 24, 'Dr. Diana Prince', 62, 1),
-                            (4, '20230723 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1)]
+    transfusion_insert = [(1, '2023-07-20 8:00:00', 1, 26, 'Dr. Bruce Banner', 64, 1),
+                            (2, '2023-07-21 9:00:00', 2, 25, 'Dr. Stephan Strange', 63, 1),
+                            (3, '2023-07-22 10:00:00', 3, 24, 'Dr. Diana Prince', 62, 1),
+                            (4, '2023-07-23 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1)]
     for (idt, tdate, did, pid, character, hid, a) in transfusion_insert:
         c.execute('''INSERT INTO Transfusion VALUES (?,?,?,?,?,?,?);''', (idt, tdate, did, pid, character, hid, a))
         
     # Fill in the Transfer table
-    transfer_insert = [(1, '20230701 8:00:00', 25, 40, 14),
-                        (2, '20230702 9:00:00', 26, 39, 15),
-                        (3, '20230703 10:00:00', 27, 38, 16),
-                        (4, '20230704 11:00:00', 28, 37, 17)]
+    transfer_insert = [(1, '2023-07-01 8:00:00', 25, 40, 14),
+                        (2, '2023-07-02 9:00:00', 26, 39, 15),
+                        (3, '2023-07-03 10:00:00', 27, 38, 16),
+                        (4, '2023-07-04 11:00:00', 28, 37, 17)]
     for (idt, tdate, did, pid, hid) in transfer_insert:
         c.execute('''INSERT INTO Transfer VALUES (?,?,?,?,?);''', (idt, tdate, did, pid, hid))
         
@@ -292,15 +292,15 @@ def test_tables(db_filename):
         count_cat = count_cat + 1
         print("Third Test Passed!")
     c.execute('''SELECT * FROM Donation WHERE Donation_ID = 42;''')
-    if c.fetchone() == (42, '20230711 9:00:00', 22, 'Dr. Stephan Strange', 23, 1):
+    if c.fetchone() == (42, '2023-07-11 9:00:00', 22, 'Dr. Stephan Strange', 23, 1):
         count_cat = count_cat + 1
         print("Fourth Category Test Passed!")
     c.execute('''SELECT * FROM Transfusion WHERE Transfusion_ID = 4;''')
-    if c.fetchone() == (4, '20230723 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1):
+    if c.fetchone() == (4, '2023-07-23 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1):
         count_cat = count_cat + 1
         print("Fifth Category Test Passed!")
     c.execute('''SELECT * FROM Transfer WHERE Transfer_ID = 4;''')
-    if c.fetchone() == (4, '20230704 11:00:00', 28, 37, 17):
+    if c.fetchone() == (4, '2023-07-04 11:00:00', 28, 37, 17):
         count_cat = count_cat + 1
         print("Sixth Category Test Passed!")
     c.execute('''SELECT * FROM Complication WHERE Complication_ID = 1;''')
@@ -490,10 +490,131 @@ def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quanti
     # Insert donation
     c.execute('''INSERT INTO Donation (Donation_ID, Donor_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?);''', (donationID, donorID, bloodBankID, medicalProfessional, quantity, date))
     
+    # Increment blood bank inventory
+    c.execute('''SELECT Blood_Type FROM Donor WHERE Donor_ID = (?);''', (donorID,))
+    result = c.fetchone()
+    bloodtype = result[0]
+
+    if bloodtype == 'A+':
+        bt_column = 'A_Positive_Units'
+    elif bloodtype == 'A-':
+        bt_column = 'A_Negative_Units'
+    elif bloodtype == 'B+':
+        bt_column = 'B_Positive_Units'
+    elif bloodtype == 'B-':
+        bt_column = 'B_Negative_Units'
+    elif bloodtype == 'AB+':
+        bt_column = 'AB_Positive_Units'
+    elif bloodtype == 'AB-':
+        bt_column = 'AB_Negative_Units'
+    elif bloodtype == 'O+':
+        bt_column = 'O_Positive_Units'
+    elif bloodtype == 'O-':
+        bt_column = 'O_Negative_Units'
+
+    # Calculate the new quantity for Receiving Hospital
+    sql = 'SELECT '+bt_column+' FROM Bloodbanks_and_Hospitals WHERE Institution_ID = '+str(bloodBankID)+';'''
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_r = result[0] + int(quantity)
+    
+    # Update Receiving Hospital Inventory
+    sql = 'UPDATE Bloodbanks_and_Hospitals SET '+bt_column+' = '+str(newamount_r)+' WHERE Institution_ID = '+str(bloodBankID)+';'''
+    c.execute(sql)
+
     # Commit and close connection
     conn.commit()
     conn.close()
     return
+
+# Function to find compatible blood 
+def findCompatibleBlood(db_filename, patientID, bloodBankID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find blood type of patient
+    c.execute('''SELECT Blood_Type FROM Patient WHERE Patient_ID = (?);''', (patientID,))
+    result = c.fetchone()
+    if result:
+        bloodtype = result[0]
+
+        # Find a compatible donation at that blood bank
+        # That has not already been transfused
+        if bloodtype == 'A+':
+            c.execute('''SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN ("A+", "A-", "O+", "O-")
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );''', (bloodBankID,))
+        elif bloodtype == 'A-':
+            c.execute('''SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN ("A-", "O-")
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );''', (bloodBankID,))
+        elif bloodtype == 'B+':
+            c.execute('''SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN ("B+", "B-", "O+", "O-")
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );''', (bloodBankID,))
+        elif bloodtype == 'B-':
+            c.execute('''SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN ("B-", "O-")
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );''', (bloodBankID,))
+        elif bloodtype == 'AB+':
+            c.execute('''SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN ("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );''', (bloodBankID,))
+        elif bloodtype == 'AB-':
+            c.execute('''SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN ("A-", "B-", "AB-", "O-")
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );''', (bloodBankID,))
+        elif bloodtype == 'O+':
+            c.execute('''SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN ("O+", "O-")
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );''', (bloodBankID,))
+        elif bloodtype == 'O-':
+            c.execute('''SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN ("O-")
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );''', (bloodBankID,))
+        result = c.fetchone()
+
+        # If there is a valid result, return it, otherwise return None
+        if result:
+            return result[0]
+        else:
+            return None
+    else:
+        return None
 
 # Function to enter transfusion in Transfusions table
 def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalProfessional, quantity, date):
@@ -502,13 +623,47 @@ def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalPro
     conn = sqlite3.connect(db_filename)
     c = conn.cursor()
 
-    # Get next donation ID
+    # Get next transfusion ID
     c.execute('''SELECT MAX(Transfusion_ID) FROM Transfusion;''')
     result = c.fetchone()
     transfusionID = result[0] + 1
 
-    # Insert donation
+    # Insert transfusion
     c.execute('''INSERT INTO Transfusion (Transfusion_ID, Patient_ID, Donation_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?,?);''', (transfusionID, patientID, donationID, bloodBankID, medicalProfessional, quantity, date))
+    
+    # Decrement blood bank inventory
+    c.execute('''SELECT Blood_Type FROM Donor 
+                JOIN Donation ON Donor.Donor_ID = Donation.Donor_ID
+                WHERE Donation_ID = (?);''', (donationID,))
+    result = c.fetchone()
+    bloodtype = result[0]
+
+    if bloodtype == 'A+':
+        bt_column = 'A_Positive_Units'
+    elif bloodtype == 'A-':
+        bt_column = 'A_Negative_Units'
+    elif bloodtype == 'B+':
+        bt_column = 'B_Positive_Units'
+    elif bloodtype == 'B-':
+        bt_column = 'B_Negative_Units'
+    elif bloodtype == 'AB+':
+        bt_column = 'AB_Positive_Units'
+    elif bloodtype == 'AB-':
+        bt_column = 'AB_Negative_Units'
+    elif bloodtype == 'O+':
+        bt_column = 'O_Positive_Units'
+    elif bloodtype == 'O-':
+        bt_column = 'O_Negative_Units'
+
+    # Calculate the new quantity for Providing Hospital
+    sql = 'SELECT '+bt_column+' FROM Bloodbanks_and_Hospitals WHERE Institution_ID = '+str(bloodBankID)+';'''
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_r = result[0] - int(quantity)
+    
+    # Update Providing Hospital Inventory
+    sql = 'UPDATE Bloodbanks_and_Hospitals SET '+bt_column+' = '+str(newamount_r)+' WHERE Institution_ID = '+str(bloodBankID)+';'''
+    c.execute(sql)
     
     # Commit and close connection
     conn.commit()

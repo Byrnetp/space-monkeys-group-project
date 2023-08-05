@@ -261,8 +261,8 @@ class Test_sm_dbAPI(unittest.TestCase):
 
         # List of data to enter
         test_parameters = [
-            ("sm_test.db", 4, 1, "SpaceMonkey1", 1, "20230701 8:00:00"),
-            ("sm_test.db", 3, 2, "SpaceMonkey2", 1, "20230702 9:00:00"),
+            ("sm_test.db", 4, 1, "SpaceMonkey1", 1, "2023-07-01 8:00:00"),
+            ("sm_test.db", 3, 2, "SpaceMonkey2", 1, "2023-07-02 9:00:00"),
         ]
 
         # Enter data
@@ -287,8 +287,8 @@ class Test_sm_dbAPI(unittest.TestCase):
 
         # List of data to enter
         test_parameters = [
-            ("sm_test.db", 4, 1, 5, "SpaceMonkey1", 1, "20230701 8:00:00"),
-            ("sm_test.db", 3, 2, 6, "SpaceMonkey2", 1, "20230702 9:00:00"),
+            ("sm_test.db", 4, 1, 5, "SpaceMonkey1", 1, "2023-07-01 8:00:00"),
+            ("sm_test.db", 3, 2, 6, "SpaceMonkey2", 1, "2023-07-02 9:00:00"),
         ]
 
         # Enter data
@@ -365,48 +365,48 @@ class Test_sm_dbAPI(unittest.TestCase):
     def test_getDonationTable(self):
 
         # List of expected data
-        test_parameters = [(1, '20230701 8:00:00', 1, 'Dr. Bruce Banner', 64, 1),
-                            (2, '20230702 9:00:00', 2, 'Dr. Stephan Strange', 63, 1),
-                            (3, '20230703 10:00:00', 3, 'Dr. Diana Prince', 62, 1),
-                            (4, '20230704 11:00:00', 4, 'Dr. Harleen Quinzel', 61, 1),
-                            (5, '20230705 12:00:00', 5, 'Dr. Bruce Banner', 60, 1),
-                            (6, '20230706 13:00:00', 6, 'Dr. Stephan Strange', 59, 1),
-                            (7, '20230707 14:00:00', 7, 'Dr. Diana Prince', 58, 1),
-                            (8, '20230708 15:00:00', 8, 'Dr. Harleen Quinzel', 57, 1),
-                            (9, '20230709 16:00:00', 9, 'Dr. Bruce Banner', 56, 1),
-                            (10, '20230710 17:00:00', 10, 'Dr. Stephan Strange', 55, 1),
-                            (11, '20230711 8:00:00', 11, 'Dr. Diana Prince', 54, 1),
-                            (12, '20230712 9:00:00', 12, 'Dr. Harleen Quinzel', 53, 1),
-                            (13, '20230713 10:00:00', 13, 'Dr. Bruce Banner', 52, 1),
-                            (14, '20230714 11:00:00', 14, 'Dr. Stephan Strange', 51, 1),
-                            (15, '20230715 12:00:00', 15, 'Dr. Diana Prince', 50, 1),
-                            (16, '20230716 13:00:00', 16, 'Dr. Harleen Quinzel', 49, 1),
-                            (17, '20230717 14:00:00', 17, 'Dr. Bruce Banner', 48, 1),
-                            (18, '20230718 15:00:00', 18, 'Dr. Stephan Strange', 47, 1),
-                            (19, '20230719 16:00:00', 19, 'Dr. Diana Prince', 46, 1),
-                            (20, '20230720 17:00:00', 20, 'Dr. Harleen Quinzel', 45, 1),
-                            (21, '20230721 8:00:00', 21, 'Dr. Bruce Banner', 44, 1),
-                            (22, '20230722 9:00:00', 22, 'Dr. Stephan Strange', 43, 1),
-                            (23, '20230723 10:00:00', 8, 'Dr. Diana Prince', 42, 1),
-                            (24, '20230724 11:00:00', 9, 'Dr. Harleen Quinzel', 41, 1),
-                            (25, '20230725 12:00:00', 10, 'Dr. Bruce Banner', 40, 1),
-                            (26, '20230726 13:00:00', 11, 'Dr. Stephan Strange', 39, 1),
-                            (27, '20230727 14:00:00', 12, 'Dr. Diana Prince', 38, 1),
-                            (28, '20230728 15:00:00', 13, 'Dr. Harleen Quinzel', 37, 1),
-                            (29, '20230729 16:00:00', 14, 'Dr. Bruce Banner', 36, 1),
-                            (30, '20230730 17:00:00', 8, 'Dr. Stephan Strange', 35, 1),
-                            (31, '20230731 8:00:00', 9, 'Dr. Diana Prince', 34, 1),
-                            (32, '20230701 9:00:00', 10, 'Dr. Harleen Quinzel', 33, 1),
-                            (33, '20230702 10:00:00', 1, 'Dr. Bruce Banner', 32, 1),
-                            (34, '20230703 11:00:00', 2, 'Dr. Stephan Strange', 31, 1),
-                            (35, '20230704 12:00:00', 3, 'Dr. Diana Prince', 30, 1),
-                            (36, '20230705 13:00:00', 1, 'Dr. Harleen Quinzel', 29, 1),
-                            (37, '20230706 14:00:00', 2, 'Dr. Bruce Banner', 28, 1),
-                            (38, '20230707 15:00:00', 3, 'Dr. Stephan Strange', 27, 1),
-                            (39, '20230708 16:00:00', 18, 'Dr. Diana Prince', 26, 1),
-                            (40, '20230709 17:00:00', 19, 'Dr. Harleen Quinzel', 25, 1),
-                            (41, '20230710 8:00:00', 21, 'Dr. Bruce Banner', 24, 1),
-                            (42, '20230711 9:00:00', 22, 'Dr. Stephan Strange', 23, 1)]
+        test_parameters = [(1, '2023-07-01 8:00:00', 1, 'Dr. Bruce Banner', 64, 1),
+                            (2, '2023-07-02 9:00:00', 2, 'Dr. Stephan Strange', 63, 1),
+                            (3, '2023-07-03 10:00:00', 3, 'Dr. Diana Prince', 62, 1),
+                            (4, '2023-07-04 11:00:00', 4, 'Dr. Harleen Quinzel', 61, 1),
+                            (5, '2023-07-05 12:00:00', 5, 'Dr. Bruce Banner', 60, 1),
+                            (6, '2023-07-06 13:00:00', 6, 'Dr. Stephan Strange', 59, 1),
+                            (7, '2023-07-07 14:00:00', 7, 'Dr. Diana Prince', 58, 1),
+                            (8, '2023-07-08 15:00:00', 8, 'Dr. Harleen Quinzel', 57, 1),
+                            (9, '2023-07-09 16:00:00', 9, 'Dr. Bruce Banner', 56, 1),
+                            (10, '2023-07-10 17:00:00', 10, 'Dr. Stephan Strange', 55, 1),
+                            (11, '2023-07-11 8:00:00', 11, 'Dr. Diana Prince', 54, 1),
+                            (12, '2023-07-12 9:00:00', 12, 'Dr. Harleen Quinzel', 53, 1),
+                            (13, '2023-07-13 10:00:00', 13, 'Dr. Bruce Banner', 52, 1),
+                            (14, '2023-07-14 11:00:00', 14, 'Dr. Stephan Strange', 51, 1),
+                            (15, '2023-07-15 12:00:00', 15, 'Dr. Diana Prince', 50, 1),
+                            (16, '2023-07-16 13:00:00', 16, 'Dr. Harleen Quinzel', 49, 1),
+                            (17, '2023-07-17 14:00:00', 17, 'Dr. Bruce Banner', 48, 1),
+                            (18, '2023-07-18 15:00:00', 18, 'Dr. Stephan Strange', 47, 1),
+                            (19, '2023-07-19 16:00:00', 19, 'Dr. Diana Prince', 46, 1),
+                            (20, '2023-07-20 17:00:00', 20, 'Dr. Harleen Quinzel', 45, 1),
+                            (21, '2023-07-21 8:00:00', 21, 'Dr. Bruce Banner', 44, 1),
+                            (22, '2023-07-22 9:00:00', 22, 'Dr. Stephan Strange', 43, 1),
+                            (23, '2023-07-23 10:00:00', 8, 'Dr. Diana Prince', 42, 1),
+                            (24, '2023-07-24 11:00:00', 9, 'Dr. Harleen Quinzel', 41, 1),
+                            (25, '2023-07-25 12:00:00', 10, 'Dr. Bruce Banner', 40, 1),
+                            (26, '2023-07-26 13:00:00', 11, 'Dr. Stephan Strange', 39, 1),
+                            (27, '2023-07-27 14:00:00', 12, 'Dr. Diana Prince', 38, 1),
+                            (28, '2023-07-28 15:00:00', 13, 'Dr. Harleen Quinzel', 37, 1),
+                            (29, '2023-07-29 16:00:00', 14, 'Dr. Bruce Banner', 36, 1),
+                            (30, '2023-07-30 17:00:00', 8, 'Dr. Stephan Strange', 35, 1),
+                            (31, '2023-07-31 8:00:00', 9, 'Dr. Diana Prince', 34, 1),
+                            (32, '2023-07-01 9:00:00', 10, 'Dr. Harleen Quinzel', 33, 1),
+                            (33, '2023-07-02 10:00:00', 1, 'Dr. Bruce Banner', 32, 1),
+                            (34, '2023-07-03 11:00:00', 2, 'Dr. Stephan Strange', 31, 1),
+                            (35, '2023-07-04 12:00:00', 3, 'Dr. Diana Prince', 30, 1),
+                            (36, '2023-07-05 13:00:00', 1, 'Dr. Harleen Quinzel', 29, 1),
+                            (37, '2023-07-06 14:00:00', 2, 'Dr. Bruce Banner', 28, 1),
+                            (38, '2023-07-07 15:00:00', 3, 'Dr. Stephan Strange', 27, 1),
+                            (39, '2023-07-08 16:00:00', 18, 'Dr. Diana Prince', 26, 1),
+                            (40, '2023-07-09 17:00:00', 19, 'Dr. Harleen Quinzel', 25, 1),
+                            (41, '2023-07-10 8:00:00', 21, 'Dr. Bruce Banner', 24, 1),
+                            (42, '2023-07-11 9:00:00', 22, 'Dr. Stephan Strange', 23, 1)]
 
         # Test data is correct
         for i in range(1, len(test_parameters)):
@@ -420,10 +420,10 @@ class Test_sm_dbAPI(unittest.TestCase):
     def test_getTransfusionTable(self):
 
         # List of expected data
-        test_parameters = [(1, '20230720 8:00:00', 1, 26, 'Dr. Bruce Banner', 64, 1),
-                            (2, '20230721 9:00:00', 2, 25, 'Dr. Stephan Strange', 63, 1),
-                            (3, '20230722 10:00:00', 3, 24, 'Dr. Diana Prince', 62, 1),
-                            (4, '20230723 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1)]
+        test_parameters = [(1, '2023-07-20 8:00:00', 1, 26, 'Dr. Bruce Banner', 64, 1),
+                            (2, '2023-07-21 9:00:00', 2, 25, 'Dr. Stephan Strange', 63, 1),
+                            (3, '2023-07-22 10:00:00', 3, 24, 'Dr. Diana Prince', 62, 1),
+                            (4, '2023-07-23 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1)]
 
         # Test data is correct
         for i in range(1, len(test_parameters)):
@@ -437,10 +437,10 @@ class Test_sm_dbAPI(unittest.TestCase):
     def test_getIncomingTransferTable(self):
 
         # List of expected data
-        test_parameters = [(1, '20230701 8:00:00', 25, 40, 14),
-                        (2, '20230702 9:00:00', 26, 39, 15),
-                        (3, '20230703 10:00:00', 27, 38, 16),
-                        (4, '20230704 11:00:00', 28, 37, 17)]
+        test_parameters = [(1, '2023-07-01 8:00:00', 25, 40, 14),
+                        (2, '2023-07-02 9:00:00', 26, 39, 15),
+                        (3, '2023-07-03 10:00:00', 27, 38, 16),
+                        (4, '2023-07-04 11:00:00', 28, 37, 17)]
 
         # Test data is correct
         for i in range(1, len(test_parameters)):
@@ -454,10 +454,10 @@ class Test_sm_dbAPI(unittest.TestCase):
     def test_getOutgoingTransferTable(self):
 
         # List of expected data
-        test_parameters = [(1, '20230701 8:00:00', 25, 40, 14),
-                        (2, '20230702 9:00:00', 26, 39, 15),
-                        (3, '20230703 10:00:00', 27, 38, 16),
-                        (4, '20230704 11:00:00', 28, 37, 17)]
+        test_parameters = [(1, '2023-07-01 8:00:00', 25, 40, 14),
+                        (2, '2023-07-02 9:00:00', 26, 39, 15),
+                        (3, '2023-07-03 10:00:00', 27, 38, 16),
+                        (4, '2023-07-04 11:00:00', 28, 37, 17)]
 
         # Test data is correct
         for i in range(1, len(test_parameters)):

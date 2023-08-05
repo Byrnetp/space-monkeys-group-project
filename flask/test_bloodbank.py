@@ -117,7 +117,6 @@ def test_transfusion(client):
     assert b"<h1>Transfusion Entry Page</h1>" in response.data
     assert b'<form id="transfusionEntryForm" name="transfusionEntryForm">' in response.data
     assert b'<input list="patientNameChoices" id="patientName" name="patientName">' in response.data
-    assert b'<input list="donationIDChoices" id="donationID" name="donationID">' in response.data
     assert b'<input list="bloodBankNameChoices" id="bloodBankName" name="bloodBankName">' in response.data
     assert b'<input type="text" id="medicalProfessional" name="medicalProfessional">' in response.data
     assert b'<select id="quantity" name="quantity">' in response.data
@@ -128,7 +127,6 @@ def test_transfusion(client):
     response = client.get("/transfusion", data={
         "patientName": "testPatient",
         "patientBloodType": "A+",
-        "donationID": 1,
         "bloodBankName": "testBB",
         "medicalProfessional": "testMP",
         "quantity": 1,

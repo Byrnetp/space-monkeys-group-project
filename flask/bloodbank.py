@@ -119,7 +119,6 @@ def transfusion():
 
     # Get input parameters from URL
     patientName = request.args.get('patientName', None)
-    donationID = request.args.get('donationID', None)
     bloodBankName = request.args.get('bloodBankName', None)
     medicalProfessional = request.args.get('medicalProfessional', None)
     quantity = request.args.get('quantity', None)
@@ -131,10 +130,18 @@ def transfusion():
     # Query database to get Blood Bank ID
     bloodBankID = sm_dbAPI.getBloodBankID(space_monkeys_db, bloodBankName)
 
+    # Query database to get compatible donation
+    donationID = sm_dbAPI.findCompatibleBlood(space_monkeys_db, patientID, bloodBankID)
+
     # Insert data if all entries are populated
     if (space_monkeys_db and patientID and bloodBankID and donationID and medicalProfessional and quantity and date):
         sm_dbAPI.enterTransfusion(space_monkeys_db, patientID, bloodBankID, donationID, medicalProfessional, quantity, date)
         
+    # Set flag if any entries are populated
+    donationFlag = False
+    if (space_monkeys_db and patientID and bloodBankID and medicalProfessional and quantity and date):
+        donationFlag = True
+
     # Query database to get list of patients
     patientsList = sm_dbAPI.getPatientsList(space_monkeys_db)
 
@@ -149,10 +156,10 @@ def transfusion():
         'transfusion.html', 
         numPatients = len(patientsList), 
         patientsList = patientsList, 
-        numDonations = len(donationsList),
-        donationsList = donationsList,
         numBloodBanks = len(bloodBanksList), 
         bloodBanksList = bloodBanksList,
+        donationID = donationID,
+        donationFlag = donationFlag,
         )
 
 # Blood bank entry page
@@ -241,7 +248,7 @@ def visualization():
     # # define labels for the bar data
     bar_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits]
     # blood info
-    getBloodInfo = sm_dbAPI.getBloodInfo(space_monkeys_db)
+    #getBloodInfo = sm_dbAPI.getBloodInfo(space_monkeys_db)
     # Render page
     return render_template(
         'visualization.html', 
@@ -270,7 +277,7 @@ def visualization():
         totalBNegativeUnits=totalBNegativeUnits,
         totalABNegativeUnits=totalABNegativeUnits,
         totalONegativeUnits=totalONegativeUnits,
-        getBloodInfo = getBloodInfo,
+        #getBloodInfo = getBloodInfo,
     )
 
 # Detailed inventory page
@@ -287,25 +294,29 @@ def detail():
     incomingTransfers = sm_dbAPI.getIncomingTransferTable(space_monkeys_db, hospitals[0][1])
 
     # Adding dashes to make the dates easier to read
-    for donation in donations:
-        date = str(donation[1])
-        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-        donation[1] = date
+    # for donation in donations:
+    #     donation = list(donation)
+    #     date = str(donation[1])
+    #     date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+    #     donation[1] = date
 
-    for transfusion in transfusions:
-        date = str(transfusion[1])
-        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-        transfusion[1] = date
+    # for transfusion in transfusions:
+    #     transfusion = list(transfusion)
+    #     date = str(transfusion[1])
+    #     date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+    #     transfusion[1] = date
     
-    for i_transfer in incomingTransfers:
-        date = str(i_transfer[1])
-        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-        i_transfer[1] = date
+    # for i_transfer in incomingTransfers:
+    #     i_transfer = list(i_transfer)
+    #     date = str(i_transfer[1])
+    #     date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+    #     i_transfer[1] = date
     
-    for o_transfer in outgoingTransfers:
-        date = str(o_transfer[1])
-        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-        o_transfer[1] = date
+    # for o_transfer in outgoingTransfers:
+    #     o_transfer = list(o_transfer)
+    #     date = str(o_transfer[1])
+    #     date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
+    #     o_transfer[1] = date
 
     return render_template('detail.html', hospitals=hospitals, donations=donations, transfusions=transfusions, outgoingTransfers=outgoingTransfers, incomingTransfers=incomingTransfers)
 

@@ -17,6 +17,15 @@
   <div class="header">
       <h1>Transfusion Entry Page</h1>
   </div>
+  <div class="message">
+    {% if donationFlag %}
+      {% if donationID %}
+      <h4>Transfusion is valid, please give patient blood donation #{{donationID}}</h4>
+      {% else %}
+      <h4>Could not find a compatible donation, please select a different blood bank</h4>
+      {% endif %}  
+    {% endif %}  
+  </div>
   <form id="transfusionEntryForm" name="transfusionEntryForm">
     <label id="patientNameLabel" for="patientName">Patient Name:</label>
     <br>
@@ -24,16 +33,6 @@
     <datalist id="patientNameChoices" name="patientNameChoices">
       {%for i in range(0, numPatients)%}
         <option value="{{patientsList[i]}}">
-      {%endfor%}
-    </datalist>
-    <br>
-    <br>
-    <label id="donationIDLabel" for="donationID">Donation ID:</label>
-    <br>
-    <input list="donationIDChoices" id="donationID" name="donationID">
-    <datalist id="donationIDChoices" name="donationIDChoices">
-      {%for i in range(0, numDonations)%}
-        <option value="{{donationsList[i]}}">
       {%endfor%}
     </datalist>
     <br>
