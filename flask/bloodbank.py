@@ -293,31 +293,6 @@ def detail():
     outgoingTransfers = sm_dbAPI.getOutgoingTransferTable(space_monkeys_db, hospitals[0][1])
     incomingTransfers = sm_dbAPI.getIncomingTransferTable(space_monkeys_db, hospitals[0][1])
 
-    # Adding dashes to make the dates easier to read
-    # for donation in donations:
-    #     donation = list(donation)
-    #     date = str(donation[1])
-    #     date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-    #     donation[1] = date
-
-    # for transfusion in transfusions:
-    #     transfusion = list(transfusion)
-    #     date = str(transfusion[1])
-    #     date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-    #     transfusion[1] = date
-    
-    # for i_transfer in incomingTransfers:
-    #     i_transfer = list(i_transfer)
-    #     date = str(i_transfer[1])
-    #     date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-    #     i_transfer[1] = date
-    
-    # for o_transfer in outgoingTransfers:
-    #     o_transfer = list(o_transfer)
-    #     date = str(o_transfer[1])
-    #     date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-    #     o_transfer[1] = date
-
     return render_template('detail.html', hospitals=hospitals, donations=donations, transfusions=transfusions, outgoingTransfers=outgoingTransfers, incomingTransfers=incomingTransfers)
 
 @app.route('/detail/<hospital_ID>')
@@ -332,32 +307,27 @@ def get_tables(hospital_ID):
     # Build the html to send 
     tables = '<div id="donationTable"><h2>Donations</h2><table><tr><th>Donation ID</th><th>Date & Time</th><th>Donor ID</th><th>Medical Professional</th><th>Amount</th></tr>'
 
+    # Donation table data
     for donation in donations:
-        # Adding dashes to make the dates easier to read
-        date = str(donation[1])
-        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-        tables += '<tr><td>' + str(donation[0]) + '</td><td>' + date + '</td><td>' + str(donation[2]) + '</td><td>' + str(donation[3]) + '</td><td>' + str(donation[5]) + '</td></tr>'
+        tables += '<tr><td>' + str(donation[0]) + '</td><td>' + donation[1] + '</td><td>' + str(donation[2]) + '</td><td>' + str(donation[3]) + '</td><td>' + str(donation[5]) + '</td></tr>'
 
     tables += '</table></div><div id="transfusionTable"><h2>Transfusions</h2><table><tr><th>Transfusion ID</th><th>Date & Time</th><th>Donation ID</th><th>Patient ID</th> <th>Medical Professional</th><th>Amount</th></tr>'
-
+    
+    # Patient table data
     for transfusion in transfusions:
-        date = str(transfusion[1])
-        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-        tables += '<tr><td>' + str(transfusion[0]) + '</td><td>' + date + '</td><td>' + str(transfusion[2]) + '</td><td>' + str(transfusion[3]) + '</td><td>' + str(transfusion[4]) + '</td><td>' + str(transfusion[6]) + '</td></tr>'
+        tables += '<tr><td>' + str(transfusion[0]) + '</td><td>' + donation[1] + '</td><td>' + str(transfusion[2]) + '</td><td>' + str(transfusion[3]) + '</td><td>' + str(transfusion[4]) + '</td><td>' + str(transfusion[6]) + '</td></tr>'
 
     tables += '</table></div><div id="incomingTransferTable"><h2>Incoming Transfers</h2><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Sending Hospital ID</th></tr>'
 
+    # Incoming transfer data
     for i_transfer in incomingTransfers:
-        date = str(i_transfer[1])
-        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-        tables += '<tr><td>' + str(i_transfer[0]) + '</td><td>' + date + '</td><td>' + str(i_transfer[2]) + '</td><td>' + str(i_transfer[4]) + '</td></tr>'
+        tables += '<tr><td>' + str(i_transfer[0]) + '</td><td>' + donation[1] + '</td><td>' + str(i_transfer[2]) + '</td><td>' + str(i_transfer[4]) + '</td></tr>'
 
     tables += '</table></div><div id="outgoingTransferTable"><h2>Outgoing Transfers</h2><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Recieving Hospital ID</th></tr>'
 
+    # Outgoing transfer data
     for o_transfer in outgoingTransfers:
-        date = str(o_transfer[1])
-        date = date[0:4] + '-' + date[4:6] + '-' + date[6:]
-        tables += '<tr><td>' + str(o_transfer[0]) + '</td><td>' + date + '</td><td>' + str(o_transfer[2]) + '</td><td>' + str(o_transfer[3]) + '</td></tr>'
+        tables += '<tr><td>' + str(o_transfer[0]) + '</td><td>' + donation[1] + '</td><td>' + str(o_transfer[2]) + '</td><td>' + str(o_transfer[3]) + '</td></tr>'
 
     tables += '</table></div>'
 
