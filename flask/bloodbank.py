@@ -8,6 +8,7 @@ from flask import Flask, url_for, request, render_template, request, jsonify
 from markupsafe import escape
 import sm_dbAPI
 
+
 # Create app to use in this Flask application
 app = Flask(__name__)
 
@@ -29,6 +30,7 @@ def homepage():
 @app.route('/home')
 def home():
     return render_template('homepage.html')
+
 
 # Blood bank entry page
 @app.route('/bloodbank')
@@ -183,7 +185,7 @@ def transfer():
     donationsList = sm_dbAPI.getDonationIDsList(space_monkeys_db)
     
     # Query database to get list of Hospital IDs
-    hospitalsList = sm_dbAPI.getBloodBanksListNUM(space_monkeys_db)
+    hospitalsList = sm_dbAPI.getBloodBanksList(space_monkeys_db)
         
     # Render page
     return render_template(
@@ -249,6 +251,7 @@ def visualization():
     bar_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits]
     # blood info
     #getBloodInfo = sm_dbAPI.getBloodInfo(space_monkeys_db)
+
     # Render page
     return render_template(
         'visualization.html', 
@@ -267,8 +270,6 @@ def visualization():
         blood_O_negative = blood_O_negative,
         pie_chart_labels=pie_chart_labels,  # Pass the labels to the template
         pie_chart_data=pie_chart_data,      # Pass the data to the template
-        bar_chart_labels=bar_chart_labels,
-        bar_chart_data=bar_chart_data,
         totalAPositiveUnits=totalAPositiveUnits,
         totalBPositiveUnits=totalBPositiveUnits,
         totalABPositiveUnits=totalABPositiveUnits,
@@ -348,8 +349,8 @@ def view_patients():
     patients = sm_dbAPI.getPatients(space_monkeys_db)
 
     return render_template('viewPatients.html', patients=patients)
-    
-# Complication Report
+ 
+#complication
 @app.route('/complication')
 def complication():
 
@@ -364,7 +365,7 @@ def complication():
     # Query database to get list of transfusion IDs
     transfusionIDList = sm_dbAPI.getTransfusionIDList(space_monkeys_db)
 
-    # Render the complication report form (including the success message if applicable)
+    # Render the complication report form 
     return render_template(
         'complication_report.html',
         numTransfusionIDs = len(transfusionIDList), 
