@@ -6,3 +6,9 @@ Transfusion_ID,Date_Time,Donation_ID,Patient_ID,Medical_Professional,Hospital_ID
 5,2023-07-23 12:00:00,44,3,Dr. Leonard McCoy,1,1
 6,2023-07-24 2:00:00,45,2,Dr. Leonard McCoy,1,1
 7,2023-07-27 19:00:00,46,14,Dr. Leonard McCoy,1,1
+8,2023-07-27 21:00:00,51,1,Dr. Frederick Frankenstein,2,1
+9,2023-07-28 9:00:00,48,6,Dr. Frederick Frankenstein,2,1
+10,2023-07-27 10:00:00,50,5,Dr. Frederick Frankenstein,2,1
+11,2023-07-27 13:00:00,49,9,Dr. Frederick Frankenstein,2,1
+12,2023-07-28 7:00:00,47,15,Dr. John Watson,3,1
+13,2023-07-28 15:00:00,46,12,Dr. John Watson,3,1

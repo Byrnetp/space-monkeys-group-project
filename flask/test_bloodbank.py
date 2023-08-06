@@ -141,9 +141,10 @@ def test_detail(client):
     response = client.get("/detail")
 
     # Ensure menu and header elements are on the page
-    assert b'<h1>Inventory Details</h1>' in response.data
+    assert b'<div class="header">' in response.data
+    assert b'<h2>INVENTORY DETAILS</h2>' in response.data
     assert b'<div id="menu">' in response.data
-    assert b'<h3>Menu</h3>' in response.data
+    assert b'<h2>Menu</h2>' in response.data
     assert b'<label for="hospital">Choose a blood bank or hospital:</label>' in response.data
     assert b'<select id="hospital">' in response.data
     assert b'<div id="checkbox-container">' in response.data
@@ -160,14 +161,14 @@ def test_detail(client):
     # Ensure tables are on the page
     assert b'<div id="tablesContainer">' in response.data
     assert b'<div id="donationTable">' in response.data
-    assert b'<h2>Donations</h2>' in response.data
+    assert b'<h3>Donations</h3>' in response.data
     assert b'<th>Donation ID</th>' in response.data
     assert b'<th>Date & Time</th>' in response.data
     assert b'<th>Donor ID</th>' in response.data
     assert b'<th>Medical Professional</th>' in response.data
     assert b'<th>Amount</th>' in response.data
     assert b'<div id="transfusionTable">' in response.data
-    assert b'<h2>Transfusions</h2>' in response.data
+    assert b'<h3>Transfusions</h3>' in response.data
     assert b'<th>Transfusion ID</th>' in response.data
     assert b'<th>Date & Time</th>' in response.data
     assert b'<th>Donation ID</th>' in response.data
@@ -175,13 +176,13 @@ def test_detail(client):
     assert b'<th>Medical Professional</th>' in response.data
     assert b'<th>Amount</th>' in response.data
     assert b'<div id="incomingTransferTable">' in response.data
-    assert b'<h2>Incoming Transfers</h2>' in response.data
+    assert b'<h3>Incoming Transfers</h3>' in response.data
     assert b'<th>Transfer ID</th>' in response.data
     assert b'<th>Date & Time</th>' in response.data
     assert b'<th>Donation ID</th>' in response.data
     assert b'<th>Sending Hospital ID</th>' in response.data
     assert b'<div id="outgoingTransferTable">' in response.data
-    assert b'<h2>Outgoing Transfers</h2>' in response.data
+    assert b'<h3>Outgoing Transfers</h3>' in response.data
     assert b'<th>Transfer ID</th>' in response.data
     assert b'<th>Date & Time</th>' in response.data
     assert b'<th>Donation ID</th>' in response.data
@@ -194,7 +195,8 @@ def test_viewDonors(client):
     response = client.get("/view-donors")
 
     # Ensure the expeceted elements and data are displayed
-    assert b'<h1>Donors</h1>' in response.data
+    assert b'<div class="header">' in response.data
+    assert b'<h2>DONORS</h2>' in response.data
     assert b'<hr>' in response.data
     assert b'<div id="tablesContainer">' in response.data
     assert b'<th>Donor ID</th>' in response.data
@@ -274,7 +276,8 @@ def test_viewPatients(client):
     response = client.get("/view-patients")
 
     # Ensure the expeceted elements and data are displayed
-    assert b'<h1>Patients</h1>' in response.data
+    assert b'<div class="header">' in response.data
+    assert b'<h2>PATIENTS</h2>' in response.data
     assert b'<hr>' in response.data
     assert b'<div id="tablesContainer">' in response.data
     assert b'<table>' in response.data

@@ -44,3 +44,9 @@ Donation_ID,Date_Time,Donor_ID,Medical_Professional,Hospital_ID,Amount
 43,2023-07-11 11:00:00,15,Dr. Nick Riviera,1,1
 44,2023-07-13 8:00:00,3,Dr. Nick Riviera,1,1
 45,2023-07-21 16:00:00,17,Dr. Nick Riviera,1,1
+46,2023-07-21 17:00:00,4,Dr. Hubert Farnsworth,2,1
+47,2023-07-21 19:00:00,5,Dr. Hubert Farnsworth,2,1
+48,2023-07-21 19:00:00,7,Dr. John Zoidberg,3,1
+49,2023-07-21 19:00:00,11,Dr. John Zoidberg,3,1
+50,2023-07-21 19:00:00,9,Dr. John Zoidberg,3,1
+51,2023-07-21 19:00:00,13,Dr. John Zoidberg,3,1
