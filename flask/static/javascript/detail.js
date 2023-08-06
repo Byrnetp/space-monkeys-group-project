@@ -66,6 +66,21 @@ hospitalSelect.addEventListener('change', ()=> {
             xfusionTable = document.getElementById("transfusionTable");
             xferInTable = document.getElementById("incomingTransferTable");
             xferOutTable = document.getElementById("outgoingTransferTable");
+
+            // Hide any tables that need to be hidden again
+            if (!donCheck.checked) {
+                donTable.style = "display: none";
+            }
+            if (!xfusionCheck.checked) {
+                xfusionTable.style = "display: none";
+            }
+            if (!xferInCheck.checked) {
+                xferInTable.style = "display: none";
+            }
+            if (!xferOutCheck.checked) {
+                xferOutTable.style = "display: none";
+            }
+
     }
     };
     xhttp.open("GET", "detail/" + hospitalSelect.value, true);

@@ -316,19 +316,19 @@ def get_tables(hospital_ID):
     
     # Patient table data
     for transfusion in transfusions:
-        tables += '<tr><td>' + str(transfusion[0]) + '</td><td>' + donation[1] + '</td><td>' + str(transfusion[2]) + '</td><td>' + str(transfusion[3]) + '</td><td>' + str(transfusion[4]) + '</td><td>' + str(transfusion[6]) + '</td></tr>'
+        tables += '<tr><td>' + str(transfusion[0]) + '</td><td>' + transfusion[1] + '</td><td>' + str(transfusion[2]) + '</td><td>' + str(transfusion[3]) + '</td><td>' + str(transfusion[4]) + '</td><td>' + str(transfusion[6]) + '</td></tr>'
 
     tables += '</table></div><div id="incomingTransferTable"><h2>Incoming Transfers</h2><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Sending Hospital ID</th></tr>'
 
     # Incoming transfer data
     for i_transfer in incomingTransfers:
-        tables += '<tr><td>' + str(i_transfer[0]) + '</td><td>' + donation[1] + '</td><td>' + str(i_transfer[2]) + '</td><td>' + str(i_transfer[4]) + '</td></tr>'
+        tables += '<tr><td>' + str(i_transfer[0]) + '</td><td>' + i_transfer[1] + '</td><td>' + str(i_transfer[2]) + '</td><td>' + str(i_transfer[4]) + '</td></tr>'
 
     tables += '</table></div><div id="outgoingTransferTable"><h2>Outgoing Transfers</h2><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Recieving Hospital ID</th></tr>'
 
     # Outgoing transfer data
     for o_transfer in outgoingTransfers:
-        tables += '<tr><td>' + str(o_transfer[0]) + '</td><td>' + donation[1] + '</td><td>' + str(o_transfer[2]) + '</td><td>' + str(o_transfer[3]) + '</td></tr>'
+        tables += '<tr><td>' + str(o_transfer[0]) + '</td><td>' + o_transfer[1] + '</td><td>' + str(o_transfer[2]) + '</td><td>' + str(o_transfer[3]) + '</td></tr>'
 
     tables += '</table></div>'
 
