@@ -7,7 +7,9 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: #f8f8f8;
   margin: 0;
-  padding: 50px 50px 0 220px; /* padding: top left bottom right / left and top are for the nav bar*/
+/*   padding: 50px 50px 70px 220px; /* padding: top left bottom right / left and top are for the nav bar*/ 
+  padding: 50px 0 70px 220px; /* Adjust padding values as needed */
+
 }
 
 h1 {
@@ -24,6 +26,7 @@ h3 {
   font-size: 1.8rem;
   margin-bottom: 10px;
 }
+
 /* Add margin for all pages */
 /* main {
   margin: 20px;
@@ -43,13 +46,14 @@ nav {
   position: fixed;
   top: 0;
   left: 0;
-  height: 100%; /* Set the height of the nav bar to 100% */
+  height: 200%; /* Adjusted height to fit between header and footer */
   width: 200px; /* Set the width of the nav bar */
   background-color: #63c3bb;
   color: #fff;
-  padding: 30px 0;
+  padding: 30px 0 30px 0;
   font-size: 17px;
-
+  overflow-y: auto; /* Add scrollbar if content overflows vertically */
+  
 }
 
 nav ul {
@@ -108,7 +112,22 @@ input[type="submit"] {
     width: 100%;             /* Full page width */
     height: 70px;
     border: none;
-/*     border-style: solid;
-    border-width: thin; */
+    z-index: 100; /* Ensure the footer stays above the content */
     text-align: center;
+}
+/* Add media query for smaller screens */
+@media (max-width: 768px) {
+  body {
+    padding: 50px 0;
+  }
+
+  nav {
+    width: 100%;
+    padding: 10px 0;
+  }
+
+  main {
+    margin-left: 0;
+    padding: 20px;
+  }
 }

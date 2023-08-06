@@ -8,17 +8,19 @@
 {% block head %}
   {{ super() }}
   <link rel="stylesheet" href="static/css/detail.css">
+  <link rel="stylesheet" href="static/css/main.css">
+
 {% endblock %}
 {% block content %}
   {% include 'navbar.html' %}
-
-  <h1>Inventory Details</h1>
-
+  <div class="header">
+    <h2>INVENTORY DETAILS</h2>
+  </div>
   <hr>
 
   <!-- The menu for the page -->
   <div id="menu">
-    <h3>Menu</h3>
+      <center><h2>Menu</h2></center>
     <label for="hospital">Choose a blood bank or hospital:</label>
     <select id="hospital">
       {% for hospital in hospitals %}
@@ -44,7 +46,7 @@
   <div id="tablesContainer">
 
     <div id="donationTable">
-      <h2>Donations</h2>
+      <h3>Donations</h3>
       <table>
         <tr>
           <th>Donation ID</th>
@@ -66,7 +68,7 @@
     </div>
 
     <div id="transfusionTable">
-      <h2>Transfusions</h2>
+      <h3>Transfusions</h3>
       <table>
         <tr>
           <th>Transfusion ID</th>
@@ -90,7 +92,7 @@
     </div>
 
     <div id="incomingTransferTable">
-      <h2>Incoming Transfers</h2>
+      <h3>Incoming Transfers</h3>
       <table>
         <tr>
           <th>Transfer ID</th>
@@ -110,7 +112,7 @@
     </div>
 
     <div id="outgoingTransferTable">
-      <h2>Outgoing Transfers</h2>
+      <h3>Outgoing Transfers</h3>
       <table>
         <tr>
           <th>Transfer ID</th>
