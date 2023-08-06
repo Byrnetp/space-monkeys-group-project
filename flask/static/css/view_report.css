@@ -2,13 +2,11 @@ body {
   font-family: "Montserrat", sans-serif;
   background-color: #f8f8f8;
   margin: 0;
-  padding: 50px 50px 0 220px; /* Add padding to the top and sides to create space for the nav bar */
 }
 
 p{
     font-size:18px !important;
 }
-
 
 
 .search-boxes {

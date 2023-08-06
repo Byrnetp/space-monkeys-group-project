@@ -13,18 +13,22 @@ document.addEventListener('DOMContentLoaded', function () {
     // Check Transfusion ID for valid input
     var transfusionIDInput = document.getElementById("transfusionID");
     var transfusionIDValid = isDatalistEntryValid("transfusionIDChoices", transfusionIDInput.value);
+    
+    // var isCommentEmpty = document.getElementById("Comments");
 
+    
     setFormStyle(transfusionIDValid, "transfusionIDLabel", "Transfusion ID:", "Please enter a valid Transfusion ID");
 
     // Check Comments for valid input
     var commentInput = document.getElementById("comment");
+
+      
     var commentValid = !isEntryEmpty(commentInput.value);
     setFormStyle(commentValid, "commentLabel", "Comment:", "Please enter a comment");
 
     // Check if all form entries are valid
     if (transfusionIDValid && commentValid) {
-      alert("Transfusion ID: " + transfusionIDInput.value);
-      alert("New Comment: " + commentInput.value);
+      alert("Report submitted successfully!");
       // Submit form
       document.complicationReportForm.submit();
 

@@ -1,35 +1,66 @@
 /* CS 3308 Group Project
  * Team 2: Space Monkeys
  * CSS for details page
- * Last Update: Travis Byrne, 2 August 2023 */
+ * Last Update: Cyro, 5 August 2023 */
 
-h1, h2 {
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: #f8f8f8;
+  margin: 0;
+  padding: 50px 50px 0 220px; /* Add padding to the top and sides to create space for the nav bar */
+}
+
+/* Adjust font size for paragraphs */
+th {
+    font-size: 18px !important;
+}
+h1, h2, h3 {
     text-align: center;
+}
+#menu {
+  gap: 30px;
 }
 
 #checkbox-container {
     float: right;
 }
 
-table, th, td {
-    border:1px solid black;
-}
 
 table {
-    margin-left: auto;
-    margin-right: auto;
+    margin: 20px auto;
+    max-width: 800px;
+    background-color: #ffffff;
+    border: 1px solid #ccc; /* Changed from #ccc */
+    border-radius: 5px;
+    padding: 10px;
+    border-collapse: collapse;
     text-align: center;
- }
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: #f2f2f2;
+    color: black;
+}
 
 tr:hover {
     background-color: aqua;
 }
 
-td:hover, th:hover {
+td:hover,
+th:hover {
     background-color: aquamarine;
 }
 
-#tablesContainer {
-    height: 66vh;
-    overflow: scroll;
+#content {
+    position: relative;
+    z-index: 2;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border-radius: 10px; /* Add border radius */
+    border: 1px solid #ccc; /* Changed from #ccc */
 }
+
