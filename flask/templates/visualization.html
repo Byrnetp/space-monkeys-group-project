@@ -6,14 +6,14 @@
 {% block title %}Blood Visualization Page{% endblock %}
 {% block head %}
     {{ super() }}
-    <link rel="stylesheet" href="static/css/visualization.css">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="static/javascript/visualization.js"></script>
-    <style></style>
+    <link rel="stylesheet" href="static/css/visualization.css">
+    <link rel="stylesheet" href="static/css/main.css">
 {% endblock %}
 {% block content %}
-<body>
     {% include 'navbar.html' %}
+    <body>
     <header>
       <h1> Blood Levels & Visualization Page </h1>
     </header>
@@ -26,60 +26,53 @@
             data-data="{{ bar_chart_data|join(',') }}"></canvas>
         </div>
 
-        <div id = "tableDiv" class = "tableDiv">
-            <div id = "headerDiv">
-                <h2> Table of Blood Banks Data </h2>
-            </div>
-            
-            <table id = "bloodTable"  class="row-orientation">
-                <caption>Click on a BloodType to sort units...</caption>
-                <thead>
+    </div>
+    <header>
+        <h1> Table of Blood Banks Data </h1>
+    </header>
+        
+    <div class="container">      
+        <table id = "bloodTable"  class="row-orientation">
+            <caption>Click on a Header to Sort</caption>
+            <thead>
+                <tr>
+                    <th> ID: </th>
+                    <th> Name: </th>
+                    <th> Location: </th>
+                    <th> Type: </th>
+                    <th id = "a_positive" > A+ </th>
+                    <th id="b_positive" > B+ </th>
+                    <th id="ab_positive" > AB+ </th>
+                    <th id="o_positive" > O+ </th>
+                    <th id="a_negative" > A- </th>
+                    <th id="b_negative" > B- </th>
+                    <th id="ab_negative" > AB-  </th>
+                    <th id="o_negative" > O- </th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for i in range(0, numBloodBanks) %}
                     <tr>
-                        <th> ID: </th>
-                        <th> Name: </th>
-                        <th> Location: </th>
-                        <th> Type: </th>
-                        <th id = "a_positive" > A+ </th>
-                        <th id="b_positive" > B+ </th>
-                        <th id="ab_positive" > AB+ </th>
-                        <th id="o_positive" > O+ </th>
-                        <th id="a_negative" > A- </th>
-                        <th id="b_negative" > B- </th>
-                        <th id="ab_negative" > AB-  </th>
-                        <th id="o_negative" > O- </th>
+                        <td> {{ getBloodID[i] }} </td>
+                        <td> {{ bloodBanksList[i] }} </td>
+                        <td> {{ bloodBankAddress[i] }}</td>
+                        <td> {{ bloodBankType[i] }} </td>
+                        <td> {{ blood_A_positive[i] }} </td>
+                        <td> {{ blood_B_positive[i] }} </td>
+                        <td> {{ blood_AB_positive[i] }} </td>
+                        <td> {{ blood_O_positive[i] }} </td>
+                        <td> {{ blood_A_negative[i] }} </td>
+                        <td> {{ blood_B_negative[i] }} </td>
+                        <td> {{ blood_AB_negative[i] }} </td>
+                        <td> {{ blood_O_negative[i] }} </td>
                     </tr>
-                </thead>
-                <tbody>
-                    {% for i in range(0, numBloodBanks) %}
-                        <tr>
-                            <td> {{ getBloodID[i] }} </td>
-                            <td> {{ bloodBanksList[i] }} </td>
-                            <td> {{ bloodBankAddress[i] }}</td>
-                            <td> {{ bloodBankType[i] }} </td>
-                            <td> {{ blood_A_positive[i] }} </td>
-                            <td> {{ blood_B_positive[i] }} </td>
-                            <td> {{ blood_AB_positive[i] }} </td>
-                            <td> {{ blood_O_positive[i] }} </td>
-                            <td> {{ blood_A_negative[i] }} </td>
-                            <td> {{ blood_B_negative[i] }} </td>
-                            <td> {{ blood_AB_negative[i] }} </td>
-                            <td> {{ blood_O_negative[i] }} </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-                <tbody>
-                    <!-- table content will dynamically generate -->
-                </tbody>
-            </table>
-        </div>
-
-        <!-- <div id="pieDiv" class="one-third-div">
-            <h3> Pie Graph: </h3>
-            <canvas id="pieChart" width="400" height="400"
-                data-labels="{{ pie_chart_labels|join(',') }}"
-                data-data="{{ pie_chart_data|join(',') }}"></canvas>
-        </div> -->
-
+                {% endfor %}
+            </tbody>
+            <tbody>
+                <!-- table content will dynamically generate -->
+            </tbody>
+        </table>
+    </div>
     </div>
 </body>
 {% endblock %}
