@@ -1,8 +1,7 @@
 /* CS 3308 Group Project */
 /* Team 2: Space Monkeys */
 /* Javascript for Visualization page */
-/* Last Update: Dylan Kayyem, 8/3/2023 */
-
+/* Last Update: Dylan Kayyem, 8/7/2023 */
 
 let currentlyRemovedColumns = [];
 let allColumns = [4,5,6,7,8,9,10,11];
@@ -17,17 +16,15 @@ let columnsToRemove = {
     "O-": [4,5,6,7,8,9,10]
 };
 
-/* remove and stores columns function */
+/* Remove and Store a Column Function: */
 function removeAndStoreColumns(tableId, columnIndices) {
-    // First, restore any previously removed columns
-    if (currentlyRemovedColumns.length > 0) {
+    if (currentlyRemovedColumns.length > 0) {   // First, restore any previously removed columns
       restoreColumns(tableId, currentlyRemovedColumns);
     }
     const table = document.getElementById(tableId);
     if (table) {
         removedColumnsData = [];
-        // Store the header cells
-        const headerRow = table.rows[0];
+        const headerRow = table.rows[0];    // Store the header cells
         removedColumnsData[0] = [];
         for (let j = columnIndices.length - 1; j >= 0; j--) {
             if (headerRow.cells.length > columnIndices[j]) {
@@ -35,9 +32,7 @@ function removeAndStoreColumns(tableId, columnIndices) {
                 headerRow.deleteCell(columnIndices[j]);
             }
         }
-
-        // Store the data cells
-        for (let i = 1; i < table.rows.length; i++) {
+        for (let i = 1; i < table.rows.length; i++) {   // Store the data cells
             const row = table.rows[i];
             removedColumnsData[i] = [];
             for (let j = columnIndices.length - 1; j >= 0; j--) {
@@ -47,39 +42,34 @@ function removeAndStoreColumns(tableId, columnIndices) {
                 }
             }
         }
-        // Update the currently removed columns
-        currentlyRemovedColumns = columnIndices;
-        attachTableHeaderListeners();
+        currentlyRemovedColumns = columnIndices;    // Update the currently removed columns
+        attachTableHeaderListeners();   // Call function to reassign listeners to headers
     }
 }
 
-/* restores columns function */
+/* Restore Columns Function: */
 function restoreColumns(tableId, columnIndices) {
     const table = document.getElementById(tableId);
     if (table && removedColumnsData.length > 0) {
-        // Restore the header cells
-        const headerRow = table.rows[0];
+        const headerRow = table.rows[0];    // Restore the header cells
         for (let j = 0; j < columnIndices.length; j++) {
             const cell = headerRow.insertCell(columnIndices[j]);
             cell.outerHTML = removedColumnsData[0][j];
         }
-
-        // Restore the data cells
-        for (let i = 1; i < table.rows.length; i++) {
+        for (let i = 1; i < table.rows.length; i++) {   // Restore the data cells
             const row = table.rows[i];
             for (let j = 0; j < columnIndices.length; j++) {
                 const cell = row.insertCell(columnIndices[j]);
                 cell.outerHTML = removedColumnsData[i][j];
             }
         }
-        // Clear the stored data
-        removedColumnsData = [];
-        // Re-attach the header listeners
-        attachTableHeaderListeners();
+        removedColumnsData = [];    // Clear the stored data
+        attachTableHeaderListeners();   // Re-attach the header listeners
         console.log('restored columns');
     }
 }
 
+/* Sort Table Function (asc->desc order): */
 function sortTable(tableId, columnIndex) {
     var table, rows, switching, i, x, y, shouldSwitch, dir, switchCount = 0;
     table = document.getElementById(tableId);
@@ -134,7 +124,7 @@ function sortTable(tableId, columnIndex) {
     }
 }
 
-// Function to attach click listeners to table headers
+/* Function to attach click listeners to table headers */
 function attachTableHeaderListeners() {
     var table = document.getElementById('bloodTable');
     var headers = table.getElementsByTagName('th');
@@ -147,21 +137,19 @@ function attachTableHeaderListeners() {
     }
 }
 
-// Wait until document is loaded before doing anything
+/* Document Event Listener - Wait until document is loaded before doing anything */
 document.addEventListener('DOMContentLoaded', function () {
-    attachTableHeaderListeners();
-    // Bar Graph 
-    var barChartCanvas = document.getElementById('barChart');
+    attachTableHeaderListeners(); // Re-attach the header listeners
+    var barChartCanvas = document.getElementById('barChart');   // Bar chart
     var ctx = barChartCanvas.getContext('2d');
-    var bar_labels = barChartCanvas.dataset.labels.split(',');
-    var bar_data = barChartCanvas.dataset.data.split(',').map(Number);
+    var bar_labels = barChartCanvas.dataset.labels.split(',');  // bar_labels is defined in bloodbank.py
+    var bar_data = barChartCanvas.dataset.data.split(',').map(Number);  // bar_data is defined in bloodbank.py
     let barChart = new Chart(ctx, {
         type: 'bar',
-        data: {
-            labels: bar_labels,
+        data: {           
+            labels: bar_labels, // bar_labels is defined in bloodbank.py
             datasets: [{
-                
-                data: bar_data,
+                data: bar_data, // bar_data is defined in bloodbank.py
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.6)',
                     'rgba(54, 162, 235, 0.6)',
@@ -229,7 +217,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
     
-    // Add a click event listener to the chart
+    /* On Click Event Listener assigned to the Bar Chart Columns: */
     barChart.canvas.onclick = function (evt) {
         var activePoints = barChart.getElementsAtEventForMode(evt, 'nearest', { intersect: true }, true);
         if (activePoints.length) {
