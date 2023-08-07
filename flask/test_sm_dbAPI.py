@@ -550,6 +550,118 @@ class Test_sm_dbAPI(unittest.TestCase):
         # Test that the data is correct
         self.assertEqual(data, test_parameters)
 
+    # Test getBloodAList function in dbAPI
+    def test_getBloodAList(self):
+        db_filename = "sm_test.db"
+        expected_result = [10500, 11550, 12600, 13650, 14700, 15750, 16800, 17850, 18900, 19950, 21000, 22050, 23100, 24150, 25200, 26250, 27300, 28350, 29400, 30450, 31500, 32550, 33600, 34650, 35700, 36750, 37800, 38850, 39900, 40950, 42000, 43050, 44100, 45150, 46200, 47250, 48300, 49350, 50400, 51450, 52500, 53550, 54600, 55650, 56700, 57750, 58800, 59850, 60900, 61950, 63000, 64050, 65100, 66150, 67200, 68250, 69300, 70350, 71400, 72450, 73500, 74550, 75600, 76650]  # assume these are the A positive units in the database
+        result = sm_dbAPI.getBloodAList(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test Total Blood A Positive List function in dbAPI
+    def test_getTotalAPositiveUnits(self):
+        db_filename = "sm_test.db"
+        expected_result = 2788800  # assume this is the total A positive units in your test database
+        result = sm_dbAPI.getTotalAPositiveUnits(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+    
+    # Test get Blood B Positive List function in dbAPI
+    def test_getBloodBList(self):
+        db_filename = "sm_test.db"
+        expected_result = [18250, 18000, 17750, 17500, 17250, 17000, 16750, 16500, 16250, 16000, 15750, 15500, 15250, 15000, 14750, 14500, 14250, 14000, 13750, 13500, 13250, 13000, 12750, 12500, 12250, 12000, 11750, 11500, 11250, 11000, 10750, 10500, 10250, 10000, 9750, 9500, 9250, 9000, 8750, 8500, 8250, 8000, 7750, 7500, 250, 7000, 6750, 6500, 6250, 6000, 5750, 5500, 5250, 5000, 4750, 4500, 4250, 4000, 3750, 3500, 3250, 3000, 2750, 2500]  # assume these are the A positive units in the database
+        result = sm_dbAPI.getBloodBList(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+    
+    # Test Total Blood B Positive List function in dbAPI
+    def test_getTotalBPositiveUnits(self):
+        db_filename = "sm_test.db"
+        expected_result = 657000  # assume this is the total A positive units in your test database
+        result = sm_dbAPI.getTotalBPositiveUnits(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test get Blood AB Positive List function in dbAPI
+    def test_getBloodABList(self):
+        db_filename = "sm_test.db"
+        expected_result = [1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000, 4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000, 5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900, 6000, 6100, 6200, 6300, 6400, 6500, 6600, 6700, 6800, 6900, 7000, 7100, 7200, 7300]  # assume these are the A positive units in the database
+        result = sm_dbAPI.getBloodABList(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test Total AB Positive Units function in dbAPI
+    def test_getTotalABPositiveUnits(self):
+        db_filename = "sm_test.db"
+        expected_result = 265600  # assume this is the total A positive units in your test database
+        result = sm_dbAPI.getTotalABPositiveUnits(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test get Blood O Positive List function in dbAPI
+    def test_getBloodOList(self):
+        db_filename = "sm_test.db"
+        expected_result = [80300, 79200, 78100, 77000, 75900, 74800, 73700, 72600, 71500, 70400, 69300, 68200, 67100, 66000, 64900, 63800, 62700, 61600, 60500, 59400, 58300, 57200, 56100, 55000, 53900, 52800, 51700, 50600, 49500, 48400, 47300, 46200, 45100, 44000, 42900, 41800, 40700, 39600, 38500, 37400, 36300, 35200, 34100, 33000, 31900, 30800, 29700, 28600, 27500, 26400, 25300, 24200, 23100, 22000, 20900, 19800, 18700, 17600, 16500, 15400, 14300, 13200, 12100, 11000]  # assume these are the A positive units in the database
+        result = sm_dbAPI.getBloodOList(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test Total O Positive Units function in dbAPI
+    def test_getTotalOPositiveUnits(self):
+        db_filename = "sm_test.db"
+        expected_result = 2921600  # assume this is the total A positive units in your test database
+        result = sm_dbAPI.getTotalOPositiveUnits(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test get Blood A Negative List function in dbAPI
+    def test_getBloodANList(self):
+        db_filename = "sm_test.db"
+        expected_result = [1853, 2038, 2224, 2409, 2594, 2779, 2965, 3150, 3335, 3521, 3706, 3891, 4076, 4262, 4447, 4632, 4818, 5003, 5188, 5374, 5559, 5744, 5929, 6115, 6300, 6485, 6671, 6856, 7041, 7226, 7412, 7597, 7782, 7968, 8153, 8338, 8524, 8709, 8894, 9079, 9265, 9450, 9635, 9821, 10006, 10191, 10376, 10562, 10747, 10932, 11118, 11303, 11488, 11674, 11859, 12044, 12229, 12415, 12600, 12785, 12971, 13156, 13341, 13526]  # assume these are the A positive units in the database
+        result = sm_dbAPI.getBloodANList(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test Total A Negative Units function in dbAPI
+    def test_getTotalANegativeUnits(self):
+        db_filename = "sm_test.db"
+        expected_result = 492141  # assume this is the total A positive units in your test database
+        result = sm_dbAPI.getTotalANegativeUnits(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test get Blood B Negative List function in dbAPI
+    def test_getBloodBNList(self):
+        db_filename = "sm_test.db"
+        expected_result = [3221, 3176, 3132, 3088, 3044, 3000, 2956, 2912, 2868, 2824, 2779, 2735, 2691, 2647, 2603, 2559, 2515, 2471, 2426, 2382, 2338, 2294, 2250, 2206, 2162, 2118, 2074, 2029, 1985, 1941, 1897, 1853, 1809, 1765, 1721, 1676, 1632, 1588, 1544, 1500, 1456, 1412, 1368, 1324, 1279, 1235, 1191, 1147, 1103, 1059, 1015, 971, 926, 882, 838, 794, 750, 706, 662, 618, 574, 529, 485, 441]  # assume these are the A positive units in the database
+        result = sm_dbAPI.getBloodBNList(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+    
+    # Test Total B Negative Units function in dbAPI
+    def test_getTotalBNegativeUnits(self):
+        db_filename = "sm_test.db"
+        expected_result = 117176  # assume this is the total A positive units in your test database
+        result = sm_dbAPI.getTotalBNegativeUnits(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test get Blood AB Negative List function in dbAPI
+    def test_getBloodABNList(self):
+        db_filename = "sm_test.db"
+        expected_result = [7300, 7200, 7100, 7000, 6900, 6800, 6700, 6600, 6500, 6400, 6300, 6200, 6100, 6000, 5900, 5800, 5700, 5600, 5500, 5400, 5300, 5200, 5100, 5000, 4900, 4800, 4700, 4600, 4500, 4400, 4300, 4200, 4100, 4000, 3900, 3800, 3700, 3600, 3500, 3400, 3300, 3200, 3100, 3000, 2900, 2800, 2700, 2600, 2500, 2400, 2300, 2200, 2100, 2000, 1900, 1800, 1700, 1600, 1500, 1400, 1300, 1200, 1100, 1000]  # assume these are the A positive units in the database
+        result = sm_dbAPI.getBloodABNList(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+    
+    # Test Total AB Negative Units function in dbAPI
+    def test_getTotalABNegativeUnits(self):
+        db_filename = "sm_test.db"
+        expected_result = 492141  # assume this is the total A positive units in your test database
+        result = sm_dbAPI.getTotalABNegativeUnits(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
+    # Test get Blood O Negative List function in dbAPI
+    def test_getBloodONList(self):
+        db_filename = "sm_test.db"
+        expected_result = [14171, 13976, 13782, 13588, 13394, 13200, 13006, 12812, 12618, 12424, 12229, 12035, 11841, 11647, 11453, 11259, 11065, 10871, 10676, 10482, 10288, 10094, 9900, 9706, 9512, 9318, 9124, 8929, 8735, 8541, 8347, 8153, 7959, 7765, 7571, 7376, 7182, 6988, 6794, 6600, 6406, 6212, 6018, 5824, 5629, 5435, 5241, 5047, 4853, 4659, 4465, 4271, 4076, 3882, 3688, 3494, 3300, 3106, 2912, 2718, 2524, 2329, 2135, 1941]  # assume these are the A positive units in the database
+        result = sm_dbAPI.getBloodONList(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+    
+    # Test Total O Negative Units function in dbAPI
+    def test_getTotalONegativeUnits(self):
+        db_filename = "sm_test.db"
+        expected_result = 515576  # assume this is the total A positive units in your test database
+        result = sm_dbAPI.getTotalONegativeUnits(db_filename)
+        assert result == expected_result, f'Expected {expected_result}, but got {result}'
+
 # Main: Run Test Cases
 if __name__ == '__main__':
     unittest.main()

@@ -247,11 +247,8 @@ def visualization():
     pie_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits]
     # define labels for the bar chart
     bar_chart_labels = ['A+', 'B+', 'AB+', 'O+', 'A-', 'B-', 'AB-', 'O-']
-    # # define labels for the bar data
+    # define labels for the bar data
     bar_chart_data = [totalAPositiveUnits,totalBPositiveUnits,totalABPositiveUnits,totalOPositiveUnits,totalANegativeUnits,totalBNegativeUnits,totalABNegativeUnits, totalONegativeUnits]
-    # blood info
-    #getBloodInfo = sm_dbAPI.getBloodInfo(space_monkeys_db)
-
     # Render page
     return render_template(
         'visualization.html', 
