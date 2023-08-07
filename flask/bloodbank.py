@@ -307,25 +307,25 @@ def get_tables(hospital_ID):
     incomingTransfers = sm_dbAPI.getIncomingTransferTable(space_monkeys_db, hospital_ID)
 
     # Build the html to send 
-    tables = '<div id="donationTable"><h2>Donations</h2><table><tr><th>Donation ID</th><th>Date & Time</th><th>Donor ID</th><th>Medical Professional</th><th>Amount</th></tr>'
+    tables = '<div id="donationTable"><h3>Donations</h3><table><tr><th>Donation ID</th><th>Date & Time</th><th>Donor ID</th><th>Medical Professional</th><th>Amount</th></tr>'
 
     # Donation table data
     for donation in donations:
         tables += '<tr><td>' + str(donation[0]) + '</td><td>' + donation[1] + '</td><td>' + str(donation[2]) + '</td><td>' + str(donation[3]) + '</td><td>' + str(donation[5]) + '</td></tr>'
 
-    tables += '</table></div><div id="transfusionTable"><h2>Transfusions</h2><table><tr><th>Transfusion ID</th><th>Date & Time</th><th>Donation ID</th><th>Patient ID</th> <th>Medical Professional</th><th>Amount</th></tr>'
+    tables += '</table></div><div id="transfusionTable"><h3>Transfusions</h3><table><tr><th>Transfusion ID</th><th>Date & Time</th><th>Donation ID</th><th>Patient ID</th> <th>Medical Professional</th><th>Amount</th></tr>'
     
     # Patient table data
     for transfusion in transfusions:
         tables += '<tr><td>' + str(transfusion[0]) + '</td><td>' + transfusion[1] + '</td><td>' + str(transfusion[2]) + '</td><td>' + str(transfusion[3]) + '</td><td>' + str(transfusion[4]) + '</td><td>' + str(transfusion[6]) + '</td></tr>'
 
-    tables += '</table></div><div id="incomingTransferTable"><h2>Incoming Transfers</h2><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Sending Hospital ID</th></tr>'
+    tables += '</table></div><div id="incomingTransferTable"><h3>Incoming Transfers</h3><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Sending Hospital ID</th></tr>'
 
     # Incoming transfer data
     for i_transfer in incomingTransfers:
         tables += '<tr><td>' + str(i_transfer[0]) + '</td><td>' + i_transfer[1] + '</td><td>' + str(i_transfer[2]) + '</td><td>' + str(i_transfer[4]) + '</td></tr>'
 
-    tables += '</table></div><div id="outgoingTransferTable"><h2>Outgoing Transfers</h2><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Recieving Hospital ID</th></tr>'
+    tables += '</table></div><div id="outgoingTransferTable"><h3>Outgoing Transfers</h3><table><tr><th>Transfer ID</th><th>Date & Time</th><th>Donation ID</th><th>Recieving Hospital ID</th></tr>'
 
     # Outgoing transfer data
     for o_transfer in outgoingTransfers:

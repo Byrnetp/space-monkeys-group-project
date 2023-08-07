@@ -47,13 +47,9 @@ th, td {
     color: black;
 }
 
-tr:hover {
-    background-color: aqua;
-}
-
 td:hover,
 th:hover {
-    background-color: aquamarine;
+    background-color: #63c3bb;
 }
 
 #content {
@@ -61,7 +57,6 @@ th:hover {
     z-index: 2;
     background-color: #f8f8f8;
     padding: 20px;
-    border-radius: 10px; /* Add border radius */
-    border: 1px solid #ccc; /* Changed from #ccc */
+    border: none;
 }
 

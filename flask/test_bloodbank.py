@@ -144,7 +144,8 @@ def test_detail(client):
     assert b'<div class="header">' in response.data
     assert b'<h2>INVENTORY DETAILS</h2>' in response.data
     assert b'<div id="menu">' in response.data
-    assert b'<h2>Menu</h2>' in response.data
+    assert b'<h3>Display Options</h3>' in response.data
+    assert b'<div id="select-container">' in response.data
     assert b'<label for="hospital">Choose a blood bank or hospital:</label>' in response.data
     assert b'<select id="hospital">' in response.data
     assert b'<div id="checkbox-container">' in response.data
@@ -197,7 +198,6 @@ def test_viewDonors(client):
     # Ensure the expeceted elements and data are displayed
     assert b'<div class="header">' in response.data
     assert b'<h2>DONORS</h2>' in response.data
-    assert b'<hr>' in response.data
     assert b'<div id="tablesContainer">' in response.data
     assert b'<th>Donor ID</th>' in response.data
     assert b'<th>Name</th>' in response.data
@@ -278,7 +278,6 @@ def test_viewPatients(client):
     # Ensure the expeceted elements and data are displayed
     assert b'<div class="header">' in response.data
     assert b'<h2>PATIENTS</h2>' in response.data
-    assert b'<hr>' in response.data
     assert b'<div id="tablesContainer">' in response.data
     assert b'<table>' in response.data
     assert b'<th>Patient ID</th>' in response.data

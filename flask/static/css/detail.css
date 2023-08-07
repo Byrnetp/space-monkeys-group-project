@@ -18,14 +18,37 @@ th {
 h1, h2, h3 {
     text-align: center;
 }
+
+h3 {
+    background-color: #63c3bb;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
 #menu {
-  gap: 30px;
+    gap: 30px;
+    background-color: #63c3bb;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 5px auto 5px auto;
+    height: 100px;
+}
+
+#menu h3 {
+    margin-top: 10px;
+}
+
+#select-container {
+    text-align: left;
+    float: left;
 }
 
 #checkbox-container {
     float: right;
 }
-
 
 table {
     margin: 20px auto;
@@ -46,13 +69,9 @@ th, td {
     color: black;
 }
 
-tr:hover {
-    background-color: aqua;
-}
-
 td:hover,
 th:hover {
-    background-color: aquamarine;
+    background-color: #63c3bb;
 }
 
 #content {
@@ -60,7 +79,6 @@ th:hover {
     z-index: 2;
     background-color: #f8f8f8;
     padding: 20px;
-    border-radius: 10px; /* Add border radius */
-    border: 1px solid #ccc; /* Changed from #ccc */
+    border: none;
 }
 
