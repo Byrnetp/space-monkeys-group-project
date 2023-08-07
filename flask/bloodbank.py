@@ -278,7 +278,8 @@ def visualization():
         totalBNegativeUnits=totalBNegativeUnits,
         totalABNegativeUnits=totalABNegativeUnits,
         totalONegativeUnits=totalONegativeUnits,
-        #getBloodInfo = getBloodInfo,
+        bar_chart_data=bar_chart_data,
+        bar_chart_labels=bar_chart_labels,
     )
 
 # Detailed inventory page
