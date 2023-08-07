@@ -3,6 +3,8 @@
 /* Javascript for Visualization page */
 /* Last Update: Dylan Kayyem, 8/7/2023 */
 
+let lastSortedColumnIndex = null;
+let lastClickedLabel = null;
 let currentlyRemovedColumns = [];
 let allColumns = [4,5,6,7,8,9,10,11];
 let columnsToRemove = {
@@ -131,7 +133,12 @@ function attachTableHeaderListeners() {
     for (var i = 0; i < headers.length; i++) {
         (function (index) {
             headers[index].addEventListener('click', function () {
+                // if (lastSortedColumnIndex === index) { // Show popup error if clicked more than once
+                //     console.log('Error: This column was just sorted. Please sort a different column.');
+                //     return;
+                // }
                 sortTable('bloodTable', index);
+                lastSortedColumnIndex = index;
             });
         })(i);
     }
@@ -223,6 +230,11 @@ document.addEventListener('DOMContentLoaded', function () {
         if (activePoints.length) {
             var firstPoint = activePoints[0];
             var label = barChart.data.labels[firstPoint.index];
+            /* popup error if clicked twice */
+            if (lastClickedLabel === label) {
+                alert('Error: This column was just sorted. Please sort a different column.');
+                return;
+            }
             if (label == "A+") {
                 removeAndStoreColumns('bloodTable', [5,6,7,8,9,10,11]);
             } 
@@ -247,6 +259,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (label == "O-") {
                 removeAndStoreColumns('bloodTable', [4,5,6,7,8,9,10]); 
             }
+            lastClickedLabel = label;
         };
     };
 });
