@@ -662,6 +662,27 @@ class Test_sm_dbAPI(unittest.TestCase):
         result = sm_dbAPI.getTotalONegativeUnits(db_filename)
         assert result == expected_result, f'Expected {expected_result}, but got {result}'
 
+    def test_CommentsAndComplications(self):
+        db_filename = "sm_test.db"
+
+        # Step 1: Insert dummy comments and reports
+        complications = {
+            5: "nose bleeding",
+            6: "dizziness",
+            7: "fever",
+            8: "headache",
+            9: "fatigue",
+            10: "rash"
+        }
+        for transfusion_id, complication in complications.items():
+            sm_dbAPI.enterComments(db_filename, transfusion_id, complication)
+
+        # Step 2: Verify complications using dummy inputs
+        for transfusion_id, expected_complication in complications.items():
+            result_tuple = sm_dbAPI.getComplication(db_filename, transfusion_id)
+            result = result_tuple[1]  # Extract the complication description from the tuple
+            self.assertEqual(result, expected_complication, f'Expected {expected_complication}, but got {result}')    
+        
 # Main: Run Test Cases
 if __name__ == '__main__':
     unittest.main()

@@ -361,3 +361,34 @@ def test_viewPatients(client):
     assert b'<td>26</td>' in response.data
     assert b'<td>Zena Zootopia</td>' in response.data
     assert b'<td>O+</td>' in response.data
+# test complication report page 
+def test_complication_report(client):
+
+    # Get HTML
+    response = client.get("/complication")
+
+    # Ensure all expected elements are on the page
+    assert b"<h2>COMPLICATION REPORT</h2>" in response.data
+    assert b'<form id="complicationReportForm" name="complicationReportForm">' in response.data
+    assert b'<input list="transfusionIDChoices" id="transfusionID" name="transfusionID" placeholder="Enter Transfusion ID">' in response.data
+    assert b'<datalist id="transfusionIDChoices" name="transfusionIDChoices">' in response.data
+    assert b'<label for="comment" id="commentLabel">Comment:</label>' in response.data
+    assert b'<textarea id="comment" name="comment" rows="4" placeholder="Enter your comment here"></textarea>' in response.data
+    assert b'<button id="submitReportButton">Submit Report</button>' in response.data
+    
+def test_view_complication_report(client):
+
+    # Get HTML
+    response = client.get("/view_complication")
+
+    # Ensure all expected elements are on the page
+    assert b"<h2>VIEW COMPLICATION REPORT</h2>" in response.data
+    assert b'<form id="complicationReportForm" name="complicationReportForm">' in response.data
+    assert b'<label for="reportSearch">Search Report:</label>' in response.data
+    assert b'<input list="transfusionIDChoices" id="transfusionID" name="transfusionID" placeholder="Enter Transfusion ID">' in response.data
+    assert b'<datalist id="transfusionIDChoices" name="transfusionIDChoices">' in response.data
+    assert b'<button type="submit">Search</button>' in response.data
+    assert b'<div class="hospital-info">' in response.data
+    assert b'<h3 class="report_h3">Transfusion number : <span id="transfusionIDData">' in response.data
+    assert b'<p>Complication ID: <span id="complicationIDDisplay">' in response.data
+    assert b'<p>Comments: <span id="commentsDisplay">' in response.data
