@@ -1,0 +1,2687 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.10.0" />
+<title>sm_dbAPI API documentation</title>
+<meta name="description" content="" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>sm_dbAPI</code></h1>
+</header>
+<section id="section-intro">
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">## CS 3308 Group Project
+## Team 2: Space Monkeys
+## Main database driver code
+## Last Update: Travis Byrne, 5 August 2023
+
+import sqlite3
+import datetime
+import pandas as pd
+
+# Creates a database with the filename given. Create the required tables and fields.
+def create(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;CREATE TABLE Bloodbanks_and_Hospitals
+                (Institution_ID INT, 
+                Type VARCHAR(45), 
+                Name VARCHAR(90), 
+                City VARCHAR(45), 
+                State VARCHAR(2), 
+                A_Positive_Units INT, 
+                A_Negative_Units INT, 
+                B_Positive_Units INT,
+                B_Negative_Units INT,
+                AB_Positive_Units INT,
+                AB_Negative_Units INT,
+                O_Positive_Units INT,
+                O_Negative_Units INT,
+                PRIMARY KEY(Institution_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Donor
+                (Donor_ID INT, 
+                Name VARCHAR(90), 
+                Blood_Type VARCHAR(3), 
+                PRIMARY KEY(Donor_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Patient
+                (Patient_ID INT, 
+                Name VARCHAR(90), 
+                Blood_Type VARCHAR(3), 
+                PRIMARY KEY(Patient_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Donation
+                (Donation_ID INT, 
+                Date_Time DATETIME, 
+                Donor_ID INT, 
+                Medical_Professional VARCHAR(90), 
+                Hospital_ID INT, 
+                Amount INT,
+                PRIMARY KEY(Donation_ID),
+                FOREIGN KEY(Donor_ID) REFERENCES Donor(Donor_ID),
+                FOREIGN KEY(Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Transfusion
+                (Transfusion_ID INT, 
+                Date_Time DATETIME, 
+                Donation_ID INT, 
+                Patient_ID INT, 
+                Medical_Professional VARCHAR(90), 
+                Hospital_ID INT, 
+                Amount INT,
+                PRIMARY KEY(Transfusion_ID),
+                FOREIGN KEY(Donation_ID) REFERENCES Donation(Donation_ID),
+                FOREIGN KEY(Patient_ID) REFERENCES Patient(Patient_ID),
+                FOREIGN KEY(Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Transfer
+                (Transfer_ID INT, 
+                Date_Time DATETIME,
+                Donation_ID INT, 
+                Receiving_Hospital_ID INT,
+                Sending_Hospital_ID INT,
+                PRIMARY KEY(Transfer_ID),
+                FOREIGN KEY(Donation_ID) REFERENCES Donation(Donation_ID),
+                FOREIGN KEY(Sending_Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID),
+                FOREIGN KEY(Receiving_Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Complication
+                (Complication_ID INT, 
+                Transfusion_ID INT,
+                Comments VARCHAR(180), 
+                PRIMARY KEY(Complication_ID),
+                FOREIGN KEY(Transfusion_ID) REFERENCES Transfusion(Transfusion_ID));&#39;&#39;&#39;)
+    conn.commit()
+    conn.close()
+
+def fill(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    
+    # Fill in the Bloodbanks_and_Hospitals table
+    bloodbanks = pd.read_csv(&#34;sample_data/bloodbanks.csv&#34;)
+    donors_dict = bloodbanks.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Bloodbanks_and_Hospitals VALUES (:Institution_ID, :Type, :Name, :City, :State, :A_Positive_Units, :A_Negative_Units, :B_Positive_Units, :B_Negative_Units, :AB_Positive_Units, :AB_Negative_Units, :O_Positive_Units, :O_Negative_Units);    
+    &#39;&#39;&#39;, donors_dict)
+        
+    # Fill Donors table
+    donors = pd.read_csv(&#34;sample_data/donors.csv&#34;)
+    donors_dict = donors.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Donor VALUES (:Donor_ID, :Name, :Blood_Type);    
+    &#39;&#39;&#39;, donors_dict)
+        
+    # Fill in the Patient table
+    patients = pd.read_csv(&#34;sample_data/patients.csv&#34;)
+    patients_dict = patients.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Patient VALUES (:Patient_ID, :Name, :Blood_Type);    
+    &#39;&#39;&#39;, patients_dict)
+
+    # Fill in the Donation table
+    donations = pd.read_csv(&#34;sample_data/donations.csv&#34;)
+    donations_dict = donations.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Donation VALUES (:Donation_ID, :Date_Time, :Donor_ID, :Medical_Professional, :Hospital_ID, :Amount);
+    &#39;&#39;&#39;, donations_dict)
+    
+    # Fill in the Transfusion table
+    transfusions = pd.read_csv(&#34;sample_data/transfusions.csv&#34;)
+    transfusions_dict = transfusions.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Transfusion VALUES (:Transfusion_ID, :Date_Time, :Donation_ID, :Patient_ID, :Medical_Professional, :Hospital_ID, :Amount);
+    &#39;&#39;&#39;, transfusions_dict)
+    
+    # Fill in the Transfer table
+    transfers = pd.read_csv(&#34;sample_data/transfers.csv&#34;)
+    transfers_dict = transfers.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Transfer VALUES (:Transfer_ID, :Date_Time, :Donation_ID, :Receiving_Hospital_ID, :Sending_Hospital_ID);
+    &#39;&#39;&#39;, transfers_dict)
+        
+    # Fill in the Complication table
+    complications = pd.read_csv(&#34;sample_data/complications.csv&#34;)
+    complications_dict = complications.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Complication VALUES (:Complication_ID, :Transfusion_ID, :Comments);
+    &#39;&#39;&#39;, complications_dict)
+        
+    conn.commit()
+    conn.close()
+
+# test category table
+def test_tables(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    count_cat = 0
+    c.execute(&#39;&#39;&#39;SELECT * FROM Bloodbanks_and_Hospitals WHERE Institution_ID = 64;&#39;&#39;&#39;)
+    if c.fetchone() == (64, &#39;Hospital&#39;, &#39;Yuma County&#39;, &#39;Wray&#39;, &#39;CO&#39;, 76650, 13526, 2500, 441, 7300, 1000, 11000, 1941):
+        count_cat = count_cat + 1
+        print(&#34;First Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donor WHERE Donor_ID = 22;&#39;&#39;&#39;)
+    if c.fetchone() == (22, &#39;Steve Rogers&#39;, &#39;B-&#39;):
+        count_cat = count_cat + 1
+        print(&#34;Second Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Patient WHERE Patient_ID = 26;&#39;&#39;&#39;)
+    if c.fetchone() == (26, &#39;Zena Zootopia&#39;, &#39;O+&#39;):
+        count_cat = count_cat + 1
+        print(&#34;Third Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donation WHERE Donation_ID = 42;&#39;&#39;&#39;)
+    if c.fetchone() == (42, &#39;2023-07-11 9:00:00&#39;, 22, &#39;Dr. Stephan Strange&#39;, 23, 1):
+        count_cat = count_cat + 1
+        print(&#34;Fourth Category Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfusion WHERE Transfusion_ID = 4;&#39;&#39;&#39;)
+    if c.fetchone() == (4, &#39;2023-07-23 11:00:00&#39;, 4, 23, &#39;Dr. Harleen Quinzel&#39;, 61, 1):
+        count_cat = count_cat + 1
+        print(&#34;Fifth Category Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfer WHERE Transfer_ID = 4;&#39;&#39;&#39;)
+    if c.fetchone() == (4, &#39;2023-07-04 11:00:00&#39;, 28, 37, 17):
+        count_cat = count_cat + 1
+        print(&#34;Sixth Category Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Complication WHERE Complication_ID = 1;&#39;&#39;&#39;)
+    if c.fetchone() == (1, 4, &#39;Throwing up multiple times a day&#39;):
+        count_cat = count_cat + 1
+        print(&#34;Seventh Category Test Passed!&#34;)
+    if count_cat == 7:
+        print(&#34;All Tests Passed!!!&#34;)
+    else:
+        print(&#34;Failed: Test&#34;)
+    conn.commit()
+    conn.close()
+
+# Function to get Donor ID given Donor Name
+def getDonorID(db_filename, donorName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT Donor_ID FROM Donor WHERE Name = ?;&#39;&#39;&#39;, (donorName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None
+
+# Function to get Patient ID given Patient Name
+def getPatientID(db_filename, patientName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT Patient_ID FROM Patient WHERE Name = ?;&#39;&#39;&#39;, (patientName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None
+
+# Function to get Blood Bank ID given Blood Bank Name
+def getBloodBankID(db_filename, bloodBankName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT Institution_ID FROM Bloodbanks_and_Hospitals WHERE Name = ?;&#39;&#39;&#39;, (bloodBankName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None
+        
+# Function to verify donation entry
+def getDonation(db_filename, medicalProfessional):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donation WHERE Medical_Professional = ?;&#39;&#39;&#39;, (medicalProfessional,))
+    result = c.fetchall()
+
+    for line in result:
+        print(line)
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+        
+# Function to verify transfusion entry
+def getTransfusion(db_filename, medicalProfessional):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfusion WHERE Medical_Professional = ?;&#39;&#39;&#39;, (medicalProfessional,))
+    result = c.fetchall()
+
+    for line in result:
+        print(line)
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+        
+# Function to enter blood bank in Blood Banks table
+def enterBloodBank(db_filename, bloodBankName, bloodBankType, bloodBankCity, bloodBankState):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next blood bank ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Institution_ID) FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchone()
+    bloodBankID = result[0] + 1
+
+    # Insert blood bank
+    c.execute(&#39;&#39;&#39;INSERT INTO Bloodbanks_and_Hospitals (Institution_ID, Name, Type, City, State, A_Positive_Units, A_Negative_Units, B_Positive_Units, B_Negative_Units, AB_Positive_Units, AB_Negative_Units, O_Positive_Units, O_Negative_Units) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);&#39;&#39;&#39;, (bloodBankID, bloodBankName, bloodBankType, bloodBankCity, bloodBankState, 0, 0, 0, 0, 0, 0, 0, 0))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to enter donor in Donor table
+def enterDonor(db_filename, donorName, donorBloodType):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next donor ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Donor_ID) FROM Donor;&#39;&#39;&#39;)
+    result = c.fetchone()
+    donorID = result[0] + 1
+
+    # Insert donor
+    c.execute(&#39;&#39;&#39;INSERT INTO Donor (Donor_ID, Name, Blood_Type) VALUES (?,?,?);&#39;&#39;&#39;, (donorID, donorName, donorBloodType))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to enter patient in Patient table
+def enterPatient(db_filename, patientName, patientBloodType):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next patient ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Patient_ID) FROM Patient;&#39;&#39;&#39;)
+    result = c.fetchone()
+    patientID = result[0] + 1
+
+    # Insert patient
+    c.execute(&#39;&#39;&#39;INSERT INTO Patient (Patient_ID, Name, Blood_Type) VALUES (?,?,?);&#39;&#39;&#39;, (patientID, patientName, patientBloodType))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to enter donation in Donations table
+def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quantity, date):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next donation ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Donation_ID) FROM Donation;&#39;&#39;&#39;)
+    result = c.fetchone()
+    donationID = result[0] + 1
+
+    # Insert donation
+    c.execute(&#39;&#39;&#39;INSERT INTO Donation (Donation_ID, Donor_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?);&#39;&#39;&#39;, (donationID, donorID, bloodBankID, medicalProfessional, quantity, date))
+    
+    # Increment blood bank inventory
+    c.execute(&#39;&#39;&#39;SELECT Blood_Type FROM Donor WHERE Donor_ID = (?);&#39;&#39;&#39;, (donorID,))
+    result = c.fetchone()
+    bloodtype = result[0]
+
+    if bloodtype == &#39;A+&#39;:
+        bt_column = &#39;A_Positive_Units&#39;
+    elif bloodtype == &#39;A-&#39;:
+        bt_column = &#39;A_Negative_Units&#39;
+    elif bloodtype == &#39;B+&#39;:
+        bt_column = &#39;B_Positive_Units&#39;
+    elif bloodtype == &#39;B-&#39;:
+        bt_column = &#39;B_Negative_Units&#39;
+    elif bloodtype == &#39;AB+&#39;:
+        bt_column = &#39;AB_Positive_Units&#39;
+    elif bloodtype == &#39;AB-&#39;:
+        bt_column = &#39;AB_Negative_Units&#39;
+    elif bloodtype == &#39;O+&#39;:
+        bt_column = &#39;O_Positive_Units&#39;
+    elif bloodtype == &#39;O-&#39;:
+        bt_column = &#39;O_Negative_Units&#39;
+
+    # Calculate the new quantity for Receiving Hospital
+    sql = &#39;SELECT &#39;+bt_column+&#39; FROM Bloodbanks_and_Hospitals WHERE Institution_ID = &#39;+str(bloodBankID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_r = result[0] + int(quantity)
+    
+    # Update Receiving Hospital Inventory
+    sql = &#39;UPDATE Bloodbanks_and_Hospitals SET &#39;+bt_column+&#39; = &#39;+str(newamount_r)+&#39; WHERE Institution_ID = &#39;+str(bloodBankID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to find compatible blood 
+def findCompatibleBlood(db_filename, patientID, bloodBankID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find blood type of patient
+    c.execute(&#39;&#39;&#39;SELECT Blood_Type FROM Patient WHERE Patient_ID = (?);&#39;&#39;&#39;, (patientID,))
+    result = c.fetchone()
+    if result:
+        bloodtype = result[0]
+
+        # Find a compatible donation at that blood bank
+        # That has not already been transfused
+        if bloodtype == &#39;A+&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;A+&#34;, &#34;A-&#34;, &#34;O+&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;A-&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;A-&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;B+&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;B+&#34;, &#34;B-&#34;, &#34;O+&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;B-&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;B-&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;AB+&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;A+&#34;, &#34;A-&#34;, &#34;B+&#34;, &#34;B-&#34;, &#34;AB+&#34;, &#34;AB-&#34;, &#34;O+&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;AB-&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;A-&#34;, &#34;B-&#34;, &#34;AB-&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;O+&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;O+&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;O-&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        result = c.fetchone()
+
+        # If there is a valid result, return it, otherwise return None
+        if result:
+            return result[0]
+        else:
+            return None
+    else:
+        return None
+
+# Function to enter transfusion in Transfusions table
+def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalProfessional, quantity, date):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next transfusion ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Transfusion_ID) FROM Transfusion;&#39;&#39;&#39;)
+    result = c.fetchone()
+    transfusionID = result[0] + 1
+
+    # Insert transfusion
+    c.execute(&#39;&#39;&#39;INSERT INTO Transfusion (Transfusion_ID, Patient_ID, Donation_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?,?);&#39;&#39;&#39;, (transfusionID, patientID, donationID, bloodBankID, medicalProfessional, quantity, date))
+    
+    # Decrement blood bank inventory
+    c.execute(&#39;&#39;&#39;SELECT Blood_Type FROM Donor 
+                JOIN Donation ON Donor.Donor_ID = Donation.Donor_ID
+                WHERE Donation_ID = (?);&#39;&#39;&#39;, (donationID,))
+    result = c.fetchone()
+    bloodtype = result[0]
+
+    if bloodtype == &#39;A+&#39;:
+        bt_column = &#39;A_Positive_Units&#39;
+    elif bloodtype == &#39;A-&#39;:
+        bt_column = &#39;A_Negative_Units&#39;
+    elif bloodtype == &#39;B+&#39;:
+        bt_column = &#39;B_Positive_Units&#39;
+    elif bloodtype == &#39;B-&#39;:
+        bt_column = &#39;B_Negative_Units&#39;
+    elif bloodtype == &#39;AB+&#39;:
+        bt_column = &#39;AB_Positive_Units&#39;
+    elif bloodtype == &#39;AB-&#39;:
+        bt_column = &#39;AB_Negative_Units&#39;
+    elif bloodtype == &#39;O+&#39;:
+        bt_column = &#39;O_Positive_Units&#39;
+    elif bloodtype == &#39;O-&#39;:
+        bt_column = &#39;O_Negative_Units&#39;
+
+    # Calculate the new quantity for Providing Hospital
+    sql = &#39;SELECT &#39;+bt_column+&#39; FROM Bloodbanks_and_Hospitals WHERE Institution_ID = &#39;+str(bloodBankID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_r = result[0] - int(quantity)
+    
+    # Update Providing Hospital Inventory
+    sql = &#39;UPDATE Bloodbanks_and_Hospitals SET &#39;+bt_column+&#39; = &#39;+str(newamount_r)+&#39; WHERE Institution_ID = &#39;+str(bloodBankID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to get list of Donors
+def getDonorsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Name FROM Donor;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    donorsList = []
+    for donor in result:
+        donorsList.append(donor[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return donorsList
+
+# Function to get list of Transfusion IDs
+def getTransfusionIDList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Transfusion_ID FROM Transfusion;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build transfusion ID list
+    transfusionIDList = []
+    for transfusion in result:
+        transfusionIDList.append(transfusion[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return transfusionIDList
+
+# Function to get list of Patients
+def getPatientsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Name FROM Patient;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    patientsList = []
+    for patient in result:
+        patientsList.append(patient[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return patientsList
+
+# Function to get list of Donation IDs
+def getDonationIDsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    donationIDsList = []
+    for donationID in result:
+        donationIDsList.append(donationID[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return donationIDsList
+
+# Function to get list of Blood Banks
+def getBloodBanksList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Name FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    bloodBanksList = []
+    for bloodBank in result:
+        bloodBanksList.append(bloodBank[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return bloodBanksList
+
+# Function to get list of Blood Banks by Number
+def getBloodBanksListNUM(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Institution_ID FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    bloodBanksList = []
+    for bloodBank in result:
+        bloodBanksList.append(bloodBank[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return bloodBanksList
+
+# Function to update Bloodbanks_and_Hospitals Table for a Blood Transfer
+def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sendinghospitalID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    
+    # Get next transfer ID
+    c.execute(&#39;&#39;&#39;SELECT Donor_ID FROM Donation WHERE Donation_ID = (?);&#39;&#39;&#39;, (donationid,))
+    dresult = c.fetchone()
+    donorID = dresult[0]
+    c.execute(&#39;&#39;&#39;SELECT Blood_Type FROM Donor WHERE Donor_ID = (?);&#39;&#39;&#39;, (donorID,))
+    result = c.fetchone()
+    bloodtype = result[0]
+
+    if bloodtype == &#39;A+&#39;:
+        bt_column = &#39;A_Positive_Units&#39;
+    elif bloodtype == &#39;A-&#39;:
+        bt_column = &#39;A_Negative_Units&#39;
+    elif bloodtype == &#39;B+&#39;:
+        bt_column = &#39;B_Positive_Units&#39;
+    elif bloodtype == &#39;B-&#39;:
+        bt_column = &#39;B_Negative_Units&#39;
+    elif bloodtype == &#39;AB+&#39;:
+        bt_column = &#39;AB_Positive_Units&#39;
+    elif bloodtype == &#39;AB-&#39;:
+        bt_column = &#39;AB_Negative_Units&#39;
+    elif bloodtype == &#39;O+&#39;:
+        bt_column = &#39;O_Positive_Units&#39;
+    elif bloodtype == &#39;O-&#39;:
+        bt_column = &#39;O_Negative_Units&#39;
+
+    # Calculate the new quantity for Receiving Hospital
+    sql = &#39;SELECT &#39;+bt_column+&#39; FROM Bloodbanks_and_Hospitals WHERE Institution_ID = &#39;+str(receivinghospitalID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_r = result[0] + 1
+    
+    # Calculate the new quantity for Sending Hospital
+    sql = &#39;SELECT &#39;+bt_column+&#39; FROM Bloodbanks_and_Hospitals WHERE Institution_ID = &#39;+str(sendinghospitalID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_s = result[0] - 1
+
+    # Update Receiving Hospital
+    sql = &#39;UPDATE Bloodbanks_and_Hospitals SET &#39;+bt_column+&#39; = &#39;+str(newamount_r)+&#39; WHERE Institution_ID = &#39;+str(receivinghospitalID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    
+    # Update Sending Hospital
+    sql = &#39;UPDATE Bloodbanks_and_Hospitals SET &#39;+bt_column+&#39; = &#39;+str(newamount_s)+&#39; WHERE Institution_ID = &#39;+str(sendinghospitalID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to enter blood transfer in Transfer table
+def enterTransfer(db_filename, donationID, receivinghospitalID, sendinghospitalID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next transfer ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Transfer_ID) FROM Transfer;&#39;&#39;&#39;)
+    result = c.fetchone()
+    transferID = result[0] + 1
+    
+    # Get current datetime
+    dt_now = datetime.datetime.now()
+
+    # Insert transfer
+    c.execute(&#39;&#39;&#39;INSERT INTO Transfer (Transfer_ID, Date_Time, Donation_ID, Receiving_Hospital_ID, Sending_Hospital_ID) VALUES (?,?,?,?,?);&#39;&#39;&#39;, (transferID, dt_now, donationID, receivinghospitalID, sendinghospitalID,))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return
+
+# Function to get A postive units
+def getBloodAList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all A positive units
+    c.execute(&#39;&#39;&#39;SELECT A_POSITIVE_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# function to get total A positive units:
+def getTotalAPositiveUnits(db_filename):
+    a_positive_units = getBloodAList(db_filename)
+    total_a_positive_units = sum(a_positive_units)
+    return total_a_positive_units
+
+# Function to get B positive units
+def getBloodBList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all B positive units
+    c.execute(&#39;&#39;&#39;SELECT B_Positive_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# function to get total b positive units:
+def getTotalBPositiveUnits(db_filename):
+    b_positive_units = getBloodBList(db_filename)
+    total_b_positive_units = sum(b_positive_units)
+    return total_b_positive_units
+
+# Function to get AB positive units
+def getBloodABList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all AB psoitive units
+    c.execute(&#39;&#39;&#39;SELECT AB_Positive_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# function to get total AB positive units:
+def getTotalABPositiveUnits(db_filename):
+    ab_positive_units = getBloodABList(db_filename)
+    total_ab_positive_units = sum(ab_positive_units)
+    return total_ab_positive_units
+
+# Function to get O positive units
+def getBloodOList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all O positive units
+    c.execute(&#39;&#39;&#39;SELECT O_Positive_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# function to get total O positive units:
+def getTotalOPositiveUnits(db_filename):
+    o_positive_units = getBloodOList(db_filename)
+    total_o_positive_units = sum(o_positive_units)
+    return total_o_positive_units
+
+# Function to get A negative units
+def getBloodANList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all A negative units
+    c.execute(&#39;&#39;&#39;SELECT A_Negative_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# function to get total A Negative units:
+def getTotalANegativeUnits(db_filename):
+    a_negative_units = getBloodANList(db_filename)
+    total_a_negative_units = sum(a_negative_units)
+    return total_a_negative_units
+
+# Function to get B negative units
+def getBloodBNList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT B_Negative_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# function to get total B Negative units:
+def getTotalBNegativeUnits(db_filename):
+    b_negative_units = getBloodBNList(db_filename)
+    total_b_negative_units = sum(b_negative_units)
+    return total_b_negative_units
+
+# Function to get AB negative units
+def getBloodABNList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT AB_Negative_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# function to get total A Negative units:
+def getTotalABNegativeUnits(db_filename):
+    ab_negative_units = getBloodANList(db_filename)
+    total_ab_negative_units = sum(ab_negative_units)
+    return total_ab_negative_units
+
+# Function to get O negative units
+def getBloodONList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT O_Negative_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# function to get total A Negative units:
+def getTotalONegativeUnits(db_filename):
+    o_negative_units = getBloodONList(db_filename)
+    total_o_negative_units = sum(o_negative_units)
+    return total_o_negative_units
+
+# Function to get all bank ids
+def getBloodID(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT Institution_ID FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get city and state 
+def getAddress(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT City, State FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to return blood bank types
+def getBankType(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT Type FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList
+
+# Function to get all data from the Donation table for a given blood bank ID
+def getDonationTable(db_filename, bankID):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donation WHERE Hospital_ID = {};&#39;&#39;&#39;.format(bankID))
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+# Function to get all data from the Transfusion table for a given blood bank ID
+def getTransfusionTable(db_filename, bankID):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfusion WHERE Hospital_ID = {};&#39;&#39;&#39;.format(bankID))
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+# Function to get all incoming transfer data from the Transfer table for a given blood bank ID
+def getIncomingTransferTable(db_filename, bankID):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfer WHERE Receiving_Hospital_ID = {};&#39;&#39;&#39;.format(bankID))
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+# Function to get all outgoing transfer data from the Transfer table for a given blood bank ID
+def getOutgoingTransferTable(db_filename, bankID):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfer WHERE Sending_Hospital_ID = {};&#39;&#39;&#39;.format(bankID))
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+# Function to get list of Blood Banks and their IDs
+def getBloodBanksIDsList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT Name, Institution_ID FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+# Function to get all donor data
+def getDonors(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donor;&#39;&#39;&#39;)
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+
+# Function to get all patient data
+def getPatients(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Patient;&#39;&#39;&#39;)
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result
+
+
+#Function to enter Comments on complication_report.html
+def enterComments(db_filename, transfusion_id, comments):
+    try:
+        # Connect to the database
+        conn = sqlite3.connect(db_filename)
+        c = conn.cursor()
+
+        # Check if the Transfusion_ID exists in the Transfusion table
+        c.execute(&#34;SELECT * FROM Transfusion WHERE Transfusion_ID=?&#34;, (transfusion_id,))
+        result = c.fetchone()
+
+        if result is None:
+            print(f&#34;Transfusion with ID {transfusion_id} not found.&#34;)
+            return False
+        else:
+            # If the Transfusion_ID exists, insert the data into the Complication table
+            
+            # Get next complication ID
+            c.execute(&#39;&#39;&#39;SELECT MAX(Complication_ID) FROM Complication;&#39;&#39;&#39;)
+            result = c.fetchone()
+            complicationID = result[0] + 1
+
+            c.execute(&#34;INSERT INTO Complication (Complication_ID, Transfusion_ID, Comments) VALUES (?, ?, ?)&#34;,
+                      (complicationID, transfusion_id, comments))
+            conn.commit()
+            print(&#34;Comments added successfully.&#34;)
+            return True
+
+        # Close the database connection
+        conn.close()
+
+    except sqlite3.Error as e:
+        print(&#34;Error:&#34;, e)
+        return False
+
+# Function to get Comments for view_report.html
+def getComplication(db_filename, transfusion_id):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    
+    # Retrieve the Complication_ID and Comments for the given transfusion_id from the Complication table
+    c.execute(&#39;&#39;&#39;SELECT Complication_ID, Comments FROM Complication WHERE Transfusion_ID = ?;&#39;&#39;&#39;, (transfusion_id,))
+    result = c.fetchone()
+    print(result)
+    
+    conn.close()
+    
+    if result:
+        complication_id, comments = result
+        return complication_id, comments
+    else:
+        return None, None
+    
+# Code to run to set up database
+if __name__ == &#34;__main__&#34;:
+    space_monkeys_db = &#39;space_monkeys_db&#39;
+    create(space_monkeys_db)
+    fill(space_monkeys_db)
+    test_tables(space_monkeys_db)
+    </code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="sm_dbAPI.UpdateInstitutionInventory"><code class="name flex">
+<span>def <span class="ident">UpdateInstitutionInventory</span></span>(<span>db_filename, donationid, receivinghospitalID, sendinghospitalID)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sendinghospitalID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    
+    # Get next transfer ID
+    c.execute(&#39;&#39;&#39;SELECT Donor_ID FROM Donation WHERE Donation_ID = (?);&#39;&#39;&#39;, (donationid,))
+    dresult = c.fetchone()
+    donorID = dresult[0]
+    c.execute(&#39;&#39;&#39;SELECT Blood_Type FROM Donor WHERE Donor_ID = (?);&#39;&#39;&#39;, (donorID,))
+    result = c.fetchone()
+    bloodtype = result[0]
+
+    if bloodtype == &#39;A+&#39;:
+        bt_column = &#39;A_Positive_Units&#39;
+    elif bloodtype == &#39;A-&#39;:
+        bt_column = &#39;A_Negative_Units&#39;
+    elif bloodtype == &#39;B+&#39;:
+        bt_column = &#39;B_Positive_Units&#39;
+    elif bloodtype == &#39;B-&#39;:
+        bt_column = &#39;B_Negative_Units&#39;
+    elif bloodtype == &#39;AB+&#39;:
+        bt_column = &#39;AB_Positive_Units&#39;
+    elif bloodtype == &#39;AB-&#39;:
+        bt_column = &#39;AB_Negative_Units&#39;
+    elif bloodtype == &#39;O+&#39;:
+        bt_column = &#39;O_Positive_Units&#39;
+    elif bloodtype == &#39;O-&#39;:
+        bt_column = &#39;O_Negative_Units&#39;
+
+    # Calculate the new quantity for Receiving Hospital
+    sql = &#39;SELECT &#39;+bt_column+&#39; FROM Bloodbanks_and_Hospitals WHERE Institution_ID = &#39;+str(receivinghospitalID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_r = result[0] + 1
+    
+    # Calculate the new quantity for Sending Hospital
+    sql = &#39;SELECT &#39;+bt_column+&#39; FROM Bloodbanks_and_Hospitals WHERE Institution_ID = &#39;+str(sendinghospitalID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_s = result[0] - 1
+
+    # Update Receiving Hospital
+    sql = &#39;UPDATE Bloodbanks_and_Hospitals SET &#39;+bt_column+&#39; = &#39;+str(newamount_r)+&#39; WHERE Institution_ID = &#39;+str(receivinghospitalID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    
+    # Update Sending Hospital
+    sql = &#39;UPDATE Bloodbanks_and_Hospitals SET &#39;+bt_column+&#39; = &#39;+str(newamount_s)+&#39; WHERE Institution_ID = &#39;+str(sendinghospitalID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.create"><code class="name flex">
+<span>def <span class="ident">create</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def create(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;CREATE TABLE Bloodbanks_and_Hospitals
+                (Institution_ID INT, 
+                Type VARCHAR(45), 
+                Name VARCHAR(90), 
+                City VARCHAR(45), 
+                State VARCHAR(2), 
+                A_Positive_Units INT, 
+                A_Negative_Units INT, 
+                B_Positive_Units INT,
+                B_Negative_Units INT,
+                AB_Positive_Units INT,
+                AB_Negative_Units INT,
+                O_Positive_Units INT,
+                O_Negative_Units INT,
+                PRIMARY KEY(Institution_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Donor
+                (Donor_ID INT, 
+                Name VARCHAR(90), 
+                Blood_Type VARCHAR(3), 
+                PRIMARY KEY(Donor_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Patient
+                (Patient_ID INT, 
+                Name VARCHAR(90), 
+                Blood_Type VARCHAR(3), 
+                PRIMARY KEY(Patient_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Donation
+                (Donation_ID INT, 
+                Date_Time DATETIME, 
+                Donor_ID INT, 
+                Medical_Professional VARCHAR(90), 
+                Hospital_ID INT, 
+                Amount INT,
+                PRIMARY KEY(Donation_ID),
+                FOREIGN KEY(Donor_ID) REFERENCES Donor(Donor_ID),
+                FOREIGN KEY(Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Transfusion
+                (Transfusion_ID INT, 
+                Date_Time DATETIME, 
+                Donation_ID INT, 
+                Patient_ID INT, 
+                Medical_Professional VARCHAR(90), 
+                Hospital_ID INT, 
+                Amount INT,
+                PRIMARY KEY(Transfusion_ID),
+                FOREIGN KEY(Donation_ID) REFERENCES Donation(Donation_ID),
+                FOREIGN KEY(Patient_ID) REFERENCES Patient(Patient_ID),
+                FOREIGN KEY(Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Transfer
+                (Transfer_ID INT, 
+                Date_Time DATETIME,
+                Donation_ID INT, 
+                Receiving_Hospital_ID INT,
+                Sending_Hospital_ID INT,
+                PRIMARY KEY(Transfer_ID),
+                FOREIGN KEY(Donation_ID) REFERENCES Donation(Donation_ID),
+                FOREIGN KEY(Sending_Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID),
+                FOREIGN KEY(Receiving_Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));&#39;&#39;&#39;)
+    c.execute(&#39;&#39;&#39;CREATE TABLE Complication
+                (Complication_ID INT, 
+                Transfusion_ID INT,
+                Comments VARCHAR(180), 
+                PRIMARY KEY(Complication_ID),
+                FOREIGN KEY(Transfusion_ID) REFERENCES Transfusion(Transfusion_ID));&#39;&#39;&#39;)
+    conn.commit()
+    conn.close()</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.enterBloodBank"><code class="name flex">
+<span>def <span class="ident">enterBloodBank</span></span>(<span>db_filename, bloodBankName, bloodBankType, bloodBankCity, bloodBankState)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enterBloodBank(db_filename, bloodBankName, bloodBankType, bloodBankCity, bloodBankState):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next blood bank ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Institution_ID) FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchone()
+    bloodBankID = result[0] + 1
+
+    # Insert blood bank
+    c.execute(&#39;&#39;&#39;INSERT INTO Bloodbanks_and_Hospitals (Institution_ID, Name, Type, City, State, A_Positive_Units, A_Negative_Units, B_Positive_Units, B_Negative_Units, AB_Positive_Units, AB_Negative_Units, O_Positive_Units, O_Negative_Units) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);&#39;&#39;&#39;, (bloodBankID, bloodBankName, bloodBankType, bloodBankCity, bloodBankState, 0, 0, 0, 0, 0, 0, 0, 0))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.enterComments"><code class="name flex">
+<span>def <span class="ident">enterComments</span></span>(<span>db_filename, transfusion_id, comments)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enterComments(db_filename, transfusion_id, comments):
+    try:
+        # Connect to the database
+        conn = sqlite3.connect(db_filename)
+        c = conn.cursor()
+
+        # Check if the Transfusion_ID exists in the Transfusion table
+        c.execute(&#34;SELECT * FROM Transfusion WHERE Transfusion_ID=?&#34;, (transfusion_id,))
+        result = c.fetchone()
+
+        if result is None:
+            print(f&#34;Transfusion with ID {transfusion_id} not found.&#34;)
+            return False
+        else:
+            # If the Transfusion_ID exists, insert the data into the Complication table
+            
+            # Get next complication ID
+            c.execute(&#39;&#39;&#39;SELECT MAX(Complication_ID) FROM Complication;&#39;&#39;&#39;)
+            result = c.fetchone()
+            complicationID = result[0] + 1
+
+            c.execute(&#34;INSERT INTO Complication (Complication_ID, Transfusion_ID, Comments) VALUES (?, ?, ?)&#34;,
+                      (complicationID, transfusion_id, comments))
+            conn.commit()
+            print(&#34;Comments added successfully.&#34;)
+            return True
+
+        # Close the database connection
+        conn.close()
+
+    except sqlite3.Error as e:
+        print(&#34;Error:&#34;, e)
+        return False</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.enterDonation"><code class="name flex">
+<span>def <span class="ident">enterDonation</span></span>(<span>db_filename, donorID, bloodBankID, medicalProfessional, quantity, date)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quantity, date):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next donation ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Donation_ID) FROM Donation;&#39;&#39;&#39;)
+    result = c.fetchone()
+    donationID = result[0] + 1
+
+    # Insert donation
+    c.execute(&#39;&#39;&#39;INSERT INTO Donation (Donation_ID, Donor_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?);&#39;&#39;&#39;, (donationID, donorID, bloodBankID, medicalProfessional, quantity, date))
+    
+    # Increment blood bank inventory
+    c.execute(&#39;&#39;&#39;SELECT Blood_Type FROM Donor WHERE Donor_ID = (?);&#39;&#39;&#39;, (donorID,))
+    result = c.fetchone()
+    bloodtype = result[0]
+
+    if bloodtype == &#39;A+&#39;:
+        bt_column = &#39;A_Positive_Units&#39;
+    elif bloodtype == &#39;A-&#39;:
+        bt_column = &#39;A_Negative_Units&#39;
+    elif bloodtype == &#39;B+&#39;:
+        bt_column = &#39;B_Positive_Units&#39;
+    elif bloodtype == &#39;B-&#39;:
+        bt_column = &#39;B_Negative_Units&#39;
+    elif bloodtype == &#39;AB+&#39;:
+        bt_column = &#39;AB_Positive_Units&#39;
+    elif bloodtype == &#39;AB-&#39;:
+        bt_column = &#39;AB_Negative_Units&#39;
+    elif bloodtype == &#39;O+&#39;:
+        bt_column = &#39;O_Positive_Units&#39;
+    elif bloodtype == &#39;O-&#39;:
+        bt_column = &#39;O_Negative_Units&#39;
+
+    # Calculate the new quantity for Receiving Hospital
+    sql = &#39;SELECT &#39;+bt_column+&#39; FROM Bloodbanks_and_Hospitals WHERE Institution_ID = &#39;+str(bloodBankID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_r = result[0] + int(quantity)
+    
+    # Update Receiving Hospital Inventory
+    sql = &#39;UPDATE Bloodbanks_and_Hospitals SET &#39;+bt_column+&#39; = &#39;+str(newamount_r)+&#39; WHERE Institution_ID = &#39;+str(bloodBankID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.enterDonor"><code class="name flex">
+<span>def <span class="ident">enterDonor</span></span>(<span>db_filename, donorName, donorBloodType)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enterDonor(db_filename, donorName, donorBloodType):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next donor ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Donor_ID) FROM Donor;&#39;&#39;&#39;)
+    result = c.fetchone()
+    donorID = result[0] + 1
+
+    # Insert donor
+    c.execute(&#39;&#39;&#39;INSERT INTO Donor (Donor_ID, Name, Blood_Type) VALUES (?,?,?);&#39;&#39;&#39;, (donorID, donorName, donorBloodType))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.enterPatient"><code class="name flex">
+<span>def <span class="ident">enterPatient</span></span>(<span>db_filename, patientName, patientBloodType)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enterPatient(db_filename, patientName, patientBloodType):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next patient ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Patient_ID) FROM Patient;&#39;&#39;&#39;)
+    result = c.fetchone()
+    patientID = result[0] + 1
+
+    # Insert patient
+    c.execute(&#39;&#39;&#39;INSERT INTO Patient (Patient_ID, Name, Blood_Type) VALUES (?,?,?);&#39;&#39;&#39;, (patientID, patientName, patientBloodType))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.enterTransfer"><code class="name flex">
+<span>def <span class="ident">enterTransfer</span></span>(<span>db_filename, donationID, receivinghospitalID, sendinghospitalID)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enterTransfer(db_filename, donationID, receivinghospitalID, sendinghospitalID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next transfer ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Transfer_ID) FROM Transfer;&#39;&#39;&#39;)
+    result = c.fetchone()
+    transferID = result[0] + 1
+    
+    # Get current datetime
+    dt_now = datetime.datetime.now()
+
+    # Insert transfer
+    c.execute(&#39;&#39;&#39;INSERT INTO Transfer (Transfer_ID, Date_Time, Donation_ID, Receiving_Hospital_ID, Sending_Hospital_ID) VALUES (?,?,?,?,?);&#39;&#39;&#39;, (transferID, dt_now, donationID, receivinghospitalID, sendinghospitalID,))
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.enterTransfusion"><code class="name flex">
+<span>def <span class="ident">enterTransfusion</span></span>(<span>db_filename, patientID, bloodBankID, donationID, medicalProfessional, quantity, date)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalProfessional, quantity, date):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Get next transfusion ID
+    c.execute(&#39;&#39;&#39;SELECT MAX(Transfusion_ID) FROM Transfusion;&#39;&#39;&#39;)
+    result = c.fetchone()
+    transfusionID = result[0] + 1
+
+    # Insert transfusion
+    c.execute(&#39;&#39;&#39;INSERT INTO Transfusion (Transfusion_ID, Patient_ID, Donation_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?,?);&#39;&#39;&#39;, (transfusionID, patientID, donationID, bloodBankID, medicalProfessional, quantity, date))
+    
+    # Decrement blood bank inventory
+    c.execute(&#39;&#39;&#39;SELECT Blood_Type FROM Donor 
+                JOIN Donation ON Donor.Donor_ID = Donation.Donor_ID
+                WHERE Donation_ID = (?);&#39;&#39;&#39;, (donationID,))
+    result = c.fetchone()
+    bloodtype = result[0]
+
+    if bloodtype == &#39;A+&#39;:
+        bt_column = &#39;A_Positive_Units&#39;
+    elif bloodtype == &#39;A-&#39;:
+        bt_column = &#39;A_Negative_Units&#39;
+    elif bloodtype == &#39;B+&#39;:
+        bt_column = &#39;B_Positive_Units&#39;
+    elif bloodtype == &#39;B-&#39;:
+        bt_column = &#39;B_Negative_Units&#39;
+    elif bloodtype == &#39;AB+&#39;:
+        bt_column = &#39;AB_Positive_Units&#39;
+    elif bloodtype == &#39;AB-&#39;:
+        bt_column = &#39;AB_Negative_Units&#39;
+    elif bloodtype == &#39;O+&#39;:
+        bt_column = &#39;O_Positive_Units&#39;
+    elif bloodtype == &#39;O-&#39;:
+        bt_column = &#39;O_Negative_Units&#39;
+
+    # Calculate the new quantity for Providing Hospital
+    sql = &#39;SELECT &#39;+bt_column+&#39; FROM Bloodbanks_and_Hospitals WHERE Institution_ID = &#39;+str(bloodBankID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    result = c.fetchone()
+    newamount_r = result[0] - int(quantity)
+    
+    # Update Providing Hospital Inventory
+    sql = &#39;UPDATE Bloodbanks_and_Hospitals SET &#39;+bt_column+&#39; = &#39;+str(newamount_r)+&#39; WHERE Institution_ID = &#39;+str(bloodBankID)+&#39;;&#39;&#39;&#39;
+    c.execute(sql)
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.fill"><code class="name flex">
+<span>def <span class="ident">fill</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def fill(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    
+    # Fill in the Bloodbanks_and_Hospitals table
+    bloodbanks = pd.read_csv(&#34;sample_data/bloodbanks.csv&#34;)
+    donors_dict = bloodbanks.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Bloodbanks_and_Hospitals VALUES (:Institution_ID, :Type, :Name, :City, :State, :A_Positive_Units, :A_Negative_Units, :B_Positive_Units, :B_Negative_Units, :AB_Positive_Units, :AB_Negative_Units, :O_Positive_Units, :O_Negative_Units);    
+    &#39;&#39;&#39;, donors_dict)
+        
+    # Fill Donors table
+    donors = pd.read_csv(&#34;sample_data/donors.csv&#34;)
+    donors_dict = donors.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Donor VALUES (:Donor_ID, :Name, :Blood_Type);    
+    &#39;&#39;&#39;, donors_dict)
+        
+    # Fill in the Patient table
+    patients = pd.read_csv(&#34;sample_data/patients.csv&#34;)
+    patients_dict = patients.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Patient VALUES (:Patient_ID, :Name, :Blood_Type);    
+    &#39;&#39;&#39;, patients_dict)
+
+    # Fill in the Donation table
+    donations = pd.read_csv(&#34;sample_data/donations.csv&#34;)
+    donations_dict = donations.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Donation VALUES (:Donation_ID, :Date_Time, :Donor_ID, :Medical_Professional, :Hospital_ID, :Amount);
+    &#39;&#39;&#39;, donations_dict)
+    
+    # Fill in the Transfusion table
+    transfusions = pd.read_csv(&#34;sample_data/transfusions.csv&#34;)
+    transfusions_dict = transfusions.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Transfusion VALUES (:Transfusion_ID, :Date_Time, :Donation_ID, :Patient_ID, :Medical_Professional, :Hospital_ID, :Amount);
+    &#39;&#39;&#39;, transfusions_dict)
+    
+    # Fill in the Transfer table
+    transfers = pd.read_csv(&#34;sample_data/transfers.csv&#34;)
+    transfers_dict = transfers.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Transfer VALUES (:Transfer_ID, :Date_Time, :Donation_ID, :Receiving_Hospital_ID, :Sending_Hospital_ID);
+    &#39;&#39;&#39;, transfers_dict)
+        
+    # Fill in the Complication table
+    complications = pd.read_csv(&#34;sample_data/complications.csv&#34;)
+    complications_dict = complications.to_dict(&#39;records&#39;)
+    c.executemany(&#39;&#39;&#39;
+        INSERT INTO Complication VALUES (:Complication_ID, :Transfusion_ID, :Comments);
+    &#39;&#39;&#39;, complications_dict)
+        
+    conn.commit()
+    conn.close()</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.findCompatibleBlood"><code class="name flex">
+<span>def <span class="ident">findCompatibleBlood</span></span>(<span>db_filename, patientID, bloodBankID)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def findCompatibleBlood(db_filename, patientID, bloodBankID):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find blood type of patient
+    c.execute(&#39;&#39;&#39;SELECT Blood_Type FROM Patient WHERE Patient_ID = (?);&#39;&#39;&#39;, (patientID,))
+    result = c.fetchone()
+    if result:
+        bloodtype = result[0]
+
+        # Find a compatible donation at that blood bank
+        # That has not already been transfused
+        if bloodtype == &#39;A+&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;A+&#34;, &#34;A-&#34;, &#34;O+&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;A-&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;A-&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;B+&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;B+&#34;, &#34;B-&#34;, &#34;O+&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;B-&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;B-&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;AB+&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;A+&#34;, &#34;A-&#34;, &#34;B+&#34;, &#34;B-&#34;, &#34;AB+&#34;, &#34;AB-&#34;, &#34;O+&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;AB-&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;A-&#34;, &#34;B-&#34;, &#34;AB-&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;O+&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;O+&#34;, &#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        elif bloodtype == &#39;O-&#39;:
+            c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation
+                        JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
+                        WHERE Blood_Type IN (&#34;O-&#34;)
+                        AND Hospital_ID = (?)
+                        AND Donation_ID NOT IN (
+                            SELECT Donation_ID FROM Transfusion
+                        );&#39;&#39;&#39;, (bloodBankID,))
+        result = c.fetchone()
+
+        # If there is a valid result, return it, otherwise return None
+        if result:
+            return result[0]
+        else:
+            return None
+    else:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getAddress"><code class="name flex">
+<span>def <span class="ident">getAddress</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getAddress(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT City, State FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBankType"><code class="name flex">
+<span>def <span class="ident">getBankType</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBankType(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT Type FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodABList"><code class="name flex">
+<span>def <span class="ident">getBloodABList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodABList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all AB psoitive units
+    c.execute(&#39;&#39;&#39;SELECT AB_Positive_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodABNList"><code class="name flex">
+<span>def <span class="ident">getBloodABNList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodABNList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT AB_Negative_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodAList"><code class="name flex">
+<span>def <span class="ident">getBloodAList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodAList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all A positive units
+    c.execute(&#39;&#39;&#39;SELECT A_POSITIVE_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodANList"><code class="name flex">
+<span>def <span class="ident">getBloodANList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodANList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all A negative units
+    c.execute(&#39;&#39;&#39;SELECT A_Negative_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodBList"><code class="name flex">
+<span>def <span class="ident">getBloodBList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodBList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all B positive units
+    c.execute(&#39;&#39;&#39;SELECT B_Positive_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodBNList"><code class="name flex">
+<span>def <span class="ident">getBloodBNList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodBNList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT B_Negative_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodBankID"><code class="name flex">
+<span>def <span class="ident">getBloodBankID</span></span>(<span>db_filename, bloodBankName)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodBankID(db_filename, bloodBankName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT Institution_ID FROM Bloodbanks_and_Hospitals WHERE Name = ?;&#39;&#39;&#39;, (bloodBankName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodBanksIDsList"><code class="name flex">
+<span>def <span class="ident">getBloodBanksIDsList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodBanksIDsList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT Name, Institution_ID FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodBanksList"><code class="name flex">
+<span>def <span class="ident">getBloodBanksList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodBanksList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Name FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    bloodBanksList = []
+    for bloodBank in result:
+        bloodBanksList.append(bloodBank[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return bloodBanksList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodBanksListNUM"><code class="name flex">
+<span>def <span class="ident">getBloodBanksListNUM</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodBanksListNUM(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Institution_ID FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    bloodBanksList = []
+    for bloodBank in result:
+        bloodBanksList.append(bloodBank[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return bloodBanksList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodID"><code class="name flex">
+<span>def <span class="ident">getBloodID</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodID(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT Institution_ID FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodOList"><code class="name flex">
+<span>def <span class="ident">getBloodOList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodOList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    # SQL query to get all O positive units
+    c.execute(&#39;&#39;&#39;SELECT O_Positive_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getBloodONList"><code class="name flex">
+<span>def <span class="ident">getBloodONList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getBloodONList(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT O_Negative_Units FROM Bloodbanks_and_Hospitals;&#39;&#39;&#39;)
+    result = c.fetchall()
+    bloodList = []
+    for bloodBank in result:
+        bloodList.append(bloodBank[0])
+    conn.commit()
+    conn.close()
+    return bloodList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getComplication"><code class="name flex">
+<span>def <span class="ident">getComplication</span></span>(<span>db_filename, transfusion_id)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getComplication(db_filename, transfusion_id):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    
+    # Retrieve the Complication_ID and Comments for the given transfusion_id from the Complication table
+    c.execute(&#39;&#39;&#39;SELECT Complication_ID, Comments FROM Complication WHERE Transfusion_ID = ?;&#39;&#39;&#39;, (transfusion_id,))
+    result = c.fetchone()
+    print(result)
+    
+    conn.close()
+    
+    if result:
+        complication_id, comments = result
+        return complication_id, comments
+    else:
+        return None, None</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getDonation"><code class="name flex">
+<span>def <span class="ident">getDonation</span></span>(<span>db_filename, medicalProfessional)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDonation(db_filename, medicalProfessional):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donation WHERE Medical_Professional = ?;&#39;&#39;&#39;, (medicalProfessional,))
+    result = c.fetchall()
+
+    for line in result:
+        print(line)
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getDonationIDsList"><code class="name flex">
+<span>def <span class="ident">getDonationIDsList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDonationIDsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Donation_ID FROM Donation;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    donationIDsList = []
+    for donationID in result:
+        donationIDsList.append(donationID[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return donationIDsList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getDonationTable"><code class="name flex">
+<span>def <span class="ident">getDonationTable</span></span>(<span>db_filename, bankID)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDonationTable(db_filename, bankID):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donation WHERE Hospital_ID = {};&#39;&#39;&#39;.format(bankID))
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getDonorID"><code class="name flex">
+<span>def <span class="ident">getDonorID</span></span>(<span>db_filename, donorName)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDonorID(db_filename, donorName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT Donor_ID FROM Donor WHERE Name = ?;&#39;&#39;&#39;, (donorName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getDonors"><code class="name flex">
+<span>def <span class="ident">getDonors</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDonors(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donor;&#39;&#39;&#39;)
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getDonorsList"><code class="name flex">
+<span>def <span class="ident">getDonorsList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getDonorsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Name FROM Donor;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    donorsList = []
+    for donor in result:
+        donorsList.append(donor[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return donorsList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getIncomingTransferTable"><code class="name flex">
+<span>def <span class="ident">getIncomingTransferTable</span></span>(<span>db_filename, bankID)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getIncomingTransferTable(db_filename, bankID):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfer WHERE Receiving_Hospital_ID = {};&#39;&#39;&#39;.format(bankID))
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getOutgoingTransferTable"><code class="name flex">
+<span>def <span class="ident">getOutgoingTransferTable</span></span>(<span>db_filename, bankID)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getOutgoingTransferTable(db_filename, bankID):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfer WHERE Sending_Hospital_ID = {};&#39;&#39;&#39;.format(bankID))
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getPatientID"><code class="name flex">
+<span>def <span class="ident">getPatientID</span></span>(<span>db_filename, patientName)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPatientID(db_filename, patientName):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT Patient_ID FROM Patient WHERE Name = ?;&#39;&#39;&#39;, (patientName,))
+    result = c.fetchone()
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    # Return result
+    if result:
+         return result[0]
+    else:
+        return None</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getPatients"><code class="name flex">
+<span>def <span class="ident">getPatients</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPatients(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Patient;&#39;&#39;&#39;)
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getPatientsList"><code class="name flex">
+<span>def <span class="ident">getPatientsList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getPatientsList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Name FROM Patient;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build donor list
+    patientsList = []
+    for patient in result:
+        patientsList.append(patient[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return patientsList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTotalABNegativeUnits"><code class="name flex">
+<span>def <span class="ident">getTotalABNegativeUnits</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTotalABNegativeUnits(db_filename):
+    ab_negative_units = getBloodANList(db_filename)
+    total_ab_negative_units = sum(ab_negative_units)
+    return total_ab_negative_units</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTotalABPositiveUnits"><code class="name flex">
+<span>def <span class="ident">getTotalABPositiveUnits</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTotalABPositiveUnits(db_filename):
+    ab_positive_units = getBloodABList(db_filename)
+    total_ab_positive_units = sum(ab_positive_units)
+    return total_ab_positive_units</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTotalANegativeUnits"><code class="name flex">
+<span>def <span class="ident">getTotalANegativeUnits</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTotalANegativeUnits(db_filename):
+    a_negative_units = getBloodANList(db_filename)
+    total_a_negative_units = sum(a_negative_units)
+    return total_a_negative_units</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTotalAPositiveUnits"><code class="name flex">
+<span>def <span class="ident">getTotalAPositiveUnits</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTotalAPositiveUnits(db_filename):
+    a_positive_units = getBloodAList(db_filename)
+    total_a_positive_units = sum(a_positive_units)
+    return total_a_positive_units</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTotalBNegativeUnits"><code class="name flex">
+<span>def <span class="ident">getTotalBNegativeUnits</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTotalBNegativeUnits(db_filename):
+    b_negative_units = getBloodBNList(db_filename)
+    total_b_negative_units = sum(b_negative_units)
+    return total_b_negative_units</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTotalBPositiveUnits"><code class="name flex">
+<span>def <span class="ident">getTotalBPositiveUnits</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTotalBPositiveUnits(db_filename):
+    b_positive_units = getBloodBList(db_filename)
+    total_b_positive_units = sum(b_positive_units)
+    return total_b_positive_units</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTotalONegativeUnits"><code class="name flex">
+<span>def <span class="ident">getTotalONegativeUnits</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTotalONegativeUnits(db_filename):
+    o_negative_units = getBloodONList(db_filename)
+    total_o_negative_units = sum(o_negative_units)
+    return total_o_negative_units</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTotalOPositiveUnits"><code class="name flex">
+<span>def <span class="ident">getTotalOPositiveUnits</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTotalOPositiveUnits(db_filename):
+    o_positive_units = getBloodOList(db_filename)
+    total_o_positive_units = sum(o_positive_units)
+    return total_o_positive_units</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTransfusion"><code class="name flex">
+<span>def <span class="ident">getTransfusion</span></span>(<span>db_filename, medicalProfessional)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTransfusion(db_filename, medicalProfessional):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # Find donor ID
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfusion WHERE Medical_Professional = ?;&#39;&#39;&#39;, (medicalProfessional,))
+    result = c.fetchall()
+
+    for line in result:
+        print(line)
+
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+    return</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTransfusionIDList"><code class="name flex">
+<span>def <span class="ident">getTransfusionIDList</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTransfusionIDList(db_filename):
+
+    # Initialize connection
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+
+    # SQL query to get all donor names
+    c.execute(&#39;&#39;&#39;SELECT Transfusion_ID FROM Transfusion;&#39;&#39;&#39;)
+    result = c.fetchall()
+
+    # Build transfusion ID list
+    transfusionIDList = []
+    for transfusion in result:
+        transfusionIDList.append(transfusion[0])
+    
+    # Commit and close connection
+    conn.commit()
+    conn.close()
+
+    return transfusionIDList</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.getTransfusionTable"><code class="name flex">
+<span>def <span class="ident">getTransfusionTable</span></span>(<span>db_filename, bankID)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def getTransfusionTable(db_filename, bankID):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfusion WHERE Hospital_ID = {};&#39;&#39;&#39;.format(bankID))
+    result = c.fetchall()
+    conn.commit()
+    conn.close()
+    return result</code></pre>
+</details>
+</dd>
+<dt id="sm_dbAPI.test_tables"><code class="name flex">
+<span>def <span class="ident">test_tables</span></span>(<span>db_filename)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_tables(db_filename):
+    conn = sqlite3.connect(db_filename)
+    c = conn.cursor()
+    count_cat = 0
+    c.execute(&#39;&#39;&#39;SELECT * FROM Bloodbanks_and_Hospitals WHERE Institution_ID = 64;&#39;&#39;&#39;)
+    if c.fetchone() == (64, &#39;Hospital&#39;, &#39;Yuma County&#39;, &#39;Wray&#39;, &#39;CO&#39;, 76650, 13526, 2500, 441, 7300, 1000, 11000, 1941):
+        count_cat = count_cat + 1
+        print(&#34;First Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donor WHERE Donor_ID = 22;&#39;&#39;&#39;)
+    if c.fetchone() == (22, &#39;Steve Rogers&#39;, &#39;B-&#39;):
+        count_cat = count_cat + 1
+        print(&#34;Second Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Patient WHERE Patient_ID = 26;&#39;&#39;&#39;)
+    if c.fetchone() == (26, &#39;Zena Zootopia&#39;, &#39;O+&#39;):
+        count_cat = count_cat + 1
+        print(&#34;Third Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Donation WHERE Donation_ID = 42;&#39;&#39;&#39;)
+    if c.fetchone() == (42, &#39;2023-07-11 9:00:00&#39;, 22, &#39;Dr. Stephan Strange&#39;, 23, 1):
+        count_cat = count_cat + 1
+        print(&#34;Fourth Category Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfusion WHERE Transfusion_ID = 4;&#39;&#39;&#39;)
+    if c.fetchone() == (4, &#39;2023-07-23 11:00:00&#39;, 4, 23, &#39;Dr. Harleen Quinzel&#39;, 61, 1):
+        count_cat = count_cat + 1
+        print(&#34;Fifth Category Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Transfer WHERE Transfer_ID = 4;&#39;&#39;&#39;)
+    if c.fetchone() == (4, &#39;2023-07-04 11:00:00&#39;, 28, 37, 17):
+        count_cat = count_cat + 1
+        print(&#34;Sixth Category Test Passed!&#34;)
+    c.execute(&#39;&#39;&#39;SELECT * FROM Complication WHERE Complication_ID = 1;&#39;&#39;&#39;)
+    if c.fetchone() == (1, 4, &#39;Throwing up multiple times a day&#39;):
+        count_cat = count_cat + 1
+        print(&#34;Seventh Category Test Passed!&#34;)
+    if count_cat == 7:
+        print(&#34;All Tests Passed!!!&#34;)
+    else:
+        print(&#34;Failed: Test&#34;)
+    conn.commit()
+    conn.close()</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="sm_dbAPI.UpdateInstitutionInventory" href="#sm_dbAPI.UpdateInstitutionInventory">UpdateInstitutionInventory</a></code></li>
+<li><code><a title="sm_dbAPI.create" href="#sm_dbAPI.create">create</a></code></li>
+<li><code><a title="sm_dbAPI.enterBloodBank" href="#sm_dbAPI.enterBloodBank">enterBloodBank</a></code></li>
+<li><code><a title="sm_dbAPI.enterComments" href="#sm_dbAPI.enterComments">enterComments</a></code></li>
+<li><code><a title="sm_dbAPI.enterDonation" href="#sm_dbAPI.enterDonation">enterDonation</a></code></li>
+<li><code><a title="sm_dbAPI.enterDonor" href="#sm_dbAPI.enterDonor">enterDonor</a></code></li>
+<li><code><a title="sm_dbAPI.enterPatient" href="#sm_dbAPI.enterPatient">enterPatient</a></code></li>
+<li><code><a title="sm_dbAPI.enterTransfer" href="#sm_dbAPI.enterTransfer">enterTransfer</a></code></li>
+<li><code><a title="sm_dbAPI.enterTransfusion" href="#sm_dbAPI.enterTransfusion">enterTransfusion</a></code></li>
+<li><code><a title="sm_dbAPI.fill" href="#sm_dbAPI.fill">fill</a></code></li>
+<li><code><a title="sm_dbAPI.findCompatibleBlood" href="#sm_dbAPI.findCompatibleBlood">findCompatibleBlood</a></code></li>
+<li><code><a title="sm_dbAPI.getAddress" href="#sm_dbAPI.getAddress">getAddress</a></code></li>
+<li><code><a title="sm_dbAPI.getBankType" href="#sm_dbAPI.getBankType">getBankType</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodABList" href="#sm_dbAPI.getBloodABList">getBloodABList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodABNList" href="#sm_dbAPI.getBloodABNList">getBloodABNList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodAList" href="#sm_dbAPI.getBloodAList">getBloodAList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodANList" href="#sm_dbAPI.getBloodANList">getBloodANList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodBList" href="#sm_dbAPI.getBloodBList">getBloodBList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodBNList" href="#sm_dbAPI.getBloodBNList">getBloodBNList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodBankID" href="#sm_dbAPI.getBloodBankID">getBloodBankID</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodBanksIDsList" href="#sm_dbAPI.getBloodBanksIDsList">getBloodBanksIDsList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodBanksList" href="#sm_dbAPI.getBloodBanksList">getBloodBanksList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodBanksListNUM" href="#sm_dbAPI.getBloodBanksListNUM">getBloodBanksListNUM</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodID" href="#sm_dbAPI.getBloodID">getBloodID</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodOList" href="#sm_dbAPI.getBloodOList">getBloodOList</a></code></li>
+<li><code><a title="sm_dbAPI.getBloodONList" href="#sm_dbAPI.getBloodONList">getBloodONList</a></code></li>
+<li><code><a title="sm_dbAPI.getComplication" href="#sm_dbAPI.getComplication">getComplication</a></code></li>
+<li><code><a title="sm_dbAPI.getDonation" href="#sm_dbAPI.getDonation">getDonation</a></code></li>
+<li><code><a title="sm_dbAPI.getDonationIDsList" href="#sm_dbAPI.getDonationIDsList">getDonationIDsList</a></code></li>
+<li><code><a title="sm_dbAPI.getDonationTable" href="#sm_dbAPI.getDonationTable">getDonationTable</a></code></li>
+<li><code><a title="sm_dbAPI.getDonorID" href="#sm_dbAPI.getDonorID">getDonorID</a></code></li>
+<li><code><a title="sm_dbAPI.getDonors" href="#sm_dbAPI.getDonors">getDonors</a></code></li>
+<li><code><a title="sm_dbAPI.getDonorsList" href="#sm_dbAPI.getDonorsList">getDonorsList</a></code></li>
+<li><code><a title="sm_dbAPI.getIncomingTransferTable" href="#sm_dbAPI.getIncomingTransferTable">getIncomingTransferTable</a></code></li>
+<li><code><a title="sm_dbAPI.getOutgoingTransferTable" href="#sm_dbAPI.getOutgoingTransferTable">getOutgoingTransferTable</a></code></li>
+<li><code><a title="sm_dbAPI.getPatientID" href="#sm_dbAPI.getPatientID">getPatientID</a></code></li>
+<li><code><a title="sm_dbAPI.getPatients" href="#sm_dbAPI.getPatients">getPatients</a></code></li>
+<li><code><a title="sm_dbAPI.getPatientsList" href="#sm_dbAPI.getPatientsList">getPatientsList</a></code></li>
+<li><code><a title="sm_dbAPI.getTotalABNegativeUnits" href="#sm_dbAPI.getTotalABNegativeUnits">getTotalABNegativeUnits</a></code></li>
+<li><code><a title="sm_dbAPI.getTotalABPositiveUnits" href="#sm_dbAPI.getTotalABPositiveUnits">getTotalABPositiveUnits</a></code></li>
+<li><code><a title="sm_dbAPI.getTotalANegativeUnits" href="#sm_dbAPI.getTotalANegativeUnits">getTotalANegativeUnits</a></code></li>
+<li><code><a title="sm_dbAPI.getTotalAPositiveUnits" href="#sm_dbAPI.getTotalAPositiveUnits">getTotalAPositiveUnits</a></code></li>
+<li><code><a title="sm_dbAPI.getTotalBNegativeUnits" href="#sm_dbAPI.getTotalBNegativeUnits">getTotalBNegativeUnits</a></code></li>
+<li><code><a title="sm_dbAPI.getTotalBPositiveUnits" href="#sm_dbAPI.getTotalBPositiveUnits">getTotalBPositiveUnits</a></code></li>
+<li><code><a title="sm_dbAPI.getTotalONegativeUnits" href="#sm_dbAPI.getTotalONegativeUnits">getTotalONegativeUnits</a></code></li>
+<li><code><a title="sm_dbAPI.getTotalOPositiveUnits" href="#sm_dbAPI.getTotalOPositiveUnits">getTotalOPositiveUnits</a></code></li>
+<li><code><a title="sm_dbAPI.getTransfusion" href="#sm_dbAPI.getTransfusion">getTransfusion</a></code></li>
+<li><code><a title="sm_dbAPI.getTransfusionIDList" href="#sm_dbAPI.getTransfusionIDList">getTransfusionIDList</a></code></li>
+<li><code><a title="sm_dbAPI.getTransfusionTable" href="#sm_dbAPI.getTransfusionTable">getTransfusionTable</a></code></li>
+<li><code><a title="sm_dbAPI.test_tables" href="#sm_dbAPI.test_tables">test_tables</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc" title="pdoc: Python API documentation generator"><cite>pdoc</cite> 0.10.0</a>.</p>
+</footer>
+</body>
+</html>
