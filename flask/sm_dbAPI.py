@@ -1,16 +1,26 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## Main database driver code
-## Last Update: Travis Byrne, 5 August 2023
+## Last Update: Travis Byrne, 9 August 2023
 
-import sqlite3
+import psycopg2
 import datetime
-import pandas as pd
 
 # Creates a database with the filename given. Create the required tables and fields.
 def create(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
+
+    # Drop existing tables to start fresh
+    c.execute("DROP TABLE IF EXISTS Bloodbanks_and_Hospitals CASCADE")
+    c.execute("DROP TABLE IF EXISTS Donor CASCADE")
+    c.execute("DROP TABLE IF EXISTS Patient CASCADE")
+    c.execute("DROP TABLE IF EXISTS Donation CASCADE")
+    c.execute("DROP TABLE IF EXISTS Transfusion CASCADE")
+    c.execute("DROP TABLE IF EXISTS Transfer CASCADE")
+    c.execute("DROP TABLE IF EXISTS Complication CASCADE")
+    conn.commit()
+    
     c.execute('''CREATE TABLE Bloodbanks_and_Hospitals
                 (Institution_ID INT, 
                 Type VARCHAR(45), 
@@ -38,7 +48,7 @@ def create(db_filename):
                 PRIMARY KEY(Patient_ID));''')
     c.execute('''CREATE TABLE Donation
                 (Donation_ID INT, 
-                Date_Time DATETIME, 
+                Date_Time VARCHAR(30), 
                 Donor_ID INT, 
                 Medical_Professional VARCHAR(90), 
                 Hospital_ID INT, 
@@ -48,7 +58,7 @@ def create(db_filename):
                 FOREIGN KEY(Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));''')
     c.execute('''CREATE TABLE Transfusion
                 (Transfusion_ID INT, 
-                Date_Time DATETIME, 
+                Date_Time VARCHAR(30), 
                 Donation_ID INT, 
                 Patient_ID INT, 
                 Medical_Professional VARCHAR(90), 
@@ -60,7 +70,7 @@ def create(db_filename):
                 FOREIGN KEY(Hospital_ID) REFERENCES Bloodbanks_and_Hospitals(Institution_ID));''')
     c.execute('''CREATE TABLE Transfer
                 (Transfer_ID INT, 
-                Date_Time DATETIME,
+                Date_Time VARCHAR(30),
                 Donation_ID INT, 
                 Receiving_Hospital_ID INT,
                 Sending_Hospital_ID INT,
@@ -78,98 +88,44 @@ def create(db_filename):
     conn.close()
 
 def fill(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     
     # Fill in the Bloodbanks_and_Hospitals table
-    bloodbanks = pd.read_csv("sample_data/bloodbanks.csv")
-    donors_dict = bloodbanks.to_dict('records')
-    c.executemany('''
-        INSERT INTO Bloodbanks_and_Hospitals VALUES (:Institution_ID, :Type, :Name, :City, :State, :A_Positive_Units, :A_Negative_Units, :B_Positive_Units, :B_Negative_Units, :AB_Positive_Units, :AB_Negative_Units, :O_Positive_Units, :O_Negative_Units);    
-    ''', donors_dict)
+    with open("sample_data/bloodbanks.csv") as csvFile:
+       next(csvFile) # skip column names
+       c.copy_from(csvFile, "bloodbanks_and_hospitals", sep=",")
         
     # Fill Donors table
-    donors = pd.read_csv("sample_data/donors.csv")
-    donors_dict = donors.to_dict('records')
-    c.executemany('''
-        INSERT INTO Donor VALUES (:Donor_ID, :Name, :Blood_Type);    
-    ''', donors_dict)
+    with open("sample_data/donors.csv") as csvFile:
+       next(csvFile) # skip column names
+       c.copy_from(csvFile, "donor", sep=",")
         
     # Fill in the Patient table
-    patients = pd.read_csv("sample_data/patients.csv")
-    patients_dict = patients.to_dict('records')
-    c.executemany('''
-        INSERT INTO Patient VALUES (:Patient_ID, :Name, :Blood_Type);    
-    ''', patients_dict)
+    with open("sample_data/patients.csv") as csvFile:
+       next(csvFile) # skip column names
+       c.copy_from(csvFile, "patient", sep=",")
 
     # Fill in the Donation table
-    donations = pd.read_csv("sample_data/donations.csv")
-    donations_dict = donations.to_dict('records')
-    c.executemany('''
-        INSERT INTO Donation VALUES (:Donation_ID, :Date_Time, :Donor_ID, :Medical_Professional, :Hospital_ID, :Amount);
-    ''', donations_dict)
+    with open("sample_data/donations.csv") as csvFile:
+       next(csvFile) # skip column names
+       c.copy_from(csvFile, "donation", sep=",")
     
     # Fill in the Transfusion table
-    transfusions = pd.read_csv("sample_data/transfusions.csv")
-    transfusions_dict = transfusions.to_dict('records')
-    c.executemany('''
-        INSERT INTO Transfusion VALUES (:Transfusion_ID, :Date_Time, :Donation_ID, :Patient_ID, :Medical_Professional, :Hospital_ID, :Amount);
-    ''', transfusions_dict)
+    with open("sample_data/transfusions.csv") as csvFile:
+       next(csvFile) # skip column names
+       c.copy_from(csvFile, "transfusion", sep=",")
     
     # Fill in the Transfer table
-    transfers = pd.read_csv("sample_data/transfers.csv")
-    transfers_dict = transfers.to_dict('records')
-    c.executemany('''
-        INSERT INTO Transfer VALUES (:Transfer_ID, :Date_Time, :Donation_ID, :Receiving_Hospital_ID, :Sending_Hospital_ID);
-    ''', transfers_dict)
+    with open("sample_data/transfers.csv") as csvFile:
+       next(csvFile) # skip column names
+       c.copy_from(csvFile, "transfer", sep=",")
         
     # Fill in the Complication table
-    complications = pd.read_csv("sample_data/complications.csv")
-    complications_dict = complications.to_dict('records')
-    c.executemany('''
-        INSERT INTO Complication VALUES (:Complication_ID, :Transfusion_ID, :Comments);
-    ''', complications_dict)
-        
-    conn.commit()
-    conn.close()
+    with open("sample_data/complications.csv") as csvFile:
+       next(csvFile) # skip column names
+       c.copy_from(csvFile, "complication", sep=",")
 
-# test category table
-def test_tables(db_filename):
-    conn = sqlite3.connect(db_filename)
-    c = conn.cursor()
-    count_cat = 0
-    c.execute('''SELECT * FROM Bloodbanks_and_Hospitals WHERE Institution_ID = 64;''')
-    if c.fetchone() == (64, 'Hospital', 'Yuma County', 'Wray', 'CO', 76650, 13526, 2500, 441, 7300, 1000, 11000, 1941):
-        count_cat = count_cat + 1
-        print("First Test Passed!")
-    c.execute('''SELECT * FROM Donor WHERE Donor_ID = 22;''')
-    if c.fetchone() == (22, 'Steve Rogers', 'B-'):
-        count_cat = count_cat + 1
-        print("Second Test Passed!")
-    c.execute('''SELECT * FROM Patient WHERE Patient_ID = 26;''')
-    if c.fetchone() == (26, 'Zena Zootopia', 'O+'):
-        count_cat = count_cat + 1
-        print("Third Test Passed!")
-    c.execute('''SELECT * FROM Donation WHERE Donation_ID = 42;''')
-    if c.fetchone() == (42, '2023-07-11 9:00:00', 22, 'Dr. Stephan Strange', 23, 1):
-        count_cat = count_cat + 1
-        print("Fourth Category Test Passed!")
-    c.execute('''SELECT * FROM Transfusion WHERE Transfusion_ID = 4;''')
-    if c.fetchone() == (4, '2023-07-23 11:00:00', 4, 23, 'Dr. Harleen Quinzel', 61, 1):
-        count_cat = count_cat + 1
-        print("Fifth Category Test Passed!")
-    c.execute('''SELECT * FROM Transfer WHERE Transfer_ID = 4;''')
-    if c.fetchone() == (4, '2023-07-04 11:00:00', 28, 37, 17):
-        count_cat = count_cat + 1
-        print("Sixth Category Test Passed!")
-    c.execute('''SELECT * FROM Complication WHERE Complication_ID = 1;''')
-    if c.fetchone() == (1, 4, 'Throwing up multiple times a day'):
-        count_cat = count_cat + 1
-        print("Seventh Category Test Passed!")
-    if count_cat == 7:
-        print("All Tests Passed!!!")
-    else:
-        print("Failed: Test")
     conn.commit()
     conn.close()
 
@@ -177,7 +133,7 @@ def test_tables(db_filename):
 def getDonorID(db_filename, donorName):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Find donor ID
@@ -198,7 +154,7 @@ def getDonorID(db_filename, donorName):
 def getPatientID(db_filename, patientName):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Find donor ID
@@ -219,7 +175,7 @@ def getPatientID(db_filename, patientName):
 def getBloodBankID(db_filename, bloodBankName):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Find donor ID
@@ -240,7 +196,7 @@ def getBloodBankID(db_filename, bloodBankName):
 def getDonation(db_filename, medicalProfessional):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Find donor ID
@@ -259,7 +215,7 @@ def getDonation(db_filename, medicalProfessional):
 def getTransfusion(db_filename, medicalProfessional):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Find donor ID
@@ -278,7 +234,7 @@ def getTransfusion(db_filename, medicalProfessional):
 def enterBloodBank(db_filename, bloodBankName, bloodBankType, bloodBankCity, bloodBankState):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Get next blood bank ID
@@ -298,7 +254,7 @@ def enterBloodBank(db_filename, bloodBankName, bloodBankType, bloodBankCity, blo
 def enterDonor(db_filename, donorName, donorBloodType):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Get next donor ID
@@ -318,7 +274,7 @@ def enterDonor(db_filename, donorName, donorBloodType):
 def enterPatient(db_filename, patientName, patientBloodType):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Get next patient ID
@@ -338,7 +294,7 @@ def enterPatient(db_filename, patientName, patientBloodType):
 def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quantity, date):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Get next donation ID
@@ -390,7 +346,7 @@ def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quanti
 def findCompatibleBlood(db_filename, patientID, bloodBankID):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Find blood type of patient
@@ -479,7 +435,7 @@ def findCompatibleBlood(db_filename, patientID, bloodBankID):
 def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalProfessional, quantity, date):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Get next transfusion ID
@@ -533,7 +489,7 @@ def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalPro
 def getDonorsList(db_filename):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # SQL query to get all donor names
@@ -555,7 +511,7 @@ def getDonorsList(db_filename):
 def getTransfusionIDList(db_filename):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # SQL query to get all donor names
@@ -577,7 +533,7 @@ def getTransfusionIDList(db_filename):
 def getPatientsList(db_filename):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # SQL query to get all donor names
@@ -599,7 +555,7 @@ def getPatientsList(db_filename):
 def getDonationIDsList(db_filename):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # SQL query to get all donor names
@@ -621,7 +577,7 @@ def getDonationIDsList(db_filename):
 def getBloodBanksList(db_filename):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # SQL query to get all donor names
@@ -643,7 +599,7 @@ def getBloodBanksList(db_filename):
 def getBloodBanksListNUM(db_filename):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # SQL query to get all donor names
@@ -665,7 +621,7 @@ def getBloodBanksListNUM(db_filename):
 def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sendinghospitalID):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     
     # Get next transfer ID
@@ -722,7 +678,7 @@ def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sen
 def enterTransfer(db_filename, donationID, receivinghospitalID, sendinghospitalID):
 
     # Initialize connection
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
 
     # Get next transfer ID
@@ -743,7 +699,7 @@ def enterTransfer(db_filename, donationID, receivinghospitalID, sendinghospitalI
 
 # Function to get A postive units
 def getBloodAList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     # SQL query to get all A positive units
     c.execute('''SELECT A_POSITIVE_Units FROM Bloodbanks_and_Hospitals;''')
@@ -763,7 +719,7 @@ def getTotalAPositiveUnits(db_filename):
 
 # Function to get B positive units
 def getBloodBList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     # SQL query to get all B positive units
     c.execute('''SELECT B_Positive_Units FROM Bloodbanks_and_Hospitals;''')
@@ -783,7 +739,7 @@ def getTotalBPositiveUnits(db_filename):
 
 # Function to get AB positive units
 def getBloodABList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     # SQL query to get all AB psoitive units
     c.execute('''SELECT AB_Positive_Units FROM Bloodbanks_and_Hospitals;''')
@@ -803,7 +759,7 @@ def getTotalABPositiveUnits(db_filename):
 
 # Function to get O positive units
 def getBloodOList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     # SQL query to get all O positive units
     c.execute('''SELECT O_Positive_Units FROM Bloodbanks_and_Hospitals;''')
@@ -823,7 +779,7 @@ def getTotalOPositiveUnits(db_filename):
 
 # Function to get A negative units
 def getBloodANList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     # SQL query to get all A negative units
     c.execute('''SELECT A_Negative_Units FROM Bloodbanks_and_Hospitals;''')
@@ -843,7 +799,7 @@ def getTotalANegativeUnits(db_filename):
 
 # Function to get B negative units
 def getBloodBNList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     # SQL query to get all donor names
     c.execute('''SELECT B_Negative_Units FROM Bloodbanks_and_Hospitals;''')
@@ -863,7 +819,7 @@ def getTotalBNegativeUnits(db_filename):
 
 # Function to get AB negative units
 def getBloodABNList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT AB_Negative_Units FROM Bloodbanks_and_Hospitals;''')
     result = c.fetchall()
@@ -882,7 +838,7 @@ def getTotalABNegativeUnits(db_filename):
 
 # Function to get O negative units
 def getBloodONList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT O_Negative_Units FROM Bloodbanks_and_Hospitals;''')
     result = c.fetchall()
@@ -901,7 +857,7 @@ def getTotalONegativeUnits(db_filename):
 
 # Function to get all bank ids
 def getBloodID(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT Institution_ID FROM Bloodbanks_and_Hospitals;''')
     result = c.fetchall()
@@ -914,7 +870,7 @@ def getBloodID(db_filename):
 
 # Function to get city and state 
 def getAddress(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT City, State FROM Bloodbanks_and_Hospitals;''')
     result = c.fetchall()
@@ -927,7 +883,7 @@ def getAddress(db_filename):
 
 # Function to return blood bank types
 def getBankType(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT Type FROM Bloodbanks_and_Hospitals;''')
     result = c.fetchall()
@@ -940,7 +896,7 @@ def getBankType(db_filename):
 
 # Function to get all data from the Donation table for a given blood bank ID
 def getDonationTable(db_filename, bankID):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT * FROM Donation WHERE Hospital_ID = {};'''.format(bankID))
     result = c.fetchall()
@@ -950,7 +906,7 @@ def getDonationTable(db_filename, bankID):
 
 # Function to get all data from the Transfusion table for a given blood bank ID
 def getTransfusionTable(db_filename, bankID):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT * FROM Transfusion WHERE Hospital_ID = {};'''.format(bankID))
     result = c.fetchall()
@@ -960,7 +916,7 @@ def getTransfusionTable(db_filename, bankID):
 
 # Function to get all incoming transfer data from the Transfer table for a given blood bank ID
 def getIncomingTransferTable(db_filename, bankID):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT * FROM Transfer WHERE Receiving_Hospital_ID = {};'''.format(bankID))
     result = c.fetchall()
@@ -970,7 +926,7 @@ def getIncomingTransferTable(db_filename, bankID):
 
 # Function to get all outgoing transfer data from the Transfer table for a given blood bank ID
 def getOutgoingTransferTable(db_filename, bankID):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT * FROM Transfer WHERE Sending_Hospital_ID = {};'''.format(bankID))
     result = c.fetchall()
@@ -980,7 +936,7 @@ def getOutgoingTransferTable(db_filename, bankID):
 
 # Function to get list of Blood Banks and their IDs
 def getBloodBanksIDsList(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT Name, Institution_ID FROM Bloodbanks_and_Hospitals;''')
     result = c.fetchall()
@@ -990,7 +946,7 @@ def getBloodBanksIDsList(db_filename):
 
 # Function to get all donor data
 def getDonors(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT * FROM Donor;''')
     result = c.fetchall()
@@ -1001,7 +957,7 @@ def getDonors(db_filename):
 
 # Function to get all patient data
 def getPatients(db_filename):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     c.execute('''SELECT * FROM Patient;''')
     result = c.fetchall()
@@ -1014,7 +970,7 @@ def getPatients(db_filename):
 def enterComments(db_filename, transfusion_id, comments):
     try:
         # Connect to the database
-        conn = sqlite3.connect(db_filename)
+        conn = psycopg2.connect(db_filename)
         c = conn.cursor()
 
         # Check if the Transfusion_ID exists in the Transfusion table
@@ -1041,13 +997,13 @@ def enterComments(db_filename, transfusion_id, comments):
         # Close the database connection
         conn.close()
 
-    except sqlite3.Error as e:
+    except psycopg2.Error as e:
         print("Error:", e)
         return False
 
 # Function to get Comments for view_report.html
 def getComplication(db_filename, transfusion_id):
-    conn = sqlite3.connect(db_filename)
+    conn = psycopg2.connect(db_filename)
     c = conn.cursor()
     
     # Retrieve the Complication_ID and Comments for the given transfusion_id from the Complication table
@@ -1065,8 +1021,6 @@ def getComplication(db_filename, transfusion_id):
     
 # Code to run to set up database
 if __name__ == "__main__":
-    space_monkeys_db = 'space_monkeys_db'
+    space_monkeys_db = 'postgres://space_monkeys_db_user:5Unps05ZIjef9xcdQDYsCB3swwVforRy@dpg-cj9ibhivvtos73ejdvdg-a.oregon-postgres.render.com/space_monkeys_db'
     create(space_monkeys_db)
     fill(space_monkeys_db)
-    test_tables(space_monkeys_db)
-    

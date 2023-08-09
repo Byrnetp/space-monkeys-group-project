@@ -1,23 +1,19 @@
 ## CS 3308 Group Project
 ## Team 2: Space Monkeys
 ## Main Flask driver code
-## Last Update: Travis Byrne, 2 August 2023
+## Last Update: Travis Byrne, 9 August 2023
 
-import prefix
 from flask import Flask, url_for, request, render_template, request, jsonify
 from markupsafe import escape
 import sm_dbAPI
+import psycopg2
 
 
 # Create app to use in this Flask application
 app = Flask(__name__)
 
-# Insert the wrapper for handling PROXY when using csel.io virtual machine
-# Calling this routine will have no effect if running on local machine
-prefix.use_PrefixMiddleware(app)
-
 # Define database name
-space_monkeys_db = 'space_monkeys_db'
+space_monkeys_db = 'postgres://space_monkeys_db_user:5Unps05ZIjef9xcdQDYsCB3swwVforRy@dpg-cj9ibhivvtos73ejdvdg-a/space_monkeys_db'
 
 ###############################################################################
 
@@ -402,10 +398,3 @@ def about():
    
     return render_template('about.html')
 ###############################################################################
-
-# Main driver function
-if __name__ == '__main__':
-    # run() method of Flask class runs the application 
-    # on the local development server using port 3308 instead of port 5000.
-    app.run(host='0.0.0.0', port=3308)
-
