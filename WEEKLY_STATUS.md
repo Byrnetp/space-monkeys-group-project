@@ -448,3 +448,42 @@ Scrum Master: Cyro Freire de Lima
 **To attempt/complete for next week**
 - Complete all the mockup pages
 - Complete the html, js, css files for the mockup pages. 
+
+
+
+### Meeting 8: 8/9/2023
+
+Attendees: Michael Becker, Travis Byrne, Cyro Freire de Lima, David Hughes, Dylan Kayyem
+
+Scrum Master: Travis Byrne
+
+
+### Weekly Updates:
+-Deployed app
+-Made Demo video
+-Added tests
+-Automatic inventory updates from donation/transfusion
+-Importing sample data from CSV
+-Presentation Powerpoint
+-Fixed Transfer Page
+-Finishing home page and Visualization page
+
+### Sprint Retrospective:
+
+**What went well?**
+-Functioning app!
+-App deployed successfully
+-Good layout/design
+
+**What didn’t work?**
+-Trouble implementing some tests
+-Running out of time
+
+**How can the team improve?**
+Keep it up! Prepare for the presentation
+
+#### End-of-Sprint Demonstration (~10 minutes)
+
+**To attempt/complete for next week**
+-Finishing the presentation slides
+-Practicing giving each part of the presentation
