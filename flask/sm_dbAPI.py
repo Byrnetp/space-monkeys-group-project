@@ -138,7 +138,7 @@ def getDonorID(db_filename, donorName):
 
     # Find donor ID
     if (donorName):
-        c.execute('''SELECT Donor_ID FROM Donor WHERE Name = {}'''.format(donorName))
+        c.execute('''SELECT Donor_ID FROM Donor WHERE Name = '{}';'''.format(donorName))
         result = c.fetchone()
     else:
         result = None
@@ -162,7 +162,7 @@ def getPatientID(db_filename, patientName):
 
     # Find donor ID
     if (patientName):
-        c.execute('''SELECT Patient_ID FROM Patient WHERE Name = ?;''', (patientName,))
+        c.execute('''SELECT Patient_ID FROM Patient WHERE Name = '{}';'''.format(patientName))
         result = c.fetchone()
     else:
         result = None
@@ -186,7 +186,7 @@ def getBloodBankID(db_filename, bloodBankName):
 
     # Find donor ID
     if (bloodBankName):
-        c.execute('''SELECT Institution_ID FROM Bloodbanks_and_Hospitals WHERE Name = ?;''', (bloodBankName,))
+        c.execute('''SELECT Institution_ID FROM Bloodbanks_and_Hospitals WHERE Name = '{}';'''.format(bloodBankName))
         result = c.fetchone()
     else:
         result = None
@@ -210,7 +210,7 @@ def getDonation(db_filename, medicalProfessional):
 
     # Find donor ID
     if (medicalProfessional):
-        c.execute('''SELECT * FROM Donation WHERE Medical_Professional = ?;''', (medicalProfessional,))
+        c.execute('''SELECT * FROM Donation WHERE Medical_Professional = '{}';'''.format(medicalProfessional))
         result = c.fetchall()
     else:
         result = None
@@ -232,7 +232,7 @@ def getTransfusion(db_filename, medicalProfessional):
 
     # Find donor ID
     if (medicalProfessional):
-        c.execute('''SELECT * FROM Transfusion WHERE Medical_Professional = ?;''', (medicalProfessional,))
+        c.execute('''SELECT * FROM Transfusion WHERE Medical_Professional = '{}';'''.format(medicalProfessional))
         result = c.fetchall()
     else:
         result = None
@@ -277,10 +277,8 @@ def enterDonor(db_filename, donorName, donorBloodType):
     result = c.fetchone()
     donorID = result[0] + 1
 
-    print('result = ', result, ' donorID = ', donorID, '\n')
-
     # Insert donor
-    c.execute('''INSERT INTO Donor (Donor_ID, Name, Blood_Type) VALUES (?,?,?);''', (donorID, donorName, donorBloodType))
+    c.execute('''INSERT INTO Donor (Donor_ID, Name, Blood_Type) VALUES ({},'{}','{}']);'''.format(donorID, donorName, donorBloodType))
     
     # Commit and close connection
     conn.commit()
