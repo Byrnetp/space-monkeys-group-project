@@ -258,7 +258,7 @@ def enterBloodBank(db_filename, bloodBankName, bloodBankType, bloodBankCity, blo
     bloodBankID = result[0] + 1
 
     # Insert blood bank
-    c.execute('''INSERT INTO Bloodbanks_and_Hospitals (Institution_ID, Name, Type, City, State, A_Positive_Units, A_Negative_Units, B_Positive_Units, B_Negative_Units, AB_Positive_Units, AB_Negative_Units, O_Positive_Units, O_Negative_Units) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?);''', (bloodBankID, bloodBankName, bloodBankType, bloodBankCity, bloodBankState, 0, 0, 0, 0, 0, 0, 0, 0))
+    c.execute('''INSERT INTO Bloodbanks_and_Hospitals (Institution_ID, Name, Type, City, State, A_Positive_Units, A_Negative_Units, B_Positive_Units, B_Negative_Units, AB_Positive_Units, AB_Negative_Units, O_Positive_Units, O_Negative_Units) VALUES ({},'{}','{}','{}','{}',{},{},{},{},{},{},{},{});'''.format(bloodBankID, bloodBankName, bloodBankType, bloodBankCity, bloodBankState, 0, 0, 0, 0, 0, 0, 0, 0))
     
     # Commit and close connection
     conn.commit()
@@ -278,7 +278,7 @@ def enterDonor(db_filename, donorName, donorBloodType):
     donorID = result[0] + 1
 
     # Insert donor
-    c.execute('''INSERT INTO Donor (Donor_ID, Name, Blood_Type) VALUES ({},'{}','{}']);'''.format(donorID, donorName, donorBloodType))
+    c.execute('''INSERT INTO Donor (Donor_ID, Name, Blood_Type) VALUES ({},'{}','{}');'''.format(donorID, donorName, donorBloodType))
     
     # Commit and close connection
     conn.commit()
@@ -298,7 +298,7 @@ def enterPatient(db_filename, patientName, patientBloodType):
     patientID = result[0] + 1
 
     # Insert patient
-    c.execute('''INSERT INTO Patient (Patient_ID, Name, Blood_Type) VALUES (?,?,?);''', (patientID, patientName, patientBloodType))
+    c.execute('''INSERT INTO Patient (Patient_ID, Name, Blood_Type) VALUES ({},'{}','{}');'''.format(patientID, patientName, patientBloodType))
     
     # Commit and close connection
     conn.commit()
@@ -318,10 +318,10 @@ def enterDonation(db_filename, donorID, bloodBankID, medicalProfessional, quanti
     donationID = result[0] + 1
 
     # Insert donation
-    c.execute('''INSERT INTO Donation (Donation_ID, Donor_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?);''', (donationID, donorID, bloodBankID, medicalProfessional, quantity, date))
+    c.execute('''INSERT INTO Donation (Donation_ID, Donor_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES ({},{},{},'{}',{},'{}');'''.format(donationID, donorID, bloodBankID, medicalProfessional, quantity, date))
     
     # Increment blood bank inventory
-    c.execute('''SELECT Blood_Type FROM Donor WHERE Donor_ID = (?);''', (donorID,))
+    c.execute('''SELECT Blood_Type FROM Donor WHERE Donor_ID = ({});'''.format(donorID))
     result = c.fetchone()
     bloodtype = result[0]
 
@@ -366,7 +366,7 @@ def findCompatibleBlood(db_filename, patientID, bloodBankID):
 
     # Find blood type of patient
     if (patientID):
-        c.execute('''SELECT Blood_Type FROM Patient WHERE Patient_ID = (?);''', (patientID,))
+        c.execute('''SELECT Blood_Type FROM Patient WHERE Patient_ID = ({});'''.format(patientID))
         result = c.fetchone()
     else:
         result = None
@@ -380,66 +380,66 @@ def findCompatibleBlood(db_filename, patientID, bloodBankID):
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
                         WHERE Blood_Type IN ("A+", "A-", "O+", "O-")
-                        AND Hospital_ID = (?)
+                        AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );''', (bloodBankID,))
+                        );'''.format(bloodBankID))
         elif bloodtype == 'A-':
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
                         WHERE Blood_Type IN ("A-", "O-")
-                        AND Hospital_ID = (?)
+                        AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );''', (bloodBankID,))
+                        );'''.format(bloodBankID))
         elif bloodtype == 'B+':
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
                         WHERE Blood_Type IN ("B+", "B-", "O+", "O-")
-                        AND Hospital_ID = (?)
+                        AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );''', (bloodBankID,))
+                        );'''.format(bloodBankID))
         elif bloodtype == 'B-':
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
                         WHERE Blood_Type IN ("B-", "O-")
-                        AND Hospital_ID = (?)
+                        AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );''', (bloodBankID,))
+                        );'''.format(bloodBankID))
         elif bloodtype == 'AB+':
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
                         WHERE Blood_Type IN ("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
-                        AND Hospital_ID = (?)
+                        AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );''', (bloodBankID,))
+                        );'''.format(bloodBankID))
         elif bloodtype == 'AB-':
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
                         WHERE Blood_Type IN ("A-", "B-", "AB-", "O-")
-                        AND Hospital_ID = (?)
+                        AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );''', (bloodBankID,))
+                        );'''.format(bloodBankID))
         elif bloodtype == 'O+':
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
                         WHERE Blood_Type IN ("O+", "O-")
-                        AND Hospital_ID = (?)
+                        AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );''', (bloodBankID,))
+                        );'''.format(bloodBankID))
         elif bloodtype == 'O-':
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
                         WHERE Blood_Type IN ("O-")
-                        AND Hospital_ID = (?)
+                        AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );''', (bloodBankID,))
+                        );'''.format(bloodBankID))
         result = c.fetchone()
 
         # If there is a valid result, return it, otherwise return None
@@ -463,12 +463,12 @@ def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalPro
     transfusionID = result[0] + 1
 
     # Insert transfusion
-    c.execute('''INSERT INTO Transfusion (Transfusion_ID, Patient_ID, Donation_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES (?,?,?,?,?,?,?);''', (transfusionID, patientID, donationID, bloodBankID, medicalProfessional, quantity, date))
+    c.execute('''INSERT INTO Transfusion (Transfusion_ID, Patient_ID, Donation_ID, Hospital_ID, Medical_Professional, Amount, Date_Time) VALUES ({},{},{},{},'{}',{},'{}');'''.format(transfusionID, patientID, donationID, bloodBankID, medicalProfessional, quantity, date))
     
     # Decrement blood bank inventory
     c.execute('''SELECT Blood_Type FROM Donor 
                 JOIN Donation ON Donor.Donor_ID = Donation.Donor_ID
-                WHERE Donation_ID = (?);''', (donationID,))
+                WHERE Donation_ID = ({});'''.foramt(donationID))
     result = c.fetchone()
     bloodtype = result[0]
 
@@ -644,10 +644,10 @@ def UpdateInstitutionInventory(db_filename, donationid, receivinghospitalID, sen
     c = conn.cursor()
     
     # Get next transfer ID
-    c.execute('''SELECT Donor_ID FROM Donation WHERE Donation_ID = (?);''', (donationid,))
+    c.execute('''SELECT Donor_ID FROM Donation WHERE Donation_ID = ({});'''.format(donationid))
     dresult = c.fetchone()
     donorID = dresult[0]
-    c.execute('''SELECT Blood_Type FROM Donor WHERE Donor_ID = (?);''', (donorID,))
+    c.execute('''SELECT Blood_Type FROM Donor WHERE Donor_ID = ({});'''.format(donorID))
     result = c.fetchone()
     bloodtype = result[0]
 
@@ -709,7 +709,7 @@ def enterTransfer(db_filename, donationID, receivinghospitalID, sendinghospitalI
     dt_now = datetime.datetime.now()
 
     # Insert transfer
-    c.execute('''INSERT INTO Transfer (Transfer_ID, Date_Time, Donation_ID, Receiving_Hospital_ID, Sending_Hospital_ID) VALUES (?,?,?,?,?);''', (transferID, dt_now, donationID, receivinghospitalID, sendinghospitalID,))
+    c.execute('''INSERT INTO Transfer (Transfer_ID, Date_Time, Donation_ID, Receiving_Hospital_ID, Sending_Hospital_ID) VALUES ({},'{}',{},{},{});'''.format(transferID, dt_now, donationID, receivinghospitalID, sendinghospitalID))
     
     # Commit and close connection
     conn.commit()
@@ -993,7 +993,7 @@ def enterComments(db_filename, transfusion_id, comments):
         c = conn.cursor()
 
         # Check if the Transfusion_ID exists in the Transfusion table
-        c.execute("SELECT * FROM Transfusion WHERE Transfusion_ID=?", (transfusion_id,))
+        c.execute("SELECT * FROM Transfusion WHERE Transfusion_ID={}".format(transfusion_id))
         result = c.fetchone()
 
         if result is None:
@@ -1007,8 +1007,7 @@ def enterComments(db_filename, transfusion_id, comments):
             result = c.fetchone()
             complicationID = result[0] + 1
 
-            c.execute("INSERT INTO Complication (Complication_ID, Transfusion_ID, Comments) VALUES (?, ?, ?)",
-                      (complicationID, transfusion_id, comments))
+            c.execute("INSERT INTO Complication (Complication_ID, Transfusion_ID, Comments) VALUES ({}, {}, '{}');".format(complicationID, transfusion_id, comments))
             conn.commit()
             print("Comments added successfully.")
             return True
