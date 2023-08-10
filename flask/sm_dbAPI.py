@@ -365,8 +365,12 @@ def findCompatibleBlood(db_filename, patientID, bloodBankID):
     c = conn.cursor()
 
     # Find blood type of patient
-    c.execute('''SELECT Blood_Type FROM Patient WHERE Patient_ID = (?);''', (patientID,))
-    result = c.fetchone()
+    if (patientID):
+        c.execute('''SELECT Blood_Type FROM Patient WHERE Patient_ID = (?);''', (patientID,))
+        result = c.fetchone()
+    else:
+        result = None
+        
     if result:
         bloodtype = result[0]
 
