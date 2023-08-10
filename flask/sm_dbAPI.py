@@ -137,7 +137,7 @@ def getDonorID(db_filename, donorName):
     c = conn.cursor()
 
     # Find donor ID
-    c.execute('''SELECT Donor_ID FROM Donor WHERE Name = ?;''', (donorName,))
+    c.execute('''SELECT Donor_ID FROM Donor WHERE Name = ?''', (donorName,))
     result = c.fetchone()
 
     # Commit and close connection
@@ -158,7 +158,7 @@ def getPatientID(db_filename, patientName):
     c = conn.cursor()
 
     # Find donor ID
-    c.execute('''SELECT Patient_ID FROM Patient WHERE Name = ?;''', (patientName,))
+    c.execute('''SELECT Patient_ID FROM Patient WHERE Name = {};'''.format(patientName))
     result = c.fetchone()
 
     # Commit and close connection
