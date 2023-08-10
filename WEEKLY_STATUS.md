@@ -351,41 +351,11 @@ Scrum Master: Dylan Kayyem
 - Create database design / collect data
 
 #### End-of-Sprint Demonstration (~10 minutes)
-
 - Went over Mike's database example
 - Labeled primary key's for each table
 -    yellow - primary key
 -    green - foreign key
 
-**To attempt/complete for next week**
-  
-Welcome Interface with About page (Who is eligible to donate blood?, etc.) - Dylan
-
-1. Hospital Blood Transactions
-
-    • Blood donation - David
-
-    • Transfusion (need to make sure blood is in bank) - David
-
-    • Sending blood from one hospital to another (checkout) - Mike
-
-2. Find available blood
-
-    • Show all hospitals in one visual - Dylan
-
-    • More detailed view of specific hospitals inventory with search/list - Travis
-
-        - Go to send to blood to another hospital page(button at bottom of page)
-        
-3. Complications
-
-    • Report - Cyro
-
-    • View reports for specific hospital and blood type - Cyro
-
-- Add guidelines for pages/features
-- Add mockup to image folder
-  
 #### Sprint Retrospective (~5 minutes)
 
 **What went well?**
@@ -397,8 +367,22 @@ Welcome Interface with About page (Who is eligible to donate blood?, etc.) - Dyl
 **How can the team improve?**
 - Keep it up monkeys!
 
+**To attempt/complete for next week**
+- We picked features/pages that we would focus on for next week.
+- Names are written next to potential key features below...
 
-
+1.'Homepage':
+   a.Welcome Interface - About page (Who is eligible to donate blood?, etc.) - Dylan
+2. Hospital Blood Transactions:
+   b. Blood donation - David
+   c. Transfusion (need to make sure blood is in bank) - David
+   d. Sending blood from one hospital to another (checkout) - Mike
+4. 'Find available blood':
+   e. Show all hospitals in one visual - Dylan
+   f. More detailed view of specific hospitals inventory with search/list (Potential to add a 'send blood to another hospital page'(button at bottom of page)) - Travis
+5. 'Complications':
+   g. Report - Cyro
+   h. View reports for specific hospital and blood type - Cyro
 
 ### Meeting 5: 7/20/2023
 
@@ -420,9 +404,12 @@ Scrum Master: Dylan Kayyem
 - Continued to have a great week of collaboration!
   
 **How can the team improve?**
+- Keep up the greap work team! Keep the communication ongoing via slack.
 
-**What to do for next week?**
+**To attempt/complete for next week**
 - Each team member add a desription of particular database/sql commands used for each page.
+
+
 
 ### Meeting 6: 7/27/2023
 
