@@ -162,7 +162,7 @@ def getPatientID(db_filename, patientName):
 
     # Find donor ID
     if (patientName):
-        c.execute('''SELECT Patient_ID FROM Patient WHERE Name = {};'''.format(patientName))
+        c.execute('''SELECT Patient_ID FROM Patient WHERE Name = ?;''', (patientName,))
         result = c.fetchone()
     else:
         result = None
@@ -185,8 +185,11 @@ def getBloodBankID(db_filename, bloodBankName):
     c = conn.cursor()
 
     # Find donor ID
-    c.execute('''SELECT Institution_ID FROM Bloodbanks_and_Hospitals WHERE Name = ?;''', (bloodBankName,))
-    result = c.fetchone()
+    if (bloodBankName):
+        c.execute('''SELECT Institution_ID FROM Bloodbanks_and_Hospitals WHERE Name = ?;''', (bloodBankName,))
+        result = c.fetchone()
+    else:
+        result = None
 
     # Commit and close connection
     conn.commit()
@@ -206,8 +209,11 @@ def getDonation(db_filename, medicalProfessional):
     c = conn.cursor()
 
     # Find donor ID
-    c.execute('''SELECT * FROM Donation WHERE Medical_Professional = ?;''', (medicalProfessional,))
-    result = c.fetchall()
+    if (medicalProfessional):
+        c.execute('''SELECT * FROM Donation WHERE Medical_Professional = ?;''', (medicalProfessional,))
+        result = c.fetchall()
+    else:
+        result = None
 
     for line in result:
         print(line)
@@ -225,8 +231,11 @@ def getTransfusion(db_filename, medicalProfessional):
     c = conn.cursor()
 
     # Find donor ID
-    c.execute('''SELECT * FROM Transfusion WHERE Medical_Professional = ?;''', (medicalProfessional,))
-    result = c.fetchall()
+    if (medicalProfessional):
+        c.execute('''SELECT * FROM Transfusion WHERE Medical_Professional = ?;''', (medicalProfessional,))
+        result = c.fetchall()
+    else:
+        result = None
 
     for line in result:
         print(line)
