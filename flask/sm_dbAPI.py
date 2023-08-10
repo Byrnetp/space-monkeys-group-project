@@ -140,7 +140,8 @@ def getDonorID(db_filename, donorName):
     if (donorName):
         c.execute('''SELECT Donor_ID FROM Donor WHERE Name = ?''', (donorName,))
         result = c.fetchone()
-    else result = None
+    else:
+        result = None
 
     # Commit and close connection
     conn.commit()
@@ -163,7 +164,8 @@ def getPatientID(db_filename, patientName):
     if (patientName):
         c.execute('''SELECT Patient_ID FROM Patient WHERE Name = {};'''.format(patientName))
         result = c.fetchone()
-    else result = None
+    else:
+        result = None
 
     # Commit and close connection
     conn.commit()
