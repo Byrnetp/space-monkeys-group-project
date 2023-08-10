@@ -346,54 +346,67 @@ Scrum Master: Dylan Kayyem
 ### Weekly Updates:
 
 - Updated templates for user stories
+  
 - Added user stories to Trello
+  
 - Templates for donation and transfusion input
+  
 - Create database design / collect data
 
+
 #### End-of-Sprint Demonstration (~10 minutes)
+
 - Went over Mike's database example
+  
 - Labeled primary key's for each table
+  
 -    yellow - primary key
+  
 -    green - foreign key
 
 #### Sprint Retrospective (~5 minutes)
 
 **What went well?**
+
 - Action planned to win
 
 **What didn’t work?**
+
 - Had a great week of collaboration 
 
 **How can the team improve?**
+
 - Keep it up monkeys!
 
 **To attempt/complete for next week**
+
 - We picked features/pages that we would focus on for next week.
+  
 - Names are written next to potential key features below...
 
-1.'Homepage':
+Homepage?
 
-   a.Welcome Interface - About page (Who is eligible to donate blood?, etc.) - Dylan
+1.Welcome Interface - About page (Who is eligible to donate blood?, etc.) - Dylan
    
-2. Hospital Blood Transactions:
+Hospital Blood Transaction Pages?
    
-   b. Blood donation - David
-   
-   c. Transfusion (need to make sure blood is in bank) - David
-   
-   d. Sending blood from one hospital to another (checkout) - Mike
-   
-4. 'Find available blood':
+2. Blood donation - David
 
-   e. Show all hospitals in one visual - Dylan
+3. Transfusion (need to make sure blood is in bank) - David
+
+4. Sending blood from one hospital to another (checkout) - Mike
+
+'Find available blood' Pages?
+
+4. Show all hospitals in one visual - Dylan
    
-   f. More detailed view of specific hospitals inventory with search/list (Potential to add a 'send blood to another hospital page'(button at bottom of page)) - Travis
+5. More detailed view of specific hospitals inventory with search/list (Potential to add a 'send blood to another hospital page'(button at bottom of page)) - Travis
    
-6. 'Complications':
+'Complications' Pages?
    
-   g. Report - Cyro
+6. Report - Cyro
    
-   h. View reports for specific hospital and blood type - Cyro
+7. View reports for specific hospital and blood type - Cyro
 
 
 ### Meeting 5: 7/20/2023
@@ -405,20 +418,25 @@ Scrum Master: Dylan Kayyem
 ### Weekly Updates:
 
 - Created mockups for pages
+  
 - Created database code
 
 ### Sprint Retrospective:
 
 **What went well?**
+
 - Setup sql/data used for each page
   
 **What didn’t work?**
+
 - Continued to have a great week of collaboration!
   
 **How can the team improve?**
+
 - Keep up the greap work team! Keep the communication ongoing via slack.
 
 **To attempt/complete for next week**
+
 - Each team member add a desription of particular database/sql commands used for each page.
 
 
