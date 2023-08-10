@@ -372,17 +372,29 @@ Scrum Master: Dylan Kayyem
 - Names are written next to potential key features below...
 
 1.'Homepage':
+
    a.Welcome Interface - About page (Who is eligible to donate blood?, etc.) - Dylan
+   
 2. Hospital Blood Transactions:
+   
    b. Blood donation - David
+   
    c. Transfusion (need to make sure blood is in bank) - David
+   
    d. Sending blood from one hospital to another (checkout) - Mike
+   
 4. 'Find available blood':
+
    e. Show all hospitals in one visual - Dylan
+   
    f. More detailed view of specific hospitals inventory with search/list (Potential to add a 'send blood to another hospital page'(button at bottom of page)) - Travis
-5. 'Complications':
+   
+6. 'Complications':
+   
    g. Report - Cyro
+   
    h. View reports for specific hospital and blood type - Cyro
+
 
 ### Meeting 5: 7/20/2023
 
