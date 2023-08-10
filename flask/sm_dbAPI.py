@@ -138,7 +138,7 @@ def getDonorID(db_filename, donorName):
 
     # Find donor ID
     if (donorName):
-        c.execute('''SELECT Donor_ID FROM Donor WHERE Name = ?''', (donorName,))
+        c.execute('''SELECT Donor_ID FROM Donor WHERE Name = {}'''.format(donorName))
         result = c.fetchone()
     else:
         result = None
@@ -276,6 +276,8 @@ def enterDonor(db_filename, donorName, donorBloodType):
     c.execute('''SELECT MAX(Donor_ID) FROM Donor;''')
     result = c.fetchone()
     donorID = result[0] + 1
+
+    print('result = ', result, ' donorID = ', donorID, '\n')
 
     # Insert donor
     c.execute('''INSERT INTO Donor (Donor_ID, Name, Blood_Type) VALUES (?,?,?);''', (donorID, donorName, donorBloodType))
@@ -1026,7 +1028,7 @@ def getComplication(db_filename, transfusion_id):
     c = conn.cursor()
     
     # Retrieve the Complication_ID and Comments for the given transfusion_id from the Complication table
-    c.execute('''SELECT Complication_ID, Comments FROM Complication WHERE Transfusion_ID = ?;''', (transfusion_id,))
+    c.execute('''SELECT Complication_ID, Comments FROM Complication WHERE Transfusion_ID = {};'''.format(transfusion_id))
     result = c.fetchone()
     print(result)
     
