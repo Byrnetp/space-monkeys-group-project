@@ -411,17 +411,18 @@ Scrum Master: Dylan Kayyem
 - Created mockups for pages
 - Created database code
 
-- Add desription of sql/data used for each page
-
 ### Sprint Retrospective:
 
 **What went well?**
-
+- Setup sql/data used for each page
+  
 **What didn’t work?**
-
+- Continued to have a great week of collaboration!
+  
 **How can the team improve?**
 
-
+**What to do for next week?**
+- Each team member add a desription of particular database/sql commands used for each page.
 
 ### Meeting 6: 7/27/2023
 
