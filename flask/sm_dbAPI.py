@@ -476,7 +476,7 @@ def enterTransfusion(db_filename, patientID, bloodBankID, donationID, medicalPro
     # Decrement blood bank inventory
     c.execute('''SELECT Blood_Type FROM Donor 
                 JOIN Donation ON Donor.Donor_ID = Donation.Donor_ID
-                WHERE Donation_ID = ({});'''.foramt(donationID))
+                WHERE Donation_ID = ({});'''.format(donationID))
     result = c.fetchone()
     bloodtype = result[0]
 
