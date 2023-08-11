@@ -377,69 +377,77 @@ def findCompatibleBlood(db_filename, patientID, bloodBankID):
         # Find a compatible donation at that blood bank
         # That has not already been transfused
         if bloodtype == 'A+':
+            typeMatch = ('A+', 'A-', 'O+', 'O-')
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
-                        WHERE Blood_Type IN ("A+", "A-", "O+", "O-")
+                        WHERE Blood_Type IN {}
                         AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );'''.format(bloodBankID))
+                        );'''.format(typeMatch, bloodBankID))
         elif bloodtype == 'A-':
+            typeMatch = ('A-', 'O-')
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
-                        WHERE Blood_Type IN ("A-", "O-")
+                        WHERE Blood_Type IN {}
                         AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );'''.format(bloodBankID))
+                        );'''.format(typeMatch, bloodBankID))
         elif bloodtype == 'B+':
+            typeMatch = ('B+', 'B-', 'O+', 'O-')
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
-                        WHERE Blood_Type IN ("B+", "B-", "O+", "O-")
+                        WHERE Blood_Type IN {}
                         AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );'''.format(bloodBankID))
+                        );'''.format(typeMatch, bloodBankID))
         elif bloodtype == 'B-':
+            typeMatch = ("B-", "O-")
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
-                        WHERE Blood_Type IN ("B-", "O-")
+                        WHERE Blood_Type IN {}
                         AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );'''.format(bloodBankID))
+                        );'''.format(typeMatch, bloodBankID))
         elif bloodtype == 'AB+':
+            typeMatch = ("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
-                        WHERE Blood_Type IN ("A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-")
+                        WHERE Blood_Type IN {}
                         AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );'''.format(bloodBankID))
+                        );'''.format(typeMatch, bloodBankID))
         elif bloodtype == 'AB-':
+            typeMatch = ("A-", "B-", "AB-", "O-")
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
-                        WHERE Blood_Type IN ("A-", "B-", "AB-", "O-")
+                        WHERE Blood_Type IN {}
                         AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );'''.format(bloodBankID))
+                        );'''.format(typeMatch, bloodBankID))
         elif bloodtype == 'O+':
+            typeMatch = ("O+", "O-")
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
-                        WHERE Blood_Type IN ("O+", "O-")
+                        WHERE Blood_Type IN {}
                         AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );'''.format(bloodBankID))
+                        );'''.format(typeMatch, bloodBankID))
         elif bloodtype == 'O-':
+            typeMatch = ("O-")
             c.execute('''SELECT Donation_ID FROM Donation
                         JOIN Donor ON Donation.Donor_ID = Donor.Donor_ID
-                        WHERE Blood_Type IN ("O-")
+                        WHERE Blood_Type IN {}
                         AND Hospital_ID = ({})
                         AND Donation_ID NOT IN (
                             SELECT Donation_ID FROM Transfusion
-                        );'''.format(bloodBankID))
+                        );'''.format(typeMatch, bloodBankID))
         result = c.fetchone()
 
         # If there is a valid result, return it, otherwise return None
